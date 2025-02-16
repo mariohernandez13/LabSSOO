@@ -1,0 +1,26 @@
+
+
+Retos
+
+scr_ph_01: modifica el proceso para visualizar el proceso y el hilo en ejecución (similar a los procesos a con fork).
+
+scr_ph_02: modifica el proceso para que ejecute 10 hilos a la vez y el proceso principal los espere a todos.
+
+scr_ph_03: modifica el proceso para que dos hilos más también imprimar líneas del fichero.
+
+scr_ph_04: modifica el proceso para que las líneas se distribuyan entre 4 hilos.
+
+scr_ph_05: ajusta los tiempos para visualizar los procesos en ejecución mediante terminal. Dibuja el Árbol de procesos.
+
+scr_ph_06: modifica el proceso para que el hilo 1 sume 1, el hilo 2 sume 2, el hilo 3 sume -1 y el hilo cuatro sume -2.
+
+scr_ph_07: modifica el proceso para que acepte ninguno, uno, dos o tres parámetros.
+
+scr_ph_07.1: modifica el script para que puedas imprimir la versión de tu proceso usando -v o --version (la versión es un texto que tu fijas a tu gusto). Organiza el código para reutilzar la lectura de parámetros cortos (-) o largos (--), establece 5 parámetros más y define su comportamiento (e.g. -d o --date muestra la fecha del sistema, -n o --name muestra tu nombre, -l o --last muestra tu apellido, -f o --full muestra tu nombre completo y tu fecha de nacimiento).  
+
+scr_ph_08: modifica el proceso para que lea los parámetros: path="/home/data/files", num_files=5 y num_pthread=10
+
+scr_ph_09: utiliza el fichero de properties del ejercicio anterior para indicar la estructura de directorios a crear.
+
+scr_ph_10: utiliza un fichero de properties para indicar el nombre del fichero y las rutas tanto del fichero de entrada como el de salida.
+
