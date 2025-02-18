@@ -16,7 +16,9 @@ scr_ph_06: modifica el proceso para que el hilo 1 sume 1, el hilo 2 sume 2, el h
 
 scr_ph_07: modifica el proceso para que acepte ninguno, uno, dos o tres parámetros.
 
-scr_ph_07.1: modifica el script para que puedas imprimir la versión de tu proceso usando -v o --version (la versión es un texto que tu fijas a tu gusto). Organiza el código para reutilzar la lectura de parámetros cortos (-) o largos (--), establece 5 parámetros más y define su comportamiento (e.g. -d o --date muestra la fecha del sistema, -n o --name muestra tu nombre, -l o --last muestra tu apellido, -f o --full muestra tu nombre completo y tu fecha de nacimiento).  
+scr_ph_07.1: modifica el script para que puedas imprimir la versión de tu proceso usando -v o --version (la versión es un texto que tu fijas a tu gusto). 
+Organiza el código para reutilzar la lectura de parámetros cortos (-) o largos (--), establece 5 parámetros más y define su comportamiento 
+(e.g. -d o --date muestra la fecha del sistema, -n o --name muestra tu nombre, -l o --last muestra tu apellido, -f o --full muestra tu nombre completo y tu fecha de nacimiento).  
 
 scr_ph_08: modifica el proceso para que lea los parámetros: path="/home/data/files", num_files=5 y num_pthread=10
 
