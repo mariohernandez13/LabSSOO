@@ -1,0 +1,2 @@
+listado de archivos y subdirectorios que van a ser eliminados:
+MiDirectorio:
