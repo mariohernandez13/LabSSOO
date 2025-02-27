@@ -1,78 +1,75 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <sys/stat.h>
 #include <sys/types.h>
-#include <string.h>
 
 // ./base/
 // └── sub1/
 //     └── sub2/
 
-#define MAX_LINE 1024
-#define MAX_DIRS 100
-
-void crearDirectorio(char *ruta){
-    if (mkdir(ruta, 0777) == -1) {
-        perror("Error al crear directorio");
-    }
-    else {
-        printf("Directorio creado: %s\n", ruta);
-    }
-}
-
+#define MAX_LINE_LENGTH 255
 
 int main() {
-    FILE *file = fopen("config.properties", "r");
-    if (file == NULL) {
-        perror("Error al abrir el archivo de configuración de propiedaddes");
-        return 1;
+
+    FILE *file;
+    char line[MAX_LINE_LENGTH] = "";
+    char *key, *value;
+    char path[MAX_LINE_LENGTH] = "";
+    char *directory;
+    char *limitador = "/";
+    char *folder;
+
+    // Abre el fichero de properties
+    file = fopen("config.properties", "r");
+
+    if (!file) {
+        perror("No se pudo abrir el archivo");
+        return EXIT_FAILURE;
     }
 
-    char linea[MAX_LINE];
-    char *rutas[MAX_DIRS];
-    int contador = 0;
+    while (fgets(line, MAX_LINE_LENGTH, file)) {
+        // Elimina el salto de línea al final, si existe
+        line[strcspn(line, "\n")] = 0;
 
-    while (fgets(linea, sizeof(linea), file)) {
-        if (strncmp(linea, "DIRECTORIOS=", 12) == 0) {
-            char *valor = linea + 12; // Saltar "DIRECTORIOS="
-            char *token = strtok(valor, ",\n");
+        // Divide la línea en clave y valor
+        key = strtok(line, "=");
+        value = strtok(NULL, "=");
 
-            while (token && contador < MAX_DIRS) {
-                rutas[contador++] = strdup(token); // Guardar cada directorio
-                token = strtok(NULL, ",\n");
+        // Comprueba si la clave y el valor son válidos y guarda los datos
+        if (key && value) {
+            if (strcmp(key, "path") == 0) {
+                strncpy(path, value, MAX_LINE_LENGTH);
             }
         }
     }
-    fclose(file);
 
-    // Crear los directorios
-    for (int i = 0; i < contador; i++) {
-        crearDirectorio(rutas[i]);
-        free(rutas[i]); // Liberar memoria
+    directory = strtok(path, limitador);
+    directory = strtok(NULL, limitador);
+
+    // Crear el directorio base
+    if (mkdir(folder, 0777) == -1) {
+        perror("Error al crear el directorio base");
+        return 1;
+    }
+
+    directory = strtok(NULL, limitador);
+
+    // Crear el primer subdirectorio dentro del directorio base
+    if (mkdir("./base/sub1", 0777) == -1) {
+        perror("Error al crear el primer subdirectorio");
+        return 1;
+    }
+
+    directory = strtok(NULL, limitador);
+
+    // Crear un segundo subdirectorio dentro del primer subdirectorio
+    if (mkdir("./base/sub1/sub2", 0777) == -1) {
+        perror("Error al crear el segundo subdirectorio");
+        return 1;
     }
 
     printf("Estructura de directorios creada con éxito.\n");
+
     return 0;
-
-    // Crear el directorio base
-    // if (mkdir("./base", 0777) == -1) {
-    //     perror("Error al crear el directorio base");
-    //     return 1;
-    // }
-
-    // // Crear el primer subdirectorio dentro del directorio base
-    // if (mkdir("./base/sub1", 0777) == -1) {
-    //     perror("Error al crear el primer subdirectorio");
-    //     return 1;
-    // }
-
-    // // Crear un segundo subdirectorio dentro del primer subdirectorio
-    // if (mkdir("./base/sub1/sub2", 0777) == -1) {
-    //     perror("Error al crear el segundo subdirectorio");
-    //     return 1;
-    // }
-
-    // printf("Estructura de directorios creada con éxito.\n");
-
-    // return 0;
 }

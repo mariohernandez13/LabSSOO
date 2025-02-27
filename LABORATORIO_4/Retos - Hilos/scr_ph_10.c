@@ -17,64 +17,89 @@ void generateRandomText(FILE *file) {
 }
 
 int main() {
-    FILE *file, *copy;
-    char line[MAX_LINE_LENGTH];
 
-    FILE *archivo = fopen("config.properties", "r");
-    if (file == NULL) {
+    FILE *archivo, *copy;
+    char line[MAX_LINE_LENGTH];
+    char linea[MAX_LINE_LENGTH];
+    char *variables[NUM_LINES];
+    int contador = 0;
+    char *limitador = "=";
+    char comillas = '"';
+    int i, j = 0;
+    size_t len; 
+
+    archivo = fopen("config.properties", "r");
+    if (archivo == NULL) {
         perror("Error al abrir el archivo de configuración de propiedaddes");
         return 1;
     }
 
-    char linea[NUM_LINES];
-    char *variables[MAX_LINE_LENGTH];
-    int contador = 0;
-
-    while (fgets(linea, sizeof(linea), file)) {
+    while (fgets(linea, sizeof(linea), archivo)) {
         if (strchr(linea, '=')) { // Solo procesar líneas con '='
-            char *valor = strchr(linea, '=') + 1; // Obtener lo que está después de '='
 
-            // Borra el salto de línea final si existe
-            size_t len = strlen(valor);
-            if (valor[len - 1] == '\n') {
-                valor[len - 1] = '\0';
+            char *valor = strtok(linea, limitador); // Obtener lo que está después de '='
+            
+            if (strcmp(valor,"file") || strcmp(valor, "input") || strcmp(valor, "output"))
+            {
+                valor = strtok(NULL, limitador);
+
+                len = strlen(valor);
+
+                if (valor[len - 2] != '\r')
+                    strcat(valor, "\r");
+
+                for (i = 0; i <= len; i++){
+                    if (valor[i] != comillas)    
+                        valor[j++] = valor[i];
+                }
+
+                for (i = 0; i <= len; i++)
+                {
+                    if (valor[i] == comillas)
+                        valor[i] = '\0';
+                }
+
+                j = 0;
+
+                // Borra el salto de línea final si existe
+                if (valor[len - 1] == '\n') 
+                    valor[len - 1] = '\0';
+
+                variables[contador++] = strdup(valor); // Guardar
             }
-
-            variables[contador++] = strdup(valor); // Guardar
         }
     }
+
     fclose(archivo);
 
-    // Crear y escribir texto aleatorio en "archivo.txt"
-    char *path= strcat(variables[1], variables[0]);
-
-    file = fopen(variables[0], "w");
-    if (!file) {
+    archivo = fopen(variables[0], "w");
+    if (!archivo) {
         perror("No se pudo abrir archivo.txt para escritura");
         return 1;
     }
 
     // Generar y escribir texto aleatorio
-    generateRandomText(file);
+    generateRandomText(archivo);
 
     // Cerrar el fichero original
-    fclose(file);
+    fclose(archivo);
 
     // Abrir el fichero original y el fichero de destino para la copia
-    file = fopen(variables[0], "r");
-    copy = fopen(variables[2], "w");  // Ajusta esta ruta
-    if (!file || !copy) {
+    archivo = fopen(variables[0], "r");
+    copy = fopen(variables[2], "w"); 
+
+    if (!archivo || !copy) {
         perror("No se pudo abrir uno de los archivos");
         return 1;
     }
 
     // Copiar el contenido de "archivo.txt" a "copia_archivo.txt"
-    while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
+    while (fgets(line, MAX_LINE_LENGTH, archivo) != NULL) {
         fputs(line, copy);
     }
 
     // Cerrar ambos ficheros
-    fclose(file);
+    fclose(archivo);
     fclose(copy);
 
     printf("El archivo ha sido copiado exitosamente.\n");
