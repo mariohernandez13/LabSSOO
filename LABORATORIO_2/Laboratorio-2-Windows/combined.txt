@@ -1,0 +1,35 @@
+patatas será borrado 
+ El volumen de la unidad C es Windows
+ El número de serie del volumen es: 228B-1AF9
+ Directorio de C:\Users\javie\OneDrive\Documentos\Reto_Taller_SSOO\patatas
+03/02/2025  20:53    <DIR>          .
+03/02/2025  20:53    <DIR>          ..
+03/02/2025  20:28                10 patata1.txt
+03/02/2025  20:28                10 patata2.txt
+               2 archivos             20 bytes
+               2 dirs  356.551.163.904 bytes libres
+  rem Agregar una línea en blanco entre archivos
+exit
+  rem Agregar una línea en blanco entre archivos
+  rem Agregar una línea en blanco entre archivos
+  rem Agregar una línea en blanco entre archivos
+Quevedo es el mejor cantante del panorama hispano
+  rem Agregar una línea en blanco entre archivos
+patatas será borrado 
+ El volumen de la unidad C es Windows
+ El número de serie del volumen es: 228B-1AF9
+ Directorio de C:\Users\javie\OneDrive\Documentos\Reto_Taller_SSOO\patatas
+03/02/2025  20:53    <DIR>          .
+03/02/2025  20:53    <DIR>          ..
+03/02/2025  20:28                10 patata1.txt
+03/02/2025  20:28                10 patata2.txt
+               2 archivos             20 bytes
+               2 dirs  356.551.163.904 bytes libres
+  rem Agregar una línea en blanco entre archivos
+exit
+  rem Agregar una línea en blanco entre archivos
+  rem Agregar una línea en blanco entre archivos
+  rem Agregar una línea en blanco entre archivos
+Quevedo es el mejor cantante del panorama hispano
+  rem Agregar una línea en blanco entre archivos
+  rem Agregar una línea en blanco entre archivos
