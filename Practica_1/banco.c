@@ -7,8 +7,10 @@
 
 #define MAX_LINE_LENGTH 255
 
-int readFile(FILE *file){
-
+/// @brief Función que se llama para leer el archivo de configuración
+/// @return valor numérico que indica la validez de la lectura
+int readFile() {
+    FILE *file;
     int state = 0;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
@@ -16,6 +18,8 @@ int readFile(FILE *file){
     char username[MAX_LINE_LENGTH] = "";
 
     file = fopen("banco.config", "r");
+    
+    // 
     if (file == NULL) {
         perror("Error al abrir el archivo de configuración");
         return 1;
@@ -27,24 +31,21 @@ int readFile(FILE *file){
         key = strtok(linea, "=");
         value = strtok(NULL, "=");
 
-        if (key && value){
-            if (strcmp(key, "patata"))
+        if (key && value) {
+            if (strcmp(key, "patata") == 0) {
                 strncpy(username, value, MAX_LINE_LENGTH);
-            else
+            } else {
                 state = 1;
+            }
         }
     }
 
     fclose(file);
-
-    return(state);
+    return state;
 }
 
-
-int main(){
-
-    FILE *file;
-    pid_t pid = fork();
+int main() {
+    pid_t pid;
     int fd[2];
 
     char buffer[100];
@@ -53,31 +54,43 @@ int main(){
 
     int state = 0;
 
-    // Comprobamos un posible error 
-    if (pipe(fd) == -1){
-        perror("Error en la generación de la pipe\n");
-        return(1);
+    // Comprobamos que no ocurre problema al generar la pipe
+    if (pipe(fd) == -1) {   
+        perror("Error en la generación de la pipe");
+        return 1;
     }
 
-    if (pid != 0){ 
-        printf("El padre empieza...");
-        close(fd[0]);
-        state = readFile(file);
-        printf("%d", state);
-        if (state)
+    pid = fork();
+
+    // Comprobamos que fork() no genera un error
+    if (pid < 0) { 
+        perror("Error al crear el proceso hijo");
+        return 1;
+    }
+
+    if (pid > 0) {  // Proceso padre
+        printf("El padre empieza...\n");
+        close(fd[0]);  // Cierra el extremo de lectura
+        
+        state = readFile();
+        printf("Estado de readFile(): %d\n", state);
+        
+        if (state == 1)
             write(fd[1], errorMessage, strlen(errorMessage) + 1);
         else
             write(fd[1], validMessage, strlen(validMessage) + 1);
-        printf("El padre muere");
-        close(fd[1]);
+
+        close(fd[1]);  // Cierra el extremo de escritura
+        printf("El padre muere\n");
+        wait(NULL); // Espera a que el hijo termine
     } 
-    else {
-        close(fd[1]);
+    else {  // Proceso hijo
+        close(fd[1]);  // Cierra el extremo de escritura
         read(fd[0], buffer, sizeof(buffer));
         printf("El hijo recibió: %s\n", buffer);
-        close(fd[0]);
+        close(fd[0]);  // Cierra el extremo de lectura
     }
 
-    return(0);
-
+    return 0;
 }
+
