@@ -8,6 +8,7 @@
 
 #define MAX_LINE_LENGTH 255
 #define MAX_LENGTH_NAME 50
+#define MAX_LENGTH_SALDO 10
 #define MAX_LENGTH_ID 6
 
 /// @brief Función que se llama para leer el archivo de configuración
@@ -47,49 +48,66 @@ int readFile() {
 
     return (state);
 }
-/*
-/// @brief Lee caracter por caracter hasta un maximo especifico
-/// @param buffer Almacena los caracteres escritos
-/// @param max_lenght Valor que indica el tamaño maximo de la variable
-void leerChar(char *buffer){
-    int i = 0;
-    char c = ' ';
-    int max_lenght = 50;
 
-    while (1) {
-        c = getchar();
-
-        // Si el usuario presiona Enter, finaliza la lectura
-        if (c == '\n' || c == EOF) {
-            break;
-        }
-        // Si el usuario presiona Backspace y hay caracteres para borrar
-        else if ((c == 8 || c == 127) && i > 0) {
-            i--;  // Borra el último carácter
-            printf("\b \b");  // Borra visualmente en la terminal
-        }
-        // Si aún hay espacio en el buffer, almacena el carácter
-        else if (i < max_lenght - 1) {
-            buffer[i++] = c;
-            putchar(c);  // Muestra el carácter en pantalla
-        }
-    }
-
-}
-*/
+/// @brief Limpia los strings de "\n"
+/// @param string String que queremos "limpiar" de caracteres indeseados
 void limpiezaString(char *string){
     for (int i = 0; i < strlen(string); i++)
         if (string[i]=='\n')
             string[i]='\0'; 
 }
 
+/// @brief Función que se encarga de registrar el usuario nuevo introducido
+/// @param id Id del usuario nuevo
+/// @param nombre Nombre del usuario nuevo
+/// @param saldo Saldo del usuario nuevo
+void registroCuenta(char *id, char *nombre, char *saldo){
+
+    FILE *file;
+    char linea[MAX_LINE_LENGTH];
+    
+    // Limpiamos los "\n" de nombre y de saldo porque vienen con dichos caracteres
+    limpiezaString(nombre); 
+    limpiezaString(saldo);
+
+    file = fopen("cuentas.dat", "a+");
+    
+    if (file == NULL)
+    {
+        perror("Error al abrir el archivo de cuentas\n");
+        return;
+    }
+
+    // Concatenamos los strings pasados como valores
+    strcpy(linea, id);
+    strcat(linea, ",");
+    strcat(linea, nombre);
+    strcat(linea, ",");
+    strcat(linea, saldo);
+    strcat(linea, ",");
+    strcat(linea, "0");
+
+    fputs(linea, file);
+
+    fclose(file);
+}
+
+
+/// @brief Función que comprueba si el id pasado como parámetro se encuentra en el archivo "cuentas.dat"
+/// @param id Id que queremos comprobar, desde el login o desde el registro
+/// @param flag Variable que nos indica si nos encontramos ante un caso de LogIn o de registro
+/// @return Devuelve un valor numérico que indica si es válido el id o no: 0 = error en id // 1 = id valido
 int existeID(char *id, int flag){
+
     limpiezaString(id);
+    
     int esValido = 1;
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
+    
     file = fopen("cuentas.dat", "r");
+    
     if (file == NULL)
     {
         perror("Error al abrir el archivo de cuentas\n");
@@ -135,15 +153,13 @@ int comprobarId(char *id, int flag){
     validez = existeID(id, flag);
 
     return validez;
-    
-
 }
 
 /// @brief Menú de registro del Banco
 void registro(){
 
     char id[MAX_LENGTH_ID];
-    float saldo;
+    char saldo[MAX_LENGTH_SALDO];
     char nombre[MAX_LENGTH_NAME];
     int comprobacion = 1;
 
@@ -151,19 +167,19 @@ void registro(){
         printf("Bienvenido al registro de SafeBank\n");
 
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
-        while(getchar() != '\n');
+        while(getchar() != '\n'); // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
         fgets(nombre, sizeof(nombre), stdin);
 
         printf("Introduce tu id: (a partir de 100): \n");
-        //while(getchar() != '\n');
         fgets(id, sizeof(id), stdin);
 
         printf("Introduce tu saldo: \n");
-        scanf("%f", &saldo);
+        fgets(saldo, sizeof(saldo), stdin);
 
         comprobacion = comprobarId(id, 0);
-    }while((nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
+    }while((comprobacion != 1) || (nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
     
+    registroCuenta(id,nombre,saldo);
 }
 
 /// @brief Menú de logIn del Banco
