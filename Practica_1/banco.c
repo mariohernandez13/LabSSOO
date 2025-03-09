@@ -4,9 +4,11 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_LINE_LENGTH 255
 #define MAX_LENGTH_NAME 50
+#define MAX_LENGTH_ID 6
 
 /// @brief Función que se llama para leer el archivo de configuración
 /// @return valor numérico que indica la validez de la lectura
@@ -33,7 +35,7 @@ int readFile() {
         value = strtok(NULL, "=");
 
         if (key && value) {
-            if (strcmp(key, "patata") == 0) {
+            if (strcmp(key, "password") == 0) {
                 strncpy(username, value, MAX_LINE_LENGTH);
             } else {
                 state = 1;
@@ -45,12 +47,14 @@ int readFile() {
 
     return (state);
 }
+/*
 /// @brief Lee caracter por caracter hasta un maximo especifico
 /// @param buffer Almacena los caracteres escritos
 /// @param max_lenght Valor que indica el tamaño maximo de la variable
-void leerChar(char *buffer, int max_lenght){
+void leerChar(char *buffer){
     int i = 0;
-    char c;
+    char c = ' ';
+    int max_lenght = 50;
 
     while (1) {
         c = getchar();
@@ -72,50 +76,106 @@ void leerChar(char *buffer, int max_lenght){
     }
 
 }
+*/
+void limpiezaString(char *string){
+    for (int i = 0; i < strlen(string); i++)
+        if (string[i]=='\n')
+            string[i]='\0'; 
+}
+
+int existeID(char *id, int flag){
+    limpiezaString(id);
+    int esValido = 1;
+    FILE *file;
+    char linea[MAX_LINE_LENGTH] = "";
+    char *key, *value;
+    file = fopen("cuentas.dat", "r");
+    if (file == NULL)
+    {
+        perror("Error al abrir el archivo de cuentas\n");
+        return 0;
+    }
+
+    while (fgets(linea, sizeof(linea), file))
+    {
+        linea[strcspn(linea, "\n")] = 0;
+        key = strtok(linea, ",");
+        if (flag == 0)
+        {
+            if (strcmp(key, id) == 0)
+            {
+                perror("El id ya existe\n");
+                esValido = 0;
+                break;
+            }
+        }else if (flag == 1)
+        {
+            if (strcmp(key, id) != 0)
+                esValido = 0;
+        }
+    }
+
+    fclose(file);
+    return esValido;
+}
 
 /// @brief Comprueba en el archivo de cuentas.dat que el id introducido no existe
 /// @param id Id introducido por el usuario en el resgistro
 /// @param flag Valor que indica si se está llegando a la función desde LogIn o desde registro: 0 = registro || 1 = LogIn
 /// @return Valor numérico que indica validez del Id: 0 = error en id // 1 = id valido
-int comprobarId(int id, int flag){
+int comprobarId(char *id, int flag){
 
     int validez = 1;
-    if (id < 100)
+    if (atoi(id) < 100)
+    {
         validez = 0;
+        return validez;
+    }
+    
+    validez = existeID(id, flag);
+
+    return validez;
+    
 
 }
 
 /// @brief Menú de registro del Banco
 void registro(){
 
-    int id;
+    char id[MAX_LENGTH_ID];
     float saldo;
     char nombre[MAX_LENGTH_NAME];
     int comprobacion = 1;
 
     do{
         printf("Bienvenido al registro de SafeBank\n");
-        printf("Introduce tu nombre: (no se admiten más de 50 caracteres)\n");
-        leerChar(nombre, sizeof(nombre));
-        //fgets(nombre, sizeof(nombre), stdin);
-        printf("Introduce tu id: (a partir de 100)\n");
-        scanf("%d", &id);
+
+        printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
+        while(getchar() != '\n');
+        fgets(nombre, sizeof(nombre), stdin);
+
+        printf("Introduce tu id: (a partir de 100): \n");
+        //while(getchar() != '\n');
+        fgets(id, sizeof(id), stdin);
+
         printf("Introduce tu saldo: \n");
         scanf("%f", &saldo);
-    }while(comprobarId(id, 0) || (nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
+
+        comprobacion = comprobarId(id, 0);
+    }while((nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
     
 }
 
 /// @brief Menú de logIn del Banco
 void logIn(){
 
-    int id;
+    char id[MAX_LENGTH_ID];
     int flg_log = 1;
 
     do{
         printf("Bienvenido al LogIn de SafeBank\n");
         printf("Introduce tu id: (a partir de 100)\n");
-        scanf("%d", &id);
+        //leerChar(id);
     }while(comprobarId(id,flg_log));
     
 }
@@ -159,7 +219,8 @@ int main() {
     char validMessage[] = "Todo correcto maquina";
 
     int state = 0;
-
+    menuBanco();
+    // 
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1) {   
         perror("Error en la generación de la pipe");
@@ -196,6 +257,6 @@ int main() {
         printf("El hijo recibió: %s\n", buffer);
         close(fd[0]);  // Cierra el extremo de lectura
     }
-
+    
     return (0);
 }
