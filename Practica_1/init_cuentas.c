@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <signal.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <string.h>
+#include "banco.h"
 
 // este programa llama con un .sh a ./banco.c y ./monitor.c
 // además configura el archivo de cuentas, crea archivo de errores (como properties)

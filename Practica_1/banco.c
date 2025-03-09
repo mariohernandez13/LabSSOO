@@ -211,7 +211,7 @@ void logIn(){
     int flg_log = 1;
 
     do{
-        printf("Bienvenido al LogIn de SafeBank\n");
+        printf("\nBienvenido al LogIn de SafeBank\n");
         printf("Introduce tu id: (a partir de 100)\n");
         //leerChar(id);
     }while(comprobarId(id,flg_log));
