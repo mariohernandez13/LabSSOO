@@ -45,6 +45,33 @@ int readFile() {
 
     return (state);
 }
+/// @brief Lee caracter por caracter hasta un maximo especifico
+/// @param buffer Almacena los caracteres escritos
+/// @param max_lenght Valor que indica el tamaño maximo de la variable
+void leerChar(char *buffer, int max_lenght){
+    int i = 0;
+    char c;
+
+    while (1) {
+        c = getchar();
+
+        // Si el usuario presiona Enter, finaliza la lectura
+        if (c == '\n' || c == EOF) {
+            break;
+        }
+        // Si el usuario presiona Backspace y hay caracteres para borrar
+        else if ((c == 8 || c == 127) && i > 0) {
+            i--;  // Borra el último carácter
+            printf("\b \b");  // Borra visualmente en la terminal
+        }
+        // Si aún hay espacio en el buffer, almacena el carácter
+        else if (i < max_lenght - 1) {
+            buffer[i++] = c;
+            putchar(c);  // Muestra el carácter en pantalla
+        }
+    }
+
+}
 
 /// @brief Comprueba en el archivo de cuentas.dat que el id introducido no existe
 /// @param id Id introducido por el usuario en el resgistro
@@ -69,11 +96,12 @@ void registro(){
     do{
         printf("Bienvenido al registro de SafeBank\n");
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres)\n");
-        fgets(nombre, sizeof(nombre), stdin);
+        leerChar(nombre, sizeof(nombre));
+        //fgets(nombre, sizeof(nombre), stdin);
         printf("Introduce tu id: (a partir de 100)\n");
-        scanf("%d", id);
+        scanf("%d", &id);
         printf("Introduce tu saldo: \n");
-        scanf("%.2f", saldo);
+        scanf("%f", &saldo);
     }while(comprobarId(id, 0) || (nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
     
 }
@@ -87,7 +115,7 @@ void logIn(){
     do{
         printf("Bienvenido al LogIn de SafeBank\n");
         printf("Introduce tu id: (a partir de 100)\n");
-        scanf("%d", id);
+        scanf("%d", &id);
     }while(comprobarId(id,flg_log));
     
 }
@@ -104,7 +132,7 @@ void menuBanco(){
         printf("2. Registro\n");
         printf("3. Salir\n");
         printf("Introduce una opción: ");
-        scanf("%d", opcion);
+        scanf("%d", &opcion);
 
         switch(opcion)
         {
