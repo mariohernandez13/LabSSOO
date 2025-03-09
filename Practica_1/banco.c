@@ -1,10 +1,4 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <signal.h>
-#include <sys/types.h>
-#include <sys/wait.h>
-#include <string.h>
-#include <stdlib.h>
+#include "banco.h"
 
 #define MAX_LINE_LENGTH 255
 #define MAX_LENGTH_NAME 50
@@ -23,7 +17,6 @@ int readFile() {
 
     file = fopen("banco.config", "r");
     
-    // 
     if (file == NULL) {
         perror("Error al abrir el archivo de configuración");
         return 1;
@@ -47,6 +40,34 @@ int readFile() {
     fclose(file);
 
     return (state);
+}
+
+/// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
+/// @param log Mensaje a imprimir en el archivo
+void escrituraLogGeneral(char *log){
+
+    FILE *file;
+    char linea[MAX_LINE_LENGTH];
+    time_t t; // Para esta función es necesaria la libreria de time.h
+
+    struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
+
+    file = fopen("banco.log", "a+");
+    
+    if (file == NULL)
+    {
+        perror("Error al abrir el archivo de cuentas\n");
+        return;
+    }
+
+    time(&t);
+    tm_info = localtime(&t); // esta funcion asigna los valores de la fecha y hora actuales al struct declarado arriba
+    strftime(linea, sizeof(linea), "%Y-%m-%d %H:%M:%S", tm_info); // esta funcion crear el string con los valores propios de la fecha y hora actuales
+
+    // Escribimos en el archivo de log la acción realizada
+    fprintf(file, "[%s] %s", linea, log);
+
+    fclose(file);
 }
 
 /// @brief Limpia los strings de "\n"
@@ -89,9 +110,10 @@ void registroCuenta(char *id, char *nombre, char *saldo){
 
     fputs(linea, file);
 
+    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n");
+
     fclose(file);
 }
-
 
 /// @brief Función que comprueba si el id pasado como parámetro se encuentra en el archivo "cuentas.dat"
 /// @param id Id que queremos comprobar, desde el login o desde el registro
@@ -236,7 +258,7 @@ int main() {
 
     int state = 0;
     menuBanco();
-    // 
+    
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1) {   
         perror("Error en la generación de la pipe");
