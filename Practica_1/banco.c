@@ -162,7 +162,12 @@ int existeID(char *id, int flag){
             }
         }else if (flag == 1)
         {
-            if (strcmp(key, id) != 0)
+            if (strcmp(key, id) == 0)
+            {
+                esValido = 1;
+                break;
+            }
+            else
                 esValido = 0;
         }
     }
@@ -232,6 +237,7 @@ void logIn(){
         printf("\nBienvenido al LogIn de SafeBank\n");
 
         printf("Introduce tu id: (a partir de 100)\n");
+        while(getchar() != '\n');
         fgets(id, sizeof(id), stdin);
 
         comprobacion = comprobarId(id, flg_log);
@@ -296,9 +302,9 @@ int main() {
     
     leer_configuracion();
 
-    pid = fork();
+    //pid = fork();
 
-    if (pid < 0)
+    /*if (pid < 0)
     {
         escrituraLogGeneral("Error al generar un hijo de banco (usuario)\n");
     }
@@ -309,9 +315,9 @@ int main() {
     else 
     {
         wait(NULL);
-    }
+    }*/
 
-    //menuBanco();
+    menuBanco();
 
     return (0);
 }
