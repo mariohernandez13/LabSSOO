@@ -1,46 +1,6 @@
 #include "banco.h"
 
-#define MAX_LINE_LENGTH 255
-#define MAX_LENGTH_NAME 50
-#define MAX_LENGTH_SALDO 10
-#define MAX_LENGTH_ID 6
-
-/// @brief Función que se llama para leer el archivo de configuración
-/// @return valor numérico que indica la validez de la lectura
-int readFile() {
-    FILE *file;
-    int state = 0;
-    char linea[MAX_LINE_LENGTH] = "";
-    char *key, *value;
-
-    char username[MAX_LINE_LENGTH] = "";
-
-    file = fopen("banco.config", "r");
-    
-    if (file == NULL) {
-        perror("Error al abrir el archivo de configuración");
-        return 1;
-    }
-
-    while (fgets(linea, sizeof(linea), file)) {
-        linea[strcspn(linea, "\n")] = 0;
-        
-        key = strtok(linea, "=");
-        value = strtok(NULL, "=");
-
-        if (key && value) {
-            if (strcmp(key, "password") == 0) {
-                strncpy(username, value, MAX_LINE_LENGTH);
-            } else {
-                state = 1;
-            }
-        }
-    }
-
-    fclose(file);
-
-    return (state);
-}
+CONFIG configuracion;
 
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
 /// @param log Mensaje a imprimir en el archivo
@@ -56,7 +16,7 @@ void escrituraLogGeneral(char *log){
     
     if (file == NULL)
     {
-        perror("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
         return;
     }
 
@@ -70,6 +30,59 @@ void escrituraLogGeneral(char *log){
     fclose(file);
 }
 
+/// @brief Función que se llama para leer el archivo de configuración
+/// @return valor numérico que indica la validez de la lectura
+int leer_configuracion() {
+
+    FILE *file;
+    int state = 0;
+    char linea[MAX_LINE_LENGTH] = "";
+    char *key, *value;
+
+    char username[MAX_LINE_LENGTH] = "";
+
+    file = fopen("banco.config", "r");
+    
+    if (file == NULL) {
+        escrituraLogGeneral("Error al abrir el archivo de configuración\n");
+        return 1;
+    }
+
+    while (fgets(linea, sizeof(linea), file)) {
+        linea[strcspn(linea, "\n")] = 0;
+        
+        key = strtok(linea, "=");
+        value = strtok(NULL, "=");
+
+        // Mirar una posible conversión de esto a un switch case en el futuro
+        if (key && value) {
+            if (strcmp(key, "LIMITE_RETIRO") == 0) {
+                configuracion.limiteRetiros = atoi(value);
+            } else if (strcmp(key, "LIMITE_TRANSFERENCIA") == 0){
+                configuracion.limiteTransferencia = atoi(value);
+            } else if (strcmp(key, "UMBRAL_RETIROS") == 0){
+                configuracion.umbralRetiros = atoi(value);
+            } else if (strcmp(key, "UMBRAL_TRANSFERENCIAS") == 0){
+                configuracion.umbralTransferencias = atoi(value);
+            } else if (strcmp(key, "NUM_HILOS") == 0){
+                configuracion.numHilos = atoi(value);
+            } else if (strcmp(key, "ARCHIVO_CUENTAS") == 0){
+                strncpy(configuracion.archivoCuentas, value, strlen(value));
+            } else if (strcmp(key, "ARCHIVO_TRANSACCIONES") == 0){
+                strncpy(configuracion.archivoTransacciones, value, MAX_LINE_LENGTH);
+            } else if (strcmp(key, "ARCHIVO_LOG") == 0){
+                strncpy(configuracion.archivoLog, value, MAX_LINE_LENGTH);
+            }
+        }
+    }
+
+    fclose(file);
+
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n");
+
+    return (state);
+}
+
 /// @brief Limpia los strings de "\n"
 /// @param string String que queremos "limpiar" de caracteres indeseados
 void limpiezaString(char *string){
@@ -78,33 +91,32 @@ void limpiezaString(char *string){
             string[i]='\0'; 
 }
 
-/// @brief Función que se encarga de registrar el usuario nuevo introducido
-/// @param id Id del usuario nuevo
-/// @param nombre Nombre del usuario nuevo
-/// @param saldo Saldo del usuario nuevo
-void registroCuenta(char *id, char *nombre, char *saldo){
+/// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
+/// @param cuenta Parametros de la nueva cuenta
+void registroCuenta(Cuenta cuenta){
 
     FILE *file;
-    char linea[MAX_LINE_LENGTH];
+    char linea[MAX_LINE_LENGTH] = "";
     
     // Limpiamos los "\n" de nombre y de saldo porque vienen con dichos caracteres
-    limpiezaString(nombre); 
-    limpiezaString(saldo);
+    limpiezaString(cuenta.titular); 
+    limpiezaString(cuenta.saldo);
 
     file = fopen("cuentas.dat", "a+");
     
     if (file == NULL)
     {
-        perror("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
         return;
     }
 
     // Concatenamos los strings pasados como valores
-    strcpy(linea, id);
+    strcpy(linea, "\n");
+    strcat(linea, cuenta.numero_cuenta);
     strcat(linea, ",");
-    strcat(linea, nombre);
+    strcat(linea, cuenta.titular);
     strcat(linea, ",");
-    strcat(linea, saldo);
+    strcat(linea, cuenta.saldo);
     strcat(linea, ",");
     strcat(linea, "0");
 
@@ -132,7 +144,7 @@ int existeID(char *id, int flag){
     
     if (file == NULL)
     {
-        perror("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
         return 0;
     }
 
@@ -144,7 +156,7 @@ int existeID(char *id, int flag){
         {
             if (strcmp(key, id) == 0)
             {
-                perror("El id ya existe\n");
+                escrituraLogGeneral("El id ya existe\n");
                 esValido = 0;
                 break;
             }
@@ -169,6 +181,7 @@ int comprobarId(char *id, int flag){
     if (atoi(id) < 100)
     {
         validez = 0;
+        escrituraLogGeneral("El id introducido no es válido debido a que es menor a 100\n");
         return validez;
     }
     
@@ -180,28 +193,30 @@ int comprobarId(char *id, int flag){
 /// @brief Menú de registro del Banco
 void registro(){
 
-    char id[MAX_LENGTH_ID];
-    char saldo[MAX_LENGTH_SALDO];
-    char nombre[MAX_LENGTH_NAME];
+    Cuenta cuenta;
+
     int comprobacion = 1;
 
     do{
+        if (!comprobacion)
+            printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
+
         printf("Bienvenido al registro de SafeBank\n");
 
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
         while(getchar() != '\n'); // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
-        fgets(nombre, sizeof(nombre), stdin);
+        fgets(cuenta.titular, sizeof(cuenta.titular), stdin);
 
         printf("Introduce tu id: (a partir de 100): \n");
-        fgets(id, sizeof(id), stdin);
+        fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
 
         printf("Introduce tu saldo: \n");
-        fgets(saldo, sizeof(saldo), stdin);
+        fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
-        comprobacion = comprobarId(id, 0);
-    }while((comprobacion != 1) || (nombre == NULL) || (strlen(nombre) > MAX_LENGTH_NAME));
+        comprobacion = comprobarId(cuenta.numero_cuenta, 0);
+    }while((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
     
-    registroCuenta(id,nombre,saldo);
+    registroCuenta(cuenta);
 }
 
 /// @brief Menú de logIn del Banco
@@ -209,13 +224,29 @@ void logIn(){
 
     char id[MAX_LENGTH_ID];
     int flg_log = 1;
+    int comprobacion = 1;
+    pid_t pid;
+    char *path = "usuarios.c";
 
     do{
         printf("\nBienvenido al LogIn de SafeBank\n");
+
         printf("Introduce tu id: (a partir de 100)\n");
-        //leerChar(id);
-    }while(comprobarId(id,flg_log));
+        fgets(id, sizeof(id), stdin);
+
+        comprobacion = comprobarId(id, flg_log);
+    }while(!comprobacion);
     
+    pid = fork();
+
+    // Comprobamos que fork() no genera un error
+    if (pid < 0) { 
+        escrituraLogGeneral("Error al crear la sesión de LogIn\n");
+        return;
+    }
+    else if (pid == 0){  // Proceso hijo
+        execl("usuario.c", id, configuracion, (char *) NULL);
+    }
 }
 
 /// @brief Menú de inicio del Banco SafeBank
@@ -245,7 +276,6 @@ void menuBanco(){
         }
 
     }while(opcion != 3);
-
 }
 
 int main() {
@@ -257,44 +287,31 @@ int main() {
     char validMessage[] = "Todo correcto maquina";
 
     int state = 0;
-    menuBanco();
     
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1) {   
-        perror("Error en la generación de la pipe");
+        escrituraLogGeneral("Error en la generación de la pipe\n");
         return 1;
     }
+    
+    leer_configuracion();
 
     pid = fork();
 
-    // Comprobamos que fork() no genera un error
-    if (pid < 0) { 
-        perror("Error al crear el proceso hijo");
-        return 1;
+    if (pid < 0)
+    {
+        escrituraLogGeneral("Error al generar un hijo de banco (usuario)\n");
+    }
+    else if (pid == 0)
+    {
+        menuBanco();
+    }
+    else 
+    {
+        wait(NULL);
     }
 
-    if (pid > 0) {  // Proceso padre
-        printf("El padre empieza...\n");
-        close(fd[0]);  // Cierra el extremo de lectura
-        
-        state = readFile();
-        printf("Estado de readFile(): %d\n", state);
-        
-        if (state == 1)
-            write(fd[1], errorMessage, strlen(errorMessage) + 1);
-        else
-            write(fd[1], validMessage, strlen(validMessage) + 1);
+    //menuBanco();
 
-        close(fd[1]);  // Cierra el extremo de escritura
-        printf("El padre muere\n");
-        wait(NULL); // Espera a que el hijo termine
-    } 
-    else {  // Proceso hijo
-        close(fd[1]);  // Cierra el extremo de escritura
-        read(fd[0], buffer, sizeof(buffer));
-        printf("El hijo recibió: %s\n", buffer);
-        close(fd[0]);  // Cierra el extremo de lectura
-    }
-    
     return (0);
 }

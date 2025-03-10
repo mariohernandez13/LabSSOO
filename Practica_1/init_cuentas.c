@@ -1,17 +1,5 @@
 #include "banco.h"
 
-// este programa llama con un .sh a ./banco.c y ./monitor.c
-// además configura el archivo de cuentas, crea archivo de errores (como properties)
-// y si lla está llama a exec().
-
-typedef struct
-{
-    int numero_cuenta;
-    char titular[50];
-    float saldo;
-    int num_transacciones;
-} Cuenta;
-
 /// @brief abre el archivo cuentas.dat y añade usuarios inventados
 /// @return 0 si se ejecuta correctamente / 1 si hay error al abrir el fichero
 int main()
