@@ -93,7 +93,7 @@ void limpiezaString(char *string){
 
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
-void registroCuenta(Cuenta cuenta){
+void registroCuenta(Cuenta cuenta, sem_t *semaforo){
 
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
@@ -102,6 +102,7 @@ void registroCuenta(Cuenta cuenta){
     limpiezaString(cuenta.titular); 
     limpiezaString(cuenta.saldo);
 
+    sem_wait(semaforo);
     file = fopen("cuentas.dat", "a+");
     
     if (file == NULL)
@@ -125,13 +126,14 @@ void registroCuenta(Cuenta cuenta){
     escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n");
 
     fclose(file);
+    sem_post(semaforo);
 }
 
 /// @brief Función que comprueba si el id pasado como parámetro se encuentra en el archivo "cuentas.dat"
 /// @param id Id que queremos comprobar, desde el login o desde el registro
 /// @param flag Variable que nos indica si nos encontramos ante un caso de LogIn o de registro
 /// @return Devuelve un valor numérico que indica si es válido el id o no: 0 = error en id // 1 = id valido
-int existeID(char *id, int flag){
+int existeID(char *id, int flag, sem_t *semaforo){
 
     limpiezaString(id);
     
@@ -140,8 +142,9 @@ int existeID(char *id, int flag){
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
     
+    sem_wait(semaforo);
     file = fopen("cuentas.dat", "r");
-    
+
     if (file == NULL)
     {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
@@ -173,6 +176,8 @@ int existeID(char *id, int flag){
     }
 
     fclose(file);
+    sem_post(semaforo);
+
     return esValido;
 }
 
@@ -180,7 +185,7 @@ int existeID(char *id, int flag){
 /// @param id Id introducido por el usuario en el resgistro
 /// @param flag Valor que indica si se está llegando a la función desde LogIn o desde registro: 0 = registro || 1 = LogIn
 /// @return Valor numérico que indica validez del Id: 0 = error en id // 1 = id valido
-int comprobarId(char *id, int flag){
+int comprobarId(char *id, int flag, sem_t *semaforo){
 
     int validez = 1;
     if (atoi(id) < 100)
@@ -190,13 +195,13 @@ int comprobarId(char *id, int flag){
         return validez;
     }
     
-    validez = existeID(id, flag);
+    validez = existeID(id, flag, semaforo);
 
     return validez;
 }
 
 /// @brief Menú de registro del Banco
-void registro(){
+void registro(sem_t *semaforo){
 
     Cuenta cuenta;
 
@@ -218,14 +223,14 @@ void registro(){
         printf("Introduce tu saldo: \n");
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
-        comprobacion = comprobarId(cuenta.numero_cuenta, 0);
+        comprobacion = comprobarId(cuenta.numero_cuenta, 0, semaforo);
     }while((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
     
-    registroCuenta(cuenta);
+    registroCuenta(cuenta, semaforo);
 }
 
 /// @brief Menú de logIn del Banco
-void logIn(){
+void logIn(sem_t *semaforo){
 
     char id[MAX_LENGTH_ID];
     int flg_log = 1;
@@ -240,7 +245,7 @@ void logIn(){
         while(getchar() != '\n');
         fgets(id, sizeof(id), stdin);
 
-        comprobacion = comprobarId(id, flg_log);
+        comprobacion = comprobarId(id, flg_log, semaforo);
     }while(!comprobacion);
     
     pid = fork();
@@ -256,7 +261,7 @@ void logIn(){
 }
 
 /// @brief Menú de inicio del Banco SafeBank
-void menuBanco(){
+void menuBanco(sem_t *semaforo){
 
     int opcion = 0;
 
@@ -272,10 +277,10 @@ void menuBanco(){
         switch(opcion)
         {
             case 1: 
-                logIn();
+                logIn(semaforo);
                 break;
             case 2: 
-                registro(); // Llamamos a funcion registro
+                registro(semaforo); // Llamamos a funcion registro
                 break;
             default:
                 break; 
@@ -285,7 +290,6 @@ void menuBanco(){
 }
 
 int main() {
-    pid_t pid;
     int fd[2];
 
     char buffer[100];
@@ -293,7 +297,9 @@ int main() {
     char validMessage[] = "Todo correcto maquina";
 
     int state = 0;
-    
+
+    sem_t *semaforo = sem_open("/cuentas_sem", O_CREAT, 0644, 1);
+
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1) {   
         escrituraLogGeneral("Error en la generación de la pipe\n");
@@ -302,22 +308,7 @@ int main() {
     
     leer_configuracion();
 
-    //pid = fork();
-
-    /*if (pid < 0)
-    {
-        escrituraLogGeneral("Error al generar un hijo de banco (usuario)\n");
-    }
-    else if (pid == 0)
-    {
-        menuBanco();
-    }
-    else 
-    {
-        wait(NULL);
-    }*/
-
-    menuBanco();
+    menuBanco(semaforo);
 
     return (0);
 }

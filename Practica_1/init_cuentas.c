@@ -5,7 +5,7 @@
 int main()
 {
     // abrimos el fichero de log de errores
-    FILE *archivoErrores = fopen("errGenerales.log", "a");
+    FILE *archivoErrores = fopen("banco.log", "a");
     if (archivoErrores == NULL)
     {
         perror("Error al abrir el archivo .log");
@@ -33,33 +33,33 @@ int main()
     }
 
     Cuenta cuentas[] = {
-        {1001, "Alejandro Abajos", 1500},
-        {1002, "Ania Gonsales", 2300},
-        {1003, "Marito Fernandez", 3200},
-        {1004, "Javieh Afrenta", 6000},
-        {1005, "Peter Parker", 275.25},
-        {1006, "Laura Torres", 1300.60},
-        {1007, "Miguel Romero", 800.00},
-        {1008, "Sofia Herrera", 920.50},
-        {1009, "Luis Vargas", 3100.30},
-        {1010, "Carmen Morales", 480.80},
-        {1011, "Ricardo Jimenez", 2100.00},
-        {1012, "Elena Castro", 3600.40},
-        {1013, "Diego Luna", 1550.00},
-        {1014, "Isabel Flores", 775.75},
-        {1015, "Roberto Mendoza", 2350.20},
-        {1016, "Quevedo Estilton", 9990.80},
-        {1017, "Hector Cruz", 400.00},
-        {1018, "Valeria Suarez", 1980.90},
-        {1019, "Adrian Paredes", 300.00}
+        {"1001", "Alejandro Abajos", "1500"},
+        {"1002", "Ania Gonsales", "2300"},
+        {"1003", "Marito Fernandez", "3200"},
+        {"1004", "Javieh Afrenta", "6000"},
+        {"1005", "Peter Parker", "275.25"},
+        {"1006", "Laura Torres", "1300.60"},
+        {"1007", "Miguel Romero", "800.00"},
+        {"1008", "Sofia Herrera", "920.50"},
+        {"1009", "Luis Vargas", "3100.30"},
+        {"1010", "Carmen Morales", "480.80"},
+        {"1011", "Ricardo Jimenez", "2100.00"},
+        {"1012", "Elena Castro", "3600.40"},
+        {"1013", "Diego Luna", "1550.00"},
+        {"1014", "Isabel Flores", "775.75"},
+        {"1015", "Roberto Mendoza", "2350.20"},
+        {"1016", "Quevedo Estilton", "9990.80"},
+        {"1017", "Hector Cruz", "400.00"},
+        {"1018", "Valeria Suarez", "1980.90"},
+        {"1019", "Adrian Paredes", "300.00"}
     };
-
+    
     int numCuentas = sizeof(cuentas) / sizeof(cuentas[0]); // Número de cuentas
 
     // Escribir las cuentas en el archivo
     for (int i = 0; i < numCuentas; i++)
     {
-        fprintf(archivoCuentas, "%d,%s,%.2f,%d\n",
+        fprintf(archivoCuentas, "%s,%s,%s,%d\n",
                 cuentas[i].numero_cuenta,
                 cuentas[i].titular,
                 cuentas[i].saldo,
@@ -68,6 +68,8 @@ int main()
 
     fclose(archivoCuentas);
     fclose(archivoErrores);
+
+    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
 
     return 0;
 }
