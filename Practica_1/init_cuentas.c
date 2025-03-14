@@ -2,20 +2,26 @@
 
 /// @brief función que compila los ficheros .c del proyecto
 /// @return 0 en caso de éxito / 1 en caso de error
-int compilarFicheros()
+int compilarFicheros(char *fichero)
 {
     pid_t pid = fork();
 
+    char ficheroc[50];
+
+    strcpy(ficheroc, fichero);
+    strcat(ficheroc, ".c");
+
     if (pid < 0)
     {
-        perror("Error al hacer fork");
+        escrituraLogGeneral("Error al hacer fork\n");
         return 1;
     }
     else if (pid == 0) // Proceso hijo
     {
         // utilizamos execlp para ejecutar comandos de shell sin tener que especificar la ruta
-        execlp("gcc", "gcc", "banco.c", "-o", "banco", (char *)NULL);
-        perror("Error al ejecutar gcc"); // Solo se ejecuta si execlp falla
+        escrituraLogGeneral("Ejecutando gcc para compilación...\n"); // Solo se ejecuta si execlp falla
+        execlp("gcc", "gcc", ficheroc, "-o", fichero, (char *)NULL);
+        escrituraLogGeneral("Error al ejecutar gcc\n"); // Solo se ejecuta si execlp falla
 
         exit(1);
     }
@@ -27,20 +33,20 @@ int compilarFicheros()
         // verificamos el estado de salida del hijo y si terminó correctamente
         if (WIFEXITED(estado) && WEXITSTATUS(estado) == 0)
         {
-            printf("Compilación exitosa. Ejecutando banco...\n");
+            escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
 
             pid_t pid2 = fork();
             if (pid2 == 0)
             {
                 execlp("./banco", "./banco", NULL);
-                perror("Error al ejecutar ./banco");
+                escrituraLogGeneral("Error al ejecutar ./banco\n");
                 exit(1);
             }
             else if (pid2 > 0)
                 waitpid(pid2, &estado, 0);
             else
             {
-                perror("Error al hacer fork para ejecutar ./banco");
+                escrituraLogGeneral("Error al hacer fork para ejecutar ./banco\n");
                 return 1;
             }
         }
@@ -58,12 +64,21 @@ int compilarFicheros()
 /// @return 0 si se ejecuta correctamente / 1 si hay error al abrir el fichero
 int main()
 {
+    char *banco = "banco";
+    char *usuario = "usuario";
+    char *monitor = "monitor";
+
+    char *variables[] = {
+        banco,
+        usuario, 
+        monitor
+    }; 
 
     // abrimos el fichero de log de errores
     FILE *archivoErrores = fopen("banco.log", "a");
     if (archivoErrores == NULL)
     {
-        perror("Error al abrir el archivo .log");
+        escrituraLogGeneral("Error al abrir el archivo .log\n");
         return 1;
     }
 
@@ -71,7 +86,7 @@ int main()
     FILE *archivoCuentas = fopen("cuentas.dat", "a");
     if (archivoCuentas == NULL)
     {
-        fprintf(archivoErrores, "Error al crear el archivo de cuentas.\n");
+        escrituraLogGeneral("Error al crear el archivo de cuentas.\n");
         fclose(archivoErrores);
         return 1;
     }
@@ -84,7 +99,6 @@ int main()
     {
         fclose(archivoCuentas);
         fclose(archivoErrores);
-        return 1;
     }
     else
     {
@@ -125,9 +139,10 @@ int main()
         fclose(archivoErrores);
     }
 
-    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
+    for (int i = 0; i < 3; i++)
+        compilarFicheros(variables[i]);
 
-    compilarFicheros();
+    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
 
     return 0;
 }

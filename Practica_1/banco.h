@@ -41,5 +41,33 @@ typedef struct
 {
     char* tipoTransaccion[50];
     char* mensaje[255];
-    
+
 } Transaccion;
+
+/// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
+/// @param log Mensaje a imprimir en el archivo
+void escrituraLogGeneral(char *log){
+
+    FILE *file;
+    char linea[MAX_LINE_LENGTH];
+    time_t t; // Para esta función es necesaria la libreria de time.h
+
+    struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
+
+    file = fopen("banco.log", "a+");
+    
+    if (file == NULL)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        return;
+    }
+
+    time(&t);
+    tm_info = localtime(&t); // esta funcion asigna los valores de la fecha y hora actuales al struct declarado arriba
+    strftime(linea, sizeof(linea), "%Y-%m-%d %H:%M:%S", tm_info); // esta funcion crear el string con los valores propios de la fecha y hora actuales
+
+    // Escribimos en el archivo de log la acción realizada
+    fprintf(file, "[%s] %s", linea, log);
+
+    fclose(file);
+}
