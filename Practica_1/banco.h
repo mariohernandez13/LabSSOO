@@ -41,7 +41,7 @@ typedef struct
 {
     char* tipoTransaccion[50];
     char* mensaje[255];
-
+    int cantidad;
 } Transaccion;
 
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco

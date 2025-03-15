@@ -91,7 +91,7 @@ int leer_transacciones(){
 
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
     leer_configuracion();
 

@@ -1,5 +1,5 @@
 #include "banco.h"
-
+/*
 void operacionDevolucion()
 {
 }
@@ -43,6 +43,7 @@ void ejecutarOperacion(int opcion)
         break;
     }
 }
+*/
 
 /// @brief Función que realiza el menu de Usuario
 void menuUsuario(char *id)
@@ -61,11 +62,14 @@ void menuUsuario(char *id)
         printf("Inserte la acción que quiere ejecutar:\n");
 
         scanf("%d", &opcion);
-        ejecutarOperacion(opcion);
+        //ejecutarOperacion(opcion);
     } while (opcion != 5);
 }
 
-int main(char *id, CONFIG configuracion)
+int main(int argc, char *argv[])
 {
-    menuUsuario(id);
+    if (argc == 2)
+        menuUsuario(argv[1]);
+    else if(argc == 1)
+        escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario\n");
 }

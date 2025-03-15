@@ -1,8 +1,29 @@
 #include "banco.h"
 
-/// @brief función que compila los ficheros .c del proyecto
-/// @return 0 en caso de éxito / 1 en caso de error
-int compilarFicheros(char *fichero)
+/// @brief Función que se encarga de ejecutar el proceso banco una vez están todos los .c compilados
+void ejecutarBanco(){
+
+    pid_t pid = fork();
+
+    if (pid < 0)
+    {
+        escrituraLogGeneral("Error al hacer fork en ejecutarBanco\n");
+    }
+    else if (pid == 0) // Proceso hijo
+    {
+        escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
+
+        execlp("./banco", "./banco", NULL);
+        escrituraLogGeneral("Error al ejecutar ./banco\n");
+        exit(1);
+    }
+}
+
+/// @brief Función que se encarga de compilar todos los archivos .c que albergamos dentro de nuestro repositorio
+/// @param fichero Nombre del fichero sin extensión a compilar
+/// @param i variable de control de iteraciones
+/// @return devuelve un valor que comprueba el estado de la ejecución de la variable. (0 = Ok / 1 = error)
+int compilarFicheros(char *fichero, int i)
 {
     pid_t pid = fork();
 
@@ -25,37 +46,6 @@ int compilarFicheros(char *fichero)
 
         exit(1);
     }
-    else // Proceso padre
-    {
-        int estado;
-        waitpid(pid, &estado, 0); // Espera a que termine el hijo
-
-        // verificamos el estado de salida del hijo y si terminó correctamente
-        if (WIFEXITED(estado) && WEXITSTATUS(estado) == 0)
-        {
-            escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
-
-            pid_t pid2 = fork();
-            if (pid2 == 0)
-            {
-                execlp("./banco", "./banco", NULL);
-                escrituraLogGeneral("Error al ejecutar ./banco\n");
-                exit(1);
-            }
-            else if (pid2 > 0)
-                waitpid(pid2, &estado, 0);
-            else
-            {
-                escrituraLogGeneral("Error al hacer fork para ejecutar ./banco\n");
-                return 1;
-            }
-        }
-        else
-        {
-            printf("Error en la compilación.\n");
-            return 1;
-        }
-    }
 
     return 0;
 }
@@ -73,6 +63,8 @@ int main()
         usuario, 
         monitor
     }; 
+
+    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
 
     // abrimos el fichero de log de errores
     FILE *archivoErrores = fopen("banco.log", "a");
@@ -140,9 +132,13 @@ int main()
     }
 
     for (int i = 0; i < 3; i++)
-        compilarFicheros(variables[i]);
+        compilarFicheros(variables[i], i);
 
-    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
+    escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
 
+    execlp("./banco", "./banco", NULL);
+    escrituraLogGeneral("Error al ejecutar ./banco\n");
+    exit(1);
+    
     return 0;
 }
