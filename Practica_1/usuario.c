@@ -1,6 +1,9 @@
 #include "banco.h"
 
-float consultarSaldoUsuario(char *id){
+/// @brief Funcion que trata de conseguir el saldo del usuario en base a su ID
+/// @param id Id del usuario 
+/// @return Devuelve el saldo del usuario
+float conseguirSaldoUsuario(char *id){
     
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
@@ -30,7 +33,7 @@ float consultarSaldoUsuario(char *id){
     }
 
     fclose(file);
-
+    printf("%f\n", saldoUsuario);
     return saldoUsuario;
 }
 
@@ -91,7 +94,7 @@ void menuUsuario(char *id)
 {
     int opcion = 0;
 
-    float saldoUsuario = consultarSaldoUsuario(id);
+    float saldoUsuario = conseguirSaldoUsuario(id);
 
     do
     {
