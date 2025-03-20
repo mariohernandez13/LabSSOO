@@ -1,18 +1,60 @@
 #include "banco.h"
-/*
-void operacionDevolucion()
+
+float consultarSaldoUsuario(char *id){
+    
+    FILE *file;
+    char linea[MAX_LINE_LENGTH] = "";
+    char *key, *value;
+    
+    float saldoUsuario;
+
+    file = fopen("cuentas.dat", "r");
+
+    if (file == NULL)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        return 0;
+    }
+
+    while (fgets(linea, sizeof(linea), file))
+    {
+        linea[strcspn(linea, "\n")] = 0;
+        key = strtok(linea, ",");
+        if (strcmp(key, id) == 0)
+        {
+            value = strtok(linea, ",");
+            value = strtok(linea, ",");
+            escrituraLogGeneral("El id ya existe\n");
+            break;
+        }
+    }
+
+    fclose(file);
+
+    return saldoUsuario;
+}
+
+void* operacionDevolucion()
 {
 }
 
-void operacionTransferencia()
+void* operacionTransferencia()
 {
 }
 
-void operacionRetiro()
+void* operacionRetiro()
 {
+    char *saldoIntroducido;
+    float saldoRetiro;
+
+    do{
+        printf("Introduce el saldo que quieres retirar de tu cuenta:\n");
+        fgets(saldoIntroducido, sizeof(MAX_LENGTH_SALDO), stdin);
+        saldoRetiro = strtof(saldoIntroducido, NULL);
+    }while(saldoRetiro < 0);
 }
 
-void operacionConsultarSaldo()
+void* operacionConsultarSaldo()
 {
 }
 
@@ -24,32 +66,32 @@ void ejecutarOperacion(int opcion)
     switch (opcion)
     {
     case 1:
-        pthread_create(&hilo, NULL, operacionDevolucion, NULL);
+        pthread_create(&hilo, NULL, &operacionDevolucion, NULL);
         pthread_join(hilo, NULL);
         break;
     case 2:
-        pthread_create(&hilo, NULL, operacionTransferencia, NULL);
+        pthread_create(&hilo, NULL, &operacionTransferencia, NULL);
         pthread_join(hilo, NULL);
         break;
     case 3:
-        pthread_create(&hilo, NULL, operacionRetiro, NULL);
+        pthread_create(&hilo, NULL, &operacionRetiro, NULL);
         pthread_join(hilo, NULL);
         break;
     case 4:
-        pthread_create(&hilo, NULL, operacionConsultarSaldo, NULL);
+        pthread_create(&hilo, NULL, &operacionConsultarSaldo, NULL);
         pthread_join(hilo, NULL);
         break;
     default:
         break;
     }
 }
-*/
 
 /// @brief Función que realiza el menu de Usuario
 void menuUsuario(char *id)
 {
-
     int opcion = 0;
+
+    float saldoUsuario = consultarSaldoUsuario(id);
 
     do
     {
@@ -62,7 +104,7 @@ void menuUsuario(char *id)
         printf("Inserte la acción que quiere ejecutar:\n");
 
         scanf("%d", &opcion);
-        //ejecutarOperacion(opcion);
+        ejecutarOperacion(opcion);
     } while (opcion != 5);
 }
 
