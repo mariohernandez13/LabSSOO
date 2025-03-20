@@ -227,7 +227,8 @@ void logIn(sem_t *semaforo){
         return;
     }
     else if (pid == 0){  // Proceso hijo
-        execlp("./usuario", "./usuario", id, NULL);        
+        execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
+        //execlp("./usuario", "./usuario", id, NULL);        
         escrituraLogGeneral("Error al ejecutar ./usuario\n");
     }
 }
