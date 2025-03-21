@@ -112,6 +112,7 @@ int realizarOperacion(float saldoActual, float saldoOperacion, int flag, char *i
 
 void *operacionDeposito()
 {
+    
 }
 
 void *operacionTransferencia()
@@ -130,9 +131,12 @@ void *operacionRetiro(void* id)
         while (getchar() != '\n');
         fgets(saldoIntroducido, sizeof(MAX_LENGTH_SALDO), stdin);
         saldoRetiro = strtof(saldoIntroducido, NULL);
+        escrituraLogGeneral("✅ Retiro exitoso.\n");
     } while (saldoRetiro < 0);
 
     realizarOperacion(saldoActual, saldoRetiro, 1, userId);
+
+    return(NULL);
 }
 
 void *operacionConsultarSaldo(void *id)

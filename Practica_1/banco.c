@@ -239,10 +239,12 @@ void logIn(sem_t *semaforo)
 
     do
     {
-        printf("\n=====================================\n");
-        printf("   🔐 Bienvenido al LogIn de SafeBank        \n");
+        system("clear");
+
         printf("=====================================\n");
-        printf("💳 Introduce tu ID (debe ser 100 o mayor): ");
+        printf("🔐 Bienvenido al LogIn de SafeBank        \n");
+        printf("=====================================\n");
+        printf("💳 Introduce tu ID (debe ser 1000 o mayor): ");
 
         while (getchar() != '\n');
         fgets(id, sizeof(id), stdin);
@@ -276,6 +278,8 @@ void menuBanco(sem_t *semaforo)
 
     do
     {
+        system("clear");
+
         printf("=====================================\n");
         printf("  🏦 Bienvenido a SafeBank 🏦         \n");
         printf("=====================================\n");
