@@ -4,7 +4,8 @@ CONFIG configuracion;
 
 /// @brief Función que se llama para leer el archivo de configuración
 /// @return valor numérico que indica la validez de la lectura
-int leer_configuracion() {
+int leer_configuracion()
+{
 
     FILE *file;
     int state = 0;
@@ -14,35 +15,53 @@ int leer_configuracion() {
     char username[MAX_LINE_LENGTH] = "";
 
     file = fopen("banco.config", "r");
-    
-    if (file == NULL) {
+
+    if (file == NULL)
+    {
         escrituraLogGeneral("Error al abrir el archivo de configuración\n");
         return 1;
     }
 
-    while (fgets(linea, sizeof(linea), file)) {
+    while (fgets(linea, sizeof(linea), file))
+    {
         linea[strcspn(linea, "\n")] = 0;
-        
+
         key = strtok(linea, "=");
         value = strtok(NULL, "=");
 
         // Mirar una posible conversión de esto a un switch case en el futuro
-        if (key && value) {
-            if (strcmp(key, "LIMITE_RETIRO") == 0) {
+        if (key && value)
+        {
+            if (strcmp(key, "LIMITE_RETIRO") == 0)
+            {
                 configuracion.limiteRetiros = atoi(value);
-            } else if (strcmp(key, "LIMITE_TRANSFERENCIA") == 0){
+            }
+            else if (strcmp(key, "LIMITE_TRANSFERENCIA") == 0)
+            {
                 configuracion.limiteTransferencia = atoi(value);
-            } else if (strcmp(key, "UMBRAL_RETIROS") == 0){
+            }
+            else if (strcmp(key, "UMBRAL_RETIROS") == 0)
+            {
                 configuracion.umbralRetiros = atoi(value);
-            } else if (strcmp(key, "UMBRAL_TRANSFERENCIAS") == 0){
+            }
+            else if (strcmp(key, "UMBRAL_TRANSFERENCIAS") == 0)
+            {
                 configuracion.umbralTransferencias = atoi(value);
-            } else if (strcmp(key, "NUM_HILOS") == 0){
+            }
+            else if (strcmp(key, "NUM_HILOS") == 0)
+            {
                 configuracion.numHilos = atoi(value);
-            } else if (strcmp(key, "ARCHIVO_CUENTAS") == 0){
+            }
+            else if (strcmp(key, "ARCHIVO_CUENTAS") == 0)
+            {
                 strncpy(configuracion.archivoCuentas, value, strlen(value));
-            } else if (strcmp(key, "ARCHIVO_TRANSACCIONES") == 0){
+            }
+            else if (strcmp(key, "ARCHIVO_TRANSACCIONES") == 0)
+            {
                 strncpy(configuracion.archivoTransacciones, value, MAX_LINE_LENGTH);
-            } else if (strcmp(key, "ARCHIVO_LOG") == 0){
+            }
+            else if (strcmp(key, "ARCHIVO_LOG") == 0)
+            {
                 strncpy(configuracion.archivoLog, value, MAX_LINE_LENGTH);
             }
         }
@@ -57,26 +76,28 @@ int leer_configuracion() {
 
 /// @brief Limpia los strings de "\n"
 /// @param string String que queremos "limpiar" de caracteres indeseados
-void limpiezaString(char *string){
+void limpiezaString(char *string)
+{
     for (int i = 0; i < strlen(string); i++)
-        if (string[i]=='\n')
-            string[i]='\0'; 
+        if (string[i] == '\n')
+            string[i] = '\0';
 }
 
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
-void registroCuenta(Cuenta cuenta, sem_t *semaforo){
+void registroCuenta(Cuenta cuenta, sem_t *semaforo)
+{
 
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
-    
+
     // Limpiamos los "\n" de nombre y de saldo porque vienen con dichos caracteres
-    limpiezaString(cuenta.titular); 
+    limpiezaString(cuenta.titular);
     limpiezaString(cuenta.saldo);
 
     sem_wait(semaforo);
     file = fopen("cuentas.dat", "a+");
-    
+
     if (file == NULL)
     {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
@@ -105,15 +126,16 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo){
 /// @param id Id que queremos comprobar, desde el login o desde el registro
 /// @param flag Variable que nos indica si nos encontramos ante un caso de LogIn o de registro
 /// @return Devuelve un valor numérico que indica si es válido el id o no: 0 = error en id // 1 = id valido
-int existeID(char *id, int flag, sem_t *semaforo){
+int existeID(char *id, int flag, sem_t *semaforo)
+{
 
     limpiezaString(id);
-    
+
     int esValido = 1;
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
-    
+
     sem_wait(semaforo);
     file = fopen("cuentas.dat", "r");
 
@@ -135,7 +157,8 @@ int existeID(char *id, int flag, sem_t *semaforo){
                 esValido = 0;
                 break;
             }
-        }else if (flag == 1)
+        }
+        else if (flag == 1)
         {
             if (strcmp(key, id) == 0)
             {
@@ -157,7 +180,8 @@ int existeID(char *id, int flag, sem_t *semaforo){
 /// @param id Id introducido por el usuario en el resgistro
 /// @param flag Valor que indica si se está llegando a la función desde LogIn o desde registro: 0 = registro || 1 = LogIn
 /// @return Valor numérico que indica validez del Id: 0 = error en id // 1 = id valido
-int comprobarId(char *id, int flag, sem_t *semaforo){
+int comprobarId(char *id, int flag, sem_t *semaforo)
+{
 
     int validez = 1;
     if (atoi(id) < 100)
@@ -166,27 +190,30 @@ int comprobarId(char *id, int flag, sem_t *semaforo){
         escrituraLogGeneral("El id introducido no es válido debido a que es menor a 100\n");
         return validez;
     }
-    
+
     validez = existeID(id, flag, semaforo);
 
     return validez;
 }
 
 /// @brief Menú de registro del Banco
-void registro(sem_t *semaforo){
+void registro(sem_t *semaforo)
+{
 
     Cuenta cuenta;
 
     int comprobacion = 1;
 
-    do{
+    do
+    {
         if (!comprobacion)
             printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
 
         printf("Bienvenido al registro de SafeBank\n");
 
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
-        while(getchar() != '\n'); // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
+        while (getchar() != '\n')
+            ; // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
         fgets(cuenta.titular, sizeof(cuenta.titular), stdin);
 
         printf("Introduce tu id: (a partir de 100): \n");
@@ -196,73 +223,92 @@ void registro(sem_t *semaforo){
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
         comprobacion = comprobarId(cuenta.numero_cuenta, 0, semaforo);
-    }while((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
-    
+    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
+
     registroCuenta(cuenta, semaforo);
 }
 
 /// @brief Menú de logIn del Banco
-void logIn(sem_t *semaforo){
+void logIn(sem_t *semaforo)
+{
 
     char id[MAX_LENGTH_ID];
     int flg_log = 1;
     int comprobacion = 1;
     pid_t pid;
 
-    do{
-        printf("\nBienvenido al LogIn de SafeBank\n");
+    do
+    {
+        printf("\n=====================================\n");
+        printf("   🔐 Bienvenido al LogIn de SafeBank        \n");
+        printf("=====================================\n");
+        printf("💳 Introduce tu ID (debe ser 100 o mayor): ");
 
-        printf("Introduce tu id: (a partir de 100)\n");
-        while(getchar() != '\n');
+        while (getchar() != '\n');
         fgets(id, sizeof(id), stdin);
+        printf("\n✅ ID ingresado: %s\n", id);
+        printf("=====================================\n");
 
         comprobacion = comprobarId(id, flg_log, semaforo);
-    }while(!comprobacion);
-    
+    } while (!comprobacion);
+
     pid = fork();
 
     // Comprobamos que fork() no genera un error
-    if (pid < 0) { 
+    if (pid < 0)
+    {
         escrituraLogGeneral("Error al crear la sesión de LogIn\n");
         return;
     }
-    else if (pid == 0){  // Proceso hijo
+    else if (pid == 0)
+    { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
-        //execlp("./usuario", "./usuario", id, NULL);        
+        // execlp("./usuario", "./usuario", id, NULL);
         escrituraLogGeneral("Error al ejecutar ./usuario\n");
     }
 }
 
 /// @brief Menú de inicio del Banco SafeBank
-void menuBanco(sem_t *semaforo){
+void menuBanco(sem_t *semaforo)
+{
 
     int opcion = 0;
 
-    do{
-        printf("Bienvenido a SafeBank.\n");
-        printf("¿Qué desea hacer?\n");
-        printf("1. Inicio Sesión\n");
-        printf("2. Registro\n");
-        printf("3. Salir\n");
-        printf("Introduce una opción: ");
+    do
+    {
+        printf("=====================================\n");
+        printf("  🏦 Bienvenido a SafeBank 🏦         \n");
+        printf("=====================================\n");
+        printf("💼 ¿Qué desea hacer?\n");
+        printf("🔹 1. Inicio de Sesión\n");
+        printf("🔹 2. Registro\n");
+        printf("🔹 3. Salir\n");
+        printf("=====================================\n");
+        printf("👉 Introduce una opción: ");
+
         scanf("%d", &opcion);
 
-        switch(opcion)
+        printf("\n");
+        printf("✅ Opción seleccionada: %d\n", opcion);
+        printf("=====================================\n");
+
+        switch (opcion)
         {
-            case 1: 
-                logIn(semaforo);
-                break;
-            case 2: 
-                registro(semaforo); // Llamamos a funcion registro
-                break;
-            default:
-                break; 
+        case 1:
+            logIn(semaforo);
+            break;
+        case 2:
+            registro(semaforo); // Llamamos a funcion registro
+            break;
+        default:
+            break;
         }
 
-    }while(opcion != 3);
+    } while (opcion != 3);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[])
+{
     int fd[2];
 
     char buffer[100];
@@ -274,11 +320,12 @@ int main(int argc, char *argv[]) {
     sem_t *semaforo = sem_open("/cuentas_sem", O_CREAT, 0644, 1);
 
     // Comprobamos que no ocurre problema al generar la pipe
-    if (pipe(fd) == -1) {   
+    if (pipe(fd) == -1)
+    {
         escrituraLogGeneral("Error en la generación de la pipe\n");
         return 1;
     }
-    
+
     leer_configuracion();
 
     menuBanco(semaforo);
