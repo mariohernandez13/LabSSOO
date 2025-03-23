@@ -72,3 +72,18 @@ void escrituraLogGeneral(char *log){
 
     fclose(file);
 }
+
+/// @brief Función para mostrar un "loading spinner"
+void mostrarCarga() {
+    char spinner[] = {'|', '/', '-', '\\'};
+    int i = 0;
+    printf("Cargando");
+    while (i < 10) {  // Limitar a un número de veces para no ser molesto
+        printf("%c", spinner[i % 4]);
+        fflush(stdout);  // Fuerza la salida en consola
+        usleep(200000);  // Pausa de 200 milisegundos
+        printf("\b");  // Elimina el último caracter mostrado
+        i++;
+    }
+    printf("\n");
+}

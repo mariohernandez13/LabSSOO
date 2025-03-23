@@ -18,7 +18,7 @@ int leer_configuracion()
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de configuración\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n");
         return 1;
     }
 
@@ -100,7 +100,7 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n");
         return;
     }
 
@@ -141,7 +141,7 @@ int existeID(char *id, int flag, sem_t *semaforo)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n");
         return 0;
     }
 
@@ -187,7 +187,7 @@ int comprobarId(char *id, int flag, sem_t *semaforo)
     if (atoi(id) < 100)
     {
         validez = 0;
-        escrituraLogGeneral("El id introducido no es válido debido a que es menor a 100\n");
+        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 100\n");
         return validez;
     }
 
@@ -259,14 +259,14 @@ void logIn(sem_t *semaforo)
     // Comprobamos que fork() no genera un error
     if (pid < 0)
     {
-        escrituraLogGeneral("Error al crear la sesión de LogIn\n");
+        escrituraLogGeneral("🟥 Error al crear la sesión de LogIn\n");
         return;
     }
     else if (pid == 0)
     { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
         // execlp("./usuario", "./usuario", id, NULL);
-        escrituraLogGeneral("Error al ejecutar ./usuario\n");
+        escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n");
     }
 }
 
@@ -326,7 +326,7 @@ int main(int argc, char *argv[])
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1)
     {
-        escrituraLogGeneral("Error en la generación de la pipe\n");
+        escrituraLogGeneral("🟥 Error en la generación de la pipe\n");
         return 1;
     }
 
