@@ -7,14 +7,14 @@ void ejecutarBanco(){
 
     if (pid < 0)
     {
-        escrituraLogGeneral("Error al hacer fork en ejecutarBanco\n");
+        escrituraLogGeneral("Error al hacer fork en ejecutarBanco\n", 0);
     }
     else if (pid == 0) // Proceso hijo
     {
-        escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
+        escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n", 0);
 
         execlp("./banco", "./banco", NULL);
-        escrituraLogGeneral("Error al ejecutar ./banco\n");
+        escrituraLogGeneral("Error al ejecutar ./banco\n", 0);
         exit(1);
     }
 }
@@ -34,15 +34,15 @@ int compilarFicheros(char *fichero, int i)
 
     if (pid < 0)
     {
-        escrituraLogGeneral("Error al hacer fork\n");
+        escrituraLogGeneral("Error al hacer fork\n", 0);
         return 1;
     }
     else if (pid == 0) // Proceso hijo
     {
         // utilizamos execlp para ejecutar comandos de shell sin tener que especificar la ruta
-        escrituraLogGeneral("Ejecutando gcc para compilación...\n"); // Solo se ejecuta si execlp falla
+        escrituraLogGeneral("Ejecutando gcc para compilación...\n", 0); // Solo se ejecuta si execlp falla
         execlp("gcc", "gcc", ficheroc, "-o", fichero, (char *)NULL);
-        escrituraLogGeneral("Error al ejecutar gcc\n"); // Solo se ejecuta si execlp falla
+        escrituraLogGeneral("Error al ejecutar gcc\n", 0); // Solo se ejecuta si execlp falla
 
         exit(1);
     }
@@ -70,7 +70,7 @@ int main()
     FILE *archivoErrores = fopen("banco.log", "a");
     if (archivoErrores == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo .log\n");
+        escrituraLogGeneral("Error al abrir el archivo .log\n", 0);
         return 1;
     }
 
@@ -78,7 +78,7 @@ int main()
     FILE *archivoCuentas = fopen("cuentas.dat", "a");
     if (archivoCuentas == NULL)
     {
-        escrituraLogGeneral("Error al crear el archivo de cuentas.\n");
+        escrituraLogGeneral("Error al crear el archivo de cuentas.\n", 0);
         fclose(archivoErrores);
         return 1;
     }
@@ -134,10 +134,10 @@ int main()
     for (int i = 0; i < 3; i++)
         compilarFicheros(variables[i], i);
 
-    escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n");
+    escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n", 0);
 
     execlp("./banco", "./banco", NULL);
-    escrituraLogGeneral("Error al ejecutar ./banco\n");
+    escrituraLogGeneral("Error al ejecutar ./banco\n", 0);
     exit(1);
     
     return 0;

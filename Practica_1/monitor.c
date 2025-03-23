@@ -16,7 +16,7 @@ int leer_configuracion() {
     file = fopen("banco.config", "r");
     
     if (file == NULL) {
-        escrituraLogGeneral("Error al abrir el archivo de configuración\n");
+        escrituraLogGeneral("Error al abrir el archivo de configuración\n", 0);
         return 1;
     }
 
@@ -50,7 +50,7 @@ int leer_configuracion() {
 
     fclose(file);
 
-    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n");
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (state);
 }
@@ -67,7 +67,7 @@ int leer_transacciones(){
     file = fopen("transacciones.log", "r");
     
     if (file == NULL) {
-        escrituraLogGeneral("Error al abrir el archivo de transacciones\n");
+        escrituraLogGeneral("Error al abrir el archivo de transacciones\n", 0);
         return 1;
     }
 
@@ -85,7 +85,7 @@ int leer_transacciones(){
 
     fclose(file);
 
-    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n");
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (state);
 

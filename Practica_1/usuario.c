@@ -5,7 +5,6 @@
 /// @return Devuelve el saldo del usuario
 float conseguirSaldoUsuario(char *id)
 {
-
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
@@ -16,7 +15,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
         return 0;
     }
 
@@ -29,7 +28,7 @@ float conseguirSaldoUsuario(char *id)
             key = strtok(NULL, ",");
             key = strtok(NULL, ","); // saltamos los 2 primeros campos para obtener el saldo
 
-            escrituraLogGeneral("Saldo consultado exitosamente\n");
+            escrituraLogGeneral("Saldo consultado exitosamente\n", 1);
             saldoUsuario = strtof(key, NULL);
             break;
         }
@@ -46,7 +45,7 @@ void actualizarCuentas(char *id, float saldoActualizado) {
     FILE *archivo;
     archivo = fopen("cuentas.dat", "r+");
     if (!archivo) {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
         return;
     }
 
@@ -88,7 +87,7 @@ void actualizarCuentas(char *id, float saldoActualizado) {
     }
 
     fclose(archivo);
-    escrituraLogGeneral("Cuentas actualizadas correctamente\n");
+    escrituraLogGeneral("Cuentas actualizadas correctamente\n", 1);
 }
 
 /// @brief Realiza ingreso o retiro en funcion del flag
@@ -103,12 +102,12 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
     {
     case 0:
         saldoActual += saldoOperacion;
-        escrituraLogGeneral("Operacion ingreso done\n");
+        escrituraLogGeneral("Operacion ingreso done\n", 1);
         break;
         // transferencia = depósito para el receptor y retiro para el emisor
     case 1:
         saldoActual -= saldoOperacion;
-        escrituraLogGeneral("Operacion retiro done\n");
+        escrituraLogGeneral("Operacion retiro done\n", 1);
         break;
     }
     
@@ -129,7 +128,7 @@ void *operacionDeposito(void *id)
         printf("Introduce cantidad a depositar: \n");
         while (getchar() != '\n');
         scanf("%f", &saldoDepositar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n"); 
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1); 
     } while (saldoDepositar <= 0);
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
@@ -152,14 +151,13 @@ void *operacionTransferencia(void* id)
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
         printf("Introduce cantidad a transferir: \n");
-        while (getchar() != '\n');
         scanf("%f", &saldoTransferir);
-        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n"); 
+        printf("hasta aqui llego\n");
+        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n", 1); 
     } while (saldoTransferir <= 0);
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
-
 }
 
 /// @brief Función que permite al usuario introducir el saldo que va a retirar 
@@ -168,13 +166,15 @@ void *operacionRetiro(void* id)
 {
     char *_id = (char *) id;
     float saldo = conseguirSaldoUsuario(_id);
-    float saldoRetirar = 0;
+    float saldoRetirar = 1;
     do
     {
+        if (saldoRetirar <= 0)
+            escrituraLogGeneral("Error: Saldo introducido para transacción \n", 1);
         printf("Introduce cantidad a retirar: \n");
         while (getchar() != '\n');
         scanf("%f", &saldoRetirar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n"); 
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1); 
     } while (saldoRetirar <= 0);
     
     
@@ -232,7 +232,7 @@ void menuUsuario(char *id)
         printf("=====================================\n");
         printf("        🌟 BIENVENIDO %s 🌟        \n", id);
         printf("=====================================\n");
-        printf("🔹 1. Devolución\n");
+        printf("🔹 1. Depósito\n");
         printf("🔹 2. Transferencia\n");
         printf("🔹 3. Retiro\n");
         printf("🔹 4. Consultar saldo\n");
@@ -254,5 +254,5 @@ int main(int argc, char *argv[])
     if (argc == 2)
         menuUsuario(argv[1]);
     else if (argc == 1)
-        escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario\n");
+        escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario\n", 0);
 }

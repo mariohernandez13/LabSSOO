@@ -18,7 +18,7 @@ int leer_configuracion()
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n", 0);
         return 1;
     }
 
@@ -69,7 +69,7 @@ int leer_configuracion()
 
     fclose(file);
 
-    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n");
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (state);
 }
@@ -100,7 +100,7 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n", 0);
         return;
     }
 
@@ -116,7 +116,7 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo)
 
     fputs(linea, file);
 
-    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n");
+    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n", 0);
 
     fclose(file);
     sem_post(semaforo);
@@ -141,7 +141,7 @@ int existeID(char *id, int flag, sem_t *semaforo)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n", 0);
         return 0;
     }
 
@@ -153,7 +153,7 @@ int existeID(char *id, int flag, sem_t *semaforo)
         {
             if (strcmp(key, id) == 0)
             {
-                escrituraLogGeneral("El id ya existe\n");
+                escrituraLogGeneral("El id ya existe\n", 0);
                 esValido = 0;
                 break;
             }
@@ -187,7 +187,7 @@ int comprobarId(char *id, int flag, sem_t *semaforo)
     if (atoi(id) < 100)
     {
         validez = 0;
-        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 100\n");
+        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 100\n", 0);
         return validez;
     }
 
@@ -259,14 +259,14 @@ void logIn(sem_t *semaforo)
     // Comprobamos que fork() no genera un error
     if (pid < 0)
     {
-        escrituraLogGeneral("🟥 Error al crear la sesión de LogIn\n");
+        escrituraLogGeneral("🟥 Error al crear la sesión de LogIn\n", 0);
         return;
     }
     else if (pid == 0)
     { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
         // execlp("./usuario", "./usuario", id, NULL);
-        escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n");
+        escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n", 0);
     }
 }
 
@@ -326,7 +326,7 @@ int main(int argc, char *argv[])
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1)
     {
-        escrituraLogGeneral("🟥 Error en la generación de la pipe\n");
+        escrituraLogGeneral("🟥 Error en la generación de la pipe\n", 0);
         return 1;
     }
 

@@ -47,7 +47,8 @@ typedef struct
 
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
 /// @param log Mensaje a imprimir en el archivo
-void escrituraLogGeneral(char *log){
+/// @param flag Variable que indica si la escritura va dirigida hacia el archivo "banco.log" o "transacciones.log" | 0 = banco.log - 1 = transacciones.log
+void escrituraLogGeneral(char *log, int flag){
 
     FILE *file;
     char linea[MAX_LINE_LENGTH];
@@ -55,11 +56,14 @@ void escrituraLogGeneral(char *log){
 
     struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
 
-    file = fopen("banco.log", "a+");
-    
+    if (flag == 0)
+        file = fopen("banco.log", "a+");
+    else if (flag == 1)
+        file = fopen("transacciones.log", "a+");
+
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
+        escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 0);
         return;
     }
 
