@@ -36,109 +36,153 @@ float conseguirSaldoUsuario(char *id)
     }
 
     fclose(file);
-    printf("%.2f\n", saldoUsuario);
     return saldoUsuario;
 }
 
-void actualizarCuentas(char *id, float saldoActualizado)
-{
+/// @brief Función que se encarga de actualizar el saldo en el archivo cuentas.dat en función de la operación realizada
+/// @param id Número identificador del usuario que realiza la operación
+/// @param saldoActualizado  Saldo después de realizar la operación
+void actualizarCuentas(char *id, float saldoActualizado) {
     FILE *archivo;
     archivo = fopen("cuentas.dat", "r+");
-    if (!archivo)
-    {
+    if (!archivo) {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n");
         return;
     }
-    char linea[MAX_LINE_LENGTH] = "";
-    int lineas;
+
+    char linea[MAX_LINE_LENGTH];
+    int lineas = 0;
     char *idArchivo, *nombre, *saldo, *numeroTransacciones;
-    while (fgets(linea, MAX_LINE_LENGTH, archivo))
-    {
+
+    char *lineasArchivo[MAX_LINE_LENGTH];
+
+    //Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
+    while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH) {
+        lineasArchivo[lineas] = strdup(linea);
         lineas++;
     }
-    char lineasArchivo[lineas][MAX_LINE_LENGTH];
-    rewind(archivo);
-    while (fgets(lineasArchivo[lineas], MAX_LINE_LENGTH, archivo))
-    {
-        // copiar cada una de las lineas
-        idArchivo = strtok(lineasArchivo[lineas], ",");
+
+    //Usamos strtok para capturar todos los parámetros de las cuentas
+    for (int i = 0; i < lineas; i++) {
+        char *temp = strdup(lineasArchivo[i]); //Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
+        idArchivo = strtok(temp, ",");
         nombre = strtok(NULL, ",");
         saldo = strtok(NULL, ",");
         numeroTransacciones = strtok(NULL, ",");
 
-        if (strcmp(idArchivo, id)== 0) // en caso de que encuentre el usuario actualiza su saldo
-        {
+        //La línea que coincide con el id del usuario se actualiza con su saldo 
+        if (idArchivo && strcmp(idArchivo, id) == 0) {  
+            snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%s,%.2f,%s",
+                     idArchivo, nombre, saldoActualizado, numeroTransacciones ? numeroTransacciones : "0");
+        }
 
-            sprintf(lineasArchivo[lineas], "%s,%s,%f,%s\n", idArchivo, nombre, saldoActualizado, numeroTransacciones);
-        }
-        else
-        {
-            sprintf(lineasArchivo[lineas], "%s,%s,%s,%s\n", idArchivo, nombre, saldo, numeroTransacciones);
-        }
+        free(temp);
     }
 
-    rewind(archivo);
+    rewind(archivo); //Colocar el puntero al principio del fichero cuentas.dat
 
-    for (int i = 0; i < lineas; i++) // reescribe el archivo de cuentas
-    {
+    //Reescribe todo el archivo cuentas.dat
+    for (int i = 0; i < lineas; i++) {
         fputs(lineasArchivo[i], archivo);
+        free(lineasArchivo[i]);  
     }
 
     fclose(archivo);
     escrituraLogGeneral("Cuentas actualizadas correctamente\n");
 }
 
-/// @brief
-/// @param SaldoActual
-/// @param SaldoOperacion
+/// @brief Realiza ingreso o retiro en funcion del flag
+/// @param SaldoActual Saldo actual del usuario que realiza la operación
+/// @param SaldoOperacion Saldo introducido a sumar/restar al saldo actual
 /// @param flag Depósito=0 / Retiro=1
 /// @param id del usuario que inició sesión
-/// @return
-int realizarOperacion(float saldoActual, float saldoOperacion, int flag, char *id)
+/// @return Saldo actualizado
+float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char *id)
 {
     switch (flag)
     {
     case 0:
         saldoActual += saldoOperacion;
+        escrituraLogGeneral("Operacion ingreso done\n");
         break;
         // transferencia = depósito para el receptor y retiro para el emisor
     case 1:
         saldoActual -= saldoOperacion;
+        escrituraLogGeneral("Operacion retiro done\n");
         break;
     }
+    
     actualizarCuentas(id, saldoActual);
     return saldoActual;
 }
 
-void *operacionDeposito()
+/// @brief Función que permite al usuario introducir el saldo que va a ingresar 
+/// @param id Cuenta del usuario logueado
+void *operacionDeposito(void *id)
 {
-    
-}
+    char *_id = (char *) id;
+    float saldo = conseguirSaldoUsuario(_id);
+    float saldoDepositar = 0;
 
-void *operacionTransferencia()
-{
-}
-
-void *operacionRetiro(void* id)
-{
-    char *userId = (char*) id;  // Convertimos el void* a char*
-    char *saldoIntroducido;
-    float saldoRetiro = 0;
-    float saldoActual = conseguirSaldoUsuario(userId);
     do
     {
-        printf("Introduce el saldo que quieres retirar de tu cuenta:\n");
+        printf("Introduce cantidad a depositar: \n");
         while (getchar() != '\n');
-        fgets(saldoIntroducido, sizeof(MAX_LENGTH_SALDO), stdin);
-        saldoRetiro = strtof(saldoIntroducido, NULL);
-        escrituraLogGeneral("✅ Retiro exitoso.\n");
-    } while (saldoRetiro < 0);
+        scanf("%f", &saldoDepositar);
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n"); 
+    } while (saldoDepositar <= 0);
 
-    realizarOperacion(saldoActual, saldoRetiro, 1, userId);
-
-    return(NULL);
+    realizarOperacion(saldo, saldoDepositar, 0, _id);
 }
 
+/// @brief Función que permite al usuario realizar una transferencia a otro usuario
+/// @param id Cuenta del usuario logueado
+void *operacionTransferencia(void* id)
+{
+    char *_id = (char *) id;
+    char *idDestinatario;
+    float saldoTransferir = 0;
+    float saldo = conseguirSaldoUsuario(_id);
+    float saldoDestinatario = 0;
+
+    do
+    {
+        printf("Introduce id destinatario: \n");
+        while (getchar() != '\n');
+        fgets(idDestinatario, sizeof(idDestinatario), stdin);
+        saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
+        printf("Introduce cantidad a transferir: \n");
+        while (getchar() != '\n');
+        scanf("%f", &saldoTransferir);
+        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n"); 
+    } while (saldoTransferir <= 0);
+
+    realizarOperacion(saldo, saldoTransferir, 1, _id);
+    realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
+
+}
+
+/// @brief Función que permite al usuario introducir el saldo que va a retirar 
+/// @param id Cuenta del usuario logueado
+void *operacionRetiro(void* id)
+{
+    char *_id = (char *) id;
+    float saldo = conseguirSaldoUsuario(_id);
+    float saldoRetirar = 0;
+    do
+    {
+        printf("Introduce cantidad a retirar: \n");
+        while (getchar() != '\n');
+        scanf("%f", &saldoRetirar);
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n"); 
+    } while (saldoRetirar <= 0);
+    
+    
+    realizarOperacion(saldo, saldoRetirar, 1, _id);
+}
+
+/// @brief Muestra al usuario por pantalla su saldo 
+/// @param id Cuenta del usuario logueado
 void *operacionConsultarSaldo(void *id)
 {
     float saldoActual = conseguirSaldoUsuario(id);
@@ -147,6 +191,9 @@ void *operacionConsultarSaldo(void *id)
     printf("=====================================\n");
 }
 
+/// @brief Función que gestiona los hilos de las funciones
+/// @param opcion Opción a realizar
+/// @param id Cuenta del usuario logueado
 void ejecutarOperacion(int opcion, char *id)
 {
 
@@ -155,11 +202,11 @@ void ejecutarOperacion(int opcion, char *id)
     switch (opcion)
     {
     case 1:
-        pthread_create(&hilo, NULL, &operacionDeposito, NULL);
+        pthread_create(&hilo, NULL, &operacionDeposito, id);
         pthread_join(hilo, NULL);
         break;
     case 2:
-        pthread_create(&hilo, NULL, &operacionTransferencia, NULL);
+        pthread_create(&hilo, NULL, &operacionTransferencia, id);
         pthread_join(hilo, NULL);
         break;
     case 3:
@@ -176,6 +223,7 @@ void ejecutarOperacion(int opcion, char *id)
 }
 
 /// @brief Función que realiza el menu de Usuario
+/// @param id Cuenta del usuario logueado
 void menuUsuario(char *id)
 {
     int opcion = 0;
