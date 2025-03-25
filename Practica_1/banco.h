@@ -17,6 +17,11 @@
 #define MAX_LENGTH_SALDO 10
 #define MAX_LENGTH_ID 6
 
+sem_t *semaforo_transacciones;
+sem_t *semaforo_config;
+sem_t *semaforo_cuentas;
+sem_t *semaforo_banco;
+
 /// @brief Estructura de la configuración del sistema del banco
 typedef struct {
     int limiteRetiros;
@@ -56,6 +61,19 @@ void escrituraLogGeneral(char *log, int flag){
 
     struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
 
+    sem_unlink("/semaforo_banco");
+    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+
+    if (semaforo_transacciones == SEM_FAILED || semaforo_banco == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_banco);
+    sem_wait(semaforo_transacciones);
+
     if (flag == 0)
         file = fopen("banco.log", "a+");
     else if (flag == 1)
@@ -75,6 +93,12 @@ void escrituraLogGeneral(char *log, int flag){
     fprintf(file, "[%s] %s", linea, log);
 
     fclose(file);
+
+    sem_post(semaforo_transacciones);
+    sem_post(semaforo_banco);
+
+    sem_close(semaforo_banco);
+    sem_close(semaforo_transacciones);
 }
 
 /// @brief Función para mostrar un "loading spinner"

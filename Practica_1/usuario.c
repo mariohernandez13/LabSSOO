@@ -11,6 +11,15 @@ float conseguirSaldoUsuario(char *id)
 
     float saldoUsuario;
 
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_cuentas);
     file = fopen("cuentas.dat", "r");
 
     if (file == NULL)
@@ -35,6 +44,8 @@ float conseguirSaldoUsuario(char *id)
     }
 
     fclose(file);
+    sem_post(semaforo_cuentas);
+
     return saldoUsuario;
 }
 
@@ -42,7 +53,18 @@ float conseguirSaldoUsuario(char *id)
 /// @param id Número identificador del usuario que realiza la operación
 /// @param saldoActualizado  Saldo después de realizar la operación
 void actualizarCuentas(char *id, float saldoActualizado) {
+
     FILE *archivo;
+    
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_cuentas);
     archivo = fopen("cuentas.dat", "r+");
     if (!archivo) {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
@@ -87,6 +109,8 @@ void actualizarCuentas(char *id, float saldoActualizado) {
     }
 
     fclose(archivo);
+    sem_post(semaforo_cuentas);
+
     escrituraLogGeneral("Cuentas actualizadas correctamente\n", 1);
 }
 
@@ -189,6 +213,9 @@ void *operacionConsultarSaldo(void *id)
     printf("\n=====================================\n");
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);
     printf("=====================================\n");
+    printf("Pulse INTRO para continuar...\n");
+    while (getchar() != '\n');
+    getchar();
 }
 
 /// @brief Función que gestiona los hilos de las funciones
@@ -229,6 +256,8 @@ void menuUsuario(char *id)
     int opcion = 0;
     do
     {
+        system("clear");
+
         printf("=====================================\n");
         printf("        🌟 BIENVENIDO %s 🌟        \n", id);
         printf("=====================================\n");

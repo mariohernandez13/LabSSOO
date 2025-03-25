@@ -6,13 +6,22 @@ CONFIG configuracion;
 /// @return valor numérico que indica la validez de la lectura
 int leer_configuracion()
 {
-
     FILE *file;
     int state = 0;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
 
     char username[MAX_LINE_LENGTH] = "";
+
+    semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
+
+    if (semaforo_config == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_config);
 
     file = fopen("banco.config", "r");
 
@@ -69,7 +78,11 @@ int leer_configuracion()
 
     fclose(file);
 
+    sem_post(semaforo_config);
+
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
+
+    sem_close(semaforo_config);
 
     return (state);
 }
@@ -85,7 +98,7 @@ void limpiezaString(char *string)
 
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
-void registroCuenta(Cuenta cuenta, sem_t *semaforo)
+void registroCuenta(Cuenta cuenta)
 {
 
     FILE *file;
@@ -95,7 +108,16 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo)
     limpiezaString(cuenta.titular);
     limpiezaString(cuenta.saldo);
 
-    sem_wait(semaforo);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_cuentas);
     file = fopen("cuentas.dat", "a+");
 
     if (file == NULL)
@@ -116,17 +138,22 @@ void registroCuenta(Cuenta cuenta, sem_t *semaforo)
 
     fputs(linea, file);
 
+    sem_wait(semaforo_banco);
     escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n", 0);
+    sem_post(semaforo_banco);
 
     fclose(file);
-    sem_post(semaforo);
+
+    sem_post(semaforo_cuentas);
+    sem_close(semaforo_cuentas);
+    sem_close(semaforo_banco);
 }
 
 /// @brief Función que comprueba si el id pasado como parámetro se encuentra en el archivo "cuentas.dat"
 /// @param id Id que queremos comprobar, desde el login o desde el registro
 /// @param flag Variable que nos indica si nos encontramos ante un caso de LogIn o de registro
 /// @return Devuelve un valor numérico que indica si es válido el id o no: 0 = error en id // 1 = id valido
-int existeID(char *id, int flag, sem_t *semaforo)
+int existeID(char *id, int flag)
 {
 
     limpiezaString(id);
@@ -136,7 +163,16 @@ int existeID(char *id, int flag, sem_t *semaforo)
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
 
-    sem_wait(semaforo);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    sem_wait(semaforo_cuentas);
+
     file = fopen("cuentas.dat", "r");
 
     if (file == NULL)
@@ -171,8 +207,10 @@ int existeID(char *id, int flag, sem_t *semaforo)
     }
 
     fclose(file);
-    sem_post(semaforo);
 
+    sem_post(semaforo_cuentas);
+    sem_close(semaforo_cuentas);
+    
     return esValido;
 }
 
@@ -180,7 +218,7 @@ int existeID(char *id, int flag, sem_t *semaforo)
 /// @param id Id introducido por el usuario en el resgistro
 /// @param flag Valor que indica si se está llegando a la función desde LogIn o desde registro: 0 = registro || 1 = LogIn
 /// @return Valor numérico que indica validez del Id: 0 = error en id // 1 = id valido
-int comprobarId(char *id, int flag, sem_t *semaforo)
+int comprobarId(char *id, int flag)
 {
 
     int validez = 1;
@@ -191,13 +229,13 @@ int comprobarId(char *id, int flag, sem_t *semaforo)
         return validez;
     }
 
-    validez = existeID(id, flag, semaforo);
+    validez = existeID(id, flag);
 
     return validez;
 }
 
 /// @brief Menú de registro del Banco
-void registro(sem_t *semaforo)
+void registro()
 {
 
     Cuenta cuenta;
@@ -222,14 +260,14 @@ void registro(sem_t *semaforo)
         printf("Introduce tu saldo: \n");
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
-        comprobacion = comprobarId(cuenta.numero_cuenta, 0, semaforo);
+        comprobacion = comprobarId(cuenta.numero_cuenta, 0);
     } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
-    registroCuenta(cuenta, semaforo);
+    registroCuenta(cuenta);
 }
 
 /// @brief Menú de logIn del Banco
-void logIn(sem_t *semaforo)
+void logIn()
 {
 
     char id[MAX_LENGTH_ID];
@@ -251,7 +289,7 @@ void logIn(sem_t *semaforo)
         printf("\n✅ ID ingresado: %s\n", id);
         printf("=====================================\n");
 
-        comprobacion = comprobarId(id, flg_log, semaforo);
+        comprobacion = comprobarId(id, flg_log);
     } while (!comprobacion);
 
     pid = fork();
@@ -271,9 +309,8 @@ void logIn(sem_t *semaforo)
 }
 
 /// @brief Menú de inicio del Banco SafeBank
-void menuBanco(sem_t *semaforo)
+void menuBanco()
 {
-
     int opcion = 0;
 
     do
@@ -299,10 +336,10 @@ void menuBanco(sem_t *semaforo)
         switch (opcion)
         {
         case 1:
-            logIn(semaforo);
+            logIn();
             break;
         case 2:
-            registro(semaforo); // Llamamos a funcion registro
+            registro(); // Llamamos a funcion registro
             break;
         default:
             break;
@@ -321,8 +358,6 @@ int main(int argc, char *argv[])
 
     int state = 0;
 
-    sem_t *semaforo = sem_open("/cuentas_sem", O_CREAT, 0644, 1);
-
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1)
     {
@@ -332,7 +367,7 @@ int main(int argc, char *argv[])
 
     leer_configuracion();
 
-    menuBanco(semaforo);
+    menuBanco();
 
     return (0);
 }

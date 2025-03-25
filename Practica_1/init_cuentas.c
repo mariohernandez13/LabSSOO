@@ -44,23 +44,22 @@ int main()
         usuario,
         monitor};
 
-    /*
-    En caso de no funcionar los semáforos debido a estar bloqueados por otra ejecución anterior usar esto para eliminarlos manualmente
+    
+    // En caso de no funcionar los semáforos debido a estar bloqueados por otra ejecución anterior usar esto para eliminarlos manualmente
+    
     sem_unlink("/semaforo_cuentas");
     sem_unlink("/semaforo_banco");
-    */
-    sem_t *semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
-    sem_t *semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+    sem_unlink("/semaforo_config");
+    sem_unlink("/semaforo_transacciones");
+
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {
         perror("Error al abrir los semáforos");
         exit(1);
     }
-
-    int value;
-    sem_getvalue(semaforo_cuentas, &value);
-    printf("Valor del semáforo antes de sem_wait: %d\n", value);
 
     sem_wait(semaforo_banco);
 
