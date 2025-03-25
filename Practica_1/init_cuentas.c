@@ -1,24 +1,5 @@
 #include "banco.h"
 
-/// @brief Función que se encarga de ejecutar el proceso banco una vez están todos los .c compilados
-void ejecutarBanco(){
-
-    pid_t pid = fork();
-
-    if (pid < 0)
-    {
-        escrituraLogGeneral("Error al hacer fork en ejecutarBanco\n", 0);
-    }
-    else if (pid == 0) // Proceso hijo
-    {
-        escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n", 0);
-
-        execlp("./banco", "./banco", NULL);
-        escrituraLogGeneral("Error al ejecutar ./banco\n", 0);
-        exit(1);
-    }
-}
-
 /// @brief Función que se encarga de compilar todos los archivos .c que albergamos dentro de nuestro repositorio
 /// @param fichero Nombre del fichero sin extensión a compilar
 /// @param i variable de control de iteraciones
@@ -60,11 +41,28 @@ int main()
 
     char *variables[] = {
         banco,
-        usuario, 
-        monitor
-    }; 
+        usuario,
+        monitor};
 
-    sem_t *semaforo_config = sem_open("/semaforo_config", O_CREAT, 0644, 1);
+    /*
+    En caso de no funcionar los semáforos debido a estar bloqueados por otra ejecución anterior usar esto para eliminarlos manualmente
+    sem_unlink("/semaforo_cuentas");
+    sem_unlink("/semaforo_banco");
+    */
+    sem_t *semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    sem_t *semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
+    {
+        perror("Error al abrir los semáforos");
+        exit(1);
+    }
+
+    int value;
+    sem_getvalue(semaforo_cuentas, &value);
+    printf("Valor del semáforo antes de sem_wait: %d\n", value);
+
+    sem_wait(semaforo_banco);
 
     // abrimos el fichero de log de errores
     FILE *archivoErrores = fopen("banco.log", "a");
@@ -73,6 +71,8 @@ int main()
         escrituraLogGeneral("Error al abrir el archivo .log\n", 0);
         return 1;
     }
+
+    sem_wait(semaforo_cuentas);
 
     // abrimos el fichero de cuentas
     FILE *archivoCuentas = fopen("cuentas.dat", "a");
@@ -130,15 +130,26 @@ int main()
         fclose(archivoCuentas);
         fclose(archivoErrores);
     }
+    sem_post(semaforo_cuentas);
+    sem_post(semaforo_banco);
 
     for (int i = 0; i < 3; i++)
         compilarFicheros(variables[i], i);
 
+    sem_wait(semaforo_cuentas);
     escrituraLogGeneral("Compilación exitosa. Ejecutando banco...\n", 0);
+    sem_post(semaforo_cuentas);
+
+    sem_close(semaforo_banco);
+    sem_close(semaforo_cuentas);
 
     execlp("./banco", "./banco", NULL);
+
+    // sem_wait(semaforo_cuentas);
     escrituraLogGeneral("Error al ejecutar ./banco\n", 0);
+    // sem_post(semaforo_cuentas);
+
     exit(1);
-    
+
     return 0;
 }
