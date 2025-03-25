@@ -369,5 +369,6 @@ int main(int argc, char *argv[])
 
     menuBanco();
 
+    system("pkill -f usuario"); // cuando cerramos banco matamos todos los procesos de usuarios
     return (0);
 }
