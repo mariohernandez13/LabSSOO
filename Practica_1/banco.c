@@ -165,9 +165,7 @@ void registroCuenta(Cuenta cuenta)
 
     fputs(linea, file);
 
-    sem_wait(semaforo_banco);
     escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n", 0);
-    sem_post(semaforo_banco);
 
     fclose(file);
 
@@ -190,6 +188,7 @@ int existeID(char *id, int flag)
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
 
+    sem_unlink("/semaforo_cuentas");
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
