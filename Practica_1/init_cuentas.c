@@ -35,6 +35,14 @@ int compilarFicheros(char *fichero, int i)
 /// @return 0 si se ejecuta correctamente / 1 si hay error al abrir el fichero
 int main()
 {
+
+    unlink(FIFO1);
+    unlink(FIFO2);
+    
+    mkfifo(FIFO1, 0666);
+    mkfifo(FIFO2, 0666);
+    
+
     char *banco = "banco";
     char *usuario = "usuario";
     char *monitor = "monitor";

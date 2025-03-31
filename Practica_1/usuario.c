@@ -52,10 +52,11 @@ float conseguirSaldoUsuario(char *id)
 /// @brief Función que se encarga de actualizar el saldo en el archivo cuentas.dat en función de la operación realizada
 /// @param id Número identificador del usuario que realiza la operación
 /// @param saldoActualizado  Saldo después de realizar la operación
-void actualizarCuentas(char *id, float saldoActualizado) {
+void actualizarCuentas(char *id, float saldoActualizado)
+{
 
     FILE *archivo;
-    
+
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
@@ -66,7 +67,8 @@ void actualizarCuentas(char *id, float saldoActualizado) {
 
     sem_wait(semaforo_cuentas);
     archivo = fopen("cuentas.dat", "r+");
-    if (!archivo) {
+    if (!archivo)
+    {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
         return;
     }
@@ -77,22 +79,25 @@ void actualizarCuentas(char *id, float saldoActualizado) {
 
     char *lineasArchivo[MAX_LINE_LENGTH];
 
-    //Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
-    while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH) {
+    // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
+    while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH)
+    {
         lineasArchivo[lineas] = strdup(linea);
         lineas++;
     }
 
-    //Usamos strtok para capturar todos los parámetros de las cuentas
-    for (int i = 0; i < lineas; i++) {
-        char *temp = strdup(lineasArchivo[i]); //Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
+    // Usamos strtok para capturar todos los parámetros de las cuentas
+    for (int i = 0; i < lineas; i++)
+    {
+        char *temp = strdup(lineasArchivo[i]); // Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
         idArchivo = strtok(temp, ",");
         nombre = strtok(NULL, ",");
         saldo = strtok(NULL, ",");
         numeroTransacciones = strtok(NULL, ",");
 
-        //La línea que coincide con el id del usuario se actualiza con su saldo 
-        if (idArchivo && strcmp(idArchivo, id) == 0) {  
+        // La línea que coincide con el id del usuario se actualiza con su saldo
+        if (idArchivo && strcmp(idArchivo, id) == 0)
+        {
             snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%s,%.2f,%s",
                      idArchivo, nombre, saldoActualizado, numeroTransacciones ? numeroTransacciones : "0");
         }
@@ -100,12 +105,13 @@ void actualizarCuentas(char *id, float saldoActualizado) {
         free(temp);
     }
 
-    rewind(archivo); //Colocar el puntero al principio del fichero cuentas.dat
+    rewind(archivo); // Colocar el puntero al principio del fichero cuentas.dat
 
-    //Reescribe todo el archivo cuentas.dat
-    for (int i = 0; i < lineas; i++) {
+    // Reescribe todo el archivo cuentas.dat
+    for (int i = 0; i < lineas; i++)
+    {
         fputs(lineasArchivo[i], archivo);
-        free(lineasArchivo[i]);  
+        free(lineasArchivo[i]);
     }
 
     fclose(archivo);
@@ -134,25 +140,26 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
         escrituraLogGeneral("Operacion retiro done\n", 1);
         break;
     }
-    
+
     actualizarCuentas(id, saldoActual);
     return saldoActual;
 }
 
-/// @brief Función que permite al usuario introducir el saldo que va a ingresar 
+/// @brief Función que permite al usuario introducir el saldo que va a ingresar
 /// @param id Cuenta del usuario logueado
 void *operacionDeposito(void *id)
 {
-    char *_id = (char *) id;
+    char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoDepositar = 0;
 
     do
     {
         printf("Introduce cantidad a depositar: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         scanf("%f", &saldoDepositar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1); 
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
     } while (saldoDepositar <= 0);
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
@@ -160,9 +167,9 @@ void *operacionDeposito(void *id)
 
 /// @brief Función que permite al usuario realizar una transferencia a otro usuario
 /// @param id Cuenta del usuario logueado
-void *operacionTransferencia(void* id)
+void *operacionTransferencia(void *id)
 {
-    char *_id = (char *) id;
+    char *_id = (char *)id;
     char *idDestinatario;
     float saldoTransferir = 0;
     float saldo = conseguirSaldoUsuario(_id);
@@ -171,24 +178,25 @@ void *operacionTransferencia(void* id)
     do
     {
         printf("Introduce id destinatario: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
         printf("hasta aqui llego\n");
-        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n", 1); 
+        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n", 1);
     } while (saldoTransferir <= 0);
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
 }
 
-/// @brief Función que permite al usuario introducir el saldo que va a retirar 
+/// @brief Función que permite al usuario introducir el saldo que va a retirar
 /// @param id Cuenta del usuario logueado
-void *operacionRetiro(void* id)
+void *operacionRetiro(void *id)
 {
-    char *_id = (char *) id;
+    char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoRetirar = 1;
     do
@@ -196,16 +204,16 @@ void *operacionRetiro(void* id)
         if (saldoRetirar <= 0)
             escrituraLogGeneral("Error: Saldo introducido para transacción \n", 1);
         printf("Introduce cantidad a retirar: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         scanf("%f", &saldoRetirar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1); 
+        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
     } while (saldoRetirar <= 0);
-    
-    
+
     realizarOperacion(saldo, saldoRetirar, 1, _id);
 }
 
-/// @brief Muestra al usuario por pantalla su saldo 
+/// @brief Muestra al usuario por pantalla su saldo
 /// @param id Cuenta del usuario logueado
 void *operacionConsultarSaldo(void *id)
 {
@@ -214,7 +222,8 @@ void *operacionConsultarSaldo(void *id)
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);
     printf("=====================================\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     getchar();
 }
 
@@ -223,14 +232,6 @@ void *operacionConsultarSaldo(void *id)
 /// @param id Cuenta del usuario logueado
 void ejecutarOperacion(int opcion, char *id)
 {
-
-    //! TENEMOS PENSADO CREAR UNA TUBERÍA AQUÍ ENTRE USUARIOS Y BANCO EN LA QUE SE NOTIFIQUE DE LA OPERACIÓN QUE HA HECHO
-    // EL BANCO LA RECIBE Y ENVÍA A MONITOR POR OTRA PIPE UN AVISO DE QUE HA OCURRIDO UNA OPERACIÓN Y QUE PUEDO REVISAR EL ARCHIVO DE TRANSACCIONES
-    // DE ESTA FORMA VE SI HAY ALGÚN FALLO / ANOMALÍA
-
-
-    // DEFINIR ERRORES: ERRORES MÁS DE N VECES, CONTADOR DE ERRORES GENERALES, ESPECÍFICO DE OPERACIONES CONCRETAS -> PETAS
-    // CUANDO PASE ESTO, RECIBIMOS EL ERROR = SEÑAL KILL A TODO ?? O CERRAR SESIÓN. LISTAR PROCESOS Y MATARLOS, en ps aux se ve el id y el pid del proceso
 
     pthread_t hilo;
 

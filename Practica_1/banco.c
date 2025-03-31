@@ -87,6 +87,33 @@ int leer_configuracion()
     return (state);
 }
 
+void recibir_alertas()
+{
+    int fifo_fd;
+    char buffer[256];
+
+    if (mkfifo(FIFO1, 0666) == -1)
+    {
+        escrituraLogGeneral("Error al crear la tubería FIFO1\n", 0);
+        return;
+    }
+
+    fifo_fd = open(FIFO1, O_RDONLY);
+    if (fifo_fd == -1)
+    {
+        escrituraLogGeneral("Error al abrir la tubería en banco", 0);
+        return;
+    }
+
+    while (read(fifo_fd, buffer, sizeof(buffer)) > 0)
+    {
+        printf("🚨 ALERTA RECIBIDA: %s\n", buffer);
+        // system("pkill -f usuario"); en caso de que queramos cerrar el terminal del usuario.
+    }
+
+    close(fifo_fd);
+}
+
 /// @brief Limpia los strings de "\n"
 /// @param string String que queremos "limpiar" de caracteres indeseados
 void limpiezaString(char *string)
@@ -210,7 +237,7 @@ int existeID(char *id, int flag)
 
     sem_post(semaforo_cuentas);
     sem_close(semaforo_cuentas);
-    
+
     return esValido;
 }
 
@@ -284,7 +311,8 @@ void logIn()
         printf("=====================================\n");
         printf("💳 Introduce tu ID (debe ser 1000 o mayor): ");
 
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         fgets(id, sizeof(id), stdin);
         printf("\n✅ ID ingresado: %s\n", id);
         printf("=====================================\n");

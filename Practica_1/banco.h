@@ -3,6 +3,7 @@
 #include <signal.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <sys/stat.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
@@ -17,6 +18,9 @@
 #define MAX_LENGTH_SALDO 10
 #define MAX_LENGTH_ID 6
 
+#define FIFO1 "/tmp/fifo1"
+#define FIFO2 "/tmp/fifo2"
+
 sem_t *semaforo_transacciones;
 sem_t *semaforo_config;
 sem_t *semaforo_cuentas;
@@ -26,8 +30,10 @@ sem_t *semaforo_banco;
 typedef struct {
     int limiteRetiros;
     int limiteTransferencia;
+    int limiteIngreso;
     int umbralRetiros;
     int umbralTransferencias;
+    int umbralIngreso;
     int numHilos;
     char archivoCuentas[MAX_LINE_LENGTH];
     char archivoLog[MAX_LINE_LENGTH];
