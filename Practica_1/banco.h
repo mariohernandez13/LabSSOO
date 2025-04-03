@@ -41,6 +41,14 @@ typedef struct {
     char archivoTransacciones[MAX_LINE_LENGTH];
 } CONFIG;
 
+/// @brief Estructura de los errores para cada usuario
+typedef struct {
+    char id;
+    char errorRetiro;
+    char errorIngreso;
+    char errorTransaccion;
+} Errores;
+
 /// @brief Estructura que define una cuenta dentro del sistema
 typedef struct
 {   
