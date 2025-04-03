@@ -163,6 +163,10 @@ void *operacionDeposito(void *id)
     } while (saldoDepositar <= 0);
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
+    printf("Depósito realizado con éxito\n");
+    printf("Pulse INTRO para continuar...\n");
+    while (getchar() != '\n');
+    getchar();
 }
 
 /// @brief Función que permite al usuario realizar una transferencia a otro usuario
@@ -190,6 +194,10 @@ void *operacionTransferencia(void *id)
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
+    printf("Transferencia realizada con éxito\n");
+    printf("Pulse INTRO para continuar...\n");
+    while (getchar() != '\n');
+    getchar();
 }
 
 /// @brief Función que permite al usuario introducir el saldo que va a retirar
@@ -211,6 +219,10 @@ void *operacionRetiro(void *id)
     } while (saldoRetirar <= 0);
 
     realizarOperacion(saldo, saldoRetirar, 1, _id);
+    printf("Retiro realizado con éxito\n");
+    printf("Pulse INTRO para continuar...\n");
+    while (getchar() != '\n');
+    getchar();
 }
 
 /// @brief Muestra al usuario por pantalla su saldo
@@ -293,3 +305,6 @@ int main(int argc, char *argv[])
     else if (argc == 1)
         escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario\n", 0);
 }
+
+// TODO crear una función que escriba/aumente el número de errores por usuario, para que lo pueda leer monitor y así pase la alerta con su id al banco
+// TODO si hacemos un simulador de ps aux para ver las sesiones podemos coger el PID (guardar en archivos temp) y cerrar solo esa sesión.

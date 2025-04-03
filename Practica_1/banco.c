@@ -23,7 +23,7 @@ int leer_configuracion()
 
     sem_wait(semaforo_config);
 
-    file = fopen("banco.config", "r");
+    file = fopen("config/banco.config", "r");
 
     if (file == NULL)
     {
@@ -87,36 +87,39 @@ int leer_configuracion()
     return (state);
 }
 
-void recibir_alertas()
+/// @brief
+/// @return
+void *recibirAlertas()
 {
     int fifo_fd;
     char buffer[256];
 
     // Verificar si la FIFO ya existe
-    if (access(FIFO1, F_OK) != 0)
+
+    if (mkfifo(FIFO1, 0666) == -1)
     {
-        if (mkfifo(FIFO1, 0666) == -1)
-        {
-            escrituraLogGeneral("🟥 Error al crear la tubería FIFO1\n", 0);
-            return;
-        }
+        escrituraLogGeneral("🟥 Error al crear la tubería FIFO1 en banco\n", 0);
     }
 
     fifo_fd = open(FIFO1, O_RDONLY);
+
     if (fifo_fd == -1)
     {
         escrituraLogGeneral("🟥 Error al abrir la tubería en banco", 0);
-        return;
     }
 
-    while (read(fifo_fd, buffer, sizeof(buffer)) > 0)
+    while (1)
     {
-        buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
-        printf("🚨 ALERTA RECIBIDA: %s\n", buffer);
-
+        if (read(fifo_fd, buffer, sizeof(buffer)) > 0)
+        {
+            buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
+            escrituraLogGeneral("🚨 ALERTA RECIBIDA\n", 0);
+        }
+        sleep(5);
     }
 
     close(fifo_fd);
+    return NULL;
 }
 
 /// @brief Limpia los strings de "\n"
@@ -128,7 +131,7 @@ void limpiezaString(char *string)
             string[i] = '\0';
 }
 
-/// 
+///
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
 void registroCuenta(Cuenta cuenta)
@@ -341,6 +344,18 @@ void logIn()
     }
 }
 
+/// @brief función que crea el hilopara leer la tubería constantemente
+void iniciarHiloAlerta()
+{
+    pthread_t hiloAlerta;
+
+    // Crear el hilo para recibir alertas
+    if (pthread_create(&hiloAlerta, NULL, &recibirAlertas, NULL) != 0)
+    {
+        escrituraLogGeneral("🟥 Error al crear el hilo de alertas\n", 0);
+    }
+}
+
 /// @brief Menú de inicio del Banco SafeBank
 void menuBanco()
 {
@@ -383,6 +398,21 @@ void menuBanco()
 
 int main(int argc, char *argv[])
 {
+    unlink(FIFO1);
+    unlink(FIFO2);
+
+    // mkfifo(FIFO1, 0666);
+    // mkfifo(FIFO2, 0666);
+
+    pid_t pid = fork();
+
+    if (pid == 0)
+    {
+        execlp("gnome-terminal", "gnome-terminal", "--", "./monitor", NULL);
+        escrituraLogGeneral("Error al ejecutar ./monitor\n", 0);
+        exit(1);
+    }
+
     int fd[2];
 
     char buffer[100];
@@ -400,8 +430,12 @@ int main(int argc, char *argv[])
 
     leer_configuracion();
 
+    iniciarHiloAlerta();
+
     menuBanco();
 
     system("pkill -f usuario"); // cuando cerramos banco matamos todos los procesos de usuarios
+    system("pkill -f monitor");
+
     return (0);
 }

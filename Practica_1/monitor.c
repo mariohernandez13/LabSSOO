@@ -14,7 +14,7 @@ int leer_configuracion()
 
     char username[MAX_LINE_LENGTH] = "";
 
-    file = fopen("banco.config", "r");
+    file = fopen("config/banco.config", "r");
 
     if (file == NULL)
     {
@@ -90,12 +90,18 @@ void enviar_alerta(char *mensaje)
 {
     int fifo_fd;
 
+    // Verificar si la FIFO ya existe
+    // if (access(FIFO1, F_OK) == 0)
+    // {
+    //     escrituraLogGeneral("La FIFO ya existe\n", 0);
+    // }
+
     // Crear la tubería si no existe
-    if (mkfifo(FIFO1, 0666) == -1)
-    {
-        escrituraLogGeneral("Error al crear la tubería FIFO1\n", 0);
-        return;
-    }
+    // if (mkfifo(FIFO1, 0666) == -1)
+    // {
+    //     escrituraLogGeneral("Error al crear la tubería FIFO1\n", 0);
+    //     return;
+    // }
 
     fifo_fd = open(FIFO1, O_WRONLY);
 
@@ -109,7 +115,7 @@ void enviar_alerta(char *mensaje)
     close(fifo_fd);
 }
 
-int leer_transacciones()
+/*int leer_transacciones()
 {
     FILE *file;
     int state = 0;
@@ -144,23 +150,7 @@ int leer_transacciones()
         return 1;
     }
 
-    while (fgets(linea, sizeof(linea), file))
-    {
-        linea[strcspn(linea, "\n")] = 0;
-        // Mirar una posible conversión de esto a un switch case en el futuro
-        if (strstr(linea, "Error") != NULL)
-        {
-            contadorErroresGenerales++;
-        }
-        else if (strstr(linea, "Operación") != NULL)
-        {
-            contadorTransaccion++;
-            if (configuracion.limiteTransferencia == contadorTransaccion)
-            {
-                enviar_alerta("🚨 ALERTA\n"); // tubería
-            }
-        }
-    }
+
 
     fclose(file);
 
@@ -170,22 +160,21 @@ int leer_transacciones()
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (state);
-}
-
+}*/
 void leer_errores()
 {
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
     int id;
     int totalErrores, errorRetiro, errorIngreso, errorTransaccion;
-    char *key, *value;
+    char *key;
     char mensajeAlerta[100];
 
     file = fopen("data/errores.dat", "r");
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de errores\n", 0);
         return;
     }
 
@@ -194,39 +183,41 @@ void leer_errores()
         linea[strcspn(linea, "\n")] = 0;
 
         key = strtok(linea, ",");
-        int id = atoi(key);
+        id = atoi(key);
 
         key = strtok(NULL, ",");
-        int errorRetiro = atoi(key);
+        errorRetiro = atoi(key);
 
         key = strtok(NULL, ",");
-        int errorIngreso = atoi(key);
+        errorIngreso = atoi(key);
 
         key = strtok(NULL, ",");
-        int errorTransaccion = atoi(key);
+        errorTransaccion = atoi(key);
 
+        // solo se pueden cometer 5 errores generales o 3 específicos de una operación
         totalErrores = errorIngreso + errorRetiro + errorTransaccion;
 
-        if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso 
-            || errorRetiro >= configuracion.umbralTransferencias || totalErrores > configuracion.umbralTotal)
+        if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
-            
-            enviar_alerta(mensajeAlerta);
+
+            enviar_alerta(mensajeAlerta); //añadir además el id
         }
     }
-    fclose(file);
 
+    fclose(file);
 }
 
 int main(int argc, char *argv[])
 {
+    printf("Pulse INTRO para continuar...\n");
+
     leer_configuracion();
 
     while (1)
     {
         leer_errores();
-        leer_transacciones();
-        sleep(5); // Pequeña pausa para evitar uso excesivo de CPU
+        // leer_transacciones();
+        sleep(5); // Pequeña pausa 
     }
 
     return 0;
