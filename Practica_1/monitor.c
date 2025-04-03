@@ -136,7 +136,7 @@ int leer_transacciones()
 
     sem_wait(semaforo_transacciones);
 
-    file = fopen("transacciones.log", "r");
+    file = fopen("logs/transacciones.log", "r");
 
     if (file == NULL)
     {
@@ -157,7 +157,7 @@ int leer_transacciones()
             contadorTransaccion++;
             if (configuracion.limiteTransferencia == contadorTransaccion)
             {
-                enviar_alerta("🚨 ALERTA RECIBIDA:\n"); // tubería
+                enviar_alerta("🚨 ALERTA\n"); // tubería
             }
         }
     }
@@ -179,16 +179,19 @@ void leer_errores()
     int id;
     int totalErrores, errorRetiro, errorIngreso, errorTransaccion;
     char *key, *value;
+    char mensajeAlerta[100];
 
-    file = fopen("errores.dat", 'r');
+    file = fopen("data/errores.dat", "r");
 
-    if (file == NULL){
+    if (file == NULL)
+    {
         escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n", 0);
         return;
     }
 
-    while (fgets(linea, sizeof(linea), file)) {
-        linea[strcspn(linea, "\n")] = 0; 
+    while (fgets(linea, sizeof(linea), file))
+    {
+        linea[strcspn(linea, "\n")] = 0;
 
         key = strtok(linea, ",");
         int id = atoi(key);
@@ -201,19 +204,30 @@ void leer_errores()
 
         key = strtok(NULL, ",");
         int errorTransaccion = atoi(key);
-        
+
         totalErrores = errorIngreso + errorRetiro + errorTransaccion;
 
-        if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores > configuracion.umbralTotal)
+        if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso 
+            || errorRetiro >= configuracion.umbralTransferencias || totalErrores > configuracion.umbralTotal)
         {
-            //Que vamos a hacer?
-            system("pkill -f usuario"); // cuando monitor detecta el numero de anomalia matamos todos los procesos de usuarios
+            
+            enviar_alerta(mensajeAlerta);
         }
-        
     }
+    fclose(file);
+
 }
 
 int main(int argc, char *argv[])
 {
     leer_configuracion();
+
+    while (1)
+    {
+        leer_errores();
+        leer_transacciones();
+        sleep(5); // Pequeña pausa para evitar uso excesivo de CPU
+    }
+
+    return 0;
 }

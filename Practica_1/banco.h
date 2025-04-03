@@ -27,7 +27,8 @@ sem_t *semaforo_cuentas;
 sem_t *semaforo_banco;
 
 /// @brief Estructura de la configuración del sistema del banco
-typedef struct {
+typedef struct
+{
     int limiteRetiros;
     int limiteTransferencia;
     int limiteIngreso;
@@ -51,7 +52,7 @@ typedef struct {
 
 /// @brief Estructura que define una cuenta dentro del sistema
 typedef struct
-{   
+{
     char numero_cuenta[MAX_LENGTH_ID];
     char titular[MAX_LENGTH_NAME];
     char saldo[MAX_LENGTH_SALDO];
@@ -60,15 +61,16 @@ typedef struct
 
 typedef struct
 {
-    char* tipoTransaccion[50];
-    char* mensaje[255];
+    char *tipoTransaccion[50];
+    char *mensaje[255];
     int cantidad;
 } Transaccion;
 
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
 /// @param log Mensaje a imprimir en el archivo
 /// @param flag Variable que indica si la escritura va dirigida hacia el archivo "banco.log" o "transacciones.log" | 0 = banco.log - 1 = transacciones.log
-void escrituraLogGeneral(char *log, int flag){
+void escrituraLogGeneral(char *log, int flag)
+{
 
     FILE *file;
     char linea[MAX_LINE_LENGTH];
@@ -90,9 +92,9 @@ void escrituraLogGeneral(char *log, int flag){
     sem_wait(semaforo_transacciones);
 
     if (flag == 0)
-        file = fopen("banco.log", "a+");
+        file = fopen("logs/banco.log", "a+");
     else if (flag == 1)
-        file = fopen("transacciones.log", "a+");
+        file = fopen("logs/transacciones.log", "a+");
 
     if (file == NULL)
     {
@@ -101,7 +103,7 @@ void escrituraLogGeneral(char *log, int flag){
     }
 
     time(&t);
-    tm_info = localtime(&t); // esta funcion asigna los valores de la fecha y hora actuales al struct declarado arriba
+    tm_info = localtime(&t);                                      // esta funcion asigna los valores de la fecha y hora actuales al struct declarado arriba
     strftime(linea, sizeof(linea), "%Y-%m-%d %H:%M:%S", tm_info); // esta funcion crear el string con los valores propios de la fecha y hora actuales
 
     // Escribimos en el archivo de log la acción realizada
@@ -116,17 +118,30 @@ void escrituraLogGeneral(char *log, int flag){
     sem_close(semaforo_transacciones);
 }
 
-/// @brief Función para mostrar un "loading spinner"
-void mostrarCarga() {
-    char spinner[] = {'|', '/', '-', '\\'};
-    int i = 0;
-    printf("Cargando");
-    while (i < 10) {  // Limitar a un número de veces para no ser molesto
-        printf("%c", spinner[i % 4]);
-        fflush(stdout);  // Fuerza la salida en consola
-        usleep(200000);  // Pausa de 200 milisegundos
-        printf("\b");  // Elimina el último caracter mostrado
-        i++;
+/// @brief Función para mostrar un "loading bar"
+void mostrarCarga()
+{
+    char barra[] = "===============================";
+    printf("Cargando: ");
+    for (int i = 0; i <= 30; i++)
+    {
+        printf("\rCargando: [%.*s] %d%%", i, barra, (i * 100) / 30);
+        fflush(stdout);
+        usleep(100000); // 100ms
+    }
+    printf("\n");
+}
+
+
+/// @brief funcion de carga con puntos suspensivos
+void carga_animada() {
+    for (int i = 0; i < 3; i++) {
+        printf("\rCargando");
+        for (int j = 0; j <= i; j++) {
+            printf(".");
+        }
+        fflush(stdout);
+        sleep(1);
     }
     printf("\n");
 }

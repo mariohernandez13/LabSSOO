@@ -92,23 +92,28 @@ void recibir_alertas()
     int fifo_fd;
     char buffer[256];
 
-    if (mkfifo(FIFO1, 0666) == -1)
+    // Verificar si la FIFO ya existe
+    if (access(FIFO1, F_OK) != 0)
     {
-        escrituraLogGeneral("Error al crear la tubería FIFO1\n", 0);
-        return;
+        if (mkfifo(FIFO1, 0666) == -1)
+        {
+            escrituraLogGeneral("🟥 Error al crear la tubería FIFO1\n", 0);
+            return;
+        }
     }
 
     fifo_fd = open(FIFO1, O_RDONLY);
     if (fifo_fd == -1)
     {
-        escrituraLogGeneral("Error al abrir la tubería en banco", 0);
+        escrituraLogGeneral("🟥 Error al abrir la tubería en banco", 0);
         return;
     }
 
     while (read(fifo_fd, buffer, sizeof(buffer)) > 0)
     {
+        buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
         printf("🚨 ALERTA RECIBIDA: %s\n", buffer);
-        // system("pkill -f usuario"); en caso de que queramos cerrar el terminal del usuario.
+
     }
 
     close(fifo_fd);
@@ -123,6 +128,7 @@ void limpiezaString(char *string)
             string[i] = '\0';
 }
 
+/// 
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
 void registroCuenta(Cuenta cuenta)
@@ -145,7 +151,7 @@ void registroCuenta(Cuenta cuenta)
     }
 
     sem_wait(semaforo_cuentas);
-    file = fopen("cuentas.dat", "a+");
+    file = fopen("data/cuentas.dat", "a+");
 
     if (file == NULL)
     {
@@ -199,7 +205,7 @@ int existeID(char *id, int flag)
 
     sem_wait(semaforo_cuentas);
 
-    file = fopen("cuentas.dat", "r");
+    file = fopen("data/cuentas.dat", "r");
 
     if (file == NULL)
     {
@@ -271,13 +277,13 @@ void registro()
     do
     {
         if (!comprobacion)
-            printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");    
-            
+            printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
 
         printf("Bienvenido al registro de SafeBank\n");
 
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
-        while (getchar() != '\n'); // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
+        while (getchar() != '\n')
+            ; // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
         fgets(cuenta.titular, sizeof(cuenta.titular), stdin);
 
         printf("Introduce tu id: (a partir de 100): \n");
