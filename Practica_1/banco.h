@@ -34,6 +34,7 @@ typedef struct {
     int umbralRetiros;
     int umbralTransferencias;
     int umbralIngreso;
+    int umbralTotal;
     int numHilos;
     char archivoCuentas[MAX_LINE_LENGTH];
     char archivoLog[MAX_LINE_LENGTH];

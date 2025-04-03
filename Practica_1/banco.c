@@ -271,13 +271,13 @@ void registro()
     do
     {
         if (!comprobacion)
-            printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
+            printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");    
+            
 
         printf("Bienvenido al registro de SafeBank\n");
 
         printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
-        while (getchar() != '\n')
-            ; // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
+        while (getchar() != '\n'); // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
         fgets(cuenta.titular, sizeof(cuenta.titular), stdin);
 
         printf("Introduce tu id: (a partir de 100): \n");

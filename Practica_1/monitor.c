@@ -56,6 +56,10 @@ int leer_configuracion()
             {
                 configuracion.umbralIngreso = atoi(value);
             }
+            else if (strcmp(key, "UMBRAL_TOTAL") == 0)
+            {
+                configuracion.umbralTotal = atoi(value);
+            }
             else if (strcmp(key, "NUM_HILOS") == 0)
             {
                 configuracion.numHilos = atoi(value);
@@ -168,7 +172,46 @@ int leer_transacciones()
     return (state);
 }
 
+void leer_errores()
+{
+    FILE *file;
+    char linea[MAX_LINE_LENGTH] = "";
+    int id;
+    int totalErrores, errorRetiro, errorIngreso, errorTransaccion;
+    char *key, *value;
 
+    file = fopen("errores.dat", 'r');
+
+    if (file == NULL){
+        escrituraLogGeneral("🟥 Error al abrir el archivo de configuración\n", 0);
+        return;
+    }
+
+    while (fgets(linea, sizeof(linea), file)) {
+        linea[strcspn(linea, "\n")] = 0; 
+
+        key = strtok(linea, ",");
+        int id = atoi(key);
+
+        key = strtok(NULL, ",");
+        int errorRetiro = atoi(key);
+
+        key = strtok(NULL, ",");
+        int errorIngreso = atoi(key);
+
+        key = strtok(NULL, ",");
+        int errorTransaccion = atoi(key);
+        
+        totalErrores = errorIngreso + errorRetiro + errorTransaccion;
+
+        if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores > configuracion.umbralTotal)
+        {
+            //Que vamos a hacer?
+            system("pkill -f usuario"); // cuando monitor detecta el numero de anomalia matamos todos los procesos de usuarios
+        }
+        
+    }
+}
 
 int main(int argc, char *argv[])
 {
