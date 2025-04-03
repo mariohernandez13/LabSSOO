@@ -72,7 +72,7 @@ int main()
     sem_wait(semaforo_banco);
 
     // abrimos el fichero de log de errores
-    FILE *archivoErrores = fopen("banco.log", "a");
+    FILE *archivoErrores = fopen("logs/banco.log", "a");
     if (archivoErrores == NULL)
     {
         escrituraLogGeneral("Error al abrir el archivo .log\n", 0);

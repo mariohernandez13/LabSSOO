@@ -20,7 +20,7 @@ float conseguirSaldoUsuario(char *id)
     }
 
     sem_wait(semaforo_cuentas);
-    file = fopen("cuentas.dat", "r");
+    file = fopen("data/cuentas.dat", "r");
 
     if (file == NULL)
     {
@@ -66,7 +66,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
     }
 
     sem_wait(semaforo_cuentas);
-    archivo = fopen("cuentas.dat", "r+");
+    archivo = fopen("data/cuentas.dat", "r+");
     if (!archivo)
     {
         escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
@@ -222,8 +222,7 @@ void *operacionConsultarSaldo(void *id)
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);
     printf("=====================================\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n')
-        ;
+    while (getchar() != '\n');
     getchar();
 }
 
