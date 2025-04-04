@@ -52,7 +52,7 @@ int leer_configuracion()
             {
                 configuracion.umbralTransferencias = atoi(value);
             }
-            else if (strcmp(key, "UMBRAL_INGRESO") == 0)
+            else if (strcmp(key, "UMBRAL_INGRESOS") == 0)
             {
                 configuracion.umbralIngreso = atoi(value);
             }
@@ -115,7 +115,7 @@ void enviar_alerta(char *mensaje)
     close(fifo_fd);
 }
 
-/*int leer_transacciones()
+int leer_transacciones()
 {
     FILE *file;
     int state = 0;
@@ -150,8 +150,6 @@ void enviar_alerta(char *mensaje)
         return 1;
     }
 
-
-
     fclose(file);
 
     sem_post(semaforo_transacciones);
@@ -160,7 +158,9 @@ void enviar_alerta(char *mensaje)
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (state);
-}*/
+}
+
+/// @brief Función que se encarga de leer el archivo de errores y enviar una alerta al banco si se supera el umbral
 void leer_errores()
 {
     FILE *file;
@@ -199,7 +199,7 @@ void leer_errores()
 
         if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
-
+            escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco\n", 0);
             enviar_alerta(mensajeAlerta); //añadir además el id
         }
     }
@@ -207,6 +207,10 @@ void leer_errores()
     fclose(file);
 }
 
+/// @brief Función main de monitor, se encarga de leer el archivo de configuración y el de errores
+/// @param argc 
+/// @param argv 
+/// @return 
 int main(int argc, char *argv[])
 {
     printf("Pulse INTRO para continuar...\n");
@@ -215,8 +219,8 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        leer_errores();
         // leer_transacciones();
+        leer_errores();
         sleep(5); // Pequeña pausa 
     }
 

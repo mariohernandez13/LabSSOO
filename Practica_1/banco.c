@@ -110,12 +110,18 @@ void *recibirAlertas()
 
     while (1)
     {
-        if (read(fifo_fd, buffer, sizeof(buffer)) > 0)
+        ssize_t bytesRead = read(fifo_fd, buffer, sizeof(buffer));
+        if (bytesRead > 0)
         {
             buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
             escrituraLogGeneral("🚨 ALERTA RECIBIDA\n", 0);
         }
-        sleep(5);
+        else if (bytesRead == -1)
+        {
+            escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1\n", 0);
+            break;
+        }
+        sleep(10);
     }
 
     close(fifo_fd);
