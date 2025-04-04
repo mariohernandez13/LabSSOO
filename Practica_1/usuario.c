@@ -2,6 +2,61 @@
 
 CONFIG configuracion;
 
+/// @brief Funcion para escribir en el log de transacciones
+/// @param flagOperacion 1 = Ingreso, 2 = Retiro, 3 = Transferencia
+/// @param flagEstado 1 = OK, 0 = ERROR
+/// @param id ID del usuario que realiza la operación
+/// @param cantidad Cantidad de dinero de la operación
+void escribirLogOperacion(int flagOperacion, int flagEstado, char *id, float cantidad)
+{
+    char log[255];
+    char *estado;
+    char *tipo;
+    char *mensaje;
+
+    // Determinar estado
+    if (flagEstado == 1)
+        estado = "OK";
+    else
+        estado = "ERROR";
+
+    // Determinar tipo de operacion
+    switch (flagOperacion)
+    {
+    case 1:
+        tipo = "Ingreso";
+        if (flagEstado == 1)
+            mensaje = "✅ Ingreso realizado correctamente";
+        else
+            mensaje = "🟥 Error en el ingreso";
+
+        break;
+    case 2:
+        tipo = "Retiro";
+        if (flagEstado == 1)
+            mensaje = "✅ Retiro realizado correctamente";
+        else
+            mensaje = "🟥 Error en el retiro";
+
+        break;
+    case 3:
+        tipo = "Transferencia";
+        if (flagEstado == 1)
+            mensaje = "✅ Transferencia realizada correctamente";
+        else
+            mensaje = "🟥 Error en la transferencia";
+
+        break;
+    default:
+        tipo = "Desconocido";
+        mensaje = "🟥 Operación desconocida";
+    }
+
+    snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", estado, tipo, mensaje, id, cantidad);
+
+    escrituraLogGeneral(log, 1);
+}
+
 /// @brief Funcion que trata de conseguir el saldo del usuario en base a su ID
 /// @param id Id del usuario
 /// @return Devuelve el saldo del usuario
@@ -17,7 +72,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir los semáforos",1);
+        escrituraLogGeneral("Error al abrir los semáforos", 1);
         exit(1);
     }
 
@@ -154,36 +209,33 @@ void *operacionDeposito(void *id)
     char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoDepositar = 0;
+    int esValido = 1; // Es valido
+    configuracion = leer_configuracion(configuracion);
 
     do
     {
+        esValido = 1;
         printf("Introduce cantidad a depositar: \n");
         while (getchar() != '\n')
             ;
         scanf("%f", &saldoDepositar);
         escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
-    } while (saldoDepositar <= 0);
+
+        if (saldoDepositar <= 0 || saldoDepositar > configuracion.limiteIngreso)
+        {
+            esValido = 0;
+            escribirLogOperacion(1, 0, _id, saldoDepositar);
+        }
+
+    } while (!esValido);
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
+    escribirLogOperacion(1, 1, _id, saldoDepositar);
     printf("Depósito realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     getchar();
-}
-
-void escrituraMensajeError(float saldo)
-{
-    Transaccion transaccion;
-    char *mensaje;
-    char *estado;
-    char *tipo;
-    char log[255];
-
-    mensaje = "🟥 Cantidad transferencia introducida es incorrecta";
-    tipo = "Transferencia";
-    estado = "ERROR";
-    snprintf(log, sizeof(log), "%s,%s,%s,%f", estado, tipo, mensaje, saldo);
-    escrituraLogGeneral(log, 1);
 }
 
 /// @brief Función que permite al usuario realizar una transferencia a otro usuario
@@ -199,36 +251,38 @@ void *operacionTransferencia(void *id)
     char *estado;
     char *tipo;
     char log[255];
+    int esValido = 1;
+    configuracion = leer_configuracion(configuracion);
 
     do
     {
+        esValido = 1;
         printf("Introduce id destinatario: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
-        idDestinatario[strcspn(idDestinatario, "\n")] = 0; //Eliminar \n para que saldoDestinatario no vuelva vacio
+        idDestinatario[strcspn(idDestinatario, "\n")] = 0; // Eliminar \n para que saldoDestinatario no vuelva vacio
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir < 0)
-            escrituraMensajeError(saldoTransferir);
-        if (saldoTransferir > configuracion.limiteTransferencia)
-            escrituraMensajeError(saldoTransferir);
+        if (saldoTransferir > configuracion.limiteTransferencia) //Comprobar id existe, etc...
+        {
+            escribirLogOperacion(3, 0, _id, saldoTransferir);
+            esValido = 0;
+        }
+        
 
-    } while (saldoTransferir <= 0);
+    } while (!esValido);
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
     printf("Transferencia realizada con éxito\n");
-    
-    mensaje = "✅ Cantidad transferencia introducida correctamente";
-    tipo = "Transferencia";
-    estado = "OK";
-    snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f", estado, tipo, mensaje, _id, saldoTransferir);
-    escrituraLogGeneral(log, 1);
+    escribirLogOperacion(3, 1, _id, saldoTransferir);
 
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     getchar();
 }
 
@@ -239,21 +293,29 @@ void *operacionRetiro(void *id)
     char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoRetirar = 1;
+    int esValido = 1;
+    configuracion = leer_configuracion(configuracion);
     do
     {
-        if (saldoRetirar <= 0)
-            escrituraLogGeneral("Error: Saldo introducido para transacción \n", 1);
+        esValido = 1;
         printf("Introduce cantidad a retirar: \n");
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
         scanf("%f", &saldoRetirar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
-    } while (saldoRetirar <= 0);
+        if (saldoRetirar <= 0 || saldoRetirar > configuracion.limiteRetiros)
+        {
+            escrituraLogGeneral("Error: Saldo introducido para transacción \n", 1);
+            escribirLogOperacion(2, 0, _id, saldoRetirar);
+            esValido = 0;
+        }
+    } while (!esValido);
 
     realizarOperacion(saldo, saldoRetirar, 1, _id);
+    escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
+    escribirLogOperacion(2, 1, _id, saldoRetirar);
     printf("Retiro realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     getchar();
 }
 
@@ -266,7 +328,8 @@ void *operacionConsultarSaldo(void *id)
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);
     printf("=====================================\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     getchar();
 }
 
