@@ -40,15 +40,6 @@
 [2025-03-25 21:15:31] Operacion retiro done
 [2025-03-25 21:15:31] Cuentas actualizadas correctamente
 [2025-03-25 21:15:31] Operacion ingreso done
-[2025-03-25 21:15:31] Cuentas actualizadas correctamente
-[2025-03-25 21:15:33] Saldo consultado exitosamente
-[2025-03-25 21:16:06] Saldo consultado exitosamente
-[2025-03-25 21:18:46] Saldo consultado exitosamente
-[2025-03-25 21:19:31] Saldo consultado exitosamente
-[2025-03-25 21:22:14] Saldo consultado exitosamente
-[2025-03-25 21:24:13] Saldo consultado exitosamente
-[2025-03-25 21:24:17] Saldo consultado exitosamente
-[2025-03-31 17:31:51] Saldo consultado exitosamente
 [2025-03-31 17:31:54] ✅ Cantidad retiro introducido correctamente.
 [2025-03-31 17:31:54] Operacion ingreso done
 [2025-03-31 17:31:54] Cuentas actualizadas correctamente
@@ -129,13 +120,110 @@
 [2025-04-04 13:44:40] Operacion ingreso done
 [2025-04-04 13:44:40] Cuentas actualizadas correctamente
 [2025-04-04 13:44:43] Saldo consultado exitosamente
-[2025-04-04 13:44:47] Saldo consultado exitosamente
-[2025-04-04 13:45:52] Saldo consultado exitosamente
-[2025-04-04 13:46:15] Saldo consultado exitosamente
-[2025-04-04 13:51:58] Saldo consultado exitosamente
-[2025-04-04 13:52:02] Saldo consultado exitosamente
 [2025-04-04 13:52:06] Operacion retiro done
 [2025-04-04 13:52:06] Cuentas actualizadas correctamente
 [2025-04-04 13:52:06] Operacion ingreso done
 [2025-04-04 13:52:06] Cuentas actualizadas correctamente
 [2025-04-04 13:52:06] OK,Transferencia,✅ Cantidad transferencia introducida correctamente,1001,100.000000
+[2025-04-04 21:49:41] Saldo consultado exitosamente
+[2025-04-04 21:49:43] Saldo consultado exitosamente
+[2025-04-04 21:49:45] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 21:49:45] Operacion ingreso done
+[2025-04-04 21:49:45] Cuentas actualizadas correctamente
+[2025-04-04 21:49:45] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 21:55:23] Saldo consultado exitosamente
+[2025-04-04 21:55:24] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 21:55:24] Operacion ingreso done
+[2025-04-04 21:55:24] Cuentas actualizadas correctamente
+[2025-04-04 21:55:24] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 21:55:26] Saldo consultado exitosamente
+[2025-04-04 21:55:26] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 21:55:26] Operacion ingreso done
+[2025-04-04 21:55:26] Cuentas actualizadas correctamente
+[2025-04-04 21:55:26] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 21:55:28] Saldo consultado exitosamente
+[2025-04-04 21:55:29] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 21:55:30] Operacion ingreso done
+[2025-04-04 21:55:30] Cuentas actualizadas correctamente
+[2025-04-04 21:55:30] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 21:55:31] Saldo consultado exitosamente
+[2025-04-04 21:55:32] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 21:55:32] Operacion ingreso done
+[2025-04-04 21:55:32] Cuentas actualizadas correctamente
+[2025-04-04 21:55:32] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:10:35] Saldo consultado exitosamente
+[2025-04-04 23:10:36] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:10:36] Operacion ingreso done
+[2025-04-04 23:10:36] Cuentas actualizadas correctamente
+[2025-04-04 23:10:36] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:39:43] Saldo consultado exitosamente
+[2025-04-04 23:39:44] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:39:44] Operacion ingreso done
+[2025-04-04 23:39:44] Cuentas actualizadas correctamente
+[2025-04-04 23:39:44] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:39:46] Saldo consultado exitosamente
+[2025-04-04 23:39:47] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:39:47] Operacion ingreso done
+[2025-04-04 23:39:47] Cuentas actualizadas correctamente
+[2025-04-04 23:39:47] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:39:48] Saldo consultado exitosamente
+[2025-04-04 23:39:49] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:39:49] Operacion ingreso done
+[2025-04-04 23:39:49] Cuentas actualizadas correctamente
+[2025-04-04 23:39:49] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:39:50] Saldo consultado exitosamente
+[2025-04-04 23:39:51] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:39:51] Operacion ingreso done
+[2025-04-04 23:39:51] Cuentas actualizadas correctamente
+[2025-04-04 23:39:51] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:39:53] Saldo consultado exitosamente
+[2025-04-04 23:39:56] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:39:56] ERROR,Ingreso,🟥 Error en el ingreso,1001,100000002537764290115403776.00
+[2025-04-04 23:40:00] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:40:00] ERROR,Ingreso,🟥 Error en el ingreso,1001,9999999562023526247432192.00
+[2025-04-04 23:40:02] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:40:02] ERROR,Ingreso,🟥 Error en el ingreso,1001,100000001504746621987668885504.00
+[2025-04-04 23:40:05] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:40:05] ERROR,Ingreso,🟥 Error en el ingreso,1001,1000000015047466219876688855040.00
+[2025-04-04 23:41:00] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:41:00] Operacion ingreso done
+[2025-04-04 23:41:00] Cuentas actualizadas correctamente
+[2025-04-04 23:41:00] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-04 23:43:25] Saldo consultado exitosamente
+[2025-04-04 23:43:27] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:43:27] ERROR,Ingreso,🟥 Error en el ingreso,1001,1000000.00
+[2025-04-04 23:43:29] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:43:29] ERROR,Ingreso,🟥 Error en el ingreso,1001,10000000.00
+[2025-04-04 23:43:30] ✅ Cantidad retiro introducido correctamente.
+[2025-04-04 23:43:30] Operacion ingreso done
+[2025-04-04 23:43:30] Cuentas actualizadas correctamente
+[2025-04-04 23:43:30] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-05 00:05:43] Saldo consultado exitosamente
+[2025-04-05 00:05:44] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:05:44] Operacion ingreso done
+[2025-04-05 00:05:44] Cuentas actualizadas correctamente
+[2025-04-05 00:05:44] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-05 00:05:46] Saldo consultado exitosamente
+[2025-04-05 00:05:46] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:05:46] Operacion ingreso done
+[2025-04-05 00:05:47] Cuentas actualizadas correctamente
+[2025-04-05 00:05:47] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-05 00:05:51] Saldo consultado exitosamente
+[2025-04-05 00:05:53] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:05:53] ERROR,Ingreso,🟥 Error en el ingreso,1001,9999999778196308361216.00
+[2025-04-05 00:08:02] Saldo consultado exitosamente
+[2025-04-05 00:08:03] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:08:03] Operacion ingreso done
+[2025-04-05 00:08:03] Cuentas actualizadas correctamente
+[2025-04-05 00:08:03] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-05 00:08:04] Saldo consultado exitosamente
+[2025-04-05 00:08:05] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:08:05] Operacion ingreso done
+[2025-04-05 00:08:05] Cuentas actualizadas correctamente
+[2025-04-05 00:08:05] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-04-05 00:08:06] Saldo consultado exitosamente
+[2025-04-05 00:08:08] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:08:08] ERROR,Ingreso,🟥 Error en el ingreso,1001,999999986991104.00
+[2025-04-05 00:09:55] Saldo consultado exitosamente
+[2025-04-05 00:09:58] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 00:09:58] ERROR,Ingreso,🟥 Error en el ingreso,1001,10000000000.00

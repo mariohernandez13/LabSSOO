@@ -52,7 +52,7 @@ void limpiezaString(char *string)
             string[i] = '\0';
 }
 
-///
+
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
 void registroCuenta(Cuenta cuenta)
@@ -181,7 +181,7 @@ int comprobarId(char *id, int flag)
     if (atoi(id) < 100)
     {
         validez = 0;
-        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 100\n", 0);
+        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 1000\n", 0);
         return validez;
     }
 
@@ -231,8 +231,12 @@ void logIn()
     int comprobacion = 1;
     pid_t pid;
 
+    
     do
     {
+        int c;
+        while ((c = getchar()) != '\n' && c != EOF);
+        
         system("clear");
 
         printf("=====================================\n");
@@ -240,13 +244,23 @@ void logIn()
         printf("=====================================\n");
         printf("💳 Introduce tu ID (debe ser 1000 o mayor): ");
 
-        while (getchar() != '\n')
-            ;
-        fgets(id, sizeof(id), stdin);
+        fflush(stdout);
+
+        if (fgets(id, sizeof(id), stdin) == NULL) {
+            printf("❌ Error al leer el ID. Intenta nuevamente.\n");
+            continue;
+        }
+
         printf("\n✅ ID ingresado: %s\n", id);
         printf("=====================================\n");
 
         comprobacion = comprobarId(id, flg_log);
+
+        if (!comprobacion)
+        {
+            printf("❌ ID inválido o no registrado. Por favor, intenta nuevamente.\n");
+        }
+
     } while (!comprobacion);
 
     pid = fork();
@@ -260,8 +274,9 @@ void logIn()
     else if (pid == 0)
     { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
-        // execlp("./usuario", "./usuario", id, NULL);
+        //execlp("x-terminal-emulator", "x-terminal-emulator", "-e", "./usuario", id, NULL); otra forma por si falla
         escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n", 0);
+        exit(1);
     }
 }
 

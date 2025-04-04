@@ -53,6 +53,8 @@ void escribirLogOperacion(int flagOperacion, int flagEstado, char *id, float can
     }
 
     snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", estado, tipo, mensaje, id, cantidad);
+    // ?? snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", id, tipo, estado, mensaje, cantidad);
+
 
     escrituraLogGeneral(log, 1);
 }
@@ -233,8 +235,7 @@ void *operacionDeposito(void *id)
     escribirLogOperacion(1, 1, _id, saldoDepositar);
     printf("Depósito realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
-    while (getchar() != '\n')
-        ;
+    while (getchar() != '\n');
     getchar();
 }
 
@@ -266,12 +267,11 @@ void *operacionTransferencia(void *id)
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir > configuracion.limiteTransferencia) //Comprobar id existe, etc...
+        if (saldoTransferir > configuracion.limiteTransferencia) // Comprobar id existe, etc...
         {
             escribirLogOperacion(3, 0, _id, saldoTransferir);
             esValido = 0;
         }
-        
 
     } while (!esValido);
 
@@ -299,7 +299,8 @@ void *operacionRetiro(void *id)
     {
         esValido = 1;
         printf("Introduce cantidad a retirar: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
         scanf("%f", &saldoRetirar);
         if (saldoRetirar <= 0 || saldoRetirar > configuracion.limiteRetiros)
         {

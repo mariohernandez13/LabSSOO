@@ -23,7 +23,7 @@ void enviar_alerta(char *mensaje)
 
     if (fifo_fd == -1)
     {
-        escrituraLogGeneral("Error al abrir la tubuería en monitor", 0);
+        escrituraLogGeneral("🟥 Error al abrir la tubuería en monitor\n", 0);
         return;
     }
 
@@ -31,6 +31,88 @@ void enviar_alerta(char *mensaje)
     close(fifo_fd);
 }
 
+/// @brief Actualiza el archivo errores.dat incrementando el tipo de error correspondiente
+/// @param id ID del usuario (como string)
+/// @param tipoError Tipo de error: 0=retiro, 1=ingreso, 2=transferencia
+void escribir_errores(char *id, int tipoError)
+{
+    FILE *archivo = fopen("data/errores.dat", "r+");
+    if (!archivo)
+    {
+        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
+        return;
+    }
+
+    char linea[MAX_LINE_LENGTH];
+    char nuevaLinea[MAX_LINE_LENGTH];
+    char *lineasArchivo[1000];
+    int totalLineas = 0;
+    int encontrado = 0;
+
+    // Leer todas las líneas del archivo
+    while (fgets(linea, sizeof(linea), archivo))
+    {
+        lineasArchivo[totalLineas] = strdup(linea);
+        totalLineas++;
+    }
+
+    // Buscar y actualizar la línea correspondiente al ID
+    for (int i = 0; i < totalLineas; i++)
+    {
+        char *temp = strdup(lineasArchivo[i]);
+        temp[strcspn(temp, "\n")] = 0;
+
+        char *token = strtok(temp, ",");
+        if (token && strcmp(token, id) == 0)
+        {
+            int errorRetiro = atoi(strtok(NULL, ","));
+            int errorIngreso = atoi(strtok(NULL, ","));
+            int errorTrans = atoi(strtok(NULL, ","));
+
+            if (tipoError == 0)
+                errorRetiro++;
+            else if (tipoError == 1)
+                errorIngreso++;
+            else if (tipoError == 2)
+                errorTrans++;
+
+            snprintf(nuevaLinea, sizeof(nuevaLinea), "%s,%d,%d,%d\n", id, errorRetiro, errorIngreso, errorTrans);
+            free(lineasArchivo[i]);
+            lineasArchivo[i] = strdup(nuevaLinea);
+            encontrado = 1;
+        }
+
+        free(temp);
+    }
+
+    // Si no se encontró el ID, añadir nueva línea
+    if (!encontrado)
+    {
+        int e0 = 0, e1 = 0, e2 = 0;
+        if (tipoError == 0)
+            e0 = 1;
+        if (tipoError == 1)
+            e1 = 1;
+        if (tipoError == 2)
+            e2 = 1;
+
+        snprintf(nuevaLinea, sizeof(nuevaLinea), "%s,%d,%d,%d\n", id, e0, e1, e2);
+        lineasArchivo[totalLineas++] = strdup(nuevaLinea);
+    }
+
+    // Reescribir el archivo desde cero
+    freopen("data/errores.dat", "w", archivo);
+    for (int i = 0; i < totalLineas; i++)
+    {
+        fputs(lineasArchivo[i], archivo);
+        free(lineasArchivo[i]);
+    }
+
+    fclose(archivo);
+    escrituraLogGeneral("🟩 Errores escritos correctamente en errores.dat\n", 0);
+}
+
+/// @return
 int leer_transacciones()
 {
     FILE *file;
@@ -40,13 +122,6 @@ int leer_transacciones()
     int contadorTransaccion = 0;
     char username[MAX_LINE_LENGTH] = "";
     char buffer[100];
-
-    //! TENEMOS PENSADO CREAR UNA TUBERÍA AQUÍ ENTRE USUARIOS Y BANCO EN LA QUE SE NOTIFIQUE DE LA OPERACIÓN QUE HA HECHO
-    // EL BANCO LA RECIBE Y ENVÍA A MONITOR POR OTRA PIPE UN AVISO DE QUE HA OCURRIDO UNA OPERACIÓN Y QUE PUEDO REVISAR EL ARCHIVO DE TRANSACCIONES
-    // DE ESTA FORMA VE SI HAY ALGÚN FALLO / ANOMALÍA
-
-    // DEFINIR ERRORES: ERRORES MÁS DE N VECES, CONTADOR DE ERRORES GENERALES, ESPECÍFICO DE OPERACIONES CONCRETAS -> PETAS
-    // CUANDO PASE ESTO, RECIBIMOS EL ERROR = SEÑAL KILL A TODO ?? O CERRAR SESIÓN. LISTAR PROCESOS Y MATARLOS, en ps aux se ve el id y el pid del proceso
 
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
 
@@ -62,8 +137,45 @@ int leer_transacciones()
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de transacciones\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de transacciones\n", 0);
         return 1;
+    }
+
+    // Leer el archivo línea por línea
+    while (fgets(linea, sizeof(linea), file))
+    {
+        linea[strcspn(linea, "\n")] = 0; // Eliminar salto de línea
+
+        // Saltar el timestamp (todo hasta el primer ']')
+        char *contenido = strchr(linea, ']');
+        if (contenido)
+            contenido++; // Mover justo después de ']'
+        else
+            continue;
+
+        // Procesar la línea desde contenido (no desde linea)
+        char *estado = strtok(contenido, ",");
+        char *tipo = strtok(NULL, ",");
+        char *mensaje = strtok(NULL, ",");
+        char *id = strtok(NULL, ",");
+        char *cantidadStr = strtok(NULL, ",");
+
+        if (!estado || !tipo || !id)
+            continue;
+
+        if (strcmp(estado, "ERROR") == 0)
+        {
+            int tipoError = -1;
+            if (strcmp(tipo, "Retiro") == 0)
+                tipoError = 0;
+            else if (strcmp(tipo, "Ingreso") == 0)
+                tipoError = 1;
+            else if (strcmp(tipo, "Transferencia") == 0)
+                tipoError = 2;
+
+            if (tipoError != -1)
+                escribir_errores(id, tipoError);
+        }
     }
 
     fclose(file);
@@ -71,7 +183,7 @@ int leer_transacciones()
     sem_post(semaforo_transacciones);
     sem_close(semaforo_transacciones);
 
-    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo transacciones.log\n", 0);
 
     return (state);
 }
@@ -116,28 +228,46 @@ void leer_errores()
         if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
             escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco\n", 0);
-            enviar_alerta(mensajeAlerta); //añadir además el id
+            enviar_alerta(mensajeAlerta); // añadir además el id
         }
     }
 
     fclose(file);
 }
 
+/// @brief Función que muestra la configración de errores del archivo properties
+void mostrar_configuracion()
+{
+    printf("\n⚙️  CONFIGURACIÓN ACTUAL:\n");
+    printf("🔢 Umbral Total: %d\n", configuracion.umbralTotal);
+    printf("💸 Umbral Retiros: %d\n", configuracion.umbralRetiros);
+    printf("💰 Umbral Ingresos: %d\n", configuracion.umbralIngreso);
+    printf("🔁 Umbral Transferencias: %d\n", configuracion.umbralTransferencias);
+}
+
 /// @brief Función main de monitor, se encarga de leer el archivo de configuración y el de errores
-/// @param argc 
-/// @param argv 
-/// @return 
+/// @param argc
+/// @param argv
+/// @return
 int main(int argc, char *argv[])
 {
-    printf("Pulse INTRO para continuar...\n");
+    printf("=============================================\n");
+    printf("🛡️  MONITOR DE ANOMALÍAS - SAFEBANK SYSTEM 🛡️\n");
+    printf("=============================================\n");
+
+    printf("1️⃣ Ver log de eventos generales\n");
+    printf("2️⃣ Ver configuración actual\n");
+    printf("3️⃣ Recargar configuración\n");
+    printf("4️⃣ Salir\n");
+    printf("🡆 Elige una opción: ");
 
     configuracion = leer_configuracion(configuracion);
 
     while (1)
     {
-        // leer_transacciones();
+        leer_transacciones();
         leer_errores();
-        sleep(5); // Pequeña pausa 
+        sleep(5); // Pequeña pausa
     }
 
     return 0;
