@@ -7,11 +7,14 @@
 int compilarFicheros(char *fichero, int i)
 {
     pid_t pid = fork();
+    CONFIG configuracion;
 
     char ficheroc[50];
 
     strcpy(ficheroc, fichero);
     strcat(ficheroc, ".c");
+
+    configuracion = leer_configuracion(configuracion);
 
     if (pid < 0)
     {

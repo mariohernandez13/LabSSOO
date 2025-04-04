@@ -1,5 +1,7 @@
 #include "banco.h"
 
+CONFIG configuracion;
+
 /// @brief Funcion que trata de conseguir el saldo del usuario en base a su ID
 /// @param id Id del usuario
 /// @return Devuelve el saldo del usuario
@@ -15,7 +17,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        escrituraLogGeneral("Error al abrir los semáforos",1);
         exit(1);
     }
 
@@ -169,31 +171,62 @@ void *operacionDeposito(void *id)
     getchar();
 }
 
+void escrituraMensajeError(float saldo)
+{
+    Transaccion transaccion;
+    char *mensaje;
+    char *estado;
+    char *tipo;
+    char log[255];
+
+    mensaje = "🟥 Cantidad transferencia introducida es incorrecta";
+    tipo = "Transferencia";
+    estado = "ERROR";
+    snprintf(log, sizeof(log), "%s,%s,%s,%f", estado, tipo, mensaje, saldo);
+    escrituraLogGeneral(log, 1);
+}
+
 /// @brief Función que permite al usuario realizar una transferencia a otro usuario
 /// @param id Cuenta del usuario logueado
 void *operacionTransferencia(void *id)
 {
     char *_id = (char *)id;
-    char *idDestinatario;
+    char idDestinatario[255] = "Hola";
     float saldoTransferir = 0;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoDestinatario = 0;
+    char *mensaje;
+    char *estado;
+    char *tipo;
+    char log[255];
 
     do
     {
         printf("Introduce id destinatario: \n");
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         idDestinatario[strcspn(idDestinatario, "\n")] = 0; //Eliminar \n para que saldoDestinatario no vuelva vacio
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
-        escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n", 1);
+
+        if (saldoTransferir < 0)
+            escrituraMensajeError(saldoTransferir);
+        if (saldoTransferir > configuracion.limiteTransferencia)
+            escrituraMensajeError(saldoTransferir);
+
     } while (saldoTransferir <= 0);
+
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
     printf("Transferencia realizada con éxito\n");
+    
+    mensaje = "✅ Cantidad transferencia introducida correctamente";
+    tipo = "Transferencia";
+    estado = "OK";
+    snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f", estado, tipo, mensaje, _id, saldoTransferir);
+    escrituraLogGeneral(log, 1);
+
     printf("Pulse INTRO para continuar...\n");
     while (getchar() != '\n');
     getchar();
@@ -299,6 +332,8 @@ void menuUsuario(char *id)
 
 int main(int argc, char *argv[])
 {
+    configuracion = leer_configuracion(configuracion);
+
     if (argc == 2)
         menuUsuario(argv[1]);
     else if (argc == 1)

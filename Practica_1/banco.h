@@ -61,9 +61,11 @@ typedef struct
 
 typedef struct
 {
-    char *tipoTransaccion[50];
-    char *mensaje[255];
-    int cantidad;
+    char *estado;
+    char *tipoTransaccion;
+    char *mensaje;
+    char *id;
+    float cantidad;
 } Transaccion;
 
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
@@ -144,4 +146,88 @@ void carga_animada() {
         sleep(1);
     }
     printf("\n");
+}
+
+/// @brief Función que se llama para leer el archivo de configuración
+/// @return valor numérico que indica la validez de la lectura
+CONFIG leer_configuracion(CONFIG configuracion)
+{
+
+    FILE *file;
+    int state = 0;
+    char linea[MAX_LINE_LENGTH] = "";
+    char *key, *value;
+
+    char username[MAX_LINE_LENGTH] = "";
+
+    file = fopen("config/banco.config", "r");
+
+    if (file == NULL)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de configuración\n", 0);
+        exit(1);
+    }
+
+    while (fgets(linea, sizeof(linea), file))
+    {
+        linea[strcspn(linea, "\n")] = 0;
+
+        key = strtok(linea, "=");
+        value = strtok(NULL, "=");
+
+        // Mirar una posible conversión de esto a un switch case en el futuro
+        if (key && value)
+        {
+            if (strcmp(key, "LIMITE_RETIRO") == 0)
+            {
+                configuracion.limiteRetiros = atoi(value);
+            }
+            else if (strcmp(key, "LIMITE_TRANSFERENCIA") == 0)
+            {
+                configuracion.limiteTransferencia = atoi(value);
+            }
+            else if (strcmp(key, "LIMITE_INGRESO") == 0)
+            {
+                configuracion.limiteIngreso = atoi(value);
+            }
+            else if (strcmp(key, "UMBRAL_RETIROS") == 0)
+            {
+                configuracion.umbralRetiros = atoi(value);
+            }
+            else if (strcmp(key, "UMBRAL_TRANSFERENCIAS") == 0)
+            {
+                configuracion.umbralTransferencias = atoi(value);
+            }
+            else if (strcmp(key, "UMBRAL_INGRESOS") == 0)
+            {
+                configuracion.umbralIngreso = atoi(value);
+            }
+            else if (strcmp(key, "UMBRAL_TOTAL") == 0)
+            {
+                configuracion.umbralTotal = atoi(value);
+            }
+            else if (strcmp(key, "NUM_HILOS") == 0)
+            {
+                configuracion.numHilos = atoi(value);
+            }
+            else if (strcmp(key, "ARCHIVO_CUENTAS") == 0)
+            {
+                strncpy(configuracion.archivoCuentas, value, strlen(value));
+            }
+            else if (strcmp(key, "ARCHIVO_TRANSACCIONES") == 0)
+            {
+                strncpy(configuracion.archivoTransacciones, value, MAX_LINE_LENGTH);
+            }
+            else if (strcmp(key, "ARCHIVO_LOG") == 0)
+            {
+                strncpy(configuracion.archivoLog, value, MAX_LINE_LENGTH);
+            }
+        }
+    }
+
+    fclose(file);
+
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
+
+    return (configuracion);
 }
