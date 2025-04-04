@@ -185,13 +185,12 @@ void *operacionTransferencia(void *id)
         while (getchar() != '\n')
             ;
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
+        idDestinatario[strcspn(idDestinatario, "\n")] = 0; //Eliminar \n para que saldoDestinatario no vuelva vacio
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
-        printf("hasta aqui llego\n");
         escrituraLogGeneral("✅ Cantidad transferencia introducida correctamente.\n", 1);
     } while (saldoTransferir <= 0);
-
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
     printf("Transferencia realizada con éxito\n");
