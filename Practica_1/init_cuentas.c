@@ -44,6 +44,7 @@ int main()
         usuario,
         monitor};
 
+    long tamañoArchivoError;
     
     // En caso de no funcionar los semáforos debido a estar bloqueados por otra ejecución anterior usar esto para eliminarlos manualmente
     
@@ -64,8 +65,8 @@ int main()
     sem_wait(semaforo_banco);
 
     // abrimos el fichero de log de errores
-    FILE *archivoErrores = fopen("logs/banco.log", "a");
-    if (archivoErrores == NULL)
+    FILE *archivoLog = fopen("logs/banco.log", "a");
+    if (archivoLog == NULL)
     {
         escrituraLogGeneral("Error al abrir el archivo .log\n", 0);
         return 1;
@@ -78,8 +79,17 @@ int main()
     if (archivoCuentas == NULL)
     {
         escrituraLogGeneral("Error al crear el archivo de cuentas.\n", 0);
-        fclose(archivoErrores);
-        return 1;
+        fclose(archivoLog);
+        return (1);
+    }
+
+    // abrimos o creamos el archivo de errores.dat
+    FILE *archivoErroresDat = fopen("data/errores.dat", "a");
+    if (archivoErroresDat == NULL)
+    {
+        escrituraLogGeneral("Error al crear el archivo de errrores.\n",0);
+        fclose(archivoErroresDat);
+        return (1);
     }
 
     // Comprobar si el fichero de cuentas ya tiene datos
@@ -89,7 +99,7 @@ int main()
     if (tamañoArchivo > 0)
     {
         fclose(archivoCuentas);
-        fclose(archivoErrores);
+        fclose(archivoLog);
     }
     else
     {
@@ -127,11 +137,59 @@ int main()
         }
 
         fclose(archivoCuentas);
-        fclose(archivoErrores);
+        fclose(archivoLog);
     }
+    
     sem_post(semaforo_cuentas);
     sem_post(semaforo_banco);
 
+    // Comprobar si el fichero de cuentas ya tiene datos
+    fseek(archivoErroresDat, 0, SEEK_END);
+    tamañoArchivoError = ftell(archivoErroresDat);
+
+    if (tamañoArchivoError > 0)
+    {
+        fclose(archivoErroresDat);
+    }
+    else
+    {
+        Error errores[] = {
+            {"1001", "0", "0", "0"},
+            {"1002", "0", "0", "0"},
+            {"1003", "0", "0", "0"},
+            {"1004", "0", "0", "0"},
+            {"1005", "0", "0", "0"},
+            {"1006", "0", "0", "0"},
+            {"1007", "0", "0", "0"},
+            {"1008", "0", "0", "0"},
+            {"1009", "0", "0", "0"},
+            {"1010", "0", "0", "0"},
+            {"1011", "0", "0", "0"},
+            {"1012", "0", "0", "0"},
+            {"1013", "0", "0", "0"},
+            {"1014", "0", "0", "0"},
+            {"1015", "0", "0", "0"},
+            {"1016", "0", "0", "0"},
+            {"1017", "0", "0", "0"},
+            {"1018", "0", "0", "0"},
+            {"1019", "0", "0", "0"}
+        };            
+    
+        int numCuentas = sizeof(errores) / sizeof(errores[0]); // Número de cuentas
+
+        // Escribir las cuentas en el archivo
+        for (int i = 0; i < numCuentas; i++)
+        {
+            fprintf(archivoErroresDat, "%s,%s,%s,%s\n",
+                    errores[i].id,
+                    errores[i].errorRetiro,
+                    errores[i].errorIngreso,
+                    errores[i].errorTransaccion);
+        }
+
+        fclose(archivoErroresDat);
+    }
+    
     for (int i = 0; i < 3; i++)
         compilarFicheros(variables[i], i);
 

@@ -44,11 +44,11 @@ typedef struct
 
 /// @brief Estructura de los errores para cada usuario
 typedef struct {
-    char id;
-    char errorRetiro;
-    char errorIngreso;
-    char errorTransaccion;
-} Errores;
+    char *id;
+    char *errorRetiro;
+    char *errorIngreso;
+    char *errorTransaccion;
+} Error;
 
 /// @brief Estructura que define una cuenta dentro del sistema
 typedef struct
