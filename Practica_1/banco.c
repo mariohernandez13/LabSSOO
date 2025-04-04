@@ -394,6 +394,7 @@ void menuBanco()
         }
 
     } while (opcion != 3);
+    system("clear");
 }
 
 int main(int argc, char *argv[])
@@ -435,7 +436,7 @@ int main(int argc, char *argv[])
     menuBanco();
 
     system("pkill -f usuario"); // cuando cerramos banco matamos todos los procesos de usuarios
-    system("pkill -f monitor");
+    system("pkill -f './monitor'");
 
     return (0);
 }

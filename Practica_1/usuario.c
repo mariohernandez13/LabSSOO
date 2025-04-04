@@ -307,3 +307,4 @@ int main(int argc, char *argv[])
 
 // TODO crear una función que escriba/aumente el número de errores por usuario, para que lo pueda leer monitor y así pase la alerta con su id al banco
 // TODO si hacemos un simulador de ps aux para ver las sesiones podemos coger el PID (guardar en archivos temp) y cerrar solo esa sesión.
+// TODO ping al monitor para comprobar que sigue vivo, si no lo sigue, se vuelve a ejecutar desde banco
