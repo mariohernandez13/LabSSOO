@@ -1,6 +1,7 @@
 #include "banco.h"
 
 CONFIG configuracion;
+int contadorAlertas;
 
 /// @brief
 /// @return
@@ -30,13 +31,14 @@ void *recibirAlertas()
         {
             buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
             escrituraLogGeneral("🚨 ALERTA RECIBIDA\n", 0);
+            contadorAlertas++;
         }
         else if (bytesRead == -1)
         {
             escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1\n", 0);
             break;
         }
-        sleep(10);
+        sleep(1);
     }
 
     close(fifo_fd);
@@ -299,6 +301,21 @@ void menuBanco()
 
     do
     {
+        if (contadorAlertas != 0)
+        {
+            
+            system("clear");
+            printf("===================================\n");
+            printf("🚨 ALERTA RECIBIDA\n");
+            sleep(1);
+            printf("🚨 ALERTA RECIBIDA\n");
+            sleep(1);
+            printf("🚨 ALERTA RECIBIDA\n");
+            sleep(1);
+            printf("===================================\n");
+            sleep(3);
+        }
+
         system("clear");
 
         printf("=====================================\n");

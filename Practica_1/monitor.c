@@ -2,22 +2,157 @@
 
 CONFIG configuracion;
 
-void enviar_alerta(char *mensaje)
+
+void resetearErrores()
 {
+    FILE *archivoErrores;
+    char linea[MAX_LINE_LENGTH];
+    int lineas = 0;
+    char *lineasArchivo[MAX_LINE_LENGTH];
+
+    archivoErrores = fopen("data/errores.dat", "w+");
+    if (!archivoErrores)
+    {
+        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
+        return;
+    }
+
+    // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
+    while (fgets(linea, MAX_LINE_LENGTH, archivoErrores) && lineas < MAX_LINE_LENGTH)
+    {
+        lineasArchivo[lineas] = strdup(linea);
+        lineas++;
+    }
+
+    for (int i = 0; i < lineas; i++)
+    {
+        snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%d,%d,%d\n",
+                 lineasArchivo[i], 0, 0, 0); // Reiniciar todos los errores a 0
+    }
+
+    // Reescribe todo el archivo cuentas.dat
+    for (int i = 0; i < lineas; i++)
+    {
+        fputs(lineasArchivo[i], archivoErrores);
+        free(lineasArchivo[i]);
+    }
+
+    fclose(archivoErrores);
+
+    escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados\n", 1);
+}
+
+
+void resetearTransaccionesLog(int id)
+{
+    FILE *archivoTransacciones;
+    char linea[MAX_LINE_LENGTH];
+    char *lineasArchivo[1000];
+    int lineas = 0;
+
+    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
+    if (semaforo_transacciones == SEM_FAILED)
+    {
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de transacciones en monitor al intentar resetear las transacciones\n", 0);
+        exit(1);
+    }
+
+    escrituraLogGeneral("Esperando acceso al archivo transacciones.log para resetear transacciones\n", 0);
+    sem_wait(semaforo_transacciones);
+
+    archivoTransacciones = fopen("logs/transacciones.log", "r");
+    if (!archivoTransacciones)
+    {
+        escrituraLogGeneral("🟥 Error al abrir transacciones.log para lectura\n", 0);
+        sem_post(semaforo_transacciones);
+        return;
+    }
+
+    // Leer todas las líneas del archivo
+    while (fgets(linea, sizeof(linea), archivoTransacciones))
+    {
+        lineasArchivo[lineas] = strdup(linea);
+        lineas++;
+    }
+    fclose(archivoTransacciones);
+
+    printf("%d", lineas);
+
+    // Modificar las líneas que correspondan
+    for (int i = 0; i < lineas; i++)
+    {
+        
+        char contenidoHastaCorchete[MAX_LINE_LENGTH];
+        char *contenido = strchr(lineasArchivo[i], ']');
+        if (contenido)
+        {
+            size_t len = contenido - lineasArchivo[i] + 1; // recogemos la longitud de la cadena hasta el corchete (el +1 es para incluir el corchete)
+            strncpy(contenidoHastaCorchete, lineasArchivo[i], len); // copiamos el valor de la cadena hasta el corchete, incluido
+            contenidoHastaCorchete[len] = '\0'; // Aseguramos la terminación de cadena
+        }
+
+        if (contenido)
+            contenido++; // Mover justo después de ']'
+        else
+            continue;
+
+        char contenidoCopia[MAX_LINE_LENGTH];
+        strncpy(contenidoCopia, contenido, MAX_LINE_LENGTH);
+        contenidoCopia[MAX_LINE_LENGTH - 1] = '\0'; 
+
+        char *estado = strtok(contenidoCopia, ",");
+        char *tipo = strtok(NULL, ",");
+        char *mensaje = strtok(NULL, ",");
+        char *_id = strtok(NULL, ",");
+        char *cantidadStr = strtok(NULL, ",");
+
+        if ((strcmp(estado, " ERROR") == 0) && (id == atoi(_id)))
+        {
+            snprintf(linea, 500, "%s%s,%s,%s,%s,%s",
+                     contenidoHastaCorchete, " ERROR_NOTIFICADO", tipo, mensaje, _id, cantidadStr);
+            free(lineasArchivo[i]);
+            lineasArchivo[i] = strdup(linea);
+        }
+        else if ((strcmp(estado, " OK") == 0) && (id == atoi(_id)))
+        {
+            snprintf(linea, 500, "%s%s,%s,%s,%s,%s",
+                     contenidoHastaCorchete, " OK_REVISADO", tipo, mensaje, _id, cantidadStr);
+            free(lineasArchivo[i]);
+            lineasArchivo[i] = strdup(linea);
+        }
+    }
+
+    // Reescribir el archivo desde cero
+    archivoTransacciones = fopen("logs/transacciones.log", "w");
+    if (!archivoTransacciones)
+    {
+        escrituraLogGeneral("🟥 Error al abrir transacciones.log para escritura\n", 0);
+        for (int i = 0; i < lineas; i++)
+            free(lineasArchivo[i]);
+        sem_post(semaforo_transacciones);
+        return;
+    }
+
+    for (int i = 0; i < lineas; i++)
+    {
+        fputs(lineasArchivo[i], archivoTransacciones);
+        free(lineasArchivo[i]);
+    }
+
+    fclose(archivoTransacciones);
+    sem_post(semaforo_transacciones);
+
+    escrituraLogGeneral("🟩 Transacciones modificadas correctamente para indicar que se ha notificado de los errores encontrados\n", 0);
+}
+
+void enviar_alerta(char *mensaje, int id)
+{
+    resetearTransaccionesLog(id);
+    /*
+    resetearErrores();
+    */
+    
     int fifo_fd;
-
-    // Verificar si la FIFO ya existe
-    // if (access(FIFO1, F_OK) == 0)
-    // {
-    //     escrituraLogGeneral("La FIFO ya existe\n", 0);
-    // }
-
-    // Crear la tubería si no existe
-    // if (mkfifo(FIFO1, 0666) == -1)
-    // {
-    //     escrituraLogGeneral("Error al crear la tubería FIFO1\n", 0);
-    //     return;
-    // }
 
     fifo_fd = open(FIFO1, O_WRONLY);
 
@@ -42,6 +177,8 @@ void escribir_errores(char *id, int tipoError)
         escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
         return;
     }
+
+    sem_post(semaforo_transacciones);
 
     char linea[MAX_LINE_LENGTH];
     char nuevaLinea[MAX_LINE_LENGTH];
@@ -100,6 +237,13 @@ void escribir_errores(char *id, int tipoError)
         lineasArchivo[totalLineas++] = strdup(nuevaLinea);
     }
 
+    /*
+    for (int i = 0; i < totalLineas; i++)
+    {
+        printf("%s", lineasArchivo[i]);
+    }
+    */
+    
     // Reescribir el archivo desde cero
     freopen("data/errores.dat", "w", archivo);
     for (int i = 0; i < totalLineas; i++)
@@ -163,7 +307,10 @@ int leer_transacciones()
         if (!estado || !tipo || !id)
             continue;
 
-        if (strcmp(estado, "ERROR") == 0)
+        //printf("Me he encontrado con la siguiente estado de transaccion linea:%s\n", estado);
+        //sleep(1);
+
+        if (strcmp(estado, " ERROR") == 0)
         {
             int tipoError = -1;
             if (strcmp(tipo, "Retiro") == 0)
@@ -181,7 +328,7 @@ int leer_transacciones()
     fclose(file);
 
     sem_post(semaforo_transacciones);
-    sem_close(semaforo_transacciones);
+    // sem_close(semaforo_transacciones);
 
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo transacciones.log\n", 0);
 
@@ -228,7 +375,7 @@ void leer_errores()
         if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
             escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco\n", 0);
-            enviar_alerta(mensajeAlerta); // añadir además el id
+            enviar_alerta(mensajeAlerta, id); // añadir además el id
         }
     }
 
