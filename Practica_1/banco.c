@@ -59,9 +59,10 @@ void limpiezaString(char *string)
 /// @param cuenta Parametros de la nueva cuenta
 void registroCuenta(Cuenta cuenta)
 {
-
-    FILE *file;
+    FILE *fileCuenta;
+    FILE *fileError;
     char linea[MAX_LINE_LENGTH] = "";
+    char lineaError[MAX_LINE_LENGTH] = "";
 
     // Limpiamos los "\n" de nombre y de saldo porque vienen con dichos caracteres
     limpiezaString(cuenta.titular);
@@ -70,18 +71,30 @@ void registroCuenta(Cuenta cuenta)
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
     semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
 
+    // Si la apertura de cualquiera de los semaforos es erronea, se desestima la funcion y mandamos un log
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        escrituraLogGeneral("Error al abrir uno de los semaforos a la hora de hacer un resgistro", 0);
         exit(1);
     }
 
     sem_wait(semaforo_cuentas);
-    file = fopen("data/cuentas.dat", "a+");
+    fileCuenta = fopen("data/cuentas.dat", "a+");
 
-    if (file == NULL)
+    if (fileCuenta == NULL)
     {
         escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n", 0);
+        fclose(fileCuenta);
+        return;
+    }
+
+    fileError = fopen("data/errores.dat", "a+");
+
+    // Si el archivo falla paramos la funcion y mandamos un log a banco.log
+    if (fileError == NULL)
+    {
+        escrituraLogGeneral("🟥 Error al abrir el archivo de errores\n", 0);
+        fclose(fileError);
         return;
     }
 
@@ -95,12 +108,30 @@ void registroCuenta(Cuenta cuenta)
     strcat(linea, ",");
     strcat(linea, "0");
 
-    fputs(linea, file);
+    fputs(linea, fileCuenta);
 
     escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n", 0);
 
-    fclose(file);
+    fclose(fileCuenta);
 
+    // Concatenamos strings para formar la linea a añadir en el archivo de errores.dat
+    strcpy(lineaError, "\n");
+    strcat(lineaError, cuenta.numero_cuenta);
+    strcat(lineaError, ",");
+    strcat(lineaError, "0");
+    strcat(lineaError, ",");
+    strcat(lineaError, "0");
+    strcat(lineaError, ",");
+    strcat(lineaError, "0");
+    
+    // Ponemos la linea de error en el archivo de errores.dat
+    fputs(lineaError, fileError);
+
+    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat\n", 0);
+
+    fclose(fileError);
+
+    // Manejamos los semaforos para evitar problemas de concurrencia
     sem_post(semaforo_cuentas);
     sem_close(semaforo_cuentas);
     sem_close(semaforo_banco);
@@ -354,9 +385,6 @@ int main(int argc, char *argv[])
 {
     unlink(FIFO1);
     unlink(FIFO2);
-
-    // mkfifo(FIFO1, 0666);
-    // mkfifo(FIFO2, 0666);
 
     pid_t pid = fork();
 

@@ -224,12 +224,20 @@ void *operacionDeposito(void *id)
 
     do
     {
+        if (esValido == 0)
+        {
+            system("clear");
+            printf("=====================================\n");
+            printf("❌ ERROR: Saldo introducido no válido\n");
+            printf("=====================================\n");
+        }
+
         esValido = 1;
         printf("Introduce cantidad a depositar: \n");
         while (getchar() != '\n')
             ;
         scanf("%f", &saldoDepositar);
-        escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
+        escrituraLogGeneral("✅ Cantidad deposito introducido correctamente.\n", 1);
 
         if (saldoDepositar <= 0 || saldoDepositar > configuracion.limiteIngreso)
         {
@@ -241,8 +249,13 @@ void *operacionDeposito(void *id)
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
     escribirLogOperacion(1, 1, _id, saldoDepositar);
-    printf("Depósito realizado con éxito\n");
+    
+    printf("\n");
+    printf("======================================\n");
+    printf("💰 Depósito realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
+    printf("======================================\n");
+    
     while (getchar() != '\n');
     getchar();
 }
@@ -313,6 +326,14 @@ void *operacionRetiro(void *id)
     configuracion = leer_configuracion(configuracion);
     do
     {
+        if (esValido == 0)
+        {
+            system("clear");
+            printf("=====================================\n");
+            printf("❌ ERROR: Saldo introducido no válido\n");
+            printf("=====================================\n");
+        }
+
         esValido = 1;
         printf("Introduce cantidad a retirar: \n");
         while (getchar() != '\n')
@@ -329,8 +350,13 @@ void *operacionRetiro(void *id)
     realizarOperacion(saldo, saldoRetirar, 1, _id);
     escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
     escribirLogOperacion(2, 1, _id, saldoRetirar);
-    printf("Retiro realizado con éxito\n");
+    
+    printf("\n");
+    printf("======================================\n");
+    printf("💰 Retiro realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
+    printf("======================================\n"); 
+
     while (getchar() != '\n')
         ;
     getchar();
