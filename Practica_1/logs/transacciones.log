@@ -147,3 +147,19 @@
 [2025-04-05 22:45:35] Cuentas actualizadas correctamente
 [2025-04-05 22:45:35] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
 [2025-04-05 22:45:47] Errores modificados para indicar que se ha notificado de los errores encontrados
+[2025-04-05 23:05:01] Saldo consultado exitosamente
+[2025-04-05 23:05:03] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:05:03] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1002,99999998430674944.00
+[2025-04-05 23:05:05] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:05:05] Operacion ingreso done
+[2025-04-05 23:05:05] Cuentas actualizadas correctamente
+[2025-04-05 23:05:05] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,1002,100.00
+[2025-04-05 23:06:08] Errores modificados para indicar que se ha notificado de los errores encontrados
+[2025-04-05 23:06:56] Saldo consultado exitosamente
+[2025-04-05 23:06:57] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:06:57] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,1000000.00
+[2025-04-05 23:06:59] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:06:59] Operacion ingreso done
+[2025-04-05 23:06:59] Cuentas actualizadas correctamente
+[2025-04-05 23:06:59] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-04-05 23:07:12] Errores modificados para indicar que se ha notificado de los errores encontrados

@@ -2,7 +2,7 @@
 
 CONFIG configuracion;
 
-
+/// @brief Fucnión que se encarga de resetear el archivo de errores.dat cuando se ha detectado la necesidad de mandar una alerta al sistema
 void resetearErrores()
 {
     FILE *archivoErrores;
@@ -27,7 +27,7 @@ void resetearErrores()
     for (int i = 0; i < lineas; i++)
     {
         char temp[MAX_LINE_LENGTH];
-        strncpy(temp, lineasArchivo[1], MAX_LINE_LENGTH);
+        strncpy(temp, lineasArchivo[i], MAX_LINE_LENGTH);
         temp[MAX_LINE_LENGTH - 1] = '\0'; 
         char *idArchivo = strtok(temp, ",");
 
@@ -48,7 +48,8 @@ void resetearErrores()
     escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados\n", 1);
 }
 
-
+/// @brief Función que se encarga de resetear el archivo de logs de forma que se revisen todas las operaciones a lo largo del archivo. 
+/// @param id ID de la persona que se ha detectado que ha infrigido las normas del banco
 void resetearTransaccionesLog(int id)
 {
     FILE *archivoTransacciones;
@@ -149,8 +150,12 @@ void resetearTransaccionesLog(int id)
     escrituraLogGeneral("🟩 Transacciones modificadas correctamente para indicar que se ha notificado de los errores encontrados\n", 0);
 }
 
+/// @brief Fucnión que se encarga de mandar una alerta y avisar de los reseteos pertinentes para modificar el sistema del banco. 
+/// @param mensaje Mensaje que se está mandando a la tubería que comunica Monitor con Banco
+/// @param id ID de la persona que ha infrngido las normas del banco
 void enviar_alerta(char *mensaje, int id)
 {
+    // Llamamos a las funciones que se encargan de resetear los archivos
     resetearTransaccionesLog(id);
     resetearErrores();
     
@@ -164,6 +169,7 @@ void enviar_alerta(char *mensaje, int id)
         return;
     }
 
+    // Enviamos el mensaje del error desde monitor a Banco a través de la tubería FIFO declarada
     write(fifo_fd, mensaje, strlen(mensaje) + 1);
     close(fifo_fd);
 }
@@ -198,12 +204,15 @@ void escribir_errores(char *id, int tipoError)
     // Buscar y actualizar la línea correspondiente al ID
     for (int i = 0; i < totalLineas; i++)
     {
+        // Copiamos la line actual a una linea temporal para no modificar la original
         char *temp = strdup(lineasArchivo[i]);
+        // Limpiamos el salto de linea
         temp[strcspn(temp, "\n")] = 0;
 
         char *token = strtok(temp, ",");
         if (token && strcmp(token, id) == 0)
         {
+            // recogemos los valores de las variables propias de la estructura de errores
             int errorRetiro = atoi(strtok(NULL, ","));
             int errorIngreso = atoi(strtok(NULL, ","));
             int errorTrans = atoi(strtok(NULL, ","));
@@ -239,13 +248,6 @@ void escribir_errores(char *id, int tipoError)
         lineasArchivo[totalLineas++] = strdup(nuevaLinea);
     }
 
-    /*
-    for (int i = 0; i < totalLineas; i++)
-    {
-        printf("%s", lineasArchivo[i]);
-    }
-    */
-    
     // Reescribir el archivo desde cero
     freopen("data/errores.dat", "w", archivo);
     for (int i = 0; i < totalLineas; i++)
@@ -258,7 +260,8 @@ void escribir_errores(char *id, int tipoError)
     escrituraLogGeneral("🟩 Errores escritos correctamente en errores.dat\n", 0);
 }
 
-/// @return
+/// @brief Funcion que se encarga de revisar el archivo de transacciones.log por completo y contabiliza cuales son los errores dentro de dicho archivo.
+/// @return Devuelve un estado
 int leer_transacciones()
 {
     FILE *file;
@@ -271,6 +274,7 @@ int leer_transacciones()
 
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
 
+    // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
     if (semaforo_transacciones == SEM_FAILED)
     {
         perror("Error al abrir los semáforos");
@@ -309,9 +313,6 @@ int leer_transacciones()
         if (!estado || !tipo || !id)
             continue;
 
-        //printf("Me he encontrado con la siguiente estado de transaccion linea:%s\n", estado);
-        //sleep(1);
-
         if (strcmp(estado, " ERROR") == 0)
         {
             int tipoError = -1;
@@ -330,7 +331,6 @@ int leer_transacciones()
     fclose(file);
 
     sem_post(semaforo_transacciones);
-    // sem_close(semaforo_transacciones);
 
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo transacciones.log\n", 0);
 
@@ -357,8 +357,10 @@ void leer_errores()
 
     while (fgets(linea, sizeof(linea), file))
     {
+        // Eliminamos el salto de linea al final de la cadena
         linea[strcspn(linea, "\n")] = 0;
 
+        // Asignamos valores a las variables propias de la estructura de errores
         key = strtok(linea, ",");
         id = atoi(key);
 
@@ -374,6 +376,7 @@ void leer_errores()
         // solo se pueden cometer 5 errores generales o 3 específicos de una operación
         totalErrores = errorIngreso + errorRetiro + errorTransaccion;
 
+        // comprobamos que el usuario registrado en esta linea no infringe nignuna de las limitaciones impuestas por el sistema del banco
         if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
             escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco\n", 0);
@@ -410,13 +413,13 @@ int main(int argc, char *argv[])
     printf("4️⃣ Salir\n");
     printf("🡆 Elige una opción: ");
 
-    configuracion = leer_configuracion(configuracion);
+    configuracion = leer_configuracion(configuracion); // Leemos la configuracion del sistema
 
     while (1)
     {
-        leer_transacciones();
-        leer_errores();
-        sleep(5); // Pequeña pausa
+        leer_transacciones(); // Llamamos primero a leer tarnsacciones para comprobar cuantos errores se han detectado hasta el momento 
+        leer_errores(); // Se llama a leer errores para comprobar que los errores de los usuarios propios del sistema no excede los limites del banco
+        sleep(5); 
     }
 
     return 0;
