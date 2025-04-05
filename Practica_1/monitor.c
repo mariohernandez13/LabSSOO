@@ -10,14 +10,14 @@ void resetearErrores()
     int lineas = 0;
     char *lineasArchivo[MAX_LINE_LENGTH];
 
-    archivoErrores = fopen("data/errores.dat", "w+");
+    archivoErrores = fopen("data/errores.dat", "r+");
     if (!archivoErrores)
     {
         escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
         return;
     }
 
-    // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
+    // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo errores.dat
     while (fgets(linea, MAX_LINE_LENGTH, archivoErrores) && lineas < MAX_LINE_LENGTH)
     {
         lineasArchivo[lineas] = strdup(linea);
@@ -26,17 +26,23 @@ void resetearErrores()
 
     for (int i = 0; i < lineas; i++)
     {
+        char temp[MAX_LINE_LENGTH];
+        strncpy(temp, lineasArchivo[1], MAX_LINE_LENGTH);
+        temp[MAX_LINE_LENGTH - 1] = '\0'; 
+        char *idArchivo = strtok(temp, ",");
+
         snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%d,%d,%d\n",
-                 lineasArchivo[i], 0, 0, 0); // Reiniciar todos los errores a 0
+                 idArchivo, 0, 0, 0); // Reiniciar todos los errores a 0
+        printf("%s\n", lineasArchivo[i]);
     }
 
-    // Reescribe todo el archivo cuentas.dat
+    // Reescribe todo el archivo errores.dat
+    rewind(archivoErrores); // Volver al inicio del archivo para sobrescribirlo
     for (int i = 0; i < lineas; i++)
     {
         fputs(lineasArchivo[i], archivoErrores);
         free(lineasArchivo[i]);
     }
-
     fclose(archivoErrores);
 
     escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados\n", 1);
@@ -75,8 +81,6 @@ void resetearTransaccionesLog(int id)
         lineas++;
     }
     fclose(archivoTransacciones);
-
-    printf("%d", lineas);
 
     // Modificar las líneas que correspondan
     for (int i = 0; i < lineas; i++)
@@ -148,9 +152,7 @@ void resetearTransaccionesLog(int id)
 void enviar_alerta(char *mensaje, int id)
 {
     resetearTransaccionesLog(id);
-    /*
     resetearErrores();
-    */
     
     int fifo_fd;
 
