@@ -67,6 +67,7 @@ float conseguirSaldoUsuario(char *id)
     FILE *file;
     char linea[MAX_LINE_LENGTH] = "";
     char *key, *value;
+    int encontrado;
 
     float saldoUsuario;
 
@@ -98,8 +99,15 @@ float conseguirSaldoUsuario(char *id)
 
             escrituraLogGeneral("Saldo consultado exitosamente\n", 1);
             saldoUsuario = strtof(key, NULL);
+            encontrado = 1;
             break;
         }
+    }
+
+    if (encontrado != 1)
+    {
+        escrituraLogGeneral("Error: ID no encontrado\n", 1);
+        saldoUsuario = -1;
     }
 
     fclose(file);
@@ -257,6 +265,14 @@ void *operacionTransferencia(void *id)
 
     do
     {
+        if (esValido == 0)
+        {
+            system("clear");
+            printf("=====================================\n");
+            printf("❌ ERROR: ID introducido o saldo a transferir no válido\n");
+            printf("=====================================\n");
+        }
+
         esValido = 1;
         printf("Introduce id destinatario: \n");
         while (getchar() != '\n')
@@ -267,7 +283,7 @@ void *operacionTransferencia(void *id)
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir > configuracion.limiteTransferencia) // Comprobar id existe, etc...
+        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0) // Comprobar id existe, etc...
         {
             escribirLogOperacion(3, 0, _id, saldoTransferir);
             esValido = 0;
