@@ -33,7 +33,6 @@ void resetearErrores()
 
         snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%d,%d,%d\n",
                  idArchivo, 0, 0, 0); // Reiniciar todos los errores a 0
-        printf("%s\n", lineasArchivo[i]);
     }
 
     // Reescribe todo el archivo errores.dat
@@ -52,6 +51,7 @@ void resetearErrores()
 /// @param id ID de la persona que se ha detectado que ha infrigido las normas del banco
 void resetearTransaccionesLog(int id)
 {
+    escrituraLogGeneral("🟥 He entrado a resetear transacciones\n", 0);
     FILE *archivoTransacciones;
     char linea[MAX_LINE_LENGTH];
     char *lineasArchivo[1000];
@@ -156,7 +156,6 @@ void resetearTransaccionesLog(int id)
 void enviar_alerta(char *mensaje, int id)
 {
     // Llamamos a las funciones que se encargan de resetear los archivos
-    resetearTransaccionesLog(id);
     resetearErrores();
     
     int fifo_fd;
@@ -277,7 +276,7 @@ int leer_transacciones()
     // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
     if (semaforo_transacciones == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        escrituraLogGeneral("Error al abrir el semaforo de transacciones", 0);
         exit(1);
     }
 
@@ -325,6 +324,7 @@ int leer_transacciones()
 
             if (tipoError != -1)
                 escribir_errores(id, tipoError);
+            resetearTransaccionesLog(atoi(id));
         }
     }
 

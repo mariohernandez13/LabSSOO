@@ -303,7 +303,7 @@ void menuBanco()
     {
         if (contadorAlertas != 0)
         {
-            
+            contadorAlertas = 0;
             system("clear");
             printf("===================================\n");
             printf("🚨 ALERTA RECIBIDA\n");
