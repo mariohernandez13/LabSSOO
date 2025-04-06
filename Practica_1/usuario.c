@@ -306,10 +306,15 @@ void *operacionTransferencia(void *id)
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
-    printf("Transferencia realizada con éxito\n");
+       
+    printf("\n");
+    printf("======================================\n");
+    printf("💰 Transferencia realizada con éxito\n");
+    printf("Pulse INTRO para continuar...\n");
+    printf("======================================\n"); 
+
     escribirLogOperacion(3, 1, _id, saldoTransferir);
 
-    printf("Pulse INTRO para continuar...\n");
     while (getchar() != '\n')
         ;
     getchar();

@@ -3,6 +3,54 @@
 CONFIG configuracion;
 int contadorAlertas;
 
+void menuAdmin()
+{
+    char contraseña[50] = "";
+    int opcion = 0;
+    int comparacion = 0;
+
+    system("clear");
+    printf("=====================================\n");
+    printf("Introduce la contraseña: \n");
+    while(getchar() != '\n');
+    fgets(contraseña, sizeof(contraseña), stdin);
+
+    comparacion = strcmp(contraseña, "admin");
+
+    if (comparacion != 0)
+    {
+        escrituraLogGeneral("🟥 Contraseña incorrecta\n", 0);
+        return;
+    }
+    else if (strcmp(contraseña, "admin") == 0)
+    {
+        escrituraLogGeneral("Contraseña correcta, accediendo al menú de administrador\n", 0);
+        do{
+
+            system("clear");
+            printf("=====================================\n");
+            printf("       🌟 BIENVENIDO ADMIN 🌟        \n");
+            printf("=====================================\n");
+            printf("1. Mostrar configuracion actual\n");
+            printf("2. Mostrar arbol de procesos de la aplicacion\n");
+            printf("3. Mostrar semaforos activos en el sistema\n");
+            printf("4. Mostrar pid de banco con el pid de los usuarios hijos\n");
+            printf("5. Mostrar hilos activos actualmente\n");
+            printf("6. Salir");
+            scanf("%d", &opcion);
+
+            switch (opcion)
+            {
+                case 6:
+                    break;
+            }
+
+
+        }while (opcion != 6);
+    }
+    return;
+}
+
 /// @brief
 /// @return
 void *recibirAlertas()
@@ -211,7 +259,7 @@ int comprobarId(char *id, int flag)
 {
 
     int validez = 1;
-    if (atoi(id) < 100)
+    if (atoi(id) < 1000)
     {
         validez = 0;
         escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 1000\n", 0);
@@ -307,7 +355,6 @@ void logIn()
     else if (pid == 0)
     { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
-        //execlp("x-terminal-emulator", "x-terminal-emulator", "-e", "./usuario", id, NULL); otra forma por si falla
         escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n", 0);
         exit(1);
     }
@@ -367,6 +414,9 @@ void menuBanco()
 
         switch (opcion)
         {
+        case 0:
+            menuAdmin();
+            break;
         case 1:
             logIn();
             break;
