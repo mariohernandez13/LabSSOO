@@ -13,7 +13,7 @@ void resetearErrores()
     archivoErrores = fopen("data/errores.dat", "r+");
     if (!archivoErrores)
     {
-        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura en monitor.c, en función: resetearErrores\n", 0);
         return;
     }
 
@@ -44,14 +44,14 @@ void resetearErrores()
     }
     fclose(archivoErrores);
 
-    escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados\n", 1);
+    escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores\n", 1);
 }
 
 /// @brief Función que se encarga de resetear el archivo de logs de forma que se revisen todas las operaciones a lo largo del archivo. 
 /// @param id ID de la persona que se ha detectado que ha infrigido las normas del banco
 void resetearTransaccionesLog(int id)
 {
-    escrituraLogGeneral("🟥 He entrado a resetear transacciones\n", 0);
+    escrituraLogGeneral("🟥 Reseteando transacciones...\n", 0);
     FILE *archivoTransacciones;
     char linea[MAX_LINE_LENGTH];
     char *lineasArchivo[1000];
@@ -60,17 +60,17 @@ void resetearTransaccionesLog(int id)
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
     if (semaforo_transacciones == SEM_FAILED)
     {
-        escrituraLogGeneral("🟥 Error al abrir el semáforo de transacciones en monitor al intentar resetear las transacciones\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de transacciones en monitor al intentar resetear las transacciones en monitor.c, en función: resetearTransaccionesLog\n", 0);
         exit(1);
     }
 
-    escrituraLogGeneral("Esperando acceso al archivo transacciones.log para resetear transacciones\n", 0);
+    escrituraLogGeneral("Esperando acceso al archivo transacciones.log para resetear transacciones en monitor.c, en función: resetearTransaccionesLog\n", 0);
     sem_wait(semaforo_transacciones);
 
     archivoTransacciones = fopen("logs/transacciones.log", "r");
     if (!archivoTransacciones)
     {
-        escrituraLogGeneral("🟥 Error al abrir transacciones.log para lectura\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir transacciones.log para lectura en monitor.c, en función: resetearTransaccionesLog\n", 0);
         sem_post(semaforo_transacciones);
         return;
     }
@@ -131,7 +131,7 @@ void resetearTransaccionesLog(int id)
     archivoTransacciones = fopen("logs/transacciones.log", "w");
     if (!archivoTransacciones)
     {
-        escrituraLogGeneral("🟥 Error al abrir transacciones.log para escritura\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir transacciones.log para escritura en monitor.c, en función: resetearTransaccionesLog\n", 0);
         for (int i = 0; i < lineas; i++)
             free(lineasArchivo[i]);
         sem_post(semaforo_transacciones);
@@ -147,7 +147,7 @@ void resetearTransaccionesLog(int id)
     fclose(archivoTransacciones);
     sem_post(semaforo_transacciones);
 
-    escrituraLogGeneral("🟩 Transacciones modificadas correctamente para indicar que se ha notificado de los errores encontrados\n", 0);
+    escrituraLogGeneral("🟩 Transacciones modificadas correctamente para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearTransaccionesLog\n", 0);
 }
 
 /// @brief Fucnión que se encarga de mandar una alerta y avisar de los reseteos pertinentes para modificar el sistema del banco. 
@@ -164,7 +164,7 @@ void enviar_alerta(char *mensaje, int id)
 
     if (fifo_fd == -1)
     {
-        escrituraLogGeneral("🟥 Error al abrir la tubuería en monitor\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir la tubuería en monitor en monitor.c, en función: enviar_alerta\n", 0);
         return;
     }
 
@@ -181,7 +181,7 @@ void escribir_errores(char *id, int tipoError)
     FILE *archivo = fopen("data/errores.dat", "r+");
     if (!archivo)
     {
-        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura en monitor.c, en función: enviar_alerta\n", 0);
         return;
     }
 
@@ -256,7 +256,7 @@ void escribir_errores(char *id, int tipoError)
     }
 
     fclose(archivo);
-    escrituraLogGeneral("🟩 Errores escritos correctamente en errores.dat\n", 0);
+    escrituraLogGeneral("🟩 Errores escritos correctamente en errores.dat en monitor.c, en función: enviar_alerta\n", 0);
 }
 
 /// @brief Funcion que se encarga de revisar el archivo de transacciones.log por completo y contabiliza cuales son los errores dentro de dicho archivo.
@@ -276,7 +276,7 @@ int leer_transacciones()
     // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
     if (semaforo_transacciones == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir el semaforo de transacciones", 0);
+        escrituraLogGeneral("Error al abrir el semaforo de transacciones en monitor.c, en función: leer_transacciones", 0);
         exit(1);
     }
 
@@ -286,7 +286,7 @@ int leer_transacciones()
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de transacciones\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de transacciones en monitor.c, en función: leer_transacciones\n", 0);
         return 1;
     }
 
@@ -332,7 +332,7 @@ int leer_transacciones()
 
     sem_post(semaforo_transacciones);
 
-    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo transacciones.log\n", 0);
+    escrituraLogGeneral("Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones\n", 0);
 
     return (state);
 }
@@ -351,7 +351,7 @@ void leer_errores()
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de errores\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de errores en monitor.c, en función: leer_errores\n", 0);
         return;
     }
 
@@ -379,7 +379,7 @@ void leer_errores()
         // comprobamos que el usuario registrado en esta linea no infringe nignuna de las limitaciones impuestas por el sistema del banco
         if (errorRetiro >= configuracion.umbralRetiros || errorIngreso >= configuracion.umbralIngreso || errorRetiro >= configuracion.umbralTransferencias || totalErrores >= configuracion.umbralTotal)
         {
-            escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco\n", 0);
+            escrituraLogGeneral("Se ha superado el umbral de errores, enviando alerta al banco en monitor.c, en función: leer_errores\n", 0);
             enviar_alerta(mensajeAlerta, id); // añadir además el id
         }
     }

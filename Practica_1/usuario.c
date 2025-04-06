@@ -75,7 +75,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir los semáforos", 1);
+        escrituraLogGeneral("Error al abrir el semáforo de cuentas en usuario.c, en función: conseguirSaldoUsuario\n", 1);
         exit(1);
     }
 
@@ -84,7 +84,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
+        escrituraLogGeneral("Error al abrir el archivo de cuentas en usuario.c, en función: conseguirSaldoUsuario\n", 1);
         return 0;
     }
 
@@ -97,7 +97,7 @@ float conseguirSaldoUsuario(char *id)
             key = strtok(NULL, ",");
             key = strtok(NULL, ","); // saltamos los 2 primeros campos para obtener el saldo
 
-            escrituraLogGeneral("Saldo consultado exitosamente\n", 1);
+            escrituraLogGeneral("Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario\n", 1);
             saldoUsuario = strtof(key, NULL);
             encontrado = 1;
             break;
@@ -106,7 +106,7 @@ float conseguirSaldoUsuario(char *id)
 
     if (encontrado != 1)
     {
-        escrituraLogGeneral("Error: ID no encontrado\n", 1);
+        escrituraLogGeneral("Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuario\n", 1);
         saldoUsuario = -1;
     }
 
@@ -128,7 +128,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        perror("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas");//Pregunat a afrenta
         exit(1);
     }
 
@@ -136,7 +136,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
     archivo = fopen("data/cuentas.dat", "r+");
     if (!archivo)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas\n", 1);
+        escrituraLogGeneral("Error al abrir el archivo de cuentas en usuario.c, en función: actualizarCuentas\n", 1);
         return;
     }
 
@@ -184,7 +184,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
     fclose(archivo);
     sem_post(semaforo_cuentas);
 
-    escrituraLogGeneral("Cuentas actualizadas correctamente\n", 1);
+    escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas\n", 1);
 }
 
 /// @brief Realiza ingreso o retiro en funcion del flag
@@ -199,12 +199,12 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
     {
     case 0:
         saldoActual += saldoOperacion;
-        escrituraLogGeneral("Operacion ingreso done\n", 1);
+        escrituraLogGeneral("Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion\n", 1);
         break;
         // transferencia = depósito para el receptor y retiro para el emisor
     case 1:
         saldoActual -= saldoOperacion;
-        escrituraLogGeneral("Operacion retiro done\n", 1);
+        escrituraLogGeneral("Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion\n", 1);
         break;
     }
 
@@ -237,7 +237,7 @@ void *operacionDeposito(void *id)
         while (getchar() != '\n')
             ;
         scanf("%f", &saldoDepositar);
-        escrituraLogGeneral("✅ Cantidad deposito introducido correctamente.\n", 1);
+        escrituraLogGeneral("✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito\n", 1);
 
         if (saldoDepositar <= 0 || saldoDepositar > configuracion.limiteIngreso)
         {
@@ -346,14 +346,14 @@ void *operacionRetiro(void *id)
         scanf("%f", &saldoRetirar);
         if (saldoRetirar <= 0 || saldoRetirar > configuracion.limiteRetiros)
         {
-            escrituraLogGeneral("Error: Saldo introducido para transacción \n", 1);
+            escrituraLogGeneral("Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro\n", 1);
             escribirLogOperacion(2, 0, _id, saldoRetirar);
             esValido = 0;
         }
     } while (!esValido);
 
     realizarOperacion(saldo, saldoRetirar, 1, _id);
-    escrituraLogGeneral("✅ Cantidad retiro introducido correctamente.\n", 1);
+    escrituraLogGeneral("✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro\n", 1);
     escribirLogOperacion(2, 1, _id, saldoRetirar);
     
     printf("\n");
@@ -448,7 +448,7 @@ int main(int argc, char *argv[])
     if (argc == 2)
         menuUsuario(argv[1]);
     else if (argc == 1)
-        escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario\n", 0);
+        escrituraLogGeneral("Error al hacer el inicio de sesión. Se necesita pasar el identificador a usuario en funcíon menuUsuario\n", 0);
 }
 
 // TODO crear una función que escriba/aumente el número de errores por usuario, para que lo pueda leer monitor y así pase la alerta con su id al banco

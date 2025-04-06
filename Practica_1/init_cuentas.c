@@ -18,7 +18,7 @@ int compilarFicheros(char *fichero, int i)
 
     if (pid < 0)
     {
-        escrituraLogGeneral("Error al hacer fork\n", 0);
+        escrituraLogGeneral("Error al hacer fork en init_cuentas.c, en función: compilarFicheros\n", 0);
         return 1;
     }
     else if (pid == 0) // Proceso hijo
@@ -26,7 +26,7 @@ int compilarFicheros(char *fichero, int i)
         // utilizamos execlp para ejecutar comandos de shell sin tener que especificar la ruta
         escrituraLogGeneral("Ejecutando gcc para compilación...\n", 0); // Solo se ejecuta si execlp falla
         execlp("gcc", "gcc", ficheroc, "-o", fichero, (char *)NULL);
-        escrituraLogGeneral("Error al ejecutar gcc\n", 0); // Solo se ejecuta si execlp falla
+        escrituraLogGeneral("Error al ejecutar gcc en init_cuentas.c, en función: compilarFicheros\n", 0); // Solo se ejecuta si execlp falla
 
         exit(1);
     }
@@ -206,7 +206,7 @@ int main()
     execlp("./banco", "./banco", NULL);
 
     // sem_wait(semaforo_cuentas);
-    escrituraLogGeneral("Error al ejecutar ./banco\n", 0);
+    escrituraLogGeneral("Error al ejecutar ./banco en init_cuentas.c, en función:  main\n", 0);
     // sem_post(semaforo_cuentas);
 
     exit(1);

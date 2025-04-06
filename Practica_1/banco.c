@@ -21,12 +21,12 @@ void menuAdmin()
 
     if (!comparacion)
     {
-        escrituraLogGeneral("🟥 Contraseña incorrecta\n", 0);
+        escrituraLogGeneral("🟥 Contraseña incorrecta en banco.c, en función: menuAdmin\n", 0);
         return;
     }
     else
     {
-        escrituraLogGeneral("Contraseña correcta, accediendo al menú de administrador\n", 0);
+        escrituraLogGeneral("Contraseña correcta, accediendo al menú de administrador en banco.c, en función: menuAdmin\n", 0);
         do{
 
             system("clear");
@@ -46,7 +46,7 @@ void menuAdmin()
             switch (opcion)
             {
                 case 1:
-                    escrituraLogGeneral("⚙️ Mostrando la configuración actual desde el menú de administrador\n", 0);
+                    escrituraLogGeneral("⚙️ Mostrando la configuración actual desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
                     printf("\n");
                     // Mostramos la configuracion actual de los errores permitidos en el sistema
                     printf("=====================================\n");
@@ -66,7 +66,7 @@ void menuAdmin()
                     sleep(10);
                     break;
                 case 2:
-                    escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador\n", 0);
+                    escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
                     printf("\n");
                     printf("=====================================\n");
                     printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en banco\n");
@@ -80,7 +80,7 @@ void menuAdmin()
                     sleep(5);
                     break;
                 case 3:
-                    escrituraLogGeneral("🚦 Mostrando los semáforos activos en el sistema desde el menú de administrador\n", 0);
+                    escrituraLogGeneral("🚦 Mostrando los semáforos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
                     printf("\n");
                     printf("=====================================\n");
                     printf("🚦 Los semáforos activos en el sistema son: \n");
@@ -92,7 +92,7 @@ void menuAdmin()
                     
                     break;
                 case 5:
-                    escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador\n", 0);
+                    escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
                     printf("\n");
                     printf("=====================================\n");
                     printf("🧵 Mostramos los hilos activos del sistema\n");
@@ -120,14 +120,14 @@ void *recibirAlertas()
 
     if (mkfifo(FIFO1, 0666) == -1)
     {
-        escrituraLogGeneral("🟥 Error al crear la tubería FIFO1 en banco\n", 0);
+        escrituraLogGeneral("🟥 Error al crear la tubería FIFO1 en banco en banco.c, en función: recibirAlertas\n", 0);
     }
 
     fifo_fd = open(FIFO1, O_RDONLY);
 
     if (fifo_fd == -1)
     {
-        escrituraLogGeneral("🟥 Error al abrir la tubería en banco", 0);
+        escrituraLogGeneral("🟥 Error al abrir la tubería en banco en banco.c, en función: recibirAlertas\n", 0);
     }
 
     while (1)
@@ -141,7 +141,7 @@ void *recibirAlertas()
         }
         else if (bytesRead == -1)
         {
-            escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1\n", 0);
+            escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1 en banco.c, en función: recibirAlertas\n", 0);
             break;
         }
         sleep(1);
@@ -180,7 +180,7 @@ void registroCuenta(Cuenta cuenta)
     // Si la apertura de cualquiera de los semaforos es erronea, se desestima la funcion y mandamos un log
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir uno de los semaforos a la hora de hacer un resgistro", 0);
+        escrituraLogGeneral("Error al abrir uno de los semaforos (semaforo_cuentas, semaforo_banco) a la hora de hacer un resgistro en banco.c, en función: registroCuenta", 0);
         exit(1);
     }
 
@@ -189,7 +189,7 @@ void registroCuenta(Cuenta cuenta)
 
     if (fileCuenta == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas en banco.c, en función: registroCuenta\n", 0);
         fclose(fileCuenta);
         return;
     }
@@ -199,7 +199,7 @@ void registroCuenta(Cuenta cuenta)
     // Si el archivo falla paramos la funcion y mandamos un log a banco.log
     if (fileError == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de errores\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de errores en banco.c, en función: registroCuenta\n", 0);
         fclose(fileError);
         return;
     }
@@ -216,7 +216,7 @@ void registroCuenta(Cuenta cuenta)
 
     fputs(linea, fileCuenta);
 
-    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco\n", 0);
+    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta\n", 0);
 
     fclose(fileCuenta);
 
@@ -233,7 +233,7 @@ void registroCuenta(Cuenta cuenta)
     // Ponemos la linea de error en el archivo de errores.dat
     fputs(lineaError, fileError);
 
-    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat\n", 0);
+    escrituraLogGeneral("Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta\n", 0);
 
     fclose(fileError);
 
@@ -272,7 +272,7 @@ int existeID(char *id, int flag)
 
     if (file == NULL)
     {
-        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas en banco.c, en función: existeID\n", 0);
         return 0;
     }
 
@@ -284,7 +284,7 @@ int existeID(char *id, int flag)
         {
             if (strcmp(key, id) == 0)
             {
-                escrituraLogGeneral("El id ya existe\n", 0);
+                escrituraLogGeneral("El id ya existe en banco.c, en función: existeID\n", 0);
                 esValido = 0;
                 break;
             }
@@ -320,7 +320,7 @@ int comprobarId(char *id, int flag)
     if (atoi(id) < 1000)
     {
         validez = 0;
-        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 1000\n", 0);
+        escrituraLogGeneral("🟥 El id introducido no es válido debido a que es menor a 1000 en banco.c, en función: comprobarId\n", 0);
         return validez;
     }
 
@@ -339,8 +339,10 @@ void registro()
 
     do
     {
-        if (!comprobacion)
+        if (!comprobacion){
             printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
+            escrituraLogGeneral("🟥 Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo en banco.c, en función: registro\n", 0);
+        }
 
         printf("\n");
         printf("=====================================\n");
@@ -395,6 +397,7 @@ void logIn()
 
         if (fgets(id, sizeof(id), stdin) == NULL) {
             printf("❌ Error al leer el ID. Intenta nuevamente.\n");
+            escrituraLogGeneral("❌ Error al leer el ID. Intenta nuevamente en banco.c, en función: logIn\n", 0);
             continue;
         }
 
@@ -406,6 +409,7 @@ void logIn()
         if (!comprobacion)
         {
             printf("❌ ID inválido o no registrado. Por favor, intenta nuevamente.\n");
+            escrituraLogGeneral("❌ Error ID inválido o no registrado en banco.c, en función: logIn\n", 0);
         }
 
     } while (!comprobacion);
@@ -415,13 +419,13 @@ void logIn()
     // Comprobamos que fork() no genera un error
     if (pid < 0)
     {
-        escrituraLogGeneral("🟥 Error al crear la sesión de LogIn\n", 0);
+        escrituraLogGeneral("🟥 Error al crear la sesión de LogIn en banco.c, en función: logIn\n", 0);
         return;
     }
     else if (pid == 0)
     { // Proceso hijo
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
-        escrituraLogGeneral("🟥 Error al ejecutar ./usuario\n", 0);
+        escrituraLogGeneral("🟥 Error al ejecutar ./usuario en banco.c, en función: logIn\n", 0);
         exit(1);
     }
 }
@@ -434,7 +438,7 @@ void iniciarHiloAlerta()
     // Crear el hilo para recibir alertas
     if (pthread_create(&hiloAlerta, NULL, &recibirAlertas, NULL) != 0)
     {
-        escrituraLogGeneral("🟥 Error al crear el hilo de alertas\n", 0);
+        escrituraLogGeneral("🟥 Error al crear el hilo de alertas en banco.c, en función: iniciarHiloAlerta\n", 0);
     }
 }
 
@@ -507,7 +511,7 @@ int main(int argc, char *argv[])
     if (pid == 0)
     {
         execlp("gnome-terminal", "gnome-terminal", "--", "./monitor", NULL);
-        escrituraLogGeneral("Error al ejecutar ./monitor\n", 0);
+        escrituraLogGeneral("Error al ejecutar ./monitor en banco.c, en función: main\n", 0);
         exit(1);
     }
 
@@ -522,7 +526,7 @@ int main(int argc, char *argv[])
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1)
     {
-        escrituraLogGeneral("🟥 Error en la generación de la pipe\n", 0);
+        escrituraLogGeneral("🟥 Error en la generación de la pipe en banco.c, en función: main\n", 0);
         return 1;
     }
 
