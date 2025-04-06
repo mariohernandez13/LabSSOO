@@ -1,3 +1,4 @@
+#define _GNU_SOURCE // Para asignar nombre a los hilos
 #include <stdio.h>
 #include <unistd.h>
 #include <signal.h>
@@ -12,6 +13,7 @@
 #include <sys/sem.h>
 #include <semaphore.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 #define MAX_LINE_LENGTH 255
 #define MAX_LENGTH_NAME 50
@@ -43,7 +45,8 @@ typedef struct
 } CONFIG;
 
 /// @brief Estructura de los errores para cada usuario
-typedef struct {
+typedef struct
+{
     char *id;
     char *errorRetiro;
     char *errorIngreso;
@@ -134,12 +137,14 @@ void mostrarCarga()
     printf("\n");
 }
 
-
 /// @brief funcion de carga con puntos suspensivos
-void carga_animada() {
-    for (int i = 0; i < 3; i++) {
+void carga_animada()
+{
+    for (int i = 0; i < 3; i++)
+    {
         printf("\rCargando");
-        for (int j = 0; j <= i; j++) {
+        for (int j = 0; j <= i; j++)
+        {
             printf(".");
         }
         fflush(stdout);
@@ -230,4 +235,34 @@ CONFIG leer_configuracion(CONFIG configuracion)
     escrituraLogGeneral("Se ha leído correctamente el contenido del archivo banco.config\n", 0);
 
     return (configuracion);
+}
+
+/// @brief Función para comprobar que solo se introducen números
+/// @param str Cadena a comprobar
+/// @return 0 = si es es una cadena con texto, 1 = si es válido
+int esNumeroValido(char *str)
+{
+    // Verifica si la cadena contiene solo números (y opcionalmente un punto decimal)
+    int puntoDecimalEncontrado = 0;
+
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (!isdigit(str[i]))
+            return 0;
+    }
+    return 1;
+}
+
+/// @brief Función para comprobar que una cadena no contiene carácteres especiales
+/// @param str Cadena a comprobar
+/// @return 0 = si existe un caracter no permitido, 1 = si es válido
+int esCadenaValida(const char *str) {
+    // Recorre cada carácter de la cadena
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (!isalnum(str[i])) {
+            // Si el carácter no es alfanumérico (ni letra ni número), es inválido
+            return 0;  // Retorna 0 (falso) si hay un carácter no permitido
+        }
+    }
+    return 1;  // Retorna 1 (verdadero) si todos los caracteres son válidos
 }

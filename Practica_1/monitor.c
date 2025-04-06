@@ -28,7 +28,7 @@ void resetearErrores()
     {
         char temp[MAX_LINE_LENGTH];
         strncpy(temp, lineasArchivo[i], MAX_LINE_LENGTH);
-        temp[MAX_LINE_LENGTH - 1] = '\0'; 
+        temp[MAX_LINE_LENGTH - 1] = '\0';
         char *idArchivo = strtok(temp, ",");
 
         snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%d,%d,%d\n",
@@ -47,7 +47,7 @@ void resetearErrores()
     escrituraLogGeneral("Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores\n", 1);
 }
 
-/// @brief Función que se encarga de resetear el archivo de logs de forma que se revisen todas las operaciones a lo largo del archivo. 
+/// @brief Función que se encarga de resetear el archivo de logs de forma que se revisen todas las operaciones a lo largo del archivo.
 /// @param id ID de la persona que se ha detectado que ha infrigido las normas del banco
 void resetearTransaccionesLog(int id)
 {
@@ -86,14 +86,14 @@ void resetearTransaccionesLog(int id)
     // Modificar las líneas que correspondan
     for (int i = 0; i < lineas; i++)
     {
-        
+
         char contenidoHastaCorchete[MAX_LINE_LENGTH];
         char *contenido = strchr(lineasArchivo[i], ']');
         if (contenido)
         {
-            size_t len = contenido - lineasArchivo[i] + 1; // recogemos la longitud de la cadena hasta el corchete (el +1 es para incluir el corchete)
+            size_t len = contenido - lineasArchivo[i] + 1;          // recogemos la longitud de la cadena hasta el corchete (el +1 es para incluir el corchete)
             strncpy(contenidoHastaCorchete, lineasArchivo[i], len); // copiamos el valor de la cadena hasta el corchete, incluido
-            contenidoHastaCorchete[len] = '\0'; // Aseguramos la terminación de cadena
+            contenidoHastaCorchete[len] = '\0';                     // Aseguramos la terminación de cadena
         }
 
         if (contenido)
@@ -103,7 +103,7 @@ void resetearTransaccionesLog(int id)
 
         char contenidoCopia[MAX_LINE_LENGTH];
         strncpy(contenidoCopia, contenido, MAX_LINE_LENGTH);
-        contenidoCopia[MAX_LINE_LENGTH - 1] = '\0'; 
+        contenidoCopia[MAX_LINE_LENGTH - 1] = '\0';
 
         char *estado = strtok(contenidoCopia, ",");
         char *tipo = strtok(NULL, ",");
@@ -150,14 +150,14 @@ void resetearTransaccionesLog(int id)
     escrituraLogGeneral("🟩 Transacciones modificadas correctamente para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearTransaccionesLog\n", 0);
 }
 
-/// @brief Fucnión que se encarga de mandar una alerta y avisar de los reseteos pertinentes para modificar el sistema del banco. 
+/// @brief Fucnión que se encarga de mandar una alerta y avisar de los reseteos pertinentes para modificar el sistema del banco.
 /// @param mensaje Mensaje que se está mandando a la tubería que comunica Monitor con Banco
 /// @param id ID de la persona que ha infrngido las normas del banco
 void enviar_alerta(char *mensaje, int id)
 {
     // Llamamos a las funciones que se encargan de resetear los archivos
     resetearErrores();
-    
+
     int fifo_fd;
 
     fifo_fd = open(FIFO1, O_WRONLY);
@@ -383,10 +383,9 @@ void leer_errores()
             enviar_alerta(mensajeAlerta, id); // añadir además el id
         }
     }
-
+    escrituraLogGeneral("Comprobando errores...", 0);
     fclose(file);
 }
-
 
 /// @brief Función main de monitor, se encarga de leer el archivo de configuración y el de errores
 /// @param argc
@@ -404,9 +403,9 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        leer_transacciones(); // Llamamos primero a leer transacciones para comprobar cuantos errores se han detectado hasta el momento 
-        leer_errores(); // Se llama a leer errores para comprobar que los errores de los usuarios propios del sistema no excede los limites del banco
-        sleep(5); 
+        leer_transacciones(); // Llamamos primero a leer transacciones para comprobar cuantos errores se han detectado hasta el momento
+        leer_errores();       // Se llama a leer errores para comprobar que los errores de los usuarios propios del sistema no excede los limites del banco
+        sleep(5);
     }
 
     return 0;

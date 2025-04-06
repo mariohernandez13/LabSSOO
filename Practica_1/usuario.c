@@ -216,6 +216,7 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
 /// @param id Cuenta del usuario logueado
 void *operacionDeposito(void *id)
 {
+    pthread_setname_np(pthread_self(), "operacionDeposito");
     char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoDepositar = 0;
@@ -238,7 +239,6 @@ void *operacionDeposito(void *id)
             ;
         scanf("%f", &saldoDepositar);
         escrituraLogGeneral("✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito\n", 1);
-
         if (saldoDepositar <= 0 || saldoDepositar > configuracion.limiteIngreso)
         {
             esValido = 0;
@@ -264,6 +264,7 @@ void *operacionDeposito(void *id)
 /// @param id Cuenta del usuario logueado
 void *operacionTransferencia(void *id)
 {
+    pthread_setname_np(pthread_self(), "operacionTransferencia");
     char *_id = (char *)id;
     char idDestinatario[255] = "Hola";
     float saldoTransferir = 0;
@@ -324,6 +325,7 @@ void *operacionTransferencia(void *id)
 /// @param id Cuenta del usuario logueado
 void *operacionRetiro(void *id)
 {
+    pthread_setname_np(pthread_self(), "operacionRetiro");
     char *_id = (char *)id;
     float saldo = conseguirSaldoUsuario(_id);
     float saldoRetirar = 1;
@@ -371,6 +373,7 @@ void *operacionRetiro(void *id)
 /// @param id Cuenta del usuario logueado
 void *operacionConsultarSaldo(void *id)
 {
+    pthread_setname_np(pthread_self(), "operacionConsultarSaldo");
     float saldoActual = conseguirSaldoUsuario(id);
     printf("\n=====================================\n");
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);

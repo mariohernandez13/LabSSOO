@@ -91,14 +91,29 @@ void menuAdmin()
                 sleep(5);
                 break;
             case 4:
-
+                escrituraLogGeneral("💳 Mostramos los PIDs de los procesos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                printf("=====================================\n");
+                printf("💳 PIDs de los procesos del banco\n");
+                system("ps aux | grep banco");
+                printf("=====================================\n");
+                printf("💳 PIDs de los procesos del usuario\n");
+                system("ps aux | grep usuario");
+                printf("=====================================\n");
+                printf("💳 PIDs de los procesos del monitor\n");
+                system("ps aux | grep ./monitor");
+                printf("=====================================\n");
+                sleep(5);
                 break;
             case 5:
                 escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
                 printf("\n");
                 printf("=====================================\n");
-                printf("🧵 Mostramos los hilos activos del sistema\n");
-                system("ps -elf | grep -i banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
+                printf("🧵 Mostramos los hilos activos de los usuarios\n");
+                system("ps -e | grep -i usuario | awk '{print $1}' | xargs -I {} ps -T -p {}"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
+                printf("=====================================\n");
+                printf("🧵 Mostramos los hilos activos del banco\n");
+                system("ps -e | grep -i banco | awk '{print $1}' | xargs -I {} ps -T -p {}"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
                 printf("=====================================\n");
                 sleep(5);
                 break;
@@ -297,6 +312,8 @@ void registro()
 
     do
     {
+        system("clear");
+
         if (!comprobacion)
         {
             printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
@@ -325,7 +342,7 @@ void registro()
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
         comprobacion = comprobarId(cuenta.numero_cuenta, 0);
-    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
+    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME) || !esNumeroValido(cuenta.saldo) || !esCadenaValida(cuenta.titular) || !esNumeroValido(cuenta.numero_cuenta));
 
     registroCuenta(cuenta);
 }
@@ -397,20 +414,6 @@ void menuBanco()
 
     do
     {
-        /*if (contadorAlertas != 0)
-        {
-            contadorAlertas = 0;
-            system("clear");
-            printf("===================================\n");
-            printf("🚨 ALERTA RECIBIDA\n");
-            sleep(1);
-            printf("🚨 ALERTA RECIBIDA\n");
-            sleep(1);
-            printf("🚨 ALERTA RECIBIDA\n");
-            sleep(1);
-            printf("===================================\n");
-            sleep(3);
-        }*/
 
         system("clear");
 
@@ -454,6 +457,7 @@ void menuBanco()
 /// @note Se ejecuta en un hilo por separado para no interrumpir el flujo principal del programa
 void *recibirAlertas()
 {
+    pthread_setname_np(pthread_self(), "recibirAlertas");
     int fifo_fd;
     char buffer[256];
 
@@ -488,7 +492,7 @@ void *recibirAlertas()
                 {
                     execlp("gnome-terminal", "gnome-terminal", "--", "./alerta", NULL);
                 }
-                
+
                 contadorAlertas = 0;
             }
         }
