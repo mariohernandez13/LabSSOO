@@ -80,7 +80,7 @@ int main()
     sem_wait(semaforo_cuentas);
 
     // abrimos el fichero de cuentas
-    FILE *archivoCuentas = fopen("cuentas.dat", "a");
+    FILE *archivoCuentas = fopen("data/cuentas.dat", "a");
     if (archivoCuentas == NULL)
     {
         escrituraLogGeneral("Error al crear el archivo de cuentas en init_cuentas en función: main\n", 0);
