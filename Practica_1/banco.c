@@ -3,6 +3,8 @@
 CONFIG configuracion;
 int contadorAlertas;
 
+/// @brief Función que se encarga de mostrar el menú del administrador del banco
+/// @note Se encarga de mostrar el menú de administrado, que permite ver los hilos, semáforos y demás partes del sistema
 void menuAdmin()
 {
     char contraseña[50] = "";
@@ -15,7 +17,7 @@ void menuAdmin()
     while(getchar() != '\n');
     fgets(contraseña, sizeof(contraseña), stdin);
 
-    comparacion = strstr(contraseña, "admin");
+    comparacion = strstr(contraseña, "marlondanosel10");
 
     if (!comparacion)
     {
@@ -31,9 +33,9 @@ void menuAdmin()
             printf("=====================================\n");
             printf("       🌟 BIENVENIDO ADMIN 🌟        \n");
             printf("=====================================\n");
-            printf("1. Mostrar configuracion actual\n");
-            printf("2. Mostrar arbol de procesos de la aplicacion\n");
-            printf("3. Mostrar semaforos activos en el sistema\n");
+            printf("1. Mostrar configuración actual\n");
+            printf("2. Mostrar árbol de procesos de la aplicación\n");
+            printf("3. Mostrar semáforos activos en el sistema\n");
             printf("4. Mostrar pid de banco con el pid de los usuarios hijos\n");
             printf("5. Mostrar hilos activos actualmente\n");
             printf("6. Salir\n");
@@ -43,11 +45,35 @@ void menuAdmin()
 
             switch (opcion)
             {
+                case 2:
+                    escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador\n", 0);
+                    printf("\n");
+                    printf("=====================================\n");
+                    printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en banco\n");
+                    system("pstree -p | grep banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
+                    printf("=====================================\n");
+                    printf("\n");
+                    printf("=====================================\n");
+                    printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en usuario\n");
+                    system("pstree -p | grep usuario"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra usuario
+                    printf("=====================================\n");
+                    sleep(5);
+                    break;
                 case 3:
+                    escrituraLogGeneral("🚦 Mostrando los semáforos activos en el sistema desde el menú de administrador\n", 0);
                     printf("\n");
                     printf("=====================================\n");
                     printf("🚦 Los semáforos activos en el sistema son: \n");
-                    system("ls /dev/shm/");
+                    system("ls /dev/shm/"); // Para poder mostrar los semaforos activos del sistema se hace un acceso a las carpetas puestas y no a ipcs debido a que los semaforos que usamos son de tipo sem_open
+                    printf("=====================================\n");
+                    sleep(5);
+                    break;
+                case 5:
+                    escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador\n", 0);
+                    printf("\n");
+                    printf("=====================================\n");
+                    printf("🧵 Mostramos los hilos activos del sistema\n");
+                    system("ps -elf | grep -i banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
                     printf("=====================================\n");
                     sleep(5);
                     break;
@@ -293,17 +319,25 @@ void registro()
         if (!comprobacion)
             printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
 
-        printf("Bienvenido al registro de SafeBank\n");
+        printf("\n");
+        printf("=====================================\n");
+        printf("📋 Bienvenido al registro de SafeBank\n");
+        printf("=====================================\n");
 
-        printf("Introduce tu nombre: (no se admiten más de 50 caracteres): \n");
+        printf("=====================================\n");
+        printf("🙋 Introduce tu nombre: (no se admiten más de 50 caracteres): ");
         while (getchar() != '\n')
             ; // Limpieza de buffer de entrada para evitar problemas en lectura de parametros
         fgets(cuenta.titular, sizeof(cuenta.titular), stdin);
 
-        printf("Introduce tu id: (a partir de 100): \n");
+        printf("\n");
+
+        printf("🪪 Introduce tu id: (a partir de 100): ");
         fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
 
-        printf("Introduce tu saldo: \n");
+        printf("\n");
+
+        printf("💰 Introduce tu saldo: ");
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
         comprobacion = comprobarId(cuenta.numero_cuenta, 0);
