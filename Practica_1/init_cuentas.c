@@ -41,11 +41,13 @@ int main()
     char *banco = "banco";
     char *usuario = "usuario";
     char *monitor = "monitor";
+    char *alerta = "alerta";
 
     char *variables[] = {
         banco,
         usuario,
-        monitor};
+        monitor,
+        alerta};
 
     long tamañoArchivoError;
     
@@ -193,7 +195,7 @@ int main()
         fclose(archivoErroresDat);
     }
     
-    for (int i = 0; i < 3; i++)
+    for (int i = 0; i < 4; i++)
         compilarFicheros(variables[i], i);
 
     sem_wait(semaforo_cuentas);

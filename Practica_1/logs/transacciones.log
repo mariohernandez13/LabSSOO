@@ -275,3 +275,130 @@
 [2025-04-06 11:50:30] Operacion ingreso done
 [2025-04-06 11:50:30] Cuentas actualizadas correctamente
 [2025-04-06 11:50:30] OK,Ingreso,✅ Ingreso realizado correctamente,1004,100.00
+[2025-04-06 13:59:03] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 13:59:23] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 13:59:23] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 13:59:49] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 13:59:49] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 13:59:52] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 13:59:52] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 13:59:55] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:00:15] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:00:15] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:00:17] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:00:17] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:00:18] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:00:18] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:05:40] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:05:40] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:07:41] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:07:42] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:07:42] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:07:44] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:07:44] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:07:46] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:07:46] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,2001.00
+[2025-04-06 14:07:47] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:07:47] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:08:05] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:08:05] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:08:05] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:08:05] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,2000,200.00
+[2025-04-06 14:08:19] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:08:30] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:08:32] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:08:32] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:08:32] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:08:32] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,2000,100.00
+[2025-04-06 14:08:33] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:08:39] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:08:41] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:08:41] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:08:41] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-06 14:08:41] OK_REVISADO,Retiro,✅ Retiro realizado correctamente,2000,2001.00
+[2025-04-06 14:08:50] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:08:52] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:08:52] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:08:52] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-06 14:08:52] OK_REVISADO,Retiro,✅ Retiro realizado correctamente,2000,100.00
+[2025-04-06 14:08:54] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:09:21] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:09:23] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:09:23] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,2000,20000.00
+[2025-04-06 14:10:35] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:10:37] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:10:37] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1025,2001.00
+[2025-04-06 14:10:46] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:10:46] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1025,2001.00
+[2025-04-06 14:10:52] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:10:52] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1025,2001.00
+[2025-04-06 14:10:52] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:11:04] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-06 14:11:04] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:11:04] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:11:04] OK,Ingreso,✅ Ingreso realizado correctamente,1025,10.00
+[2025-04-06 14:13:03] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:13:09] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:13:09] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:13:23] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:13:23] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:13:48] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:13:48] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:13:49] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:23:02] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:23:04] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:23:04] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:23:06] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:23:06] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:23:08] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:23:08] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:23:09] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:23:10] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:23:10] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:25:57] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:25:59] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:25:59] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:26:09] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:26:09] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,5001.00
+[2025-04-06 14:26:10] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:32:28] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:32:31] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:32:37] Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:32:39] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,2001,100.00
+[2025-04-06 14:32:48] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:32:50] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,2001,100.00
+[2025-04-06 14:32:56] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:32:58] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,2001,100.00
+[2025-04-06 14:33:07] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:33:08] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,2001,100.00
+[2025-04-06 14:33:20] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:33:22] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:33:24] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:33:43] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,2001,100.00
+[2025-04-06 14:33:48] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-04-06 14:34:00] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:34:02] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:34:02] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:34:02] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:34:02] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:34:02] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,2001,100.00
+[2025-04-06 14:34:27] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:34:30] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:34:32] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:34:32] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:34:32] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:34:32] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:34:32] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,2001,100.00
+[2025-04-06 14:34:37] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:34:38] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:34:38] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,10000.00
+[2025-04-06 14:34:39] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:34:39] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,10000.00
+[2025-04-06 14:34:40] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 14:34:40] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 14:34:40] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-06 14:34:40] OK_REVISADO,Retiro,✅ Retiro realizado correctamente,2001,1000.00
+[2025-04-06 14:34:43] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 14:34:44] Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro
+[2025-04-06 14:34:44] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,2001,10000.00
+[2025-04-06 14:34:48] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores

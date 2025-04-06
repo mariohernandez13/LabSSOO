@@ -296,7 +296,7 @@ void *operacionTransferencia(void *id)
         printf("Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0) // Comprobar id existe, etc...
+        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0 || saldoTransferir > saldo) 
         {
             escribirLogOperacion(3, 0, _id, saldoTransferir);
             esValido = 0;
@@ -344,7 +344,7 @@ void *operacionRetiro(void *id)
         while (getchar() != '\n')
             ;
         scanf("%f", &saldoRetirar);
-        if (saldoRetirar <= 0 || saldoRetirar > configuracion.limiteRetiros)
+        if (saldoRetirar <= 0 || saldoRetirar > configuracion.limiteRetiros || saldoRetirar > saldo)
         {
             escrituraLogGeneral("Error: Saldo introducido para transacción en usuario.c, en función: operacionRetiro\n", 1);
             escribirLogOperacion(2, 0, _id, saldoRetirar);

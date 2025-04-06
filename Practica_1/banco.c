@@ -14,7 +14,8 @@ void menuAdmin()
     system("clear");
     printf("=====================================\n");
     printf("Introduce la contraseña: \n");
-    while(getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     fgets(contraseña, sizeof(contraseña), stdin);
 
     comparacion = strstr(contraseña, "marlondanosel10");
@@ -27,7 +28,8 @@ void menuAdmin()
     else
     {
         escrituraLogGeneral("Contraseña correcta, accediendo al menú de administrador en banco.c, en función: menuAdmin\n", 0);
-        do{
+        do
+        {
 
             system("clear");
             printf("=====================================\n");
@@ -45,110 +47,67 @@ void menuAdmin()
 
             switch (opcion)
             {
-                case 1:
-                    escrituraLogGeneral("⚙️ Mostrando la configuración actual desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
-                    printf("\n");
-                    // Mostramos la configuracion actual de los errores permitidos en el sistema
-                    printf("=====================================\n");
-                    printf("⚙️ La configuración de errores actual es:\n");
-                    printf("🔢 Umbral Total de Errores: %d\n", configuracion.umbralTotal);
-                    printf("💸 Umbral de Errores en Retiros: %d\n", configuracion.umbralRetiros);
-                    printf("💰 Umbral de Errores en Ingresos: %d\n", configuracion.umbralIngreso);
-                    printf("🔁 Umbral de Errores en Transferencias: %d\n", configuracion.umbralTransferencias);
-                    printf("=====================================\n");
-                    printf("\n");
-                    printf("=====================================\n");
-                    printf("⚙️ La configuración de límites en operaciones es:\n");
-                    printf("💲 Límite de cantidad permitida en Ingresos: %d\n", configuracion.limiteIngreso);
-                    printf("💲 Límite de cantidad permitida en Retiros: %d\n", configuracion.limiteRetiros);
-                    printf("💲 Límite de cantidad permitida en Transacción: %d\n", configuracion.limiteTransferencia);
-                    printf("=====================================\n");
-                    sleep(10);
-                    break;
-                case 2:
-                    escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
-                    printf("\n");
-                    printf("=====================================\n");
-                    printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en banco\n");
-                    system("pstree -p | grep banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
-                    printf("=====================================\n");
-                    printf("\n");
-                    printf("=====================================\n");
-                    printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en usuario\n");
-                    system("pstree -p | grep usuario"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra usuario
-                    printf("=====================================\n");
-                    sleep(5);
-                    break;
-                case 3:
-                    escrituraLogGeneral("🚦 Mostrando los semáforos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
-                    printf("\n");
-                    printf("=====================================\n");
-                    printf("🚦 Los semáforos activos en el sistema son: \n");
-                    system("ls /dev/shm/"); // Para poder mostrar los semaforos activos del sistema se hace un acceso a las carpetas puestas y no a ipcs debido a que los semaforos que usamos son de tipo sem_open
-                    printf("=====================================\n");
-                    sleep(5);
-                    break;
-                case 4:
-                    
-                    break;
-                case 5:
-                    escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
-                    printf("\n");
-                    printf("=====================================\n");
-                    printf("🧵 Mostramos los hilos activos del sistema\n");
-                    system("ps -elf | grep -i banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
-                    printf("=====================================\n");
-                    sleep(5);
-                    break;
-                case 6:
-                    break;
+            case 1:
+                escrituraLogGeneral("⚙️ Mostrando la configuración actual desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                // Mostramos la configuracion actual de los errores permitidos en el sistema
+                printf("=====================================\n");
+                printf("⚙️ La configuración de errores actual es:\n");
+                printf("🔢 Umbral Total de Errores: %d\n", configuracion.umbralTotal);
+                printf("💸 Umbral de Errores en Retiros: %d\n", configuracion.umbralRetiros);
+                printf("💰 Umbral de Errores en Ingresos: %d\n", configuracion.umbralIngreso);
+                printf("🔁 Umbral de Errores en Transferencias: %d\n", configuracion.umbralTransferencias);
+                printf("=====================================\n");
+                printf("\n");
+                printf("=====================================\n");
+                printf("⚙️ La configuración de límites en operaciones es:\n");
+                printf("💲 Límite de cantidad permitida en Ingresos: %d\n", configuracion.limiteIngreso);
+                printf("💲 Límite de cantidad permitida en Retiros: %d\n", configuracion.limiteRetiros);
+                printf("💲 Límite de cantidad permitida en Transacción: %d\n", configuracion.limiteTransferencia);
+                printf("=====================================\n");
+                sleep(10);
+                break;
+            case 2:
+                escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                printf("=====================================\n");
+                printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en banco\n");
+                system("pstree -p | grep banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
+                printf("=====================================\n");
+                printf("\n");
+                printf("=====================================\n");
+                printf("🌳 Mostrando el árbol de procesos de la aplicación, centrándose en usuario\n");
+                system("pstree -p | grep usuario"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra usuario
+                printf("=====================================\n");
+                sleep(5);
+                break;
+            case 3:
+                escrituraLogGeneral("🚦 Mostrando los semáforos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                printf("=====================================\n");
+                printf("🚦 Los semáforos activos en el sistema son: \n");
+                system("ls /dev/shm/"); // Para poder mostrar los semaforos activos del sistema se hace un acceso a las carpetas puestas y no a ipcs debido a que los semaforos que usamos son de tipo sem_open
+                printf("=====================================\n");
+                sleep(5);
+                break;
+            case 4:
+
+                break;
+            case 5:
+                escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                printf("=====================================\n");
+                printf("🧵 Mostramos los hilos activos del sistema\n");
+                system("ps -elf | grep -i banco"); // Este comando se encarga de mostrar todos los hilos activos del sistema que contengan la palabra banco
+                printf("=====================================\n");
+                sleep(5);
+                break;
+            case 6:
+                break;
             }
-        }while (opcion != 6);
+        } while (opcion != 6);
     }
     return;
-}
-
-/// @brief Función que se encarga de recibir alertas de la tubería FIFO creada entre Monitor y Banco
-/// @return NULL
-/// @note Se ejecuta en un hilo por separado para no interrumpir el flujo principal del programa
-void *recibirAlertas()
-{
-    int fifo_fd;
-    char buffer[256];
-
-    // Verificar si la FIFO ya existe
-
-    if (mkfifo(FIFO1, 0666) == -1)
-    {
-        escrituraLogGeneral("🟥 Error al crear la tubería FIFO1 en banco en banco.c, en función: recibirAlertas\n", 0);
-    }
-
-    fifo_fd = open(FIFO1, O_RDONLY);
-
-    if (fifo_fd == -1)
-    {
-        escrituraLogGeneral("🟥 Error al abrir la tubería en banco en banco.c, en función: recibirAlertas\n", 0);
-    }
-
-    while (1)
-    {
-        ssize_t bytesRead = read(fifo_fd, buffer, sizeof(buffer));
-        if (bytesRead > 0)
-        {
-            buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
-            escrituraLogGeneral("🚨 ALERTA RECIBIDA\n", 0);
-            contadorAlertas++;
-        }
-        else if (bytesRead == -1)
-        {
-            escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1 en banco.c, en función: recibirAlertas\n", 0);
-            break;
-        }
-        sleep(1);
-    }
-
-    close(fifo_fd);
-    return NULL;
 }
 
 /// @brief Limpia los strings de "\n"
@@ -159,7 +118,6 @@ void limpiezaString(char *string)
         if (string[i] == '\n')
             string[i] = '\0';
 }
-
 
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
@@ -229,7 +187,7 @@ void registroCuenta(Cuenta cuenta)
     strcat(lineaError, "0");
     strcat(lineaError, ",");
     strcat(lineaError, "0");
-    
+
     // Ponemos la linea de error en el archivo de errores.dat
     fputs(lineaError, fileError);
 
@@ -339,7 +297,8 @@ void registro()
 
     do
     {
-        if (!comprobacion){
+        if (!comprobacion)
+        {
             printf("Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo.\n");
             escrituraLogGeneral("🟥 Ha ocurrido un error en tu intento de registro, prueba a volver a intentarlo en banco.c, en función: registro\n", 0);
         }
@@ -380,12 +339,12 @@ void logIn()
     int comprobacion = 1;
     pid_t pid;
 
-    
     do
     {
         int c;
-        while ((c = getchar()) != '\n' && c != EOF);
-        
+        while ((c = getchar()) != '\n' && c != EOF)
+            ;
+
         system("clear");
 
         printf("=====================================\n");
@@ -395,7 +354,8 @@ void logIn()
 
         fflush(stdout);
 
-        if (fgets(id, sizeof(id), stdin) == NULL) {
+        if (fgets(id, sizeof(id), stdin) == NULL)
+        {
             printf("❌ Error al leer el ID. Intenta nuevamente.\n");
             escrituraLogGeneral("❌ Error al leer el ID. Intenta nuevamente en banco.c, en función: logIn\n", 0);
             continue;
@@ -430,18 +390,6 @@ void logIn()
     }
 }
 
-/// @brief función que crea el hilopara leer la tubería constantemente
-void iniciarHiloAlerta()
-{
-    pthread_t hiloAlerta;
-
-    // Crear el hilo para recibir alertas
-    if (pthread_create(&hiloAlerta, NULL, &recibirAlertas, NULL) != 0)
-    {
-        escrituraLogGeneral("🟥 Error al crear el hilo de alertas en banco.c, en función: iniciarHiloAlerta\n", 0);
-    }
-}
-
 /// @brief Menú de inicio del Banco SafeBank
 void menuBanco()
 {
@@ -449,7 +397,7 @@ void menuBanco()
 
     do
     {
-        if (contadorAlertas != 0)
+        /*if (contadorAlertas != 0)
         {
             contadorAlertas = 0;
             system("clear");
@@ -462,7 +410,7 @@ void menuBanco()
             sleep(1);
             printf("===================================\n");
             sleep(3);
-        }
+        }*/
 
         system("clear");
 
@@ -499,6 +447,74 @@ void menuBanco()
 
     } while (opcion != 3);
     system("clear");
+}
+
+/// @brief Función que se encarga de recibir alertas de la tubería FIFO creada entre Monitor y Banco
+/// @return NULL
+/// @note Se ejecuta en un hilo por separado para no interrumpir el flujo principal del programa
+void *recibirAlertas()
+{
+    int fifo_fd;
+    char buffer[256];
+
+    // Verificar si la FIFO ya existe
+
+    if (mkfifo(FIFO1, 0666) == -1)
+    {
+        escrituraLogGeneral("🟥 Error al crear la tubería FIFO1 en banco en banco.c, en función: recibirAlertas\n", 0);
+    }
+
+    fifo_fd = open(FIFO1, O_RDONLY);
+
+    if (fifo_fd == -1)
+    {
+        escrituraLogGeneral("🟥 Error al abrir la tubería en banco en banco.c, en función: recibirAlertas\n", 0);
+    }
+
+    while (1)
+    {
+        ssize_t bytesRead = read(fifo_fd, buffer, sizeof(buffer));
+        if (bytesRead > 0)
+        {
+            buffer[strcspn(buffer, "\n")] = 0; // Limpiar \n al final del mensaje
+            escrituraLogGeneral("🚨 ALERTA RECIBIDA\n", 0);
+            contadorAlertas++;
+            if (contadorAlertas != 0)
+            {
+                contadorAlertas = 0;
+                pid_t terminalAlerta = fork();
+
+                if (terminalAlerta == 0)
+                {
+                    execlp("gnome-terminal", "gnome-terminal", "--", "./alerta", NULL);
+                }
+                
+                contadorAlertas = 0;
+            }
+        }
+        else if (bytesRead == -1)
+        {
+            escrituraLogGeneral("🟥 Error al leer de la tubería FIFO1 en banco.c, en función: recibirAlertas\n", 0);
+            break;
+        }
+
+        sleep(1);
+    }
+
+    close(fifo_fd);
+    return NULL;
+}
+
+/// @brief función que crea el hilopara leer la tubería constantemente
+void iniciarHiloAlerta()
+{
+    pthread_t hiloAlerta;
+
+    // Crear el hilo para recibir alertas
+    if (pthread_create(&hiloAlerta, NULL, &recibirAlertas, NULL) != 0)
+    {
+        escrituraLogGeneral("🟥 Error al crear el hilo de alertas en banco.c, en función: iniciarHiloAlerta\n", 0);
+    }
 }
 
 int main(int argc, char *argv[])
