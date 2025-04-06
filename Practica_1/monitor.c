@@ -2,7 +2,7 @@
 
 CONFIG configuracion;
 
-/// @brief Fucnión que se encarga de resetear el archivo de errores.dat cuando se ha detectado la necesidad de mandar una alerta al sistema
+/// @brief Función que se encarga de resetear el archivo de errores.dat cuando se ha detectado la necesidad de mandar una alerta al sistema
 void resetearErrores()
 {
     FILE *archivoErrores;
@@ -417,7 +417,7 @@ int main(int argc, char *argv[])
 
     while (1)
     {
-        leer_transacciones(); // Llamamos primero a leer tarnsacciones para comprobar cuantos errores se han detectado hasta el momento 
+        leer_transacciones(); // Llamamos primero a leer transacciones para comprobar cuantos errores se han detectado hasta el momento 
         leer_errores(); // Se llama a leer errores para comprobar que los errores de los usuarios propios del sistema no excede los limites del banco
         sleep(5); 
     }

@@ -43,18 +43,25 @@ void menuAdmin()
 
             switch (opcion)
             {
+                case 3:
+                    printf("\n");
+                    printf("=====================================\n");
+                    printf("🚦 Los semáforos activos en el sistema son: \n");
+                    system("ls /dev/shm/");
+                    printf("=====================================\n");
+                    sleep(5);
+                    break;
                 case 6:
                     break;
             }
-
-
         }while (opcion != 6);
     }
     return;
 }
 
-/// @brief
-/// @return
+/// @brief Función que se encarga de recibir alertas de la tubería FIFO creada entre Monitor y Banco
+/// @return NULL
+/// @note Se ejecuta en un hilo por separado para no interrumpir el flujo principal del programa
 void *recibirAlertas()
 {
     int fifo_fd;

@@ -268,3 +268,10 @@
 [2025-04-06 01:19:21] Operacion ingreso done
 [2025-04-06 01:19:21] Cuentas actualizadas correctamente
 [2025-04-06 01:19:21] OK,Transferencia,✅ Transferencia realizada correctamente,1001,1000.00
+[2025-04-06 11:50:19] Saldo consultado exitosamente
+[2025-04-06 11:50:27] ✅ Cantidad deposito introducido correctamente.
+[2025-04-06 11:50:27] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1004,10000.00
+[2025-04-06 11:50:30] ✅ Cantidad deposito introducido correctamente.
+[2025-04-06 11:50:30] Operacion ingreso done
+[2025-04-06 11:50:30] Cuentas actualizadas correctamente
+[2025-04-06 11:50:30] OK,Ingreso,✅ Ingreso realizado correctamente,1004,100.00
