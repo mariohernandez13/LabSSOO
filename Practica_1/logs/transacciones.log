@@ -163,3 +163,108 @@
 [2025-04-05 23:06:59] Cuentas actualizadas correctamente
 [2025-04-05 23:06:59] OK_REVISADO,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
 [2025-04-05 23:07:12] Errores modificados para indicar que se ha notificado de los errores encontrados
+[2025-04-05 23:24:13] Saldo consultado exitosamente
+[2025-04-05 23:24:16] Error: ID no encontrado
+[2025-04-05 23:24:18] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,1001,1002.00
+[2025-04-05 23:24:21] Saldo consultado exitosamente
+[2025-04-05 23:24:23] Operacion retiro done
+[2025-04-05 23:24:23] Cuentas actualizadas correctamente
+[2025-04-05 23:24:23] Operacion ingreso done
+[2025-04-05 23:24:23] Cuentas actualizadas correctamente
+[2025-04-05 23:24:23] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,100.00
+[2025-04-05 23:26:14] Saldo consultado exitosamente
+[2025-04-05 23:26:15] Errores modificados para indicar que se ha notificado de los errores encontrados
+[2025-04-05 23:26:18] Saldo consultado exitosamente
+[2025-04-05 23:26:22] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,1001,100000000.00
+[2025-04-05 23:26:32] Saldo consultado exitosamente
+[2025-04-05 23:26:35] Operacion retiro done
+[2025-04-05 23:26:35] Cuentas actualizadas correctamente
+[2025-04-05 23:26:35] Operacion ingreso done
+[2025-04-05 23:26:35] Cuentas actualizadas correctamente
+[2025-04-05 23:26:35] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,1000.00
+[2025-04-05 23:35:40] Saldo consultado exitosamente
+[2025-04-05 23:35:45] Saldo consultado exitosamente
+[2025-04-05 23:35:46] Operacion retiro done
+[2025-04-05 23:35:46] Cuentas actualizadas correctamente
+[2025-04-05 23:35:46] Operacion ingreso done
+[2025-04-05 23:35:46] Cuentas actualizadas correctamente
+[2025-04-05 23:35:46] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,100.00
+[2025-04-05 23:36:25] Saldo consultado exitosamente
+[2025-04-05 23:36:27] Saldo consultado exitosamente
+[2025-04-05 23:36:32] Operacion retiro done
+[2025-04-05 23:36:32] Cuentas actualizadas correctamente
+[2025-04-05 23:36:32] Operacion ingreso done
+[2025-04-05 23:36:32] Cuentas actualizadas correctamente
+[2025-04-05 23:36:32] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,10000.00
+[2025-04-05 23:36:43] Saldo consultado exitosamente
+[2025-04-05 23:36:46] Saldo consultado exitosamente
+[2025-04-05 23:36:50] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,1001,10000000000.00
+[2025-04-05 23:36:53] Saldo consultado exitosamente
+[2025-04-05 23:36:53] Errores modificados para indicar que se ha notificado de los errores encontrados
+[2025-04-05 23:36:56] Operacion retiro done
+[2025-04-05 23:36:56] Cuentas actualizadas correctamente
+[2025-04-05 23:36:56] Operacion ingreso done
+[2025-04-05 23:36:56] Cuentas actualizadas correctamente
+[2025-04-05 23:36:56] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,100.00
+[2025-04-05 23:39:15] Saldo consultado exitosamente
+[2025-04-05 23:39:17] Saldo consultado exitosamente
+[2025-04-05 23:39:20] ERROR_NOTIFICADO,Transferencia,🟥 Error en la transferencia,1001,1000000.00
+[2025-04-05 23:39:21] Saldo consultado exitosamente
+[2025-04-05 23:39:23] Operacion retiro done
+[2025-04-05 23:39:23] Cuentas actualizadas correctamente
+[2025-04-05 23:39:23] Operacion ingreso done
+[2025-04-05 23:39:23] Cuentas actualizadas correctamente
+[2025-04-05 23:39:23] OK_REVISADO,Transferencia,✅ Transferencia realizada correctamente,1001,100.00
+[2025-04-05 23:40:40] Saldo consultado exitosamente
+[2025-04-05 23:40:42] Error: Saldo introducido para transacción 
+[2025-04-05 23:40:42] ERROR_NOTIFICADO,Retiro,🟥 Error en el retiro,1010,10000000.00
+[2025-04-05 23:40:44] Operacion retiro done
+[2025-04-05 23:40:44] Cuentas actualizadas correctamente
+[2025-04-05 23:40:44] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:40:44] OK_REVISADO,Retiro,✅ Retiro realizado correctamente,1010,100.00
+[2025-04-05 23:46:14] Saldo consultado exitosamente
+[2025-04-05 23:46:18] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:46:18] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,1000000.00
+[2025-04-05 23:46:21] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:46:21] Operacion ingreso done
+[2025-04-05 23:46:21] Cuentas actualizadas correctamente
+[2025-04-05 23:46:21] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1000.00
+[2025-04-05 23:46:45] Saldo consultado exitosamente
+[2025-04-05 23:47:52] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:47:52] Operacion ingreso done
+[2025-04-05 23:47:52] Cuentas actualizadas correctamente
+[2025-04-05 23:47:52] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-04-05 23:51:53] Saldo consultado exitosamente
+[2025-04-05 23:51:58] ✅ Cantidad deposito introducido correctamente.
+[2025-04-05 23:51:58] Operacion ingreso done
+[2025-04-05 23:51:58] Cuentas actualizadas correctamente
+[2025-04-05 23:51:58] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1000.00
+[2025-04-05 23:52:07] Saldo consultado exitosamente
+[2025-04-05 23:52:11] Operacion retiro done
+[2025-04-05 23:52:11] Cuentas actualizadas correctamente
+[2025-04-05 23:52:11] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:52:11] OK,Retiro,✅ Retiro realizado correctamente,1001,100.00
+[2025-04-05 23:53:59] Saldo consultado exitosamente
+[2025-04-05 23:54:02] ✅ Cantidad deposito introducido correctamente.
+[2025-04-05 23:54:02] Operacion ingreso done
+[2025-04-05 23:54:02] Cuentas actualizadas correctamente
+[2025-04-05 23:54:02] OK,Ingreso,✅ Ingreso realizado correctamente,1002,1000.00
+[2025-04-05 23:54:06] Saldo consultado exitosamente
+[2025-04-05 23:54:08] Operacion retiro done
+[2025-04-05 23:54:08] Cuentas actualizadas correctamente
+[2025-04-05 23:54:08] ✅ Cantidad retiro introducido correctamente.
+[2025-04-05 23:54:08] OK,Retiro,✅ Retiro realizado correctamente,1002,1000.00
+[2025-04-05 23:55:59] Saldo consultado exitosamente
+[2025-04-05 23:56:02] Saldo consultado exitosamente
+[2025-04-05 23:56:08] Operacion retiro done
+[2025-04-05 23:56:08] Cuentas actualizadas correctamente
+[2025-04-05 23:56:08] Operacion ingreso done
+[2025-04-05 23:56:08] Cuentas actualizadas correctamente
+[2025-04-05 23:56:08] OK,Transferencia,✅ Transferencia realizada correctamente,1001,100.00
+[2025-04-06 01:19:16] Saldo consultado exitosamente
+[2025-04-06 01:19:19] Saldo consultado exitosamente
+[2025-04-06 01:19:21] Operacion retiro done
+[2025-04-06 01:19:21] Cuentas actualizadas correctamente
+[2025-04-06 01:19:21] Operacion ingreso done
+[2025-04-06 01:19:21] Cuentas actualizadas correctamente
+[2025-04-06 01:19:21] OK,Transferencia,✅ Transferencia realizada correctamente,1001,1000.00

@@ -7,7 +7,7 @@ void menuAdmin()
 {
     char contraseña[50] = "";
     int opcion = 0;
-    int comparacion = 0;
+    char *comparacion = 0;
 
     system("clear");
     printf("=====================================\n");
@@ -15,14 +15,14 @@ void menuAdmin()
     while(getchar() != '\n');
     fgets(contraseña, sizeof(contraseña), stdin);
 
-    comparacion = strcmp(contraseña, "admin");
+    comparacion = strstr(contraseña, "admin");
 
-    if (comparacion != 0)
+    if (!comparacion)
     {
         escrituraLogGeneral("🟥 Contraseña incorrecta\n", 0);
         return;
     }
-    else if (strcmp(contraseña, "admin") == 0)
+    else
     {
         escrituraLogGeneral("Contraseña correcta, accediendo al menú de administrador\n", 0);
         do{
@@ -36,7 +36,9 @@ void menuAdmin()
             printf("3. Mostrar semaforos activos en el sistema\n");
             printf("4. Mostrar pid de banco con el pid de los usuarios hijos\n");
             printf("5. Mostrar hilos activos actualmente\n");
-            printf("6. Salir");
+            printf("6. Salir\n");
+            printf("=====================================\n");
+            printf("👉 Introduce una opción: ");
             scanf("%d", &opcion);
 
             switch (opcion)
