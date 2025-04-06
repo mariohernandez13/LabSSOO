@@ -50,9 +50,9 @@ int main()
         alerta};
 
     long tamañoArchivoError;
-    
+
     // En caso de no funcionar los semáforos debido a estar bloqueados por otra ejecución anterior usar esto para eliminarlos manualmente
-    
+
     sem_unlink("/semaforo_cuentas");
     sem_unlink("/semaforo_banco");
     sem_unlink("/semaforo_config");
@@ -92,7 +92,7 @@ int main()
     FILE *archivoErroresDat = fopen("data/errores.dat", "a");
     if (archivoErroresDat == NULL)
     {
-        escrituraLogGeneral("Error al crear el archivo de errrores.\n",0);
+        escrituraLogGeneral("Error al crear el archivo de errrores.\n", 0);
         fclose(archivoErroresDat);
         return (1);
     }
@@ -134,17 +134,29 @@ int main()
         // Escribir las cuentas en el archivo
         for (int i = 0; i < numCuentas; i++)
         {
-            fprintf(archivoCuentas, "%s,%s,%s,%d\n",
-                    cuentas[i].numero_cuenta,
-                    cuentas[i].titular,
-                    cuentas[i].saldo,
-                    cuentas[i].num_transacciones);
+
+            if (i == numCuentas - 1)
+            {
+                fprintf(archivoCuentas, "%s,%s,%s,%d",
+                        cuentas[i].numero_cuenta,
+                        cuentas[i].titular,
+                        cuentas[i].saldo,
+                        cuentas[i].num_transacciones);
+            }
+            else
+            {
+                fprintf(archivoCuentas, "%s,%s,%s,%d\n",
+                        cuentas[i].numero_cuenta,
+                        cuentas[i].titular,
+                        cuentas[i].saldo,
+                        cuentas[i].num_transacciones);
+            }
         }
 
         fclose(archivoCuentas);
         fclose(archivoLog);
     }
-    
+
     sem_post(semaforo_cuentas);
     sem_post(semaforo_banco);
 
@@ -177,24 +189,35 @@ int main()
             {"1016", "0", "0", "0"},
             {"1017", "0", "0", "0"},
             {"1018", "0", "0", "0"},
-            {"1019", "0", "0", "0"}
-        };            
-    
+            {"1019", "0", "0", "0"}};
+
         int numCuentas = sizeof(errores) / sizeof(errores[0]); // Número de cuentas
 
         // Escribir las cuentas en el archivo
         for (int i = 0; i < numCuentas; i++)
         {
-            fprintf(archivoErroresDat, "%s,%s,%s,%s\n",
+
+            if (i == numCuentas - 1)
+            {
+                fprintf(archivoErroresDat, "%s,%s,%s,%s",
                     errores[i].id,
                     errores[i].errorRetiro,
                     errores[i].errorIngreso,
                     errores[i].errorTransaccion);
+            }
+            else
+            {
+                fprintf(archivoErroresDat, "%s,%s,%s,%s\n",
+                    errores[i].id,
+                    errores[i].errorRetiro,
+                    errores[i].errorIngreso,
+                    errores[i].errorTransaccion);
+            }
         }
 
         fclose(archivoErroresDat);
     }
-    
+
     for (int i = 0; i < 4; i++)
         compilarFicheros(variables[i], i);
 
