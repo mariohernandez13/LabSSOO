@@ -262,7 +262,7 @@ int existeID(char *id, int flag)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        escrituraLogGeneral("Error al abrir los semáforos en banco.c, en función: existeID\n", 0);
         exit(1);
     }
 

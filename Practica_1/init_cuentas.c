@@ -61,7 +61,7 @@ int main()
 
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {
-        perror("Error al abrir los semáforos");
+        escrituraLogGeneral("Error al abrir los semáforos en init_cuentas en función: main\n", 0);
         exit(1);
     }
 
@@ -71,7 +71,7 @@ int main()
     FILE *archivoLog = fopen("logs/banco.log", "a");
     if (archivoLog == NULL)
     {
-        escrituraLogGeneral("Error al abrir el archivo .log\n", 0);
+        perror("Error al abrir el archivo .log\n");
         return 1;
     }
 
@@ -81,7 +81,7 @@ int main()
     FILE *archivoCuentas = fopen("cuentas.dat", "a");
     if (archivoCuentas == NULL)
     {
-        escrituraLogGeneral("Error al crear el archivo de cuentas.\n", 0);
+        escrituraLogGeneral("Error al crear el archivo de cuentas en init_cuentas en función: main\n", 0);
         fclose(archivoLog);
         return (1);
     }

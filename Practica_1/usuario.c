@@ -128,7 +128,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        perror("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas");//Pregunat a afrenta
+        escrituraLogGeneral("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
         exit(1);
     }
 
