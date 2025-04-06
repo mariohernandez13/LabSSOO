@@ -209,6 +209,9 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
     }
 
     actualizarCuentas(id, saldoActual);
+
+    mostrarCarga();
+
     return saldoActual;
 }
 
@@ -288,13 +291,13 @@ void *operacionTransferencia(void *id)
         }
 
         esValido = 1;
-        printf("Introduce id destinatario: \n");
+        printf("👤 Introduce id destinatario: \n");
         while (getchar() != '\n')
             ;
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         idDestinatario[strcspn(idDestinatario, "\n")] = 0; // Eliminar \n para que saldoDestinatario no vuelva vacio
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
-        printf("Introduce cantidad a transferir: \n");
+        printf("💳 Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
         if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0 || saldoTransferir > saldo) 
