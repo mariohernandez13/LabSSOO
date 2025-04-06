@@ -45,6 +45,26 @@ void menuAdmin()
 
             switch (opcion)
             {
+                case 1:
+                    escrituraLogGeneral("⚙️ Mostrando la configuración actual desde el menú de administrador\n", 0);
+                    printf("\n");
+                    // Mostramos la configuracion actual de los errores permitidos en el sistema
+                    printf("=====================================\n");
+                    printf("⚙️ La configuración de errores actual es:\n");
+                    printf("🔢 Umbral Total de Errores: %d\n", configuracion.umbralTotal);
+                    printf("💸 Umbral de Errores en Retiros: %d\n", configuracion.umbralRetiros);
+                    printf("💰 Umbral de Errores en Ingresos: %d\n", configuracion.umbralIngreso);
+                    printf("🔁 Umbral de Errores en Transferencias: %d\n", configuracion.umbralTransferencias);
+                    printf("=====================================\n");
+                    printf("\n");
+                    printf("=====================================\n");
+                    printf("⚙️ La configuración de límites en operaciones es:\n");
+                    printf("💲 Límite de cantidad permitida en Ingresos: %d\n", configuracion.limiteIngreso);
+                    printf("💲 Límite de cantidad permitida en Retiros: %d\n", configuracion.limiteRetiros);
+                    printf("💲 Límite de cantidad permitida en Transacción: %d\n", configuracion.limiteTransferencia);
+                    printf("=====================================\n");
+                    sleep(10);
+                    break;
                 case 2:
                     escrituraLogGeneral("🌳 Mostrando el arbol de procesos de la aplicacion desde el menú de administrador\n", 0);
                     printf("\n");
@@ -67,6 +87,9 @@ void menuAdmin()
                     system("ls /dev/shm/"); // Para poder mostrar los semaforos activos del sistema se hace un acceso a las carpetas puestas y no a ipcs debido a que los semaforos que usamos son de tipo sem_open
                     printf("=====================================\n");
                     sleep(5);
+                    break;
+                case 4:
+                    
                     break;
                 case 5:
                     escrituraLogGeneral("🧵 Mostramos los hilos activos en el sistema desde el menú de administrador\n", 0);
