@@ -387,15 +387,6 @@ void leer_errores()
     fclose(file);
 }
 
-/// @brief Función que muestra la configración de errores del archivo properties
-void mostrar_configuracion()
-{
-    printf("\n⚙️  CONFIGURACIÓN ACTUAL:\n");
-    printf("🔢 Umbral Total: %d\n", configuracion.umbralTotal);
-    printf("💸 Umbral Retiros: %d\n", configuracion.umbralRetiros);
-    printf("💰 Umbral Ingresos: %d\n", configuracion.umbralIngreso);
-    printf("🔁 Umbral Transferencias: %d\n", configuracion.umbralTransferencias);
-}
 
 /// @brief Función main de monitor, se encarga de leer el archivo de configuración y el de errores
 /// @param argc
@@ -406,13 +397,9 @@ int main(int argc, char *argv[])
     printf("=============================================\n");
     printf("🛡️  MONITOR DE ANOMALÍAS - SAFEBANK SYSTEM 🛡️\n");
     printf("=============================================\n");
-
-    printf("1️⃣ Ver log de eventos generales\n");
-    printf("2️⃣ Ver configuración actual\n");
-    printf("3️⃣ Recargar configuración\n");
-    printf("4️⃣ Salir\n");
-    printf("🡆 Elige una opción: ");
-
+    printf("⏳ Iniciando el monitor de anomalías...\n");
+    mostrarCarga();
+    printf("🔍 Detectando anomalías...\n");
     configuracion = leer_configuracion(configuracion); // Leemos la configuracion del sistema
 
     while (1)
