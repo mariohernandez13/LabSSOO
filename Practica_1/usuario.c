@@ -292,15 +292,18 @@ void *operacionTransferencia(void *id)
 
         esValido = 1;
         printf("👤 Introduce id destinatario: \n");
-        while (getchar() != '\n')
-            ;
+        while (getchar() != '\n');
+
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         idDestinatario[strcspn(idDestinatario, "\n")] = 0; // Eliminar \n para que saldoDestinatario no vuelva vacio
+        
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
+        
         printf("💳 Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0 || saldoTransferir > saldo) 
+        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0
+             || saldoTransferir > saldo ||strcmp(_id, idDestinatario) == 0) 
         {
             escribirLogOperacion(3, 0, _id, saldoTransferir);
             esValido = 0;
