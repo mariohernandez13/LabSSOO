@@ -214,6 +214,10 @@ void registroCuenta(Cuenta cuenta)
     sem_post(semaforo_cuentas);
     sem_close(semaforo_cuentas);
     sem_close(semaforo_banco);
+
+    printf("Registro realizado de forma correcta\n");
+    sleep(2);
+    printf("=====================================\n");
 }
 
 /// @brief Función que comprueba si el id pasado como parámetro se encuentra en el archivo "cuentas.dat"
@@ -342,7 +346,7 @@ void registro()
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
         comprobacion = comprobarId(cuenta.numero_cuenta, 0);
-    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME) || !esNumeroValido(cuenta.saldo) || !esCadenaValida(cuenta.titular) || !esNumeroValido(cuenta.numero_cuenta));
+    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
 }

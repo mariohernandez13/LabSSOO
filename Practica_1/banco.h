@@ -242,7 +242,7 @@ CONFIG leer_configuracion(CONFIG configuracion)
 /// @return 0 = si es es una cadena con texto, 1 = si es válido
 int esNumeroValido(char *str)
 {
-    // Verifica si la cadena contiene solo números (y opcionalmente un punto decimal)
+    // Verifica si la cadena contiene solo números
     int puntoDecimalEncontrado = 0;
 
     for (int i = 0; str[i] != '\0'; i++)

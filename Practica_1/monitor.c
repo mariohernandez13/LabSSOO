@@ -383,7 +383,7 @@ void leer_errores()
             enviar_alerta(mensajeAlerta, id); // añadir además el id
         }
     }
-    escrituraLogGeneral("Comprobando errores...", 0);
+    escrituraLogGeneral("Comprobando errores...\n", 0);
     fclose(file);
 }
 

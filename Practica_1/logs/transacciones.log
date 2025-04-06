@@ -453,3 +453,12 @@
 [2025-04-06 19:01:55] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
 [2025-04-06 19:01:55] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,inf
 [2025-04-06 19:04:01] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 21:14:41] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 21:14:45] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 21:14:50] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-06 21:14:58] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 21:14:58] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 21:15:01] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-06 21:15:01] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
+[2025-04-06 21:15:04] OK,Transferencia,✅ Transferencia realizada correctamente,1003,1000.00
+[2025-04-06 21:15:12] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
