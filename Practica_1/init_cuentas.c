@@ -200,18 +200,18 @@ int main()
             if (i == numCuentas - 1)
             {
                 fprintf(archivoErroresDat, "%s,%s,%s,%s",
-                    errores[i].id,
-                    errores[i].errorRetiro,
-                    errores[i].errorIngreso,
-                    errores[i].errorTransaccion);
+                        errores[i].id,
+                        errores[i].errorRetiro,
+                        errores[i].errorIngreso,
+                        errores[i].errorTransaccion);
             }
             else
             {
                 fprintf(archivoErroresDat, "%s,%s,%s,%s\n",
-                    errores[i].id,
-                    errores[i].errorRetiro,
-                    errores[i].errorIngreso,
-                    errores[i].errorTransaccion);
+                        errores[i].id,
+                        errores[i].errorRetiro,
+                        errores[i].errorIngreso,
+                        errores[i].errorTransaccion);
             }
         }
 

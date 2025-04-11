@@ -19,6 +19,8 @@
 #define MAX_LENGTH_NAME 50
 #define MAX_LENGTH_SALDO 10
 #define MAX_LENGTH_ID 6
+#define MB 1024 * 1024
+#define MEM_KEY "GOATS"
 
 #define FIFO1 "/tmp/fifo1"
 #define FIFO2 "/tmp/fifo2"
@@ -42,6 +44,8 @@ typedef struct
     char archivoCuentas[MAX_LINE_LENGTH];
     char archivoLog[MAX_LINE_LENGTH];
     char archivoTransacciones[MAX_LINE_LENGTH];
+    char maxMemoria[MAX_LINE_LENGTH];
+    char nombreMemoria[MAX_LINE_LENGTH];
 } CONFIG;
 
 /// @brief Estructura de los errores para cada usuario
@@ -61,6 +65,13 @@ typedef struct
     char saldo[MAX_LENGTH_SALDO];
     int num_transacciones;
 } Cuenta;
+
+/// @brief Estructura para guardar la tabla de cuentas
+typedef struct
+{
+    Cuenta cuentas[100];
+    int numCuentas;
+} TablaCuentas;
 
 typedef struct
 {
@@ -227,6 +238,14 @@ CONFIG leer_configuracion(CONFIG configuracion)
             {
                 strncpy(configuracion.archivoLog, value, MAX_LINE_LENGTH);
             }
+            else if (strcmp(key, "MB_MAX") == 0)
+            {
+                strncpy(configuracion.maxMemoria, value, MAX_LINE_LENGTH);
+            }
+            else if (strcmp(key, "MEMORY_NAME") == 0)
+            {
+                strncpy(configuracion.nombreMemoria, value, MAX_LINE_LENGTH);
+            }
         }
     }
 
@@ -256,13 +275,21 @@ int esNumeroValido(char *str)
 /// @brief Función para comprobar que una cadena no contiene carácteres especiales
 /// @param str Cadena a comprobar
 /// @return 0 = si existe un caracter no permitido, 1 = si es válido
-int esCadenaValida(const char *str) {
+int esCadenaValida(const char *str)
+{
     // Recorre cada carácter de la cadena
-    for (int i = 0; str[i] != '\0'; i++) {
-        if (!isalnum(str[i])) {
+    for (int i = 0; str[i] != '\0'; i++)
+    {
+        if (!isalnum(str[i]))
+        {
             // Si el carácter no es alfanumérico (ni letra ni número), es inválido
-            return 0;  // Retorna 0 (falso) si hay un carácter no permitido
+            return 0; // Retorna 0 (falso) si hay un carácter no permitido
         }
     }
-    return 1;  // Retorna 1 (verdadero) si todos los caracteres son válidos
+    return 1; // Retorna 1 (verdadero) si todos los caracteres son válidos
+}
+
+void leer_cuentas()
+{
+
 }

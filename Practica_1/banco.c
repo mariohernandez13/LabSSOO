@@ -525,8 +525,38 @@ void iniciarHiloAlerta()
     }
 }
 
+/// @brief Función que inicia la memoria compartida del sistema
+/// @param size 
+/// @return Error = 1 | OK = 0
+int inicializarMemSh(long int size)
+{
+
+    // iniciamos memoria compartida
+    int shm_id = shmget(key, sizeof(TablaCuentas), IPC_CREAT | 0666);
+    if (shm_id == -1)
+    {
+        escrituraLogGeneral("no se ha podido iniciar memoria compartida", 0);
+        return 1;
+    }
+
+    // adjuntar memoria compartida al proceso
+    // TablaCuentas *tabla = (TablaCuentas *)shmat(shm_id, NULL, 0);
+    // if (tabla == (void *)-1)
+    // {
+    //     escrituraLogGeneral("no se pudo adjuntar la memoria compartida al proceso", 0);
+    //     return 1;
+    // }
+
+    ftruncate(shm_id, size);
+
+    return 0;
+}
+
 int main(int argc, char *argv[])
 {
+    long int MEMORY_SIZE = MB * configuracion.maxMemoria;
+    inicializarMemSh(MEMORY_SIZE);
+
     unlink(FIFO1);
     unlink(FIFO2);
 
