@@ -34,6 +34,52 @@ int compilarFicheros(char *fichero, int i)
     return 0;
 }
 
+void crearDirectorio(Cuenta cuentas[], int numCuentas)
+{
+    // crea el directorio si no existe y controla errores
+    if (mkdir("transacciones", 0777) == -1)
+    {
+        if( errno != EEXIST)
+        {
+            escrituraLogGeneral("Error al crear el directorio transacciones", 0);
+            exit(1);
+        }
+    }
+   
+    for (int i = 0; i < numCuentas; i++)
+    {
+        char path[100];
+        snprintf(path, sizeof(path), "transacciones/%s", cuentas[i].numero_cuenta);
+
+        // Crear el directorio para el usuario
+        if (mkdir(path, 0777) == -1)
+        {
+            if (errno != EEXIST)
+            {
+                escrituraLogGeneral("Error al crear el directorio del usuario", 0);
+                exit(1);
+            }
+        }
+
+        // Crear el archivo transacciones.log dentro del directorio
+        char logPath[150];
+        snprintf(logPath, sizeof(logPath), "%s/transacciones.log", path);
+
+        FILE *logFile = fopen(logPath, "a");
+        if (logFile == NULL)
+        {
+            char mensajeError[200];
+            snprintf(mensajeError, sizeof(mensajeError), "Error al crear el archivo de log para el usuario %s\n", cuentas[i].numero_cuenta);
+            escrituraLogGeneral(mensajeError, 0);            
+            exit(1);
+        }
+
+        // Escribir un mensaje inicial en el log
+        fprintf(logFile, "Log inicializado para el usuario %s\n", cuentas[i].numero_cuenta);
+        fclose(logFile);
+    }
+}
+
 /// @brief abre el archivo cuentas.dat y añade usuarios inventados
 /// @return 0 si se ejecuta correctamente / 1 si hay error al abrir el fichero
 int main()
@@ -192,6 +238,8 @@ int main()
             {"1019", "0", "0", "0"}};
 
         int numCuentas = sizeof(errores) / sizeof(errores[0]); // Número de cuentas
+
+        crearDirectorio(cuentas, numCuentas);
 
         // Escribir las cuentas en el archivo
         for (int i = 0; i < numCuentas; i++)
