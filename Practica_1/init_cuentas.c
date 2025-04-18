@@ -39,13 +39,10 @@ void crearDirectorio(Cuenta cuentas[], int numCuentas)
     // crea el directorio si no existe y controla errores
     if (mkdir("transacciones", 0777) == -1)
     {
-        if( errno != EEXIST)
-        {
-            escrituraLogGeneral("Error al crear el directorio transacciones", 0);
-            exit(1);
-        }
+        escrituraLogGeneral("Error al crear el directorio transacciones", 0);
+        exit(1);
     }
-   
+
     for (int i = 0; i < numCuentas; i++)
     {
         char path[100];
@@ -54,11 +51,8 @@ void crearDirectorio(Cuenta cuentas[], int numCuentas)
         // Crear el directorio para el usuario
         if (mkdir(path, 0777) == -1)
         {
-            if (errno != EEXIST)
-            {
-                escrituraLogGeneral("Error al crear el directorio del usuario", 0);
-                exit(1);
-            }
+            escrituraLogGeneral("Error al crear el directorio del usuario", 0);
+            exit(1);
         }
 
         // Crear el archivo transacciones.log dentro del directorio
@@ -70,7 +64,7 @@ void crearDirectorio(Cuenta cuentas[], int numCuentas)
         {
             char mensajeError[200];
             snprintf(mensajeError, sizeof(mensajeError), "Error al crear el archivo de log para el usuario %s\n", cuentas[i].numero_cuenta);
-            escrituraLogGeneral(mensajeError, 0);            
+            escrituraLogGeneral(mensajeError, 0);
             exit(1);
         }
 
