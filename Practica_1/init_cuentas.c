@@ -79,6 +79,7 @@ void crearDirectorio(Cuenta cuentas[], int numCuentas)
 int main()
 {
     Cuenta cuentas[20]; // Definimos el array de cuentas predeterminado del sistema
+    int numCuentas = 0; // inicializamos a 0 el número de cuentas
 
     char *banco = "banco";
     char *usuario = "usuario";
@@ -151,29 +152,29 @@ int main()
     else
     {
         Cuenta tempCuentas[] = {
-            {"1001", "Alejandro Abajos", "1500"},
-            {"1002", "Ania Gonsales", "2300"},
-            {"1003", "Marito Fernandez", "3200"},
-            {"1004", "Javieh Afrenta", "6000"},
-            {"1005", "Peter Parker", "275.25"},
-            {"1006", "Laura Torres", "1300.60"},
-            {"1007", "Miguel Romero", "800.00"},
-            {"1008", "Sofia Herrera", "920.50"},
-            {"1009", "Luis Vargas", "3100.30"},
-            {"1010", "Carmen Morales", "480.80"},
-            {"1011", "Ricardo Jimenez", "2100.00"},
-            {"1012", "Elena Castro", "3600.40"},
-            {"1013", "Diego Luna", "1550.00"},
-            {"1014", "Isabel Flores", "775.75"},
-            {"1015", "Roberto Mendoza", "2350.20"},
-            {"1016", "Quevedo Estilton", "9990.80"},
-            {"1017", "Hector Cruz", "400.00"},
-            {"1018", "Valeria Suarez", "1980.90"},
-            {"1019", "Adrian Paredes", "300.00"}};
+            {"1001", "Alejandro Abajos", "1500", 0},
+            {"1002", "Ania Gonsales", "2300", 0},
+            {"1003", "Marito Fernandez", "3200", 0},
+            {"1004", "Javieh Afrenta", "6000", 0},
+            {"1005", "Peter Parker", "275.25", 0},
+            {"1006", "Laura Torres", "1300.60", 0},
+            {"1007", "Miguel Romero", "800.00", 0},
+            {"1008", "Sofia Herrera", "920.50", 0},
+            {"1009", "Luis Vargas", "3100.30", 0},
+            {"1010", "Carmen Morales", "480.80", 0},
+            {"1011", "Ricardo Jimenez", "2100.00", 0},
+            {"1012", "Elena Castro", "3600.40", 0},
+            {"1013", "Diego Luna", "1550.00", 0},
+            {"1014", "Isabel Flores", "775.75", 0},
+            {"1015", "Roberto Mendoza", "2350.20", 0},
+            {"1016", "Quevedo Estilton", "9990.80", 0},
+            {"1017", "Hector Cruz", "400.00", 0},
+            {"1018", "Valeria Suarez", "1980.90", 0},
+            {"1019", "Adrian Paredes", "300.00", 0}};
 
         memcpy(cuentas, tempCuentas, sizeof(tempCuentas));
 
-        int numCuentas = sizeof(cuentas) / sizeof(cuentas[0]); // Número de cuentas
+        numCuentas = sizeof(tempCuentas) / sizeof(cuentas[0]); // Número de cuentas
 
         // Escribir las cuentas en el archivo
         for (int i = 0; i < numCuentas; i++)
@@ -199,6 +200,9 @@ int main()
 
         fclose(archivoCuentas);
         fclose(archivoLog);
+
+        crearDirectorio(cuentas, numCuentas);
+
     }
 
     sem_post(semaforo_cuentas);
@@ -235,9 +239,7 @@ int main()
             {"1018", "0", "0", "0"},
             {"1019", "0", "0", "0"}};
 
-        int numCuentas = sizeof(errores) / sizeof(errores[0]); // Número de cuentas
-
-        crearDirectorio(cuentas, numCuentas);
+        numCuentas = sizeof(errores) / sizeof(errores[0]); // Número de cuentas
 
         // Escribir las cuentas en el archivo
         for (int i = 0; i < numCuentas; i++)
