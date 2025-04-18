@@ -78,6 +78,8 @@ void crearDirectorio(Cuenta cuentas[], int numCuentas)
 /// @return 0 si se ejecuta correctamente / 1 si hay error al abrir el fichero
 int main()
 {
+    Cuenta cuentas[20]; // Definimos el array de cuentas predeterminado del sistema
+
     char *banco = "banco";
     char *usuario = "usuario";
     char *monitor = "monitor";
@@ -148,7 +150,7 @@ int main()
     }
     else
     {
-        Cuenta cuentas[] = {
+        Cuenta tempCuentas[] = {
             {"1001", "Alejandro Abajos", "1500"},
             {"1002", "Ania Gonsales", "2300"},
             {"1003", "Marito Fernandez", "3200"},
@@ -168,6 +170,8 @@ int main()
             {"1017", "Hector Cruz", "400.00"},
             {"1018", "Valeria Suarez", "1980.90"},
             {"1019", "Adrian Paredes", "300.00"}};
+
+        memcpy(cuentas, tempCuentas, sizeof(tempCuentas));
 
         int numCuentas = sizeof(cuentas) / sizeof(cuentas[0]); // Número de cuentas
 

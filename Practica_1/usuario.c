@@ -1,6 +1,7 @@
 #include "banco.h"
 
 CONFIG configuracion;
+TablaCuentas *tabla;
 
 /// @brief Funcion para escribir en el log de transacciones
 /// @param flagOperacion 1 = Ingreso, 2 = Retiro, 3 = Transferencia
@@ -114,6 +115,32 @@ float conseguirSaldoUsuario(char *id)
     sem_post(semaforo_cuentas);
 
     return saldoUsuario;
+}
+
+/// @brief Función que se encarga de conseguir el saldo del usuario que corresponde al id introducido
+/// @param id Id del usuario 
+/// @return Devolvemos el saldo actual del usuario
+float conseguirSaldoUsuarioEnMemoria(char *id)
+{
+    // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
+    float saldoActual;
+    
+    escrituraLogGeneral("🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria\n", 0);
+
+    for (int i = 0; i < tabla->numCuentas; i++)
+    {
+        // Si el id es el mismo, asignamos su saldo al saldo a mostrar
+        if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
+        {
+            saldoActual = strtof(tabla->cuentas[i].saldo, NULL);
+            break;
+        }
+        else {
+
+        }
+    }
+
+    return saldoActual;
 }
 
 /// @brief Función que se encarga de actualizar el saldo en el archivo cuentas.dat en función de la operación realizada
@@ -380,7 +407,10 @@ void *operacionRetiro(void *id)
 void *operacionConsultarSaldo(void *id)
 {
     pthread_setname_np(pthread_self(), "operacionConsultarSaldo");
-    float saldoActual = conseguirSaldoUsuario(id);
+
+    // Ahora usamos una nueva función que consigue el saldo del usuario accediendo al espacio de memoria compartida
+    float saldoActual = conseguirSaldoUsuarioEnMemoria(id);
+
     printf("\n=====================================\n");
     printf(" 💰 Tu saldo actual es: %.2f 💰\n", saldoActual);
     printf("=====================================\n");
@@ -453,6 +483,25 @@ void menuUsuario(char *id)
 int main(int argc, char *argv[])
 {
     configuracion = leer_configuracion(configuracion);
+
+    // Conseguimos la key definida dentro del sistema para acceder a la memoria compartida
+    key_t key = ftok(MEM_KEY,1);
+
+    // Definimos en usuario la memoria compartida ya creada en banco.c
+    int shm_id = shmget(key, 0, 0666);
+    if (shm_id == -1)
+    {
+        escrituraLogGeneral("🟥 Error al obtener el id de la memoria compartida en usuario.c, en función: main\n", 0);
+        return 1;
+    }
+
+    // Accedemos a la tabla existente ya en la memoria compartida creada
+    tabla = (TablaCuentas *)shmat(shm_id, NULL, 0);
+    if (tabla == (void *)-1)
+    {
+        escrituraLogGeneral("🟥 Error al adjuntar la memoria compartida en usuario.c, en función: main\n", 0);
+        return 1;
+    }
 
     if (argc == 2)
         menuUsuario(argv[1]);

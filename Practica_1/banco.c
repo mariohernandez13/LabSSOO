@@ -599,8 +599,25 @@ int inicializarMemSh(long int size)
         }
     }
 
+    // Comprobamos el tamaño del archivo de cuentas
+    struct stat st;
+    if (stat("data/cuentas.dat", &st) == -1)
+    {
+        escrituraLogGeneral("🟥 Error al obtener el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh\n", 0);
+        return 1;
+    }
+
+    size = 0;
+
+    // Mientras que el tamaño del archivo sea mayor al tamaño de la memoria compartida preestablecida, aumentamos un MB su tamaño para evitar problemas
+    while (size < st.st_size)
+    {
+        escrituraLogGeneral("🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh\n", 0);
+        size += MB; // Aumentamos el tamaño de la memoria compartida para evitar problemas de memoria 
+    }
+
     // Iniciamos memoria compartida
-    shm_id = shmget(key, sizeof(TablaCuentas), IPC_CREAT | 0666);
+    shm_id = shmget(key, size, IPC_CREAT | 0666);
     if (shm_id == -1)
     {
         escrituraLogGeneral("No se ha podido iniciar memoria compartida", 0);
@@ -621,8 +638,6 @@ int inicializarMemSh(long int size)
         escrituraLogGeneral("Error al cargar la memoria compartida en banco.c, en función: inicializarMemSh\n", 0);
         return 1;
     }
-
-    printf("Saldo de la cuenta 1001: %d\n", atoi(tabla->cuentas[0].saldo));
 
     return 0;
 }
