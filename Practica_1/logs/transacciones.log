@@ -463,3 +463,79 @@
 [2025-04-06 21:15:04] OK,Transferencia,✅ Transferencia realizada correctamente,1003,1000.00
 [2025-04-06 21:15:12] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
 [2025-04-18 14:01:12] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-18 16:48:15] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 16:48:18] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 16:48:20] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 16:48:23] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 16:48:26] OK,Transferencia,✅ Transferencia realizada correctamente,1003,100.00
+[2025-04-18 17:29:30] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:29:32] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:29:34] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:29:34] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:29:38] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:29:38] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:29:41] OK,Transferencia,✅ Transferencia realizada correctamente,1002,100.00
+[2025-04-18 17:29:45] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:29:47] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:29:47] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:29:47] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:29:50] OK,Ingreso,✅ Ingreso realizado correctamente,1002,100.00
+[2025-04-18 17:29:54] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:29:56] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:29:56] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:29:56] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:30:00] OK,Ingreso,✅ Ingreso realizado correctamente,1002,100.00
+[2025-04-18 17:30:06] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:30:08] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:30:08] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:30:08] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:30:11] OK,Ingreso,✅ Ingreso realizado correctamente,1002,1000.00
+[2025-04-18 17:30:25] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:30:27] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:30:27] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:30:30] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-18 17:30:30] OK,Retiro,✅ Retiro realizado correctamente,1002,100.00
+[2025-04-18 17:30:51] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:30:52] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:30:52] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:30:52] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:30:55] OK,Ingreso,✅ Ingreso realizado correctamente,1002,100.00
+[2025-04-18 17:31:14] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:31:16] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:31:16] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:31:16] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:31:19] OK,Ingreso,✅ Ingreso realizado correctamente,1004,100.00
+[2025-04-18 17:31:27] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:31:29] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:31:29] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:31:33] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-18 17:31:33] OK,Retiro,✅ Retiro realizado correctamente,1004,100.00
+[2025-04-18 17:31:47] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:31:49] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:31:49] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:31:49] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:31:52] OK,Ingreso,✅ Ingreso realizado correctamente,1004,100.00
+[2025-04-18 17:33:32] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:33:35] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:33:35] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:33:35] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:33:38] OK,Ingreso,✅ Ingreso realizado correctamente,1003,800.00
+[2025-04-18 17:36:34] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:36:36] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:36:36] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:36:36] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:36:40] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-04-18 17:36:48] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:36:51] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:36:51] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:36:54] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-18 17:36:54] OK,Retiro,✅ Retiro realizado correctamente,1001,100.00
+[2025-04-18 17:37:01] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 17:40:36] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-18 17:40:36] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:40:36] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:40:39] OK,Ingreso,✅ Ingreso realizado correctamente,1002,1000.00
+[2025-04-18 17:40:54] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-18 17:40:54] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-18 17:40:57] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-18 17:40:57] OK,Retiro,✅ Retiro realizado correctamente,1002,300.00

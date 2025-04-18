@@ -125,6 +125,10 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
     // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
     float saldoActual;
     
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+
+    sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
+
     escrituraLogGeneral("🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria\n", 0);
 
     for (int i = 0; i < tabla->numCuentas; i++)
@@ -136,9 +140,11 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
             break;
         }
         else {
-
+            escrituraLogGeneral("🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria\n", 0);
         }
     }
+
+    sem_post(semaforo_cuentas); // Habilitamos el semaforo de cuentas de nuevo
 
     return saldoActual;
 }
@@ -214,6 +220,28 @@ void actualizarCuentas(char *id, float saldoActualizado)
     escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas\n", 1);
 }
 
+/// @brief Función que sobreescribe en memoria el valor del saldo del usuario con el id introducido
+/// @param id Id del usuario
+/// @param saldoActualizado Saldo actualizado del usuario con id introducido
+void actualizarCuentasEnMemoria(char *id, float saldoActualizado)
+{
+    sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
+
+    // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
+    for (int i = 0; i < tabla->numCuentas; i++)
+    {
+        // Si el id es el mismo, asignamos su saldo al saldo a mostrar
+        if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
+        {
+            snprintf(tabla->cuentas[i].saldo, sizeof(tabla->cuentas[i].saldo), "%.2f", saldoActualizado);
+            break;
+        }
+    }
+    escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria\n", 1);
+
+    sem_post(semaforo_cuentas); // habilitamos de vuelta el semaforo de cuentas
+}
+
 /// @brief Realiza ingreso o retiro en funcion del flag
 /// @param SaldoActual Saldo actual del usuario que realiza la operación
 /// @param SaldoOperacion Saldo introducido a sumar/restar al saldo actual
@@ -235,7 +263,7 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
         break;
     }
 
-    actualizarCuentas(id, saldoActual);
+    actualizarCuentasEnMemoria(id, saldoActual); // Ahora llamamos a una función que modifica los saldos en memoria en vez de ir al archivo
 
     mostrarCarga();
 
@@ -248,7 +276,7 @@ void *operacionDeposito(void *id)
 {
     pthread_setname_np(pthread_self(), "operacionDeposito");
     char *_id = (char *)id;
-    float saldo = conseguirSaldoUsuario(_id);
+    float saldo = conseguirSaldoUsuarioEnMemoria(_id);
     float saldoDepositar = 0;
     int esValido = 1; // Es valido
     configuracion = leer_configuracion(configuracion);
@@ -298,7 +326,7 @@ void *operacionTransferencia(void *id)
     char *_id = (char *)id;
     char idDestinatario[255] = "Hola";
     float saldoTransferir = 0;
-    float saldo = conseguirSaldoUsuario(_id);
+    float saldo = conseguirSaldoUsuarioEnMemoria(_id);
     float saldoDestinatario = 0;
     char *mensaje;
     char *estado;
@@ -360,7 +388,7 @@ void *operacionRetiro(void *id)
 {
     pthread_setname_np(pthread_self(), "operacionRetiro");
     char *_id = (char *)id;
-    float saldo = conseguirSaldoUsuario(_id);
+    float saldo = conseguirSaldoUsuarioEnMemoria(_id);
     float saldoRetirar = 1;
     int esValido = 1;
     configuracion = leer_configuracion(configuracion);
@@ -476,6 +504,7 @@ void menuUsuario(char *id)
         printf("\n");
         printf("✅ Opción seleccionada: %d\n", opcion);
         printf("=====================================\n");
+
         ejecutarOperacion(opcion, id);
     } while (opcion != 5);
 }
