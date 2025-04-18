@@ -3,6 +3,57 @@
 CONFIG configuracion;
 int contadorAlertas;
 
+/// @brief Función que se encarga de rellenar la memoria compartida ya creada e inicializada con el contenido de las cuentas
+/// @param fichero Nombre del fichero al que va a acceder la función (debería ser el de cuentas)
+/// @param tabla Variable de tipo TablaCuentas que se va a rellenar con el contenido del fichero
+/// @param size Tamaño definido para la memoria compartida
+/// @return Valor entero para indicar validez de la operacion, 0 = OK || 1 = Error
+int cargarMemoria(char *fichero, TablaCuentas *tabla, long int size)
+{
+    // Inicializamos el archivo de cuentas 
+    FILE *file = fopen(fichero, "r");
+    if (file == NULL)
+    {
+        escrituraLogGeneral("🟥 Error al abrir el archivo de cuentas en banco.c, en función: cargarMemoria\n", 0);
+        return 1;
+    }
+
+    // Inicializamos la tabla de cuentas y la cargamos de contenido
+    char linea[100]; // Para evitar problemas en la lectura de la linea del archivo lo definimos con una longitud clara
+    int i = 0;
+    while (fgets(linea, sizeof(linea), file))
+    {
+        // Separamos todos los valores de cada cuenta por la coma 
+        char *numero_cuenta = strtok(linea, ",");
+        char *titular = strtok(NULL, ",");
+        char *saldo = strtok(NULL, ",");
+        int numero_transacciones = atoi(strtok(NULL, ","));
+
+        // Copiamos los valores de cada campo en cada cuenta leída del archivo y asignada a Tabla
+        snprintf(tabla->cuentas[i].numero_cuenta, MAX_LENGTH_ID,
+                "%s", numero_cuenta);
+        snprintf(tabla->cuentas[i].titular, MAX_LENGTH_NAME,
+                "%s", titular);
+        snprintf(tabla->cuentas[i].saldo, MAX_LENGTH_SALDO,
+                "%s", saldo);
+
+        // Guardamos el numero de transacciones como integer
+        tabla->cuentas[i].num_transacciones = numero_transacciones;
+
+        tabla->cuentas[i].numero_cuenta[MAX_LENGTH_ID-1] = '\0';
+        tabla->cuentas[i].titular[MAX_LENGTH_NAME-1] = '\0';
+        tabla->cuentas[i].saldo[MAX_LENGTH_SALDO-1] = '\0';
+
+        // Aumentamos el contador de cuentas existentes
+        tabla->numCuentas++;
+        i++;
+    } 
+    
+    fclose(file); // Cerramos el archivo de cuentas
+
+    return 0;
+}
+
 /// @brief Función que se encarga de mostrar el menú del administrador del banco
 /// @note Se encarga de mostrar el menú de administrado, que permite ver los hilos, semáforos y demás partes del sistema
 void menuAdmin()
@@ -530,32 +581,58 @@ void iniciarHiloAlerta()
 /// @return Error = 1 | OK = 0
 int inicializarMemSh(long int size)
 {
+    // Inicializamos una key para acceder a la memoria compartida
+    key_t key = ftok(MEM_KEY, 1);
 
-    // iniciamos memoria compartida
-    int shm_id = shmget(key, sizeof(TablaCuentas), IPC_CREAT | 0666);
+    // Si la memoria ya estaba creada previamente, la borra para volver a inicializarla
+    int shm_id = shmget(key, 0, 0666);
+    if (shm_id != -1)
+    {
+        // Si la memoria ya existe, se elimina
+        if (shmctl(shm_id, IPC_RMID, NULL) == -1)
+        {
+            escrituraLogGeneral("🟥 No se pudo eliminar memoria compartida existente\n", 0);
+        }
+        else
+        {
+            escrituraLogGeneral("🟩 Memoria compartida anterior eliminada correctamente\n", 0);
+        }
+    }
+
+    // Iniciamos memoria compartida
+    shm_id = shmget(key, sizeof(TablaCuentas), IPC_CREAT | 0666);
     if (shm_id == -1)
     {
-        escrituraLogGeneral("no se ha podido iniciar memoria compartida", 0);
+        escrituraLogGeneral("No se ha podido iniciar memoria compartida", 0);
         return 1;
     }
 
-    // adjuntar memoria compartida al proceso
-    // TablaCuentas *tabla = (TablaCuentas *)shmat(shm_id, NULL, 0);
-    // if (tabla == (void *)-1)
-    // {
-    //     escrituraLogGeneral("no se pudo adjuntar la memoria compartida al proceso", 0);
-    //     return 1;
-    // }
+    // Adjuntar memoria compartida al proceso
+    TablaCuentas *tabla = (TablaCuentas *)shmat(shm_id, NULL, 0);
+    if (tabla == (void *)-1)
+    {
+        escrituraLogGeneral("No se pudo adjuntar la memoria compartida al proceso", 0);
+        return 1;
+    }
 
-    ftruncate(shm_id, size);
+    // Cargamos de contenido tabla
+    if (cargarMemoria("data/cuentas.dat", tabla, size) != 0)
+    {
+        escrituraLogGeneral("Error al cargar la memoria compartida en banco.c, en función: inicializarMemSh\n", 0);
+        return 1;
+    }
+
+    printf("Saldo de la cuenta 1001: %d\n", atoi(tabla->cuentas[0].saldo));
 
     return 0;
 }
 
 int main(int argc, char *argv[])
 {
-    long int MEMORY_SIZE = MB * configuracion.maxMemoria;
-    inicializarMemSh(MEMORY_SIZE);
+    // Inicializamos la configuracion establecida desde el archivo .config en el archivo de banco
+    configuracion = leer_configuracion(configuracion);
+    long int MEMORY_SIZE = MB * atoi(configuracion.maxMemoria); // Convertimos el tamaño de memoria en bytes
+    inicializarMemSh(MEMORY_SIZE); // Inicializamos la memoria compartida con el dato del .config que indica su capacidad
 
     unlink(FIFO1);
     unlink(FIFO2);
@@ -583,8 +660,6 @@ int main(int argc, char *argv[])
         escrituraLogGeneral("🟥 Error en la generación de la pipe en banco.c, en función: main\n", 0);
         return 1;
     }
-
-    configuracion = leer_configuracion(configuracion);
 
     iniciarHiloAlerta();
 

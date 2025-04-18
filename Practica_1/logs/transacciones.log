@@ -462,3 +462,4 @@
 [2025-04-06 21:15:01] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas
 [2025-04-06 21:15:04] OK,Transferencia,✅ Transferencia realizada correctamente,1003,1000.00
 [2025-04-06 21:15:12] Saldo consultado exitosamente en usuario.c, en función: conseguirSaldoUsuario
+[2025-04-18 14:01:12] 🟩 Memoria compartida anterior eliminada correctamente

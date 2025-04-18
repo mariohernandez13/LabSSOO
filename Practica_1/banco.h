@@ -11,6 +11,9 @@
 #include <pthread.h>
 #include <bits/pthreadtypes.h>
 #include <sys/sem.h>
+#include <sys/ipc.h>
+#include <sys/shm.h>
+#include <sys/mman.h>
 #include <semaphore.h>
 #include <fcntl.h>
 #include <ctype.h>
