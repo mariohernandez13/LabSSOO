@@ -113,7 +113,9 @@ void escrituraLogGeneral(char *log, int flag)
     if (flag == 0)
         file = fopen("logs/banco.log", "a+");
     else if (flag == 1)
+    {
         file = fopen("logs/transacciones.log", "a+");
+    }
 
     if (file == NULL)
     {
@@ -135,6 +137,39 @@ void escrituraLogGeneral(char *log, int flag)
 
     sem_close(semaforo_banco);
     sem_close(semaforo_transacciones);
+}
+
+/// @brief 
+/// @param log 
+/// @param id 
+void escrituraLogTransaccion(char *log, char *id)
+{
+    FILE *file;
+    char linea[MAX_LINE_LENGTH];
+    char *nombreArchivo = "transacciones.log";
+    char *folder = "transacciones";
+    char ruta[50];
+
+    time_t t; // Para esta función es necesaria la libreria de time.h
+    struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
+
+    time(&t);
+    tm_info = localtime(&t);                                      // esta funcion asigna los valores de la fecha y hora actuales al struct declarado arriba
+    strftime(linea, sizeof(linea), "%Y-%m-%d %H:%M:%S", tm_info); // esta funcion crear el string con los valores propios de la fecha y hora actuales
+
+    snprintf(ruta, sizeof(ruta), "%s/%s/%s", folder, id, nombreArchivo);
+
+    file = fopen(ruta, "a+");
+    if (file == NULL)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de transacciones\n", 0);
+        return;
+    }
+
+    // Escribimos en el archivo de log la acción realizada
+    fprintf(file, "[%s] %s", linea, log);
+
+    fclose(file);
 }
 
 /// @brief Función para mostrar un "loading bar"

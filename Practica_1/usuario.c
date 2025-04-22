@@ -56,8 +56,8 @@ void escribirLogOperacion(int flagOperacion, int flagEstado, char *id, float can
     snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", estado, tipo, mensaje, id, cantidad);
     // ?? snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", id, tipo, estado, mensaje, cantidad);
 
-
     escrituraLogGeneral(log, 1);
+    escrituraLogTransaccion(log, id);
 }
 
 /// @brief Funcion que trata de conseguir el saldo del usuario en base a su ID
