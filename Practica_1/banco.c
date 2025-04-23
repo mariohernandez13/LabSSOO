@@ -1,6 +1,7 @@
 #include "banco.h"
 
 CONFIG configuracion;
+TablaCuentas *tabla;
 int contadorAlertas;
 
 /// @brief Función que se encarga de rellenar la memoria compartida ya creada e inicializada con el contenido de las cuentas
@@ -213,7 +214,7 @@ void crearLogUsuario(char *numeroCuenta)
         return;
     }
 
-    // Escribir un mensaje inicial en el log
+    // Escribimos un mensaje inicial en el log
     fprintf(file, "Log inicializado para el usuario %s\n", numeroCuenta);
 
     fclose(file);
@@ -300,7 +301,7 @@ void registroCuenta(Cuenta cuenta)
     sem_close(semaforo_cuentas);
     sem_close(semaforo_banco);
 
-    printf("Registro realizado de forma correcta\n");
+    printf("\nRegistro realizado de forma correcta\n");
     sleep(2);
     printf("=====================================\n");
 }
@@ -434,6 +435,8 @@ void registro()
     } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
+    tabla->cuentas[tabla->numCuentas] = cuenta; // Añadimos la cuenta a la tabla de cuentas
+    tabla->numCuentas++; // Aumentamos el contador de cuentas existentes
     crearLogUsuario(cuenta.numero_cuenta);
 }
 
@@ -703,6 +706,25 @@ int main(int argc, char *argv[])
     char validMessage[] = "Todo correcto maquina";
 
     int state = 0;
+
+    // Conseguimos la key definida dentro del sistema para acceder a la memoria compartida
+    key_t key = ftok(MEM_KEY,1);
+
+    // Definimos en usuario la memoria compartida ya creada en banco.c
+    int shm_id = shmget(key, 0, 0666);
+    if (shm_id == -1)
+    {
+        escrituraLogGeneral("🟥 Error al obtener el id de la memoria compartida en usuario.c, en función: main\n", 0);
+        return 1;
+    }
+
+    // Accedemos a la tabla existente ya en la memoria compartida creada
+    tabla = (TablaCuentas *)shmat(shm_id, NULL, 0);
+    if (tabla == (void *)-1)
+    {
+        escrituraLogGeneral("🟥 Error al adjuntar la memoria compartida en usuario.c, en función: main\n", 0);
+        return 1;
+    }
 
     // Comprobamos que no ocurre problema al generar la pipe
     if (pipe(fd) == -1)

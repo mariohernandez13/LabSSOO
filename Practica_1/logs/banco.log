@@ -10555,3 +10555,639 @@
 [2025-04-23 21:08:01] Comprobando errores...
 [2025-04-23 21:08:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
 [2025-04-23 21:08:06] Comprobando errores...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Ejecutando gcc para compilación...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Ejecutando gcc para compilación...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Ejecutando gcc para compilación...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Compilación exitosa. Ejecutando banco...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] Ejecutando gcc para compilación...
+[2025-04-23 21:13:03] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:03] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 21:13:03] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 21:13:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:13:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:07] Comprobando errores...
+[2025-04-23 21:13:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:12] Comprobando errores...
+[2025-04-23 21:13:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:17] Comprobando errores...
+[2025-04-23 21:13:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:22] Comprobando errores...
+[2025-04-23 21:13:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:27] Comprobando errores...
+[2025-04-23 21:13:31] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 21:13:31] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 21:13:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:32] Comprobando errores...
+[2025-04-23 21:13:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:37] Comprobando errores...
+[2025-04-23 21:13:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:42] Comprobando errores...
+[2025-04-23 21:13:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:47] Comprobando errores...
+[2025-04-23 21:13:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:52] Comprobando errores...
+[2025-04-23 21:13:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:13:57] Comprobando errores...
+[2025-04-23 21:13:57] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:14:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:02] Comprobando errores...
+[2025-04-23 21:14:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:07] Comprobando errores...
+[2025-04-23 21:14:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:12] Comprobando errores...
+[2025-04-23 21:14:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:17] Comprobando errores...
+[2025-04-23 21:14:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:22] Comprobando errores...
+[2025-04-23 21:14:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:27] Comprobando errores...
+[2025-04-23 21:14:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:32] Comprobando errores...
+[2025-04-23 21:14:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:37] Comprobando errores...
+[2025-04-23 21:14:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:42] Comprobando errores...
+[2025-04-23 21:14:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:47] Comprobando errores...
+[2025-04-23 21:14:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:52] Comprobando errores...
+[2025-04-23 21:14:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:14:57] Comprobando errores...
+[2025-04-23 21:15:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:02] Comprobando errores...
+[2025-04-23 21:15:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:07] Comprobando errores...
+[2025-04-23 21:15:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:12] Comprobando errores...
+[2025-04-23 21:15:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:17] Comprobando errores...
+[2025-04-23 21:15:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:22] Comprobando errores...
+[2025-04-23 21:15:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:27] Comprobando errores...
+[2025-04-23 21:15:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:32] Comprobando errores...
+[2025-04-23 21:15:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:37] Comprobando errores...
+[2025-04-23 21:15:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:42] Comprobando errores...
+[2025-04-23 21:15:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:47] Comprobando errores...
+[2025-04-23 21:15:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:52] Comprobando errores...
+[2025-04-23 21:15:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:15:57] Comprobando errores...
+[2025-04-23 21:16:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:02] Comprobando errores...
+[2025-04-23 21:16:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:07] Comprobando errores...
+[2025-04-23 21:16:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:12] Comprobando errores...
+[2025-04-23 21:16:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:17] Comprobando errores...
+[2025-04-23 21:16:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:22] Comprobando errores...
+[2025-04-23 21:16:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:27] Comprobando errores...
+[2025-04-23 21:16:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:32] Comprobando errores...
+[2025-04-23 21:16:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:37] Comprobando errores...
+[2025-04-23 21:16:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:42] Comprobando errores...
+[2025-04-23 21:16:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:47] Comprobando errores...
+[2025-04-23 21:16:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:52] Comprobando errores...
+[2025-04-23 21:16:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:16:57] Comprobando errores...
+[2025-04-23 21:17:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:02] Comprobando errores...
+[2025-04-23 21:17:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:07] Comprobando errores...
+[2025-04-23 21:17:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:12] Comprobando errores...
+[2025-04-23 21:17:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:17] Comprobando errores...
+[2025-04-23 21:17:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:22] Comprobando errores...
+[2025-04-23 21:17:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:27] Comprobando errores...
+[2025-04-23 21:17:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:32] Comprobando errores...
+[2025-04-23 21:17:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:37] Comprobando errores...
+[2025-04-23 21:17:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:42] Comprobando errores...
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Compilación exitosa. Ejecutando banco...
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Ejecutando gcc para compilación...
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Ejecutando gcc para compilación...
+[2025-04-23 21:17:47] Ejecutando gcc para compilación...
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] Ejecutando gcc para compilación...
+[2025-04-23 21:17:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:47] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 21:17:47] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 21:17:51] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:51] Comprobando errores...
+[2025-04-23 21:17:55] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:17:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:17:56] Comprobando errores...
+[2025-04-23 21:18:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:01] Comprobando errores...
+[2025-04-23 21:18:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:06] Comprobando errores...
+[2025-04-23 21:18:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:11] Comprobando errores...
+[2025-04-23 21:18:15] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 21:18:15] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 21:18:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:16] Comprobando errores...
+[2025-04-23 21:18:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:21] Comprobando errores...
+[2025-04-23 21:18:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:26] Comprobando errores...
+[2025-04-23 21:18:28] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:18:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:31] Comprobando errores...
+[2025-04-23 21:18:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:36] Comprobando errores...
+[2025-04-23 21:18:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:41] Comprobando errores...
+[2025-04-23 21:18:43] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:43] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:18:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:46] Comprobando errores...
+[2025-04-23 21:18:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:51] Comprobando errores...
+[2025-04-23 21:18:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:18:56] Comprobando errores...
+[2025-04-23 21:18:58] ❌ Error ID inválido o no registrado en banco.c, en función: logIn
+[2025-04-23 21:19:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:01] Comprobando errores...
+[2025-04-23 21:19:02] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 21:19:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:06] Comprobando errores...
+[2025-04-23 21:19:08] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:08] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 21:19:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:11] Comprobando errores...
+[2025-04-23 21:19:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:16] Comprobando errores...
+[2025-04-23 21:19:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:21] Comprobando errores...
+[2025-04-23 21:19:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:26] Comprobando errores...
+[2025-04-23 21:19:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:31] Comprobando errores...
+[2025-04-23 21:19:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:36] Comprobando errores...
+[2025-04-23 21:19:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:41] Comprobando errores...
+[2025-04-23 21:19:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:46] Comprobando errores...
+[2025-04-23 21:19:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:51] Comprobando errores...
+[2025-04-23 21:19:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:19:56] Comprobando errores...
+[2025-04-23 21:20:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:20:01] Comprobando errores...
+[2025-04-23 21:20:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:20:06] Comprobando errores...
+[2025-04-23 21:20:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:20:11] Comprobando errores...
+[2025-04-23 21:20:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 21:20:16] Comprobando errores...
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Compilación exitosa. Ejecutando banco...
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Ejecutando gcc para compilación...
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] Ejecutando gcc para compilación...
+[2025-04-23 23:39:27] Ejecutando gcc para compilación...
+[2025-04-23 23:39:27] Ejecutando gcc para compilación...
+[2025-04-23 23:39:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:27] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:39:27] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:39:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:30] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:30] Comprobando errores...
+[2025-04-23 23:39:35] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:35] Comprobando errores...
+[2025-04-23 23:39:40] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:40] Comprobando errores...
+[2025-04-23 23:39:45] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:45] Comprobando errores...
+[2025-04-23 23:39:47] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:39:47] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:39:50] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:50] Comprobando errores...
+[2025-04-23 23:39:55] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:39:55] Comprobando errores...
+[2025-04-23 23:39:57] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:39:59] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:39:59] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:40:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:01] Comprobando errores...
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Compilación exitosa. Ejecutando banco...
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Ejecutando gcc para compilación...
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Ejecutando gcc para compilación...
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:40:08] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Ejecutando gcc para compilación...
+[2025-04-23 23:40:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:08] Ejecutando gcc para compilación...
+[2025-04-23 23:40:12] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:40:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:12] Comprobando errores...
+[2025-04-23 23:40:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:17] Comprobando errores...
+[2025-04-23 23:40:22] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:22] Comprobando errores...
+[2025-04-23 23:40:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:27] Comprobando errores...
+[2025-04-23 23:40:32] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:32] Comprobando errores...
+[2025-04-23 23:40:37] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:37] Comprobando errores...
+[2025-04-23 23:40:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:42] Comprobando errores...
+[2025-04-23 23:40:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:47] Comprobando errores...
+[2025-04-23 23:40:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:52] Comprobando errores...
+[2025-04-23 23:40:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:40:57] Comprobando errores...
+[2025-04-23 23:41:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:41:02] Comprobando errores...
+[2025-04-23 23:41:02] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:41:02] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:41:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:41:07] Comprobando errores...
+[2025-04-23 23:41:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:41:09] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:09] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:41:12] Comprobando errores...
+[2025-04-23 23:41:17] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:41:17] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:41:17] Comprobando errores...
+[2025-04-23 23:43:17] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:43:17] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:43:17] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:43:42] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:43:42] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Ejecutando gcc para compilación...
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Ejecutando gcc para compilación...
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Compilación exitosa. Ejecutando banco...
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Ejecutando gcc para compilación...
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] Ejecutando gcc para compilación...
+[2025-04-23 23:45:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:15] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:45:15] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Compilación exitosa. Ejecutando banco...
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Ejecutando gcc para compilación...
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Ejecutando gcc para compilación...
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Ejecutando gcc para compilación...
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] Ejecutando gcc para compilación...
+[2025-04-23 23:45:20] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:20] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:45:20] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:45:23] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:23] Comprobando errores...
+[2025-04-23 23:45:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:28] Comprobando errores...
+[2025-04-23 23:45:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:33] Comprobando errores...
+[2025-04-23 23:45:36] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:45:36] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:45:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:38] Comprobando errores...
+[2025-04-23 23:45:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:45:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:43] Comprobando errores...
+[2025-04-23 23:45:46] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:46] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:45:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:45:48] Comprobando errores...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Ejecutando gcc para compilación...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Compilación exitosa. Ejecutando banco...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Ejecutando gcc para compilación...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Ejecutando gcc para compilación...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] Ejecutando gcc para compilación...
+[2025-04-23 23:48:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:16] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:48:16] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-04-23 23:48:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:48:19] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:19] Comprobando errores...
+[2025-04-23 23:48:24] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:24] Comprobando errores...
+[2025-04-23 23:48:29] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:29] Comprobando errores...
+[2025-04-23 23:48:34] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:34] Comprobando errores...
+[2025-04-23 23:48:36] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:48:36] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:48:39] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:39] Comprobando errores...
+[2025-04-23 23:48:44] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:44] Comprobando errores...
+[2025-04-23 23:48:49] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:49] Comprobando errores...
+[2025-04-23 23:48:54] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:54] Comprobando errores...
+[2025-04-23 23:48:59] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:48:59] Comprobando errores...
+[2025-04-23 23:49:02] Se ha creado un nuevo usuario en el sistema del banco en banco.c, en función: registroCuenta
+[2025-04-23 23:49:02] Se ha creado un nuevo usuario en el sistema del banco. Se ha creado una nueva fila en errores.dat en banco.c, en función: registroCuenta
+[2025-04-23 23:49:04] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:04] Comprobando errores...
+[2025-04-23 23:49:09] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:09] Comprobando errores...
+[2025-04-23 23:49:14] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:49:14] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:14] Comprobando errores...
+[2025-04-23 23:49:15] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:15] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:19] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:19] Comprobando errores...
+[2025-04-23 23:49:22] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:22] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:49:24] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:24] Comprobando errores...
+[2025-04-23 23:49:29] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:29] Comprobando errores...
+[2025-04-23 23:49:30] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:49:34] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:34] Comprobando errores...
+[2025-04-23 23:49:39] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:39] Comprobando errores...
+[2025-04-23 23:49:44] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:44] Comprobando errores...
+[2025-04-23 23:49:44] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-04-23 23:49:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:49:49] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-04-23 23:49:49] Comprobando errores...
+[2025-04-23 23:52:04] Se ha leído correctamente el contenido del archivo banco.config
+[2025-04-23 23:52:04] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-04-23 23:52:04] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
