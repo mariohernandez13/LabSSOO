@@ -185,6 +185,40 @@ void limpiezaString(char *string)
             string[i] = '\0';
 }
 
+/// @brief Función que se encarga de crear el log de transacciones para un usuario nuevo tras su registro
+/// @param numeroCuenta Numero de cuenta del nuevo usuario
+void crearLogUsuario(char *numeroCuenta)
+{
+    FILE *file;
+    char directorio[50];
+    char ruta[50];
+
+    // Asignamos a la ruta de directorio el numero de cuenta del usuario nuevo
+    snprintf(directorio, sizeof(directorio), "%s/%s", "transacciones", numeroCuenta);
+
+    // Creamos el directorio nuevo para el nuevo usuario introducido
+    if (mkdir(directorio, 0777) == -1)
+    {
+        escrituraLogGeneral("Error al crear el directorio del usuario", 0);
+        exit(1);
+    }
+
+    // Creamos la ruta del archivo de log
+    snprintf(ruta, sizeof(ruta), "%s/%s/%s", "transacciones", numeroCuenta, "transacciones.log");
+
+    file = fopen(ruta, "a");
+    if (file == NULL)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de transacciones\n", 0);
+        return;
+    }
+
+    // Escribir un mensaje inicial en el log
+    fprintf(file, "Log inicializado para el usuario %s\n", numeroCuenta);
+
+    fclose(file);
+}
+
 /// @brief Función que se encarga de registrar uan nueva cuenta en el sistema del banco
 /// @param cuenta Parametros de la nueva cuenta
 void registroCuenta(Cuenta cuenta)
@@ -400,6 +434,7 @@ void registro()
     } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
+    crearLogUsuario(cuenta.numero_cuenta);
 }
 
 /// @brief Menú de logIn del Banco

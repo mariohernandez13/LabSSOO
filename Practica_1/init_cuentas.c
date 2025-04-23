@@ -34,6 +34,9 @@ int compilarFicheros(char *fichero, int i)
     return 0;
 }
 
+/// @brief Función que se encarga de crear el directorio de transacciones y los archivos de log para cada usuario
+/// @param cuentas Array de cuentas de la cual se quiren crear los logs de transacciones
+/// @param numCuentas Cantidad de cuentas involucradas en el array
 void crearDirectorio(Cuenta cuentas[], int numCuentas)
 {
     // crea el directorio si no existe y controla errores

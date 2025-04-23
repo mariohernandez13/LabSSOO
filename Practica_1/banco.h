@@ -61,6 +61,7 @@ typedef struct
 } Error;
 
 /// @brief Estructura que define una cuenta dentro del sistema
+/// @note Se define como una cuenta bancaria, con su número de cuenta, titular y saldo
 typedef struct
 {
     char numero_cuenta[MAX_LENGTH_ID];

@@ -559,3 +559,11 @@
 [2025-04-19 13:17:23] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
 [2025-04-19 13:17:23] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
 [2025-04-19 13:17:26] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-04-23 20:35:48] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-04-23 20:35:48] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-23 20:35:48] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-23 20:35:52] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-04-23 20:36:29] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-04-23 20:36:29] Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria
+[2025-04-23 20:36:33] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
+[2025-04-23 20:36:33] OK,Retiro,✅ Retiro realizado correctamente,1001,100.00
