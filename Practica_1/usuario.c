@@ -226,6 +226,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
 void actualizarCuentasEnMemoria(char *id, float saldoActualizado)
 {
     sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
+    Cuenta nuevaCuenta;
 
     // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
     for (int i = 0; i < tabla->numCuentas; i++)
@@ -234,6 +235,12 @@ void actualizarCuentasEnMemoria(char *id, float saldoActualizado)
         if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
         {
             snprintf(tabla->cuentas[i].saldo, sizeof(tabla->cuentas[i].saldo), "%.2f", saldoActualizado);
+            nuevaCuenta = tabla->cuentas[i]; // Guardamos la cuenta actualizada en una variable auxiliar
+            buffer.operaciones[buffer.fin] = nuevaCuenta; // Guardamos la cuenta actualizada en el buffer de operaciones
+            if (buffer.fin == BUFFER_SIZE - 1)
+            {
+                buffer.fin++; // Aumentamos el puntero del buffer si no está lleno
+            }
             break;
         }
     }

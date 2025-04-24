@@ -24,6 +24,7 @@
 #define MAX_LENGTH_ID 6
 #define MB 1024 * 1024
 #define MEM_KEY "GOATS"
+#define BUFFER_SIZE 10
 
 #define FIFO1 "/tmp/fifo1"
 #define FIFO2 "/tmp/fifo2"
@@ -86,6 +87,24 @@ typedef struct
     float cantidad;
 } Transaccion;
 
+typedef struct
+{
+    Cuenta operaciones[BUFFER_SIZE];
+    int inicio;
+    int fin;
+} BufferEstructurado;
+
+BufferEstructurado buffer;
+
+/// @brief inicializa el buffer
+/// @return 0 = OK | 1 = ERROR
+int inicializarBufferEstructurado()
+{
+    buffer.fin = 0;
+    buffer.inicio = 0;
+    return 0;
+}
+
 /// @brief Función que se encarga de imprimir en el archivo "banco.log" las acciones del banco
 /// @param log Mensaje a imprimir en el archivo
 /// @param flag Variable que indica si la escritura va dirigida hacia el archivo "banco.log" o "transacciones.log" | 0 = banco.log - 1 = transacciones.log
@@ -140,9 +159,9 @@ void escrituraLogGeneral(char *log, int flag)
     sem_close(semaforo_transacciones);
 }
 
-/// @brief 
-/// @param log 
-/// @param id 
+/// @brief
+/// @param log
+/// @param id
 void escrituraLogTransaccion(char *log, char *id)
 {
     FILE *file;
@@ -151,7 +170,7 @@ void escrituraLogTransaccion(char *log, char *id)
     char *folder = "transacciones";
     char ruta[50];
 
-    time_t t; // Para esta función es necesaria la libreria de time.h
+    time_t t;           // Para esta función es necesaria la libreria de time.h
     struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
 
     time(&t);
@@ -330,5 +349,4 @@ int esCadenaValida(const char *str)
 
 void leer_cuentas()
 {
-
 }

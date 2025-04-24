@@ -11,7 +11,7 @@ int contadorAlertas;
 /// @return Valor entero para indicar validez de la operacion, 0 = OK || 1 = Error
 int cargarMemoria(char *fichero, TablaCuentas *tabla, long int size)
 {
-    // Inicializamos el archivo de cuentas 
+    // Inicializamos el archivo de cuentas
     FILE *file = fopen(fichero, "r");
     if (file == NULL)
     {
@@ -24,7 +24,7 @@ int cargarMemoria(char *fichero, TablaCuentas *tabla, long int size)
     int i = 0;
     while (fgets(linea, sizeof(linea), file))
     {
-        // Separamos todos los valores de cada cuenta por la coma 
+        // Separamos todos los valores de cada cuenta por la coma
         char *numero_cuenta = strtok(linea, ",");
         char *titular = strtok(NULL, ",");
         char *saldo = strtok(NULL, ",");
@@ -32,24 +32,24 @@ int cargarMemoria(char *fichero, TablaCuentas *tabla, long int size)
 
         // Copiamos los valores de cada campo en cada cuenta leída del archivo y asignada a Tabla
         snprintf(tabla->cuentas[i].numero_cuenta, MAX_LENGTH_ID,
-                "%s", numero_cuenta);
+                 "%s", numero_cuenta);
         snprintf(tabla->cuentas[i].titular, MAX_LENGTH_NAME,
-                "%s", titular);
+                 "%s", titular);
         snprintf(tabla->cuentas[i].saldo, MAX_LENGTH_SALDO,
-                "%s", saldo);
+                 "%s", saldo);
 
         // Guardamos el numero de transacciones como integer
         tabla->cuentas[i].num_transacciones = numero_transacciones;
 
-        tabla->cuentas[i].numero_cuenta[MAX_LENGTH_ID-1] = '\0';
-        tabla->cuentas[i].titular[MAX_LENGTH_NAME-1] = '\0';
-        tabla->cuentas[i].saldo[MAX_LENGTH_SALDO-1] = '\0';
+        tabla->cuentas[i].numero_cuenta[MAX_LENGTH_ID - 1] = '\0';
+        tabla->cuentas[i].titular[MAX_LENGTH_NAME - 1] = '\0';
+        tabla->cuentas[i].saldo[MAX_LENGTH_SALDO - 1] = '\0';
 
         // Aumentamos el contador de cuentas existentes
         tabla->numCuentas++;
         i++;
-    } 
-    
+    }
+
     fclose(file); // Cerramos el archivo de cuentas
 
     return 0;
@@ -423,21 +423,105 @@ void registro()
 
         printf("\n");
 
-        printf("🪪 Introduce tu id: (a partir de 100): ");
-        fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
-
-        printf("\n");
+        // printf("🪪 Introduce tu id: (a partir de 100): ");
+        // fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
+        // TODO: Arreglar ID del usuario Incremental 
+        // Asignamos el id a la cuenta, que será el número de cuentas + 1000 + 1 para evitar problemas de concurrencia
+        // int nuevoNumeroCuenta = 1000 + tabla->numCuentas + 1;
+        // snprintf(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), "%d", nuevoNumeroCuenta);
 
         printf("💰 Introduce tu saldo: ");
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
-        comprobacion = comprobarId(cuenta.numero_cuenta, 0);
-    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
+        // comprobacion = comprobarId(cuenta.numero_cuenta, 0);
+        //  (comprobacion != 1) ||
+    } while ((cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
     tabla->cuentas[tabla->numCuentas] = cuenta; // Añadimos la cuenta a la tabla de cuentas
-    tabla->numCuentas++; // Aumentamos el contador de cuentas existentes
+    tabla->numCuentas++;                        // Aumentamos el contador de cuentas existentes
     crearLogUsuario(cuenta.numero_cuenta);
+}
+
+/// @brief función que se encarga de vaciar el buffer de operaciones y actualizar el archivo cuentas.dat
+/// @param arg 
+/// @return 
+void *vaciarBuffer(void *arg)
+{
+    pthread_setname_np(pthread_self(), "hiloBuffer");
+
+    FILE *archivo;
+
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+
+    if (semaforo_cuentas == SEM_FAILED)
+    {
+        escrituraLogGeneral("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        exit(1);
+    }
+
+    sem_wait(semaforo_cuentas);
+    archivo = fopen("data/cuentas.dat", "r+");
+    if (!archivo)
+    {
+        escrituraLogGeneral("Error al abrir el archivo de cuentas en usuario.c, en función: actualizarCuentas\n", 1);
+        exit(1);
+    }
+
+    char linea[MAX_LINE_LENGTH];
+    int lineas = 0;
+    char *idArchivo, *nombre, *saldo, *numeroTransacciones;
+    char *lineasArchivo[MAX_LINE_LENGTH];
+
+    while (1)
+    {
+        sleep(10);
+        if (buffer.fin == BUFFER_SIZE)
+        {
+            Cuenta op = buffer.operaciones[buffer.inicio];
+            buffer.inicio = (buffer.inicio + 1) % 10;
+
+            // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
+            while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH)
+            {
+                lineasArchivo[lineas] = strdup(linea);
+                lineas++;
+            }
+
+            // Usamos strtok para capturar todos los parámetros de las cuentas
+            for (int i = 0; i < lineas; i++)
+            {
+                char *temp = strdup(lineasArchivo[i]); // Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
+                idArchivo = strtok(temp, ",");
+                nombre = strtok(NULL, ",");
+                saldo = strtok(NULL, ",");
+                numeroTransacciones = strtok(NULL, ",");
+
+                // La línea que coincide con el id del usuario se actualiza con su saldo
+                if (idArchivo && strcmp(idArchivo, buffer.operaciones->numero_cuenta) == 0)
+                {
+                    snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%s,%s,%s",
+                             idArchivo, nombre, saldo, numeroTransacciones ? numeroTransacciones : "0");
+                }
+
+                free(temp);
+            }
+
+            rewind(archivo); // Colocar el puntero al principio del fichero cuentas.dat
+
+            // Reescribe todo el archivo cuentas.dat
+            for (int i = 0; i < lineas; i++)
+            {
+                fputs(lineasArchivo[i], archivo);
+                free(lineasArchivo[i]);
+            }
+
+            fclose(archivo);
+            sem_post(semaforo_cuentas);
+
+            escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas\n", 1);
+        }
+    }
 }
 
 /// @brief Menú de logIn del Banco
@@ -545,6 +629,18 @@ void menuBanco()
     system("clear");
 }
 
+/// @brief Función que se encarga de crear el hilo para vaciar el buffer de operaciones
+void hiloBuffer()
+{
+    pthread_t hiloBuffer;
+    // Crear el hilo para recibir alertas
+
+    if (pthread_create(&hiloBuffer, NULL, &vaciarBuffer, NULL) != 0)
+    {
+        escrituraLogGeneral("🟥 Error al crear el hilo de buffer en banco.c, en función: hiloBuffer\n", 0);
+    }
+}
+
 /// @brief Función que se encarga de recibir alertas de la tubería FIFO creada entre Monitor y Banco
 /// @return NULL
 /// @note Se ejecuta en un hilo por separado para no interrumpir el flujo principal del programa
@@ -615,7 +711,7 @@ void iniciarHiloAlerta()
 }
 
 /// @brief Función que inicia la memoria compartida del sistema
-/// @param size 
+/// @param size
 /// @return Error = 1 | OK = 0
 int inicializarMemSh(long int size)
 {
@@ -651,7 +747,7 @@ int inicializarMemSh(long int size)
     while (size < st.st_size)
     {
         escrituraLogGeneral("🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh\n", 0);
-        size += MB; // Aumentamos el tamaño de la memoria compartida para evitar problemas de memoria 
+        size += MB; // Aumentamos el tamaño de la memoria compartida para evitar problemas de memoria
     }
 
     // Iniciamos memoria compartida
@@ -685,10 +781,12 @@ int main(int argc, char *argv[])
     // Inicializamos la configuracion establecida desde el archivo .config en el archivo de banco
     configuracion = leer_configuracion(configuracion);
     long int MEMORY_SIZE = MB * atoi(configuracion.maxMemoria); // Convertimos el tamaño de memoria en bytes
-    inicializarMemSh(MEMORY_SIZE); // Inicializamos la memoria compartida con el dato del .config que indica su capacidad
+    inicializarMemSh(MEMORY_SIZE);                              // Inicializamos la memoria compartida con el dato del .config que indica su capacidad
 
     unlink(FIFO1);
     unlink(FIFO2);
+
+    inicializarBufferEstructurado();
 
     pid_t pid = fork();
 
@@ -708,7 +806,7 @@ int main(int argc, char *argv[])
     int state = 0;
 
     // Conseguimos la key definida dentro del sistema para acceder a la memoria compartida
-    key_t key = ftok(MEM_KEY,1);
+    key_t key = ftok(MEM_KEY, 1);
 
     // Definimos en usuario la memoria compartida ya creada en banco.c
     int shm_id = shmget(key, 0, 0666);
