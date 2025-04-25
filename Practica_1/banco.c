@@ -450,13 +450,15 @@ void *vaciarBuffer(void *arg)
 {
     pthread_setname_np(pthread_self(), "hiloBuffer");
 
+    escrituraLogGeneral("Iniciando el hilo de vaciado de buffer en banco.c, función: vaciarBuffer\n", 0);
+
     FILE *archivo;
 
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        escrituraLogGeneral("Error al abrir el semáforo de cuentas en banco.c, en función: vaciarBuffer\n", 0);
         exit(1);
     }
 
@@ -464,7 +466,7 @@ void *vaciarBuffer(void *arg)
     archivo = fopen("data/cuentas.dat", "r+");
     if (!archivo)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas en usuario.c, en función: actualizarCuentas\n", 1);
+        escrituraLogGeneral("Error al abrir el archivo de cuentas en banco.c, en función: vaciarBuffer\n", 1);
         exit(1);
     }
 
@@ -475,9 +477,13 @@ void *vaciarBuffer(void *arg)
 
     while (1)
     {
+        escrituraLogGeneral("Esperando a que el buffer esté lleno en banco.c\n", 0);
+
         sleep(10);
         if (buffer.fin == BUFFER_SIZE)
         {
+            escrituraLogGeneral("Buffer lleno, procediendo a vaciarlo en banco.c...\n", 0);
+
             Cuenta op = buffer.operaciones[buffer.inicio];
             buffer.inicio = (buffer.inicio + 1) % 10;
 
@@ -519,7 +525,7 @@ void *vaciarBuffer(void *arg)
             fclose(archivo);
             sem_post(semaforo_cuentas);
 
-            escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas\n", 1);
+            escrituraLogGeneral("Cuentas actualizadas correctamente en banco.c, en función: vaciarBuffer\n", 1);
         }
     }
 }
@@ -632,9 +638,11 @@ void menuBanco()
 /// @brief Función que se encarga de crear el hilo para vaciar el buffer de operaciones
 void hiloBuffer()
 {
-    pthread_t hiloBuffer;
-    // Crear el hilo para recibir alertas
+    escrituraLogGeneral("Creando el hilo para vaciar el buffer de operaciones en banco.c ...\n", 0);
 
+    pthread_t hiloBuffer;
+    
+    // Crear el hilo para vaciar el buffer que recoge las actualizaciones de cuentas
     if (pthread_create(&hiloBuffer, NULL, &vaciarBuffer, NULL) != 0)
     {
         escrituraLogGeneral("🟥 Error al crear el hilo de buffer en banco.c, en función: hiloBuffer\n", 0);
@@ -776,6 +784,24 @@ int inicializarMemSh(long int size)
     return 0;
 }
 
+/// @brief Función que se encarga de manejar las señales SIGINT y SIGHUP dentro de banco
+/// @param senal Señal que se le manda al sistema
+void manejoSenal(int senal){
+
+    char log[100];
+
+    snprintf(log, sizeof(log), "🟥 Se ha recibido la señal: %d, cerrando el programa en banco.c, en función: manejoSenal\n", senal);
+    escrituraLogGeneral(log, 0);
+    
+    
+
+    // Cerramos el resto de terminales activas del sistema
+    system("pkill -f usuario"); 
+    system("pkill -f './monitor'");
+    
+    exit(0);
+}
+
 int main(int argc, char *argv[])
 {
     // Inicializamos la configuracion establecida desde el archivo .config en el archivo de banco
@@ -796,6 +822,9 @@ int main(int argc, char *argv[])
         escrituraLogGeneral("Error al ejecutar ./monitor en banco.c, en función: main\n", 0);
         exit(1);
     }
+
+    signal(SIGINT, manejoSenal);
+    signal(SIGHUP, manejoSenal);
 
     int fd[2];
 
@@ -832,6 +861,7 @@ int main(int argc, char *argv[])
     }
 
     iniciarHiloAlerta();
+    hiloBuffer(); // Llamamos a la función que crea el hilo que vacia el buffer que recoge las actualizaciones de cuentas
 
     menuBanco();
 
