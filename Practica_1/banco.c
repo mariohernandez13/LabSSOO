@@ -70,7 +70,7 @@ void menuAdmin()
         ;
     fgets(contraseña, sizeof(contraseña), stdin);
 
-    comparacion = strstr(contraseña, "marlondanosel10");
+    comparacion = strstr(contraseña, "magia");
 
     if (!comparacion)
     {
@@ -92,7 +92,8 @@ void menuAdmin()
             printf("3. Mostrar semáforos activos en el sistema\n");
             printf("4. Mostrar pid de banco con el pid de los usuarios hijos\n");
             printf("5. Mostrar hilos activos actualmente\n");
-            printf("6. Salir\n");
+            printf("6. Mostrar estado de memoria compartida\n");
+            printf("7. Salir\n");
             printf("=====================================\n");
             printf("👉 Introduce una opción: ");
             scanf("%d", &opcion);
@@ -170,9 +171,34 @@ void menuAdmin()
                 sleep(5);
                 break;
             case 6:
+                char comando[50];
+                char comandoLsof[100];
+                int pid = getpid();
+
+                sprintf(comando, "pmap -x %d", pid);
+                sprintf(comandoLsof, "lsof -p %d | grep /dev/shm", pid);
+
+                escrituraLogGeneral("📊 Mostramos el estado de la memoria compartida desde el menú de administrador en banco.c, en función: menuAdmin\n", 0);
+                printf("\n");
+                printf("=====================================\n");
+                printf("📊 Mostramos el estado de la memoria compartida\n");
+                system("ipcs -m"); // Este comando se encarga de mostrar memoria compartida
+                printf("\n");
+                printf("=====================================\n");
+                printf("📊 Mostramos el mapa de memoria del proceso\n");
+                system(comando);          // Muestra el mapa de memoria del proceso banco
+                printf("\n");
+                printf("=====================================\n");
+                printf("📊 Mostramos los archivos en uso en /dev/shm\n");
+                system(comandoLsof);      // Archivos en uso en /dev/shm
+                printf("=====================================\n");
+                sleep(15);
+
+                break;
+            case 7:
                 break;
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
     return;
 }
@@ -423,9 +449,10 @@ void registro()
 
         printf("\n");
 
-        // printf("🪪 Introduce tu id: (a partir de 100): ");
-        // fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
-        // TODO: Arreglar ID del usuario Incremental 
+        printf("🪪 Introduce tu id: (a partir de 100): ");
+        fgets(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), stdin);
+
+        // TODO: Arreglar ID del usuario Incremental
         // Asignamos el id a la cuenta, que será el número de cuentas + 1000 + 1 para evitar problemas de concurrencia
         // int nuevoNumeroCuenta = 1000 + tabla->numCuentas + 1;
         // snprintf(cuenta.numero_cuenta, sizeof(cuenta.numero_cuenta), "%d", nuevoNumeroCuenta);
@@ -433,9 +460,8 @@ void registro()
         printf("💰 Introduce tu saldo: ");
         fgets(cuenta.saldo, sizeof(cuenta.saldo), stdin);
 
-        // comprobacion = comprobarId(cuenta.numero_cuenta, 0);
-        //  (comprobacion != 1) ||
-    } while ((cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
+        comprobacion = comprobarId(cuenta.numero_cuenta, 0);
+    } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
     tabla->cuentas[tabla->numCuentas] = cuenta; // Añadimos la cuenta a la tabla de cuentas
@@ -444,8 +470,8 @@ void registro()
 }
 
 /// @brief función que se encarga de vaciar el buffer de operaciones y actualizar el archivo cuentas.dat
-/// @param arg 
-/// @return 
+/// @param arg
+/// @return
 void *vaciarBuffer(void *arg)
 {
     pthread_setname_np(pthread_self(), "hiloBuffer");
@@ -641,7 +667,7 @@ void hiloBuffer()
     escrituraLogGeneral("Creando el hilo para vaciar el buffer de operaciones en banco.c ...\n", 0);
 
     pthread_t hiloBuffer;
-    
+
     // Crear el hilo para vaciar el buffer que recoge las actualizaciones de cuentas
     if (pthread_create(&hiloBuffer, NULL, &vaciarBuffer, NULL) != 0)
     {
@@ -786,19 +812,18 @@ int inicializarMemSh(long int size)
 
 /// @brief Función que se encarga de manejar las señales SIGINT y SIGHUP dentro de banco
 /// @param senal Señal que se le manda al sistema
-void manejoSenal(int senal){
+void manejoSenal(int senal)
+{
 
     char log[100];
 
     snprintf(log, sizeof(log), "🟥 Se ha recibido la señal: %d, cerrando el programa en banco.c, en función: manejoSenal\n", senal);
     escrituraLogGeneral(log, 0);
-    
-    
 
     // Cerramos el resto de terminales activas del sistema
-    system("pkill -f usuario"); 
+    system("pkill -f usuario");
     system("pkill -f './monitor'");
-    
+
     exit(0);
 }
 

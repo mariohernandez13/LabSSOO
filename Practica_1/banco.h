@@ -201,23 +201,7 @@ void mostrarCarga()
     {
         printf("\rCargando: [%.*s] %d%%", i, barra, (i * 100) / 30);
         fflush(stdout);
-        usleep(100000); // 100ms
-    }
-    printf("\n");
-}
-
-/// @brief funcion de carga con puntos suspensivos
-void carga_animada()
-{
-    for (int i = 0; i < 3; i++)
-    {
-        printf("\rCargando");
-        for (int j = 0; j <= i; j++)
-        {
-            printf(".");
-        }
-        fflush(stdout);
-        sleep(1);
+        usleep(90000); // 100ms
     }
     printf("\n");
 }
