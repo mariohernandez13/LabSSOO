@@ -489,6 +489,46 @@ void ejecutarOperacion(int opcion, char *id)
     }
 }
 
+/// @brief Elimina del archivo de sesiones.txt la sesión guardada del usuario que coincide con el id especificado
+/// @note Se usa un archivo temporal para pivotar la información de las sesiones y sobreescribir el archivo original, de forma que eliminamos la sesión del usuario de manera correcta
+/// @param id ID del usuario a eliminar
+void eliminarSesion(char *id)
+{
+    FILE *original = fopen(configuracion.archivoSesiones, "r");
+    FILE *temporal = fopen("temp.txt", "w");
+    int duplicado = 0;
+
+    if (!original || !temporal)
+    {
+        printf("❌ Error abriendo archivos para eliminar sesión.\n");
+        return;
+    }
+
+    char linea[MAX_LINE_LENGTH];
+
+    while (fgets(linea, sizeof(linea), original))
+    {
+        // Elimina el salto de línea para comparar correctamente
+        linea[strcspn(linea, "\n")] = 0;
+
+        if (strcmp(linea, id) != 0)
+            fprintf(temporal, "%s\n", linea);
+        else
+        {
+            if(duplicado == 0)
+                duplicado = 1;
+            else
+                fprintf(temporal, "%s\n", linea);
+        }
+    }
+
+    fclose(original);
+    fclose(temporal);
+
+    remove(configuracion.archivoSesiones);
+    rename("temp.txt", configuracion.archivoSesiones);
+}
+
 /// @brief Función que realiza el menu de Usuario
 /// @param id Cuenta del usuario logueado
 void menuUsuario(char *id)
@@ -517,6 +557,9 @@ void menuUsuario(char *id)
 
         ejecutarOperacion(opcion, id);
     } while (opcion != 5);
+
+    // Al salir del menú del usuario, similar a hacer logout, eliminamos la sesión guardada en el archivo de sesiones.txt
+    eliminarSesion(id); 
 }
 
 int main(int argc, char *argv[])

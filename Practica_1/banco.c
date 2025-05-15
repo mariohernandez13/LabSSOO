@@ -584,6 +584,17 @@ void logIn()
     }
     else if (pid == 0)
     { // Proceso hijo
+
+        //Creamos archivo temporal de sesiones 
+        FILE *archivoSesiones;
+
+        archivoSesiones = fopen(configuracion.archivoSesiones, "a+");
+
+        fseek(archivoSesiones, 0, SEEK_END); // ir al final
+        fprintf(archivoSesiones, "%s\n", id); //Escribir el usuario que inicia sesión
+
+        fclose(archivoSesiones);
+
         execlp("gnome-terminal", "gnome-terminal", "--", "./usuario", id, NULL);
         escrituraLogGeneral("🟥 Error al ejecutar ./usuario en banco.c, en función: logIn\n", 0);
         exit(1);
@@ -802,12 +813,17 @@ void manejoSenal(int senal){
     exit(0);
 }
 
+
+
 int main(int argc, char *argv[])
 {
+    
     // Inicializamos la configuracion establecida desde el archivo .config en el archivo de banco
     configuracion = leer_configuracion(configuracion);
     long int MEMORY_SIZE = MB * atoi(configuracion.maxMemoria); // Convertimos el tamaño de memoria en bytes
     inicializarMemSh(MEMORY_SIZE);                              // Inicializamos la memoria compartida con el dato del .config que indica su capacidad
+
+
 
     unlink(FIFO1);
     unlink(FIFO2);
@@ -867,6 +883,6 @@ int main(int argc, char *argv[])
 
     system("pkill -f usuario"); // cuando cerramos banco matamos todos los procesos de usuarios
     system("pkill -f './monitor'");
-
+    remove(configuracion.archivoSesiones);
     return (0);
 }

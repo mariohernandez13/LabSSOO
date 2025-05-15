@@ -17,6 +17,7 @@
 #include <semaphore.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <dirent.h>
 
 #define MAX_LINE_LENGTH 255
 #define MAX_LENGTH_NAME 50
@@ -25,6 +26,7 @@
 #define MB 1024 * 1024
 #define MEM_KEY "GOATS"
 #define BUFFER_SIZE 10
+#define MAX_SESIONES 100
 
 #define FIFO1 "/tmp/fifo1"
 #define FIFO2 "/tmp/fifo2"
@@ -48,6 +50,7 @@ typedef struct
     char archivoCuentas[MAX_LINE_LENGTH];
     char archivoLog[MAX_LINE_LENGTH];
     char archivoTransacciones[MAX_LINE_LENGTH];
+    char archivoSesiones[MAX_LINE_LENGTH];
     char maxMemoria[MAX_LINE_LENGTH];
     char nombreMemoria[MAX_LINE_LENGTH];
 } CONFIG;
@@ -295,6 +298,10 @@ CONFIG leer_configuracion(CONFIG configuracion)
             else if (strcmp(key, "ARCHIVO_LOG") == 0)
             {
                 strncpy(configuracion.archivoLog, value, MAX_LINE_LENGTH);
+            }
+            else if (strcmp(key, "ARCHIVO_SESIONES") == 0)
+            {
+                strncpy(configuracion.archivoSesiones, value, MAX_LINE_LENGTH);
             }
             else if (strcmp(key, "MB_MAX") == 0)
             {
