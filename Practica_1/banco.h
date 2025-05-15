@@ -201,7 +201,7 @@ void mostrarCarga()
     {
         printf("\rCargando: [%.*s] %d%%", i, barra, (i * 100) / 30);
         fflush(stdout);
-        usleep(90000); // 100ms
+        usleep(60000); // 100ms
     }
     printf("\n");
 }
