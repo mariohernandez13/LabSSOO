@@ -60,12 +60,8 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
     char *lineasArchivo[1000];    // Array para almacenar las líneas leídas
     int lineas = 0;
 
-<<<<<<< Updated upstream
     // Abrimos el semáforo si no está abierto
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
-=======
-    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0666, 1);
->>>>>>> Stashed changes
     if (semaforo_transacciones == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de transacciones en monitor.c, función: resetearTransaccionesLog\n", 0);
@@ -386,13 +382,9 @@ int leer_transacciones()
     struct dirent *entry;
     int totalSesiones;
 
-<<<<<<< Updated upstream
     totalSesiones = leer_sesiones(sesiones);
  
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
-=======
-    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0666, 1);
->>>>>>> Stashed changes
 
     // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
     if (semaforo_transacciones == SEM_FAILED)

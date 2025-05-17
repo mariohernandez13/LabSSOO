@@ -259,8 +259,8 @@ void registroCuenta(Cuenta cuenta)
     limpiezaString(cuenta.titular);
     limpiezaString(cuenta.saldo);
 
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
-    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0666, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
 
     // Si la apertura de cualquiera de los semaforos es erronea, se desestima la funcion y mandamos un log
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
@@ -347,7 +347,7 @@ int existeID(char *id, int flag)
     char *key, *value;
 
     sem_unlink("/semaforo_cuentas");
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
@@ -474,43 +474,7 @@ void registro()
 void *vaciarBuffer(void *arg) {
     pthread_setname_np(pthread_self(), "hiloBuffer");
 
-<<<<<<< Updated upstream
     escrituraLogGeneral("🟦 Hilo de vaciado de buffer iniciado.\n", 0);
-=======
-    escrituraLogGeneral("Iniciando el hilo de vaciado de buffer en banco.c, función: vaciarBuffer\n", 0);
-
-    FILE *archivo;
-
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
-
-    if (semaforo_cuentas == SEM_FAILED)
-    {
-        escrituraLogGeneral("Error al abrir el semáforo de cuentas en banco.c, en función: vaciarBuffer\n", 0);
-        exit(1);
-    }
-
-    sem_wait(semaforo_cuentas);
-    archivo = fopen("data/cuentas.dat", "r+");
-    if (!archivo)
-    {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas en banco.c, en función: vaciarBuffer\n", 1);
-        exit(1);
-    }
-
-    char linea[MAX_LINE_LENGTH];
-    int lineas = 0;
-    char *idArchivo, *nombre, *saldo, *numeroTransacciones;
-    char *lineasArchivo[MAX_LINE_LENGTH];
-
-    while (1)
-    {
-        escrituraLogGeneral("Esperando a que el buffer esté lleno en banco.c\n", 0);
-
-        sleep(10);
-        if (buffer.fin == BUFFER_SIZE)
-        {
-            escrituraLogGeneral("Buffer lleno, procediendo a vaciarlo en banco.c...\n", 0);
->>>>>>> Stashed changes
 
     while (1) {
         if (buffer.inicio != buffer.fin) {
