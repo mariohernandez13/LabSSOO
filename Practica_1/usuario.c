@@ -72,7 +72,7 @@ float conseguirSaldoUsuario(char *id)
 
     float saldoUsuario;
 
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
@@ -127,7 +127,7 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
 
     escrituraLogGeneral("🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria\n", 0);
 
-    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0666, 1);
     if (semaforo_tabla == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
@@ -166,7 +166,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
     }
 
     // Abrimos semáforo de control general de cuentas
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
     if (semaforo_cuentas == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas (semaforo_cuentas)\n", 0);
@@ -176,7 +176,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
     sem_wait(semaforo_cuentas); // Zona crítica de cuentas
 
     // Abrimos semáforo de acceso a la tabla
-    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0666, 1);
     if (semaforo_tabla == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de tabla (semaforo_tabla)\n", 0);
@@ -196,7 +196,7 @@ void actualizarCuentas(char *id, float saldoActualizado)
             Cuenta nuevaCuenta = tabla->cuentas[i];
 
             // Semáforo del buffer
-            semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0644, 1);
+            semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0666, 1);
             if (semaforo_buffer == SEM_FAILED)
             {
                 escrituraLogGeneral("🟥 Error al abrir el semáforo de buffer (semaforo_buffer)\n", 0);
