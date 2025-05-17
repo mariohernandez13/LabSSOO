@@ -72,7 +72,7 @@ float conseguirSaldoUsuario(char *id)
 
     float saldoUsuario;
 
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
@@ -125,7 +125,7 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
     // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
     float saldoActual;
     
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
 
     sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
 
@@ -154,7 +154,14 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
 /// @param saldoActualizado  Saldo después de realizar la operación
 void actualizarCuentas(char *id, float saldoActualizado)
 {
+<<<<<<< Updated upstream
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+=======
+
+    FILE *archivo;
+
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
+>>>>>>> Stashed changes
 
     if (semaforo_cuentas == SEM_FAILED)
     {
