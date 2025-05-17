@@ -186,11 +186,11 @@ void menuAdmin()
                 printf("\n");
                 printf("=====================================\n");
                 printf("📊 Mostramos el mapa de memoria del proceso\n");
-                system(comando);          // Muestra el mapa de memoria del proceso banco
+                system(comando); // Muestra el mapa de memoria del proceso banco
                 printf("\n");
                 printf("=====================================\n");
                 printf("📊 Mostramos los archivos en uso en /dev/shm\n");
-                system(comandoLsof);      // Archivos en uso en /dev/shm
+                system(comandoLsof); // Archivos en uso en /dev/shm
                 printf("=====================================\n");
                 sleep(15);
 
@@ -463,44 +463,123 @@ void registro()
     } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+    if (semaforo_tabla == SEM_FAILED)
+    {
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        exit(1);
+    }
+    sem_wait(semaforo_tabla);
     tabla->cuentas[tabla->numCuentas] = cuenta; // Añadimos la cuenta a la tabla de cuentas
     tabla->numCuentas++;                        // Aumentamos el contador de cuentas existentes
     crearLogUsuario(cuenta.numero_cuenta);
+    sem_post(semaforo_tabla); // Habilitamos el semaforo de cuentas de nuevo
 }
 
 /// @brief función que se encarga de vaciar el buffer de operaciones y actualizar el archivo cuentas.dat
 /// @param arg
 /// @return
-void *vaciarBuffer(void *arg) {
+void *vaciarBuffer(void *arg)
+{
+    if (buffer == NULL)
+    {
+        escrituraLogGeneral("🟥 Buffer no inicializado en vaciarBuffer\n", 0);
+        return NULL;
+    }
+    char log[100];
     pthread_setname_np(pthread_self(), "hiloBuffer");
 
     escrituraLogGeneral("🟦 Hilo de vaciado de buffer iniciado.\n", 0);
 
-    while (1) {
-        if (buffer.inicio != buffer.fin) {
-            Cuenta op = buffer.operaciones[buffer.inicio];
+    while (1)
+    {
+        semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0644, 1);
+        if (semaforo_buffer == SEM_FAILED)
+        {
+            escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+            exit(1);
+        }
+        sem_wait(semaforo_buffer);
+        snprintf(log, sizeof(log), "✅ banco.c Posición: %d | BufIn: %d\n", buffer->fin, buffer->inicio);
+        escrituraLogGeneral(log, 0);
+        if (buffer->inicio != buffer->fin)
+        {
+            escrituraLogGeneral("🟦 Entrando en el bucle de vaciarBuffer...\n", 0);
+            Cuenta op = buffer->operaciones[buffer->inicio];
 
-            buffer.inicio = (buffer.inicio + 1) % BUFFER_SIZE;
+            buffer->inicio = (buffer->inicio + 1) % BUFFER_SIZE;
 
             FILE *archivo = fopen("data/cuentas.dat", "r+b");
-            if (!archivo) {
+            if (!archivo)
+            {
                 escrituraLogGeneral("🟥 Error al abrir cuentas.dat\n", 0);
                 continue;
             }
 
-            for (int i = 0; i < tabla->numCuentas; i++) {
-                if (strcmp(tabla->cuentas[i].numero_cuenta, op.numero_cuenta) == 0) {
-                    fseek(archivo, i * sizeof(Cuenta), SEEK_SET);
-                    fwrite(&op, sizeof(Cuenta), 1, archivo);
+            semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+            if (semaforo_tabla == SEM_FAILED)
+            {
+                escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+                exit(1);
+            }
+            sem_wait(semaforo_tabla);
+            for (int i = 0; i < tabla->numCuentas; i++)
+            {
+                if (strcmp(tabla->cuentas[i].numero_cuenta, op.numero_cuenta) == 0)
+                {
+                    FILE *archivo = fopen("data/cuentas.dat", "r");
+                    FILE *temporal = fopen("data/temp.dat", "w");
+                    if (!archivo || !temporal)
+                    {
+                        escrituraLogGeneral("🟥 Error al abrir archivos de texto\n", 0);
+                        return NULL;
+                    }
+
+                    char linea[256];
+                    char nuevaLinea[256];
+
+                    while (fgets(linea, sizeof(linea), archivo))
+                    {
+                        char numero[20], nombre[50], saldo[20], bloqueada[5];
+
+                        sscanf(linea, "%[^,],%[^,],%[^,],%s", numero, nombre, saldo, bloqueada);
+
+                        if (strcmp(numero, op.numero_cuenta) == 0)
+                        {
+                            snprintf(nuevaLinea, sizeof(nuevaLinea), "%s,%s,%s,%s\n",
+                                     numero, nombre, op.saldo, bloqueada);
+                            fputs(nuevaLinea, temporal);
+                            escrituraLogGeneral("✅ Línea actualizada en temporal", 0);
+                        }
+                        else
+                        {
+                            fputs(linea, temporal); // Copiar línea original
+                        }
+                    }
+
+                    fclose(archivo);
+                    fclose(temporal);
+
+                    // Reemplazar el archivo original por el actualizado
+                    remove("data/cuentas.dat");
+                    rename("data/temp.dat", "data/cuentas.dat");
+
+                    escrituraLogGeneral("✅ Cuenta encontrada en cuentas.dat", 0);
                     break;
                 }
+                snprintf(log, sizeof(log), "🧐 Cuenta que estas buscando es: %s\n", op.numero_cuenta);
+                escrituraLogGeneral(log, 0);
             }
+            sem_post(semaforo_tabla);
 
             fclose(archivo);
             escrituraLogGeneral("✅ Cuenta actualizada desde buffer en disco.\n", 0);
-        } else {
+        }
+        else
+        {
             usleep(500000);
         }
+        sem_post(semaforo_buffer);
     }
 
     return NULL;
@@ -560,13 +639,13 @@ void logIn()
     else if (pid == 0)
     { // Proceso hijo
 
-        //Creamos archivo temporal de sesiones 
+        // Creamos archivo temporal de sesiones
         FILE *archivoSesiones;
 
         archivoSesiones = fopen(configuracion.archivoSesiones, "a+");
 
-        fseek(archivoSesiones, 0, SEEK_END); // ir al final
-        fprintf(archivoSesiones, "%s\n", id); //Escribir el usuario que inicia sesión
+        fseek(archivoSesiones, 0, SEEK_END);  // ir al final
+        fprintf(archivoSesiones, "%s\n", id); // Escribir el usuario que inicia sesión
 
         fclose(archivoSesiones);
 
@@ -711,6 +790,12 @@ int inicializarMemSh(long int size)
 {
     // Inicializamos una key para acceder a la memoria compartida
     key_t key = ftok(MEM_KEY, 1);
+    if (key == -1)
+    {
+        escrituraLogGeneral("🟥 Error al generar key para memoria compartida\n", 0);
+        escrituraLogGeneral(MEM_KEY, 0);
+        return 1;
+    }
 
     // Si la memoria ya estaba creada previamente, la borra para volver a inicializarla
     int shm_id = shmget(key, 0, 0666);
@@ -770,6 +855,71 @@ int inicializarMemSh(long int size)
     return 0;
 }
 
+int inicializarBufferCompartido()
+{
+    if (access(MEM_KEY, F_OK) == -1)
+    {
+        FILE *f = fopen(MEM_KEY, "w");
+        if (f == NULL)
+        {
+            escrituraLogGeneral("🟥 No se pudo crear el archivo para ftok\n", 0);
+            return 1;
+        }
+        fclose(f);
+    }
+
+    key_t key_buffer = ftok(MEM_KEY, 2);
+    if (key_buffer == -1)
+    {
+        escrituraLogGeneral("🟥 Error al generar key para buffer compartido\n", 0);
+        return 1;
+    }
+
+    if (key_buffer == -1)
+    {
+        escrituraLogGeneral("🟥 Error al generar key para buffer compartido\n", 0);
+        escrituraLogGeneral(MEM_KEY, 0);
+        return 1;
+    }
+
+    // Si ya existe memoria para el buffer, la eliminamos
+    int shm_id_buffer = shmget(key_buffer, 0, 0666);
+    if (shm_id_buffer != -1)
+    {
+        if (shmctl(shm_id_buffer, IPC_RMID, NULL) == -1)
+        {
+            escrituraLogGeneral("🟥 No se pudo eliminar la memoria compartida previa del buffer\n", 0);
+        }
+        else
+        {
+            escrituraLogGeneral("🟩 Memoria compartida anterior del buffer eliminada correctamente\n", 0);
+        }
+    }
+
+    // Creamos una nueva memoria compartida para el buffer
+    shm_id_buffer = shmget(key_buffer, sizeof(BufferEstructurado), IPC_CREAT | 0666);
+    if (shm_id_buffer == -1)
+    {
+        escrituraLogGeneral("🟥 Error al crear la memoria compartida para el buffer\n", 0);
+        return 1;
+    }
+
+    // Adjuntamos la memoria compartida al proceso
+    buffer = (BufferEstructurado *)shmat(shm_id_buffer, NULL, 0);
+    if (buffer == (void *)-1)
+    {
+        escrituraLogGeneral("🟥 Error al adjuntar la memoria compartida para el buffer\n", 0);
+        return 1;
+    }
+
+    // Inicializamos los punteros del buffer circular
+    buffer->inicio = 0;
+    buffer->fin = 0;
+
+    escrituraLogGeneral("🟦 Memoria compartida para buffer inicializada correctamente\n", 0);
+    return 0;
+}
+
 /// @brief Función que se encarga de manejar las señales SIGINT y SIGHUP dentro de banco
 /// @param senal Señal que se le manda al sistema
 void manejoSenal(int senal)
@@ -787,11 +937,9 @@ void manejoSenal(int senal)
     exit(0);
 }
 
-
-
 int main(int argc, char *argv[])
 {
-    
+
     // Inicializamos la configuracion establecida desde el archivo .config en el archivo de banco
     configuracion = leer_configuracion(configuracion);
     long int MEMORY_SIZE = MB * atoi(configuracion.maxMemoria); // Convertimos el tamaño de memoria en bytes
@@ -800,7 +948,7 @@ int main(int argc, char *argv[])
     unlink(FIFO1);
     unlink(FIFO2);
 
-    inicializarBufferEstructurado();
+    inicializarBufferCompartido();
 
     pid_t pid = fork();
 

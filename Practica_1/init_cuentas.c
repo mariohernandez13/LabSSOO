@@ -103,6 +103,8 @@ int main()
     sem_unlink("/semaforo_banco");
     sem_unlink("/semaforo_config");
     sem_unlink("/semaforo_transacciones");
+    sem_unlink("/semaforo_buffer");
+    sem_unlink("/semaforo_tabla");
 
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
     semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0666, 1);

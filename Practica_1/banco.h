@@ -24,7 +24,7 @@
 #define MAX_LENGTH_SALDO 10
 #define MAX_LENGTH_ID 6
 #define MB 1024 * 1024
-#define MEM_KEY "GOATS"
+#define MEM_KEY "/bin/ls"
 #define BUFFER_SIZE 10
 #define MAX_SESIONES 100
 
@@ -35,6 +35,8 @@ sem_t *semaforo_transacciones;
 sem_t *semaforo_config;
 sem_t *semaforo_cuentas;
 sem_t *semaforo_banco;
+sem_t *semaforo_buffer;
+sem_t *semaforo_tabla;
 
 /// @brief Estructura de la configuración del sistema del banco
 typedef struct
@@ -100,14 +102,14 @@ typedef struct
     int fin;
 } BufferEstructurado;
 
-BufferEstructurado buffer;
+BufferEstructurado *buffer;
 
 /// @brief inicializa el buffer
 /// @return 0 = OK | 1 = ERROR
 int inicializarBufferEstructurado()
 {
-    buffer.fin = 0;
-    buffer.inicio = 0;
+    buffer->fin = 0;
+    buffer->inicio = 0;
     return 0;
 }
 

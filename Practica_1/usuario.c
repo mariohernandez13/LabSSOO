@@ -118,18 +118,22 @@ float conseguirSaldoUsuario(char *id)
 }
 
 /// @brief Función que se encarga de conseguir el saldo del usuario que corresponde al id introducido
-/// @param id Id del usuario 
+/// @param id Id del usuario
 /// @return Devolvemos el saldo actual del usuario
 float conseguirSaldoUsuarioEnMemoria(char *id)
 {
     // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
     float saldoActual;
-    
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
-
-    sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
 
     escrituraLogGeneral("🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria\n", 0);
+
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+    if (semaforo_tabla == SEM_FAILED)
+    {
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        exit(1);
+    }
+    sem_wait(semaforo_tabla);
 
     for (int i = 0; i < tabla->numCuentas; i++)
     {
@@ -139,12 +143,13 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
             saldoActual = strtof(tabla->cuentas[i].saldo, NULL);
             break;
         }
-        else {
+        else
+        {
             escrituraLogGeneral("🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria\n", 0);
         }
     }
 
-    sem_post(semaforo_cuentas); // Habilitamos el semaforo de cuentas de nuevo
+    sem_post(semaforo_tabla); // Habilitamos el semaforo de cuentas de nuevo
 
     return saldoActual;
 }
@@ -154,70 +159,71 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
 /// @param saldoActualizado  Saldo después de realizar la operación
 void actualizarCuentas(char *id, float saldoActualizado)
 {
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    if (buffer == NULL)
+    {
+        escrituraLogGeneral("🟥 Buffer no inicializado en actualizarCuentas\n", 0);
+        return;
+    }
 
+    // Abrimos semáforo de control general de cuentas
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
     if (semaforo_cuentas == SEM_FAILED)
     {
-        escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas (semaforo_cuentas)\n", 0);
         exit(1);
     }
 
-    sem_wait(semaforo_cuentas); // Entramos a la zona crítica
+    sem_wait(semaforo_cuentas); // Zona crítica de cuentas
 
-    Cuenta nuevaCuenta;
-    char log[100];
-
-    for (int i = 0; i < tabla->numCuentas; i++)
+    // Abrimos semáforo de acceso a la tabla
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
+    if (semaforo_tabla == SEM_FAILED)
     {
-        if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
-        {
-            snprintf(tabla->cuentas[i].saldo, sizeof(tabla->cuentas[i].saldo), "%.2f", saldoActualizado);
-            nuevaCuenta = tabla->cuentas[i];
-
-            buffer.operaciones[buffer.fin] = nuevaCuenta;
-            snprintf(log, sizeof(log), "🟢 Cuenta actualizada y añadida al buffer: %s | Posición: %d\n", nuevaCuenta.numero_cuenta, buffer.fin);
-            escrituraLogGeneral(log, 0);
-
-            buffer.fin = (buffer.fin + 1) % BUFFER_SIZE;
-
-            break;
-        }
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de tabla (semaforo_tabla)\n", 0);
+        exit(1);
     }
 
-    sem_post(semaforo_cuentas); // Salimos de la zona crítica
-}
+    sem_wait(semaforo_tabla); // Zona crítica de tabla
 
-
-/// @brief Función que sobreescribe en memoria el valor del saldo del usuario con el id introducido
-/// @param id Id del usuario
-/// @param saldoActualizado Saldo actualizado del usuario con id introducido
-void actualizarCuentasEnMemoria(char *id, float saldoActualizado)
-{
-    sem_wait(semaforo_cuentas); // Esperamos a que el semaforo de cuentas nos permita entrar en la seccion critica de la memoria compartida
-    Cuenta nuevaCuenta;
-    char log[100];
-
-    // Recorremos el array de cuentas dentro de tabla para encontrar el id del usuario logueado
     for (int i = 0; i < tabla->numCuentas; i++)
     {
-        // Si el id es el mismo, asignamos su saldo al saldo a mostrar
         if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
         {
+            // Actualizamos el saldo como string sin basura
             snprintf(tabla->cuentas[i].saldo, sizeof(tabla->cuentas[i].saldo), "%.2f", saldoActualizado);
-            nuevaCuenta = tabla->cuentas[i]; // Guardamos la cuenta actualizada en una variable auxiliar
-            buffer.operaciones[buffer.fin] = nuevaCuenta; // Guardamos la cuenta actualizada en el buffer de operaciones
-            snprintf(log, sizeof(log), "Nueva cuenta actualizada: %s | Cuenta enviada a buffer, con buffer de tamaño: %d\n", nuevaCuenta.numero_cuenta, buffer.fin);
-            escrituraLogGeneral(log, 0);
-            if (buffer.fin != BUFFER_SIZE - 1)
+
+            // Guardamos la cuenta actualizada
+            Cuenta nuevaCuenta = tabla->cuentas[i];
+
+            // Semáforo del buffer
+            semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0644, 1);
+            if (semaforo_buffer == SEM_FAILED)
             {
-                buffer.fin++; // Aumentamos el puntero del buffer si no está lleno
+                escrituraLogGeneral("🟥 Error al abrir el semáforo de buffer (semaforo_buffer)\n", 0);
+                exit(1);
             }
-            break;
+
+            sem_wait(semaforo_buffer); // Zona crítica del buffer
+
+            // Insertamos en el buffer circular
+            buffer->operaciones[buffer->fin] = nuevaCuenta;
+            int posicionAnterior = buffer->fin;
+            buffer->fin = (buffer->fin + 1) % BUFFER_SIZE;
+
+            // Log de éxito
+            char log[100];
+            snprintf(log, sizeof(log),
+                     "✅ Cuenta actualizada y añadida al buffer: %s | Posición: %d | BufIn: %d\n",
+                     nuevaCuenta.numero_cuenta, posicionAnterior, buffer->inicio);
+            escrituraLogGeneral(log, 0);
+
+            sem_post(semaforo_buffer); // Fin zona crítica del buffer
+            break;                     // Ya encontramos la cuenta, no seguimos
         }
     }
-    escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentasEnMemoria\n", 1);
 
-    sem_post(semaforo_cuentas); // habilitamos de vuelta el semaforo de cuentas
+    sem_post(semaforo_tabla);   // Fin zona crítica tabla
+    sem_post(semaforo_cuentas); // Fin zona crítica cuentas
 }
 
 /// @brief Realiza ingreso o retiro en funcion del flag
@@ -241,7 +247,7 @@ float realizarOperacion(float saldoActual, float saldoOperacion, int flag, char 
         break;
     }
 
-    actualizarCuentasEnMemoria(id, saldoActual); // Ahora llamamos a una función que modifica los saldos en memoria en vez de ir al archivo
+    actualizarCuentas(id, saldoActual); // Ahora llamamos a una función que modifica los saldos en memoria en vez de ir al archivo
 
     mostrarCarga();
 
@@ -285,14 +291,15 @@ void *operacionDeposito(void *id)
 
     realizarOperacion(saldo, saldoDepositar, 0, _id);
     escribirLogOperacion(1, 1, _id, saldoDepositar);
-    
+
     printf("\n");
     printf("======================================\n");
     printf("💰 Depósito realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
     printf("======================================\n");
-    
-    while (getchar() != '\n');
+
+    while (getchar() != '\n')
+        ;
     getchar();
 }
 
@@ -325,18 +332,18 @@ void *operacionTransferencia(void *id)
 
         esValido = 1;
         printf("👤 Introduce id destinatario: \n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
 
         fgets(idDestinatario, sizeof(idDestinatario), stdin);
         idDestinatario[strcspn(idDestinatario, "\n")] = 0; // Eliminar \n para que saldoDestinatario no vuelva vacio
-        
+
         saldoDestinatario = conseguirSaldoUsuario(idDestinatario);
-        
+
         printf("💳 Introduce cantidad a transferir: \n");
         scanf("%f", &saldoTransferir);
 
-        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0
-             || saldoTransferir > saldo ||strcmp(_id, idDestinatario) == 0) 
+        if (saldoTransferir > configuracion.limiteTransferencia || saldoDestinatario < 0 || saldoTransferir > saldo || strcmp(_id, idDestinatario) == 0)
         {
             escribirLogOperacion(3, 0, _id, saldoTransferir);
             esValido = 0;
@@ -346,12 +353,12 @@ void *operacionTransferencia(void *id)
 
     realizarOperacion(saldo, saldoTransferir, 1, _id);
     realizarOperacion(saldoDestinatario, saldoTransferir, 0, idDestinatario);
-       
+
     printf("\n");
     printf("======================================\n");
     printf("💰 Transferencia realizada con éxito\n");
     printf("Pulse INTRO para continuar...\n");
-    printf("======================================\n"); 
+    printf("======================================\n");
 
     escribirLogOperacion(3, 1, _id, saldoTransferir);
 
@@ -396,12 +403,12 @@ void *operacionRetiro(void *id)
     realizarOperacion(saldo, saldoRetirar, 1, _id);
     escrituraLogGeneral("✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro\n", 1);
     escribirLogOperacion(2, 1, _id, saldoRetirar);
-    
+
     printf("\n");
     printf("======================================\n");
     printf("💰 Retiro realizado con éxito\n");
     printf("Pulse INTRO para continuar...\n");
-    printf("======================================\n"); 
+    printf("======================================\n");
 
     while (getchar() != '\n')
         ;
@@ -483,7 +490,7 @@ void eliminarSesion(char *id)
             fprintf(temporal, "%s\n", linea);
         else
         {
-            if(duplicado == 0)
+            if (duplicado == 0)
                 duplicado = 1;
             else
                 fprintf(temporal, "%s\n", linea);
@@ -527,15 +534,37 @@ void menuUsuario(char *id)
     } while (opcion != 5);
 
     // Al salir del menú del usuario, similar a hacer logout, eliminamos la sesión guardada en el archivo de sesiones.txt
-    eliminarSesion(id); 
+    eliminarSesion(id);
+}
+
+int inicializarBufferCompartido()
+{
+    key_t key_buffer = ftok(MEM_KEY, 2);
+    int shm_id_buffer = shmget(key_buffer, sizeof(BufferEstructurado), 0666);
+    if (shm_id_buffer == -1)
+    {
+        escrituraLogGeneral("🟥 Error al obtener el id del buffer compartido en usuario.c\n", 0);
+        return 1;
+    }
+
+    buffer = (BufferEstructurado *)shmat(shm_id_buffer, NULL, 0);
+    if (buffer == (void *)-1)
+    {
+        escrituraLogGeneral("🟥 Error al adjuntar el buffer compartido en usuario.c\n", 0);
+        return 1;
+    }
+
+    return 0;
 }
 
 int main(int argc, char *argv[])
 {
     configuracion = leer_configuracion(configuracion);
 
+    inicializarBufferCompartido();
+
     // Conseguimos la key definida dentro del sistema para acceder a la memoria compartida
-    key_t key = ftok(MEM_KEY,1);
+    key_t key = ftok(MEM_KEY, 1);
 
     // Definimos en usuario la memoria compartida ya creada en banco.c
     int shm_id = shmget(key, 0, 0666);
