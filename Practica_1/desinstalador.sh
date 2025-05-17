@@ -4,20 +4,23 @@
 USUARIO="appuser"                             # ← Cambia esto si usas otro usuario del sistema
 RUTA_APP="/opt/securebank"                    # ← Cambia esto si mueves la app a otro directorio
 BINARIO="init_cuentas"                        # ← Cambia esto si tu binario principal tiene otro nombre
-SERVICE_FILE="/etc/systemd/system/securebank.service"  # ← Cambia si usas otro nombre de servicio
+SERVICE_NAME="securebank.service"             # ← Cambia si usas otro nombre de servicio
+SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME"
+LOG="/tmp/securebank_uninstall.log"           # Puedes cambiarlo a /var/log/... si lo prefieres
 
 echo "⚠️ Iniciando desinstalación de SecureBank..."
+echo "$(date '+%F %T') ⚠️ Desinstalación iniciada" | sudo tee -a "$LOG" > /dev/null
 
 # 1. Detener el servicio si está activo
-if systemctl is-active --quiet securebank.service; then
+if systemctl is-active --quiet "$SERVICE_NAME"; then
     echo "⏹️ Deteniendo servicio..."
-    sudo systemctl stop securebank.service
+    sudo systemctl stop "$SERVICE_NAME"
 fi
 
 # 2. Deshabilitar el servicio
-if systemctl is-enabled --quiet securebank.service; then
+if systemctl is-enabled --quiet "$SERVICE_NAME"; then
     echo "🚫 Deshabilitando servicio..."
-    sudo systemctl disable securebank.service
+    sudo systemctl disable "$SERVICE_NAME"
 fi
 
 # 3. Eliminar el archivo de servicio
@@ -49,4 +52,5 @@ echo "🔄 Recargando systemd..."
 sudo systemctl daemon-reload
 
 echo "✅ Desinstalación completada."
-echo "   Verifica con: sudo systemctl status securebank.service"
+echo "$(date '+%F %T') ✅ Desinstalación completada" | sudo tee -a "$LOG" > /dev/null
+echo "   Verifica con: sudo systemctl status $SERVICE_NAME"

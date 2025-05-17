@@ -104,8 +104,8 @@ int main()
     sem_unlink("/semaforo_config");
     sem_unlink("/semaforo_transacciones");
 
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
-    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0666, 1);
 
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {

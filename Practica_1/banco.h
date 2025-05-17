@@ -124,8 +124,8 @@ void escrituraLogGeneral(char *log, int flag)
     struct tm *tm_info; // esto declara la estructura del tiempo y la fecha actual
 
     sem_unlink("/semaforo_banco");
-    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
-    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
+    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0666, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0666, 1);
 
     if (semaforo_transacciones == SEM_FAILED || semaforo_banco == SEM_FAILED)
     {
