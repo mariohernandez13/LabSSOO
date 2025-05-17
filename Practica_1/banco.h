@@ -81,6 +81,7 @@ typedef struct
     int numCuentas;
 } TablaCuentas;
 
+/// @brief Estructura para guardar todos los datos relevantes de una transaccion
 typedef struct
 {
     char *estado;
@@ -90,6 +91,8 @@ typedef struct
     float cantidad;
 } Transaccion;
 
+/// @brief Estructura para guardar el buffer de operaciones 
+/// @note Se define como un buffer circular y se usará para actualizar el archivo de cuentas.dat
 typedef struct
 {
     Cuenta operaciones[BUFFER_SIZE];

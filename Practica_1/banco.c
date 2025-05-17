@@ -421,7 +421,6 @@ int comprobarId(char *id, int flag)
 /// @brief Menú de registro del Banco
 void registro()
 {
-
     Cuenta cuenta;
 
     int comprobacion = 1;
@@ -472,94 +471,44 @@ void registro()
 /// @brief función que se encarga de vaciar el buffer de operaciones y actualizar el archivo cuentas.dat
 /// @param arg
 /// @return
-void *vaciarBuffer(void *arg)
-{
+void *vaciarBuffer(void *arg) {
     pthread_setname_np(pthread_self(), "hiloBuffer");
 
-    escrituraLogGeneral("Iniciando el hilo de vaciado de buffer en banco.c, función: vaciarBuffer\n", 0);
+    escrituraLogGeneral("🟦 Hilo de vaciado de buffer iniciado.\n", 0);
 
-    FILE *archivo;
-
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
-
-    if (semaforo_cuentas == SEM_FAILED)
-    {
-        escrituraLogGeneral("Error al abrir el semáforo de cuentas en banco.c, en función: vaciarBuffer\n", 0);
-        exit(1);
-    }
-
-    sem_wait(semaforo_cuentas);
-    archivo = fopen("data/cuentas.dat", "r+");
-    if (!archivo)
-    {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas en banco.c, en función: vaciarBuffer\n", 1);
-        exit(1);
-    }
-
-    char linea[MAX_LINE_LENGTH];
-    int lineas = 0;
-    char *idArchivo, *nombre, *saldo, *numeroTransacciones;
-    char *lineasArchivo[MAX_LINE_LENGTH];
-
-    while (1)
-    {
-        escrituraLogGeneral("Esperando a que el buffer esté lleno en banco.c\n", 0);
-
-        sleep(10);
-        if (buffer.fin == BUFFER_SIZE)
-        {
-            escrituraLogGeneral("Buffer lleno, procediendo a vaciarlo en banco.c...\n", 0);
-
+    while (1) {
+        if (buffer.inicio != buffer.fin) {
             Cuenta op = buffer.operaciones[buffer.inicio];
-            buffer.inicio = (buffer.inicio + 1) % 10;
 
-            // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
-            while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH)
-            {
-                lineasArchivo[lineas] = strdup(linea);
-                lineas++;
+            buffer.inicio = (buffer.inicio + 1) % BUFFER_SIZE;
+
+            FILE *archivo = fopen("data/cuentas.dat", "r+b");
+            if (!archivo) {
+                escrituraLogGeneral("🟥 Error al abrir cuentas.dat\n", 0);
+                continue;
             }
 
-            // Usamos strtok para capturar todos los parámetros de las cuentas
-            for (int i = 0; i < lineas; i++)
-            {
-                char *temp = strdup(lineasArchivo[i]); // Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
-                idArchivo = strtok(temp, ",");
-                nombre = strtok(NULL, ",");
-                saldo = strtok(NULL, ",");
-                numeroTransacciones = strtok(NULL, ",");
-
-                // La línea que coincide con el id del usuario se actualiza con su saldo
-                if (idArchivo && strcmp(idArchivo, buffer.operaciones->numero_cuenta) == 0)
-                {
-                    snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%s,%s,%s",
-                             idArchivo, nombre, saldo, numeroTransacciones ? numeroTransacciones : "0");
+            for (int i = 0; i < tabla->numCuentas; i++) {
+                if (strcmp(tabla->cuentas[i].numero_cuenta, op.numero_cuenta) == 0) {
+                    fseek(archivo, i * sizeof(Cuenta), SEEK_SET);
+                    fwrite(&op, sizeof(Cuenta), 1, archivo);
+                    break;
                 }
-
-                free(temp);
-            }
-
-            rewind(archivo); // Colocar el puntero al principio del fichero cuentas.dat
-
-            // Reescribe todo el archivo cuentas.dat
-            for (int i = 0; i < lineas; i++)
-            {
-                fputs(lineasArchivo[i], archivo);
-                free(lineasArchivo[i]);
             }
 
             fclose(archivo);
-            sem_post(semaforo_cuentas);
-
-            escrituraLogGeneral("Cuentas actualizadas correctamente en banco.c, en función: vaciarBuffer\n", 1);
+            escrituraLogGeneral("✅ Cuenta actualizada desde buffer en disco.\n", 0);
+        } else {
+            usleep(500000);
         }
     }
+
+    return NULL;
 }
 
 /// @brief Menú de logIn del Banco
 void logIn()
 {
-
     char id[MAX_LENGTH_ID];
     int flg_log = 1;
     int comprobacion = 1;
@@ -848,8 +797,6 @@ int main(int argc, char *argv[])
     long int MEMORY_SIZE = MB * atoi(configuracion.maxMemoria); // Convertimos el tamaño de memoria en bytes
     inicializarMemSh(MEMORY_SIZE);                              // Inicializamos la memoria compartida con el dato del .config que indica su capacidad
 
-
-
     unlink(FIFO1);
     unlink(FIFO2);
 
@@ -864,8 +811,8 @@ int main(int argc, char *argv[])
         exit(1);
     }
 
-    signal(SIGINT, manejoSenal);
-    signal(SIGHUP, manejoSenal);
+    signal(SIGINT, manejoSenal); // Capturamos la señal de interrupción (Ctrl+C)
+    signal(SIGHUP, manejoSenal); // Capturamos la señal de cierre de terminal
 
     int fd[2];
 

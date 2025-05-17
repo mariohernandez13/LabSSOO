@@ -13893,3 +13893,258 @@
 [2025-05-15 21:36:39] ✅ Sesiones leídas correctamente: 0
 [2025-05-15 21:36:39] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
 [2025-05-15 21:36:39] Comprobando errores...
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Ejecutando gcc para compilación...
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Ejecutando gcc para compilación...
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Ejecutando gcc para compilación...
+[2025-05-17 11:22:58] Ejecutando gcc para compilación...
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] Compilación exitosa. Ejecutando banco...
+[2025-05-17 11:22:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:22:58] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-17 11:22:58] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-17 11:22:58] Iniciando el hilo de vaciado de buffer en banco.c, función: vaciarBuffer
+[2025-05-17 11:22:58] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:01] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:23:01] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:23:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:01] Comprobando errores...
+[2025-05-17 11:23:06] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:23:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:06] Comprobando errores...
+[2025-05-17 11:23:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:23:08] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:11] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:11] Comprobando errores...
+[2025-05-17 11:23:16] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:16] Comprobando errores...
+[2025-05-17 11:23:18] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:21] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:21] Comprobando errores...
+[2025-05-17 11:23:26] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:26] Comprobando errores...
+[2025-05-17 11:23:28] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:31] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:31] Comprobando errores...
+[2025-05-17 11:23:36] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:36] Comprobando errores...
+[2025-05-17 11:23:38] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:39] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:23:41] ✅ Sesiones leídas correctamente: 2
+[2025-05-17 11:23:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:41] Comprobando errores...
+[2025-05-17 11:23:46] ✅ Sesiones leídas correctamente: 2
+[2025-05-17 11:23:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:46] Comprobando errores...
+[2025-05-17 11:23:48] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:23:51] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:23:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:23:51] Comprobando errores...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Ejecutando gcc para compilación...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Ejecutando gcc para compilación...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Ejecutando gcc para compilación...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Compilación exitosa. Ejecutando banco...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] Ejecutando gcc para compilación...
+[2025-05-17 11:52:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:40] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-17 11:52:40] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-17 11:52:40] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-17 11:52:40] Iniciando el hilo de vaciado de buffer en banco.c, función: vaciarBuffer
+[2025-05-17 11:52:40] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:52:42] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:52:42] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:52:42] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:52:42] Comprobando errores...
+[2025-05-17 11:52:47] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:52:47] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:52:47] Comprobando errores...
+[2025-05-17 11:52:50] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:52:52] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:52:52] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:52:52] Comprobando errores...
+[2025-05-17 11:52:57] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:52:57] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:52:57] Comprobando errores...
+[2025-05-17 11:53:00] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:02] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:02] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:02] Comprobando errores...
+[2025-05-17 11:53:07] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:07] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:07] Comprobando errores...
+[2025-05-17 11:53:10] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:12] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:12] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:12] Comprobando errores...
+[2025-05-17 11:53:18] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:18] Comprobando errores...
+[2025-05-17 11:53:20] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:23] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:23] Comprobando errores...
+[2025-05-17 11:53:28] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:28] Comprobando errores...
+[2025-05-17 11:53:30] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:33] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:33] Comprobando errores...
+[2025-05-17 11:53:38] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:38] Comprobando errores...
+[2025-05-17 11:53:40] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:43] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:43] Comprobando errores...
+[2025-05-17 11:53:48] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:48] Comprobando errores...
+[2025-05-17 11:53:50] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:53:53] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:53] Comprobando errores...
+[2025-05-17 11:53:58] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:53:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:53:58] Comprobando errores...
+[2025-05-17 11:53:59] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:54:00] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:03] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:03] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:03] Comprobando errores...
+[2025-05-17 11:54:08] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:08] Comprobando errores...
+[2025-05-17 11:54:10] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:13] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:13] Comprobando errores...
+[2025-05-17 11:54:16] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-17 11:54:16] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:54:18] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:18] Comprobando errores...
+[2025-05-17 11:54:19] Nueva cuenta actualizada: 1001 | Cuenta enviada a buffer, con buffer de tamaño: 0
+[2025-05-17 11:54:20] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:23] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:23] Comprobando errores...
+[2025-05-17 11:54:28] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:28] Comprobando errores...
+[2025-05-17 11:54:30] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:33] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:33] Comprobando errores...
+[2025-05-17 11:54:38] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:38] Comprobando errores...
+[2025-05-17 11:54:40] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:43] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:43] Comprobando errores...
+[2025-05-17 11:54:48] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:48] Comprobando errores...
+[2025-05-17 11:54:50] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:54:53] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:53] Comprobando errores...
+[2025-05-17 11:54:58] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:54:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:54:58] Comprobando errores...
+[2025-05-17 11:55:00] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:55:03] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:03] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:03] Comprobando errores...
+[2025-05-17 11:55:08] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:08] Comprobando errores...
+[2025-05-17 11:55:10] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:55:13] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:13] Comprobando errores...
+[2025-05-17 11:55:18] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:18] Comprobando errores...
+[2025-05-17 11:55:20] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:55:23] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:23] Comprobando errores...
+[2025-05-17 11:55:28] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:28] Comprobando errores...
+[2025-05-17 11:55:30] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:55:33] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:33] Comprobando errores...
+[2025-05-17 11:55:38] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:38] Comprobando errores...
+[2025-05-17 11:55:40] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:55:43] ✅ Sesiones leídas correctamente: 1
+[2025-05-17 11:55:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:43] Comprobando errores...
+[2025-05-17 11:55:48] ✅ Sesiones leídas correctamente: 0
+[2025-05-17 11:55:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:55:48] Comprobando errores...
+[2025-05-17 11:55:50] Esperando a que el buffer esté lleno en banco.c
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Ejecutando gcc para compilación...
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Ejecutando gcc para compilación...
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Ejecutando gcc para compilación...
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Compilación exitosa. Ejecutando banco...
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] Ejecutando gcc para compilación...
+[2025-05-17 11:56:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:43] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-17 11:56:43] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-17 11:56:43] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-17 11:56:43] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-17 11:56:46] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-17 11:56:46] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:56:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:56:46] Comprobando errores...
+[2025-05-17 11:56:51] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:56:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:56:51] Comprobando errores...
+[2025-05-17 11:56:56] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:56:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:56:56] Comprobando errores...
+[2025-05-17 11:56:57] Contraseña correcta, accediendo al menú de administrador en banco.c, en función: menuAdmin
+[2025-05-17 11:57:01] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:57:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:57:01] Comprobando errores...
+[2025-05-17 11:57:04] 🧵 Mostramos los hilos activos en el sistema desde el menú de administrador en banco.c, en función: menuAdmin
+[2025-05-17 11:57:06] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:57:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:57:06] Comprobando errores...
+[2025-05-17 11:57:11] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-17 11:57:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-17 11:57:11] Comprobando errores...

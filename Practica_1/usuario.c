@@ -154,71 +154,39 @@ float conseguirSaldoUsuarioEnMemoria(char *id)
 /// @param saldoActualizado  Saldo después de realizar la operación
 void actualizarCuentas(char *id, float saldoActualizado)
 {
-
-    FILE *archivo;
-
     semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
-        escrituraLogGeneral("Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
+        escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
         exit(1);
     }
 
-    sem_wait(semaforo_cuentas);
-    archivo = fopen("data/cuentas.dat", "r+");
-    if (!archivo)
+    sem_wait(semaforo_cuentas); // Entramos a la zona crítica
+
+    Cuenta nuevaCuenta;
+    char log[100];
+
+    for (int i = 0; i < tabla->numCuentas; i++)
     {
-        escrituraLogGeneral("Error al abrir el archivo de cuentas en usuario.c, en función: actualizarCuentas\n", 1);
-        return;
-    }
-
-    char linea[MAX_LINE_LENGTH];
-    int lineas = 0;
-    char *idArchivo, *nombre, *saldo, *numeroTransacciones;
-
-    char *lineasArchivo[MAX_LINE_LENGTH];
-
-    // Este bucle se usa para copiar dentro del array de lineas del archivo todas las cuentas del archivo cuentas.dat
-    while (fgets(linea, MAX_LINE_LENGTH, archivo) && lineas < MAX_LINE_LENGTH)
-    {
-        lineasArchivo[lineas] = strdup(linea);
-        lineas++;
-    }
-
-    // Usamos strtok para capturar todos los parámetros de las cuentas
-    for (int i = 0; i < lineas; i++)
-    {
-        char *temp = strdup(lineasArchivo[i]); // Variable auxiliar para copiar el contenido de cada linea en cada iteración del bucle
-        idArchivo = strtok(temp, ",");
-        nombre = strtok(NULL, ",");
-        saldo = strtok(NULL, ",");
-        numeroTransacciones = strtok(NULL, ",");
-
-        // La línea que coincide con el id del usuario se actualiza con su saldo
-        if (idArchivo && strcmp(idArchivo, id) == 0)
+        if (strcmp(tabla->cuentas[i].numero_cuenta, id) == 0)
         {
-            snprintf(lineasArchivo[i], MAX_LINE_LENGTH, "%s,%s,%.2f,%s",
-                     idArchivo, nombre, saldoActualizado, numeroTransacciones ? numeroTransacciones : "0");
+            snprintf(tabla->cuentas[i].saldo, sizeof(tabla->cuentas[i].saldo), "%.2f", saldoActualizado);
+            nuevaCuenta = tabla->cuentas[i];
+
+            buffer.operaciones[buffer.fin] = nuevaCuenta;
+            snprintf(log, sizeof(log), "🟢 Cuenta actualizada y añadida al buffer: %s | Posición: %d\n", nuevaCuenta.numero_cuenta, buffer.fin);
+            escrituraLogGeneral(log, 0);
+
+            buffer.fin = (buffer.fin + 1) % BUFFER_SIZE;
+
+            break;
         }
-
-        free(temp);
     }
 
-    rewind(archivo); // Colocar el puntero al principio del fichero cuentas.dat
-
-    // Reescribe todo el archivo cuentas.dat
-    for (int i = 0; i < lineas; i++)
-    {
-        fputs(lineasArchivo[i], archivo);
-        free(lineasArchivo[i]);
-    }
-
-    fclose(archivo);
-    sem_post(semaforo_cuentas);
-
-    escrituraLogGeneral("Cuentas actualizadas correctamente en usuario.c, en función: actualizarCuentas\n", 1);
+    sem_post(semaforo_cuentas); // Salimos de la zona crítica
 }
+
 
 /// @brief Función que sobreescribe en memoria el valor del saldo del usuario con el id introducido
 /// @param id Id del usuario
