@@ -1,96 +1,74 @@
 #!/bin/bash
 
-# Variables de configuración
-USUARIO="appuser"
-HOME_USUARIO="/home/$USUARIO"
-RUTA_ORIGEN="$(cd "$(dirname "$0")" && pwd)"
-RUTA_APP="/opt/securebank"
-BINARIO="init_cuentas"
-RUTA_BIN="$RUTA_APP/$BINARIO"
-SERVICE_FILE="/etc/systemd/system/securebank.service"
+###############################################################################
+# 🛠️ Script de instalación de entorno SecureBank
+# 
+# Funciones:
+#   - Crear un nuevo usuario
+#   - Copiar el programa al directorio del usuario
+#   - Crear acceso directo en el escritorio
+#   - Permitir ejecución con sudo sin contraseña
+###############################################################################
 
-echo "🔧 Creando usuario del sistema..."
-if id "$USUARIO" &>/dev/null; then
-    echo "ℹ️ Usuario $USUARIO ya existe. Continuando..."
-else
-    sudo adduser --home "$HOME_USUARIO" --shell /bin/bash --gecos "" "$USUARIO"
-    sudo mkdir -p "$HOME_USUARIO"
-    sudo cp /etc/skel/.bashrc "$HOME_USUARIO/"
-    sudo chown -R "$USUARIO:$USUARIO" "$HOME_USUARIO"
-    sudo chmod 700 "$HOME_USUARIO"
-    echo "⚠️ Recuerda asignar contraseña si quieres que pueda iniciar sesión:"
-    echo "   sudo passwd $USUARIO"
-fi
+# ─── CONFIGURACIÓN PERSONALIZABLE ────────────────────────────────────────────
+NUEVO_USUARIO="SecureBank"
+CLAVE="banco"
+RUTA_ORIG="./"
+RUTA_SCRIPT="instalador.sh"
+NOMBRE_PROGRAMA="init_cuentas"
+# ─────────────────────────────────────────────────────────────────────────────
 
-echo "📁 Copiando archivos del proyecto desde $RUTA_ORIGEN a $RUTA_APP..."
-sudo mkdir -p "$RUTA_APP"
-sudo rsync -av --exclude="instalador_securebank.sh" "$RUTA_ORIGEN/" "$RUTA_APP/"
+# Variables derivadas
+RUTA_DEST="/home/$NUEVO_USUARIO/securebank"
+DESKTOP_DIR="/home/$NUEVO_USUARIO/Desktop"
+LAUNCHER="$DESKTOP_DIR/$NOMBRE_PROGRAMA.desktop"
+SCRIPT_COMPLETO="$RUTA_DEST/$RUTA_SCRIPT"
 
-echo "🔐 Asignando permisos a la app..."
-sudo chown -R "$USUARIO:$USUARIO" "$RUTA_APP"
-sudo chmod -R 750 "$RUTA_APP"
+# ─── 1. Crear nuevo usuario ──────────────────────────────────────────────────
+echo -e "\n🔧 [1/5] Creando usuario '\e[1m$NUEVO_USUARIO\e[0m'..."
+sudo useradd -m "$NUEVO_USUARIO"
+echo "$NUEVO_USUARIO:$CLAVE" | sudo chpasswd
 
-# Variables para la sesión gráfica (asumimos UID 1000)
-GRAPHICAL_UID=1000
-# Usa el XAUTHORITY del usuario gráfico principal
-XAUTHORITY="/run/user/$GRAPHICAL_UID/gdm/Xauthority"
-# Si no existe, usa el .Xauthority del home del usuario gráfico
-if [ ! -f "$XAUTHORITY" ]; then
-    XAUTHORITY="/home/$(id -nu $GRAPHICAL_UID)/.Xauthority"
-fi
-DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$GRAPHICAL_UID/bus"
-AT_SPI_BUS_ADDRESS="unix:path=/run/user/$GRAPHICAL_UID/at-spi/bus"
+# ─── 2. Copiar programa ──────────────────────────────────────────────────────
+echo -e "📂 [2/5] Copiando programa a \e[1m$RUTA_DEST\e[0m..."
+sudo cp -r "$RUTA_ORIG" "$RUTA_DEST"
+sudo chown -R "$NUEVO_USUARIO:$NUEVO_USUARIO" "$RUTA_DEST"
+sudo chmod -R u+rwX "$RUTA_DEST"
 
-echo "🔓 Ajustando permisos para que $USUARIO pueda acceder a la sesión gráfica..."
-sudo setfacl -m u:$USUARIO:r "$XAUTHORITY" || echo "⚠️ Falló setfacl en XAUTHORITY"
-sudo setfacl -m u:$USUARIO:r "/run/user/$GRAPHICAL_UID" || echo "⚠️ Falló setfacl en /run/user/$GRAPHICAL_UID"
-sudo setfacl -m u:$USUARIO:r "/run/user/$GRAPHICAL_UID/bus" || echo "⚠️ Falló setfacl en bus"
-sudo setfacl -m u:$USUARIO:r "/run/user/$GRAPHICAL_UID/at-spi/bus" || echo "⚠️ Falló setfacl en at-spi bus"
+# ─── 3. Crear acceso directo ─────────────────────────────────────────────────
+echo -e "📎 [3/5] Creando acceso directo en \e[1m$DESKTOP_DIR\e[0m..."
+sudo mkdir -p "$DESKTOP_DIR"
 
-echo "📝 Creando servicio systemd con entorno gráfico para $USUARIO..."
-sudo bash -c "cat > $SERVICE_FILE" <<EOF
-[Unit]
-Description=SecureBank principal ejecutado por $USUARIO
-After=network.target
-
-[Service]
-Type=simple
-User=$USUARIO
-Environment=DISPLAY=:0
-Environment=XAUTHORITY=$XAUTHORITY
-Environment=DBUS_SESSION_BUS_ADDRESS=$DBUS_SESSION_BUS_ADDRESS
-Environment=AT_SPI_BUS_ADDRESS=$AT_SPI_BUS_ADDRESS
-WorkingDirectory=$RUTA_APP
-ExecStart=$RUTA_BIN
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
+sudo bash -c "cat > '$LAUNCHER'" <<EOF
+[Desktop Entry]
+Type=Application
+Name=$NOMBRE_PROGRAMA
+Exec=gnome-terminal -- bash -c 'cd $RUTA_DEST && ./init_cuentas ; exec bash'
+Icon=utilities-terminal
+Terminal=false
 EOF
 
-echo "🔄 Recargando systemd y activando el servicio..."
-sudo systemctl daemon-reexec
-sudo systemctl daemon-reload
-sudo systemctl enable --now securebank.service
+sudo chmod +x "$LAUNCHER"
+sudo chown "$NUEVO_USUARIO:$NUEVO_USUARIO" "$LAUNCHER"
 
+# ─── 4. Configurar sudo sin contraseña ───────────────────────────────────────
+echo -e "🔐 [4/5] Configurando sudoers para ejecución sin contraseña..."
+SUDOERS_LINE="$NUEVO_USUARIO ALL=(ALL) NOPASSWD: $SCRIPT_COMPLETO"
+echo "$SUDOERS_LINE" | sudo tee "/etc/sudoers.d/$NUEVO_USUARIO-programa" > /dev/null
+sudo chmod 440 "/etc/sudoers.d/$NUEVO_USUARIO-programa"
+
+# ─── 5. Final ────────────────────────────────────────────────────────────────
+echo -e "\n✅ \e[1mCONFIGURACIÓN COMPLETA\e[0m"
+echo -e "═══════════════════════════════════════════════════════════════"
+echo "👤 Usuario:           $NUEVO_USUARIO"
+echo "🔑 Contraseña:        $CLAVE"
+echo "📁 Programa en:       $RUTA_DEST"
+echo "🖥️  Acceso directo:   $LAUNCHER"
 echo ""
-echo "✅ Instalación completada."
-echo ""
-echo "🧑‍💻 Para ejecutar la app con interfaz gráfica:"
-echo "   1. Abre una terminal gráfica (gnome-terminal) como tu usuario normal."
-echo "   2. Ejecuta: sudo -iu $USUARIO"
-echo "   3. Desde esa sesión, ejecuta: cd $RUTA_APP && ./init_cuentas"
-echo ""
-echo "📋 Puedes verificar el estado del servicio con:"
-echo "   sudo systemctl status securebank.service"
-echo "📄 Ver logs del servicio con:"
-echo "   journalctl -u securebank.service"
-
-
-# dar permisos al sh
-# chmod +x instalador.sh
-# ./instalador.sh
-
-# verificar estado
-# systemctl status securebank.service
-# journalctl -u securebank.service
+echo -e "📌 \e[1mPASOS FINALES\e[0m:"
+echo "1. Cierra tu sesión actual (logout)"
+echo "2. Inicia sesión como '$NUEVO_USUARIO'"
+echo "3. Ingresa la contraseña."
+echo "4. Haz doble clic en el icono '$NOMBRE_PROGRAMA' del escritorio"
+echo "   Se abrirá GNOME Terminal y ejecutará el programa."
+echo "═══════════════════════════════════════════════════════════════"
