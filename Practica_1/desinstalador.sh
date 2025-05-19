@@ -1,61 +1,56 @@
 #!/bin/bash
 
-###############################################################################
-# ❌ Desinstalador de SecureBank
-#
-# Elimina:
-#   - El usuario creado (SecureBank)
-#   - Archivos de programa
-#   - Acceso directo en el escritorio
-#   - Reglas sudo personalizadas
-###############################################################################
+# 🔧 CONFIGURACIÓN
+USUARIO="appuser"                             # ← Cambia esto si usas otro usuario del sistema
+RUTA_APP="/opt/securebank"                    # ← Cambia esto si mueves la app a otro directorio
+BINARIO="init_cuentas"                        # ← Cambia esto si tu binario principal tiene otro nombre
+SERVICE_NAME="securebank.service"             # ← Cambia si usas otro nombre de servicio
+SERVICE_FILE="/etc/systemd/system/$SERVICE_NAME"
+LOG="/tmp/securebank_uninstall.log"           # Puedes cambiarlo a /var/log/... si lo prefieres
 
-# ─── CONFIGURACIÓN ───────────────────────────────────────────────────────────
-NUEVO_USUARIO="SecureBank"
-NOMBRE_PROGRAMA="init_cuentas"
-RUTA_DEST="/home/$NUEVO_USUARIO/securebank"
-DESKTOP_DIR="/home/$NUEVO_USUARIO/Desktop"
-LAUNCHER="$DESKTOP_DIR/$NOMBRE_PROGRAMA.desktop"
-SUDOERS_FILE="/etc/sudoers.d/$NUEVO_USUARIO-programa"
-# ─────────────────────────────────────────────────────────────────────────────
+echo "⚠️ Iniciando desinstalación de SecureBank..."
+echo "$(date '+%F %T') ⚠️ Desinstalación iniciada" | sudo tee -a "$LOG" > /dev/null
 
-echo -e "\n🧹 \e[1mINICIANDO DESINSTALACIÓN DE SECUREBANK\e[0m"
-echo "═══════════════════════════════════════════════════════════════"
-
-# ─── 1. Eliminar el acceso directo ──────────────────────────────────────────
-if [ -f "$LAUNCHER" ]; then
-    echo "🗑️  Eliminando acceso directo: $LAUNCHER"
-    sudo rm -f "$LAUNCHER"
-else
-    echo "ℹ️  No se encontró acceso directo en el escritorio."
+# 1. Detener el servicio si está activo
+if systemctl is-active --quiet "$SERVICE_NAME"; then
+    echo "⏹️ Deteniendo servicio..."
+    sudo systemctl stop "$SERVICE_NAME"
 fi
 
-# ─── 2. Eliminar carpeta del programa ───────────────────────────────────────
-if [ -d "$RUTA_DEST" ]; then
-    echo "🗑️  Eliminando carpeta de aplicación: $RUTA_DEST"
-    sudo rm -rf "$RUTA_DEST"
-else
-    echo "ℹ️  No se encontró la carpeta del programa."
+# 2. Deshabilitar el servicio
+if systemctl is-enabled --quiet "$SERVICE_NAME"; then
+    echo "🚫 Deshabilitando servicio..."
+    sudo systemctl disable "$SERVICE_NAME"
 fi
 
-# ─── 3. Eliminar archivo sudoers ────────────────────────────────────────────
-if [ -f "$SUDOERS_FILE" ]; then
-    echo "🗑️  Eliminando entrada sudoers: $SUDOERS_FILE"
-    sudo rm -f "$SUDOERS_FILE"
+# 3. Eliminar el archivo de servicio
+if [ -f "$SERVICE_FILE" ]; then
+    echo "🗑️ Eliminando archivo de servicio: $SERVICE_FILE"
+    sudo rm "$SERVICE_FILE"
 else
-    echo "ℹ️  No se encontró configuración sudo personalizada."
+    echo "ℹ️ No se encontró el archivo de servicio"
 fi
 
-# ─── 4. Eliminar usuario y su home ──────────────────────────────────────────
-if id "$NUEVO_USUARIO" &>/dev/null; then
-    echo "👤 Eliminando usuario y su directorio home..."
-    sudo userdel -r "$NUEVO_USUARIO"
+# 4. Eliminar los archivos de la app
+if [ -d "$RUTA_APP" ]; then
+    echo "🗑️ Eliminando archivos de la aplicación en $RUTA_APP"
+    sudo rm -rf "$RUTA_APP"
 else
-    echo "ℹ️  El usuario '$NUEVO_USUARIO' no existe."
+    echo "ℹ️ No se encontró el directorio de la aplicación"
 fi
 
-# ─── 5. Final ───────────────────────────────────────────────────────────────
-echo -e "\n✅ \e[1mDESINSTALACIÓN COMPLETADA\e[0m"
-echo "═══════════════════════════════════════════════════════════════"
-echo "Se han eliminado el usuario, la aplicación y los accesos."
-echo ""
+# 5. Eliminar el usuario del sistema
+if id "$USUARIO" &>/dev/null; then
+    echo "🧹 Eliminando usuario del sistema: $USUARIO"
+    sudo deluser --system "$USUARIO"
+else
+    echo "ℹ️ El usuario $USUARIO no existe"
+fi
+
+# 6. Recargar systemd
+echo "🔄 Recargando systemd..."
+sudo systemctl daemon-reload
+
+echo "✅ Desinstalación completada."
+echo "$(date '+%F %T') ✅ Desinstalación completada" | sudo tee -a "$LOG" > /dev/null
+echo "   Verifica con: sudo systemctl status $SERVICE_NAME"
