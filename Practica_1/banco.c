@@ -259,8 +259,8 @@ void registroCuenta(Cuenta cuenta)
     limpiezaString(cuenta.titular);
     limpiezaString(cuenta.saldo);
 
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
-    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0666, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
+    semaforo_banco = sem_open("/semaforo_banco", O_CREAT, 0644, 1);
 
     // Si la apertura de cualquiera de los semaforos es erronea, se desestima la funcion y mandamos un log
     if (semaforo_cuentas == SEM_FAILED || semaforo_banco == SEM_FAILED)
@@ -347,7 +347,7 @@ int existeID(char *id, int flag)
     char *key, *value;
 
     sem_unlink("/semaforo_cuentas");
-    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0666, 1);
+    semaforo_cuentas = sem_open("/semaforo_cuentas", O_CREAT, 0644, 1);
 
     if (semaforo_cuentas == SEM_FAILED)
     {
@@ -463,7 +463,7 @@ void registro()
     } while ((comprobacion != 1) || (cuenta.titular == NULL) || (strlen(cuenta.titular) > MAX_LENGTH_NAME));
 
     registroCuenta(cuenta);
-    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0666, 1);
+    semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
     if (semaforo_tabla == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
@@ -493,7 +493,7 @@ void *vaciarBuffer(void *arg)
 
     while (1)
     {
-        semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0666, 1);
+        semaforo_buffer = sem_open("/semaforo_buffer", O_CREAT, 0644, 1);
         if (semaforo_buffer == SEM_FAILED)
         {
             escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
@@ -516,7 +516,7 @@ void *vaciarBuffer(void *arg)
                 continue;
             }
 
-            semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0666, 1);
+            semaforo_tabla = sem_open("/semaforo_tabla", O_CREAT, 0644, 1);
             if (semaforo_tabla == SEM_FAILED)
             {
                 escrituraLogGeneral("🟥 Error al abrir el semáforo de cuentas en usuario.c, en función: actualizarCuentas\n", 0);
