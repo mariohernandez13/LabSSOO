@@ -924,52 +924,11 @@ int inicializarBufferCompartido()
 /// @param senal Señal que se le manda al sistema
 void manejoSenal(int senal)
 {
-    char log[256];
+
+    char log[100];
 
     snprintf(log, sizeof(log), "🟥 Se ha recibido la señal: %d, cerrando el programa en banco.c, en función: manejoSenal\n", senal);
     escrituraLogGeneral(log, 0);
-
-    // 🧹 Desvincular y eliminar memoria compartida de cuentas
-    if (shmdt(tabla) == -1)
-    {
-        escrituraLogGeneral("❌ Error al desvincular la memoria compartida de cuentas\n", 0);
-    }
-    else
-    {
-        escrituraLogGeneral("✅ Memoria compartida de cuentas desvinculada correctamente\n", 0);
-    }
-
-    key_t key_tabla = ftok(MEM_KEY, 1);
-    int shmid_tabla = shmget(key_tabla, 0, 0666);
-    if (shmid_tabla != -1 && shmctl(shmid_tabla, IPC_RMID, NULL) == 0)
-    {
-        escrituraLogGeneral("🧹 Memoria compartida de cuentas eliminada correctamente\n", 0);
-    }
-    else
-    {
-        escrituraLogGeneral("❌ Error al eliminar la memoria compartida de cuentas\n", 0);
-    }
-
-    // 🧹 Desvincular y eliminar memoria compartida del buffer
-    if (shmdt(buffer) == -1)
-    {
-        escrituraLogGeneral("❌ Error al desvincular la memoria compartida del buffer\n", 0);
-    }
-    else
-    {
-        escrituraLogGeneral("✅ Memoria compartida del buffer desvinculada correctamente\n", 0);
-    }
-
-    key_t key_buffer = ftok(MEM_KEY, 2);
-    int shmid_buffer = shmget(key_buffer, 0, 0666);
-    if (shmid_buffer != -1 && shmctl(shmid_buffer, IPC_RMID, NULL) == 0)
-    {
-        escrituraLogGeneral("🧹 Memoria compartida del buffer eliminada correctamente\n", 0);
-    }
-    else
-    {
-        escrituraLogGeneral("❌ Error al eliminar la memoria compartida del buffer\n", 0);
-    }
 
     // Cerramos el resto de terminales activas del sistema
     system("pkill -f usuario");
