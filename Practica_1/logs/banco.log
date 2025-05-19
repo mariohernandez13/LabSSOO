@@ -20775,3 +20775,2427 @@
 [2025-05-19 23:08:28] ✅ banco.c Posición: 3 | BufIn: 3
 [2025-05-19 23:08:28] ✅ banco.c Posición: 3 | BufIn: 3
 [2025-05-19 23:08:29] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Ejecutando gcc para compilación...
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Ejecutando gcc para compilación...
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Ejecutando gcc para compilación...
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:12:06] Ejecutando gcc para compilación...
+[2025-05-19 23:12:06] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:06] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:12:06] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:12:06] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:12:06] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:12:06] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:12:06] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:12:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:12:08] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:08] Comprobando errores...
+[2025-05-19 23:12:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:13] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:13] Comprobando errores...
+[2025-05-19 23:12:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:18] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:18] Comprobando errores...
+[2025-05-19 23:12:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:23] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:23] Comprobando errores...
+[2025-05-19 23:12:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:28] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:28] Comprobando errores...
+[2025-05-19 23:12:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:33] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:33] Comprobando errores...
+[2025-05-19 23:12:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:38] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:38] Comprobando errores...
+[2025-05-19 23:12:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:43] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:43] Comprobando errores...
+[2025-05-19 23:12:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:48] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:48] Comprobando errores...
+[2025-05-19 23:12:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:53] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:53] Comprobando errores...
+[2025-05-19 23:12:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:58] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:12:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:12:58] Comprobando errores...
+[2025-05-19 23:12:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:12:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:03] 🟥 Se ha recibido la señal: 2, cerrando el programa en banco.c, en función: manejoSenal
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Ejecutando gcc para compilación...
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Ejecutando gcc para compilación...
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] Ejecutando gcc para compilación...
+[2025-05-19 23:13:05] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:13:05] Ejecutando gcc para compilación...
+[2025-05-19 23:13:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:05] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:13:05] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:13:05] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:13:05] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:13:06] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:13:06] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:13:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:08] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:08] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:13:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:08] Comprobando errores...
+[2025-05-19 23:13:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:10] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:13:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:13] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:13] Comprobando errores...
+[2025-05-19 23:13:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:18] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:18] Comprobando errores...
+[2025-05-19 23:13:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:23] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:23] Comprobando errores...
+[2025-05-19 23:13:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:28] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:28] Comprobando errores...
+[2025-05-19 23:13:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:33] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:33] Comprobando errores...
+[2025-05-19 23:13:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:38] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:38] Comprobando errores...
+[2025-05-19 23:13:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:43] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:43] Comprobando errores...
+[2025-05-19 23:13:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:48] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:48] Comprobando errores...
+[2025-05-19 23:13:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:53] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:53] Comprobando errores...
+[2025-05-19 23:13:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:58] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:13:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:13:58] Comprobando errores...
+[2025-05-19 23:13:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:13:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:03] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:03] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:03] Comprobando errores...
+[2025-05-19 23:14:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:08] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:08] Comprobando errores...
+[2025-05-19 23:14:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:13] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:13] Comprobando errores...
+[2025-05-19 23:14:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:18] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:18] Comprobando errores...
+[2025-05-19 23:14:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:23] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:23] Comprobando errores...
+[2025-05-19 23:14:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:28] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:28] Comprobando errores...
+[2025-05-19 23:14:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:33] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:33] Comprobando errores...
+[2025-05-19 23:14:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:38] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:38] Comprobando errores...
+[2025-05-19 23:14:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:43] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:43] Comprobando errores...
+[2025-05-19 23:14:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:48] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:48] Comprobando errores...
+[2025-05-19 23:14:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:53] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:53] Comprobando errores...
+[2025-05-19 23:14:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:58] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:14:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:14:58] Comprobando errores...
+[2025-05-19 23:14:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:14:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:03] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:03] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:03] Comprobando errores...
+[2025-05-19 23:15:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:08] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:08] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:08] Comprobando errores...
+[2025-05-19 23:15:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:13] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:13] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:13] Comprobando errores...
+[2025-05-19 23:15:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:18] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:18] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:18] Comprobando errores...
+[2025-05-19 23:15:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:23] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:23] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:23] Comprobando errores...
+[2025-05-19 23:15:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:28] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:28] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:28] Comprobando errores...
+[2025-05-19 23:15:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:33] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:33] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:33] Comprobando errores...
+[2025-05-19 23:15:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:38] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:38] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:38] Comprobando errores...
+[2025-05-19 23:15:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:43] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:43] Comprobando errores...
+[2025-05-19 23:15:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:48] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:48] Comprobando errores...
+[2025-05-19 23:15:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:53] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:15:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:53] Comprobando errores...
+[2025-05-19 23:15:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Ejecutando gcc para compilación...
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Ejecutando gcc para compilación...
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Ejecutando gcc para compilación...
+[2025-05-19 23:15:56] Ejecutando gcc para compilación...
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:15:56] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:56] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:15:56] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:15:56] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:15:56] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:15:56] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:15:56] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:15:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:58] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:15:58] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:15:58] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:15:58] Comprobando errores...
+[2025-05-19 23:15:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:15:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:01] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:03] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Ejecutando gcc para compilación...
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Ejecutando gcc para compilación...
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Ejecutando gcc para compilación...
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:16:25] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:16:25] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:16:25] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:16:25] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:16:25] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:25] Ejecutando gcc para compilación...
+[2025-05-19 23:16:25] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:16:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:27] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:27] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:16:27] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:16:27] Comprobando errores...
+[2025-05-19 23:16:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:29] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:16:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:16:32] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Ejecutando gcc para compilación...
+[2025-05-19 23:17:19] Ejecutando gcc para compilación...
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Ejecutando gcc para compilación...
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Ejecutando gcc para compilación...
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:17:19] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:19] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:17:19] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:17:19] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:17:19] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:17:19] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:17:19] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:17:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:21] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:21] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:17:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:17:21] Comprobando errores...
+[2025-05-19 23:17:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:26] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:17:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:17:26] Comprobando errores...
+[2025-05-19 23:17:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:28] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:29] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:17:29] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:17:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:17:31] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Ejecutando gcc para compilación...
+[2025-05-19 23:19:18] Ejecutando gcc para compilación...
+[2025-05-19 23:19:18] Ejecutando gcc para compilación...
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:19:18] Ejecutando gcc para compilación...
+[2025-05-19 23:19:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:18] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:19:18] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:19:18] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:19:18] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:19:18] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:19:18] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:19:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:21] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:21] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:19:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:21] Comprobando errores...
+[2025-05-19 23:19:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:24] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:26] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:19:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:26] Comprobando errores...
+[2025-05-19 23:19:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:29] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:19:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:31] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:31] Comprobando errores...
+[2025-05-19 23:19:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:36] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:36] Comprobando errores...
+[2025-05-19 23:19:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:41] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:41] Comprobando errores...
+[2025-05-19 23:19:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:46] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:46] Comprobando errores...
+[2025-05-19 23:19:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:51] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:51] Comprobando errores...
+[2025-05-19 23:19:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:56] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:19:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:19:56] Comprobando errores...
+[2025-05-19 23:19:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:19:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:01] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:01] Comprobando errores...
+[2025-05-19 23:20:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:06] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:06] Comprobando errores...
+[2025-05-19 23:20:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:11] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:11] Comprobando errores...
+[2025-05-19 23:20:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:16] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:16] Comprobando errores...
+[2025-05-19 23:20:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:21] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:21] Comprobando errores...
+[2025-05-19 23:20:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:26] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:26] Comprobando errores...
+[2025-05-19 23:20:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:31] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:31] Comprobando errores...
+[2025-05-19 23:20:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:36] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:36] Comprobando errores...
+[2025-05-19 23:20:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:41] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:41] Comprobando errores...
+[2025-05-19 23:20:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:46] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:46] Comprobando errores...
+[2025-05-19 23:20:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:51] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:51] Comprobando errores...
+[2025-05-19 23:20:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:56] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:20:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:20:56] Comprobando errores...
+[2025-05-19 23:20:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:20:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:01] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:01] Comprobando errores...
+[2025-05-19 23:21:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:06] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:06] Comprobando errores...
+[2025-05-19 23:21:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:11] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:11] Comprobando errores...
+[2025-05-19 23:21:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:16] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:16] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:16] Comprobando errores...
+[2025-05-19 23:21:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:21] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:21] Comprobando errores...
+[2025-05-19 23:21:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:26] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:26] Comprobando errores...
+[2025-05-19 23:21:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:31] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:31] Comprobando errores...
+[2025-05-19 23:21:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:36] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:36] Comprobando errores...
+[2025-05-19 23:21:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:41] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:41] Comprobando errores...
+[2025-05-19 23:21:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:46] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:46] Comprobando errores...
+[2025-05-19 23:21:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:51] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:21:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:51] Comprobando errores...
+[2025-05-19 23:21:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:54] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:21:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:56] ✅ Sesiones leídas correctamente: 3
+[2025-05-19 23:21:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:21:56] Comprobando errores...
+[2025-05-19 23:21:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:21:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:01] ✅ Sesiones leídas correctamente: 3
+[2025-05-19 23:22:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:22:01] Comprobando errores...
+[2025-05-19 23:22:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:22:06] ✅ Sesiones leídas correctamente: 3
+[2025-05-19 23:22:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:22:06] Comprobando errores...
+[2025-05-19 23:22:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Ejecutando gcc para compilación...
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Ejecutando gcc para compilación...
+[2025-05-19 23:25:18] Ejecutando gcc para compilación...
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Ejecutando gcc para compilación...
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:25:18] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:18] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:25:18] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:25:18] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:25:18] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:25:18] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:25:18] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:25:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:21] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:21] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:25:21] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:21] Comprobando errores...
+[2025-05-19 23:25:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:22] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:26] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:25:26] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:26] Comprobando errores...
+[2025-05-19 23:25:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:31] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:25:31] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:31] Comprobando errores...
+[2025-05-19 23:25:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:36] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:25:36] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:36] Comprobando errores...
+[2025-05-19 23:25:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:41] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:25:41] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:41] Comprobando errores...
+[2025-05-19 23:25:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:46] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:25:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:46] Comprobando errores...
+[2025-05-19 23:25:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:48] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:25:48] 🟥 Error: ID no encontrado en usuario.c, en función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:25:48] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:25:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:51] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:25:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:25:51] Comprobando errores...
+[2025-05-19 23:25:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:25:55] ✅ Cuenta actualizada y añadida al buffer: 1002 | Posición: 0 | BufIn: 0
+[2025-05-19 23:25:55] ✅ banco.c Posición: 1 | BufIn: 0
+[2025-05-19 23:25:55] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:25:55] 🧐 Cuenta que estas buscando es: 1002
+[2025-05-19 23:25:55] ✅ Línea actualizada en temporal[2025-05-19 23:25:55] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:25:55] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:25:55] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:25:56] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:25:56] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Ejecutando gcc para compilación...
+[2025-05-19 23:30:36] Ejecutando gcc para compilación...
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:30:36] Ejecutando gcc para compilación...
+[2025-05-19 23:30:36] Ejecutando gcc para compilación...
+[2025-05-19 23:30:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:36] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:30:36] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:30:36] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:30:36] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:30:36] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:30:36] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:30:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:39] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:39] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:30:39] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:30:39] Comprobando errores...
+[2025-05-19 23:30:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:30:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:44] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:30:44] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:30:44] Comprobando errores...
+[2025-05-19 23:30:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:49] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:30:49] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:30:49] Comprobando errores...
+[2025-05-19 23:30:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:54] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:30:54] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:30:54] Comprobando errores...
+[2025-05-19 23:30:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:59] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:30:59] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:30:59] Comprobando errores...
+[2025-05-19 23:30:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:30:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:04] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:04] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:04] Comprobando errores...
+[2025-05-19 23:31:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:09] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:09] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:09] Comprobando errores...
+[2025-05-19 23:31:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:14] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:14] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:14] Comprobando errores...
+[2025-05-19 23:31:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:19] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:19] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:19] Comprobando errores...
+[2025-05-19 23:31:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:24] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:24] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:24] Comprobando errores...
+[2025-05-19 23:31:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:29] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:29] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:29] Comprobando errores...
+[2025-05-19 23:31:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:34] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:34] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:34] Comprobando errores...
+[2025-05-19 23:31:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:39] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:39] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:39] Comprobando errores...
+[2025-05-19 23:31:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:44] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:44] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:44] Comprobando errores...
+[2025-05-19 23:31:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:49] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:49] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:49] Comprobando errores...
+[2025-05-19 23:31:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:54] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:54] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:54] Comprobando errores...
+[2025-05-19 23:31:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:31:59] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:31:59] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:31:59] Comprobando errores...
+[2025-05-19 23:31:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:00] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:32:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:04] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:32:04] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:32:04] Comprobando errores...
+[2025-05-19 23:32:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:09] ✅ Sesiones leídas correctamente: 2
+[2025-05-19 23:32:09] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:32:09] Comprobando errores...
+[2025-05-19 23:32:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:32:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Ejecutando gcc para compilación...
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Ejecutando gcc para compilación...
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Ejecutando gcc para compilación...
+[2025-05-19 23:36:41] Ejecutando gcc para compilación...
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:36:41] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:41] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:36:41] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:36:41] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:36:41] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:36:41] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:36:41] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:36:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:43] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:36:43] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:36:43] Comprobando errores...
+[2025-05-19 23:36:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:48] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:36:48] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:36:48] Comprobando errores...
+[2025-05-19 23:36:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:51] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:52] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:36:52] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:36:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:53] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:36:53] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:36:53] Comprobando errores...
+[2025-05-19 23:36:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:36:58] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Ejecutando gcc para compilación...
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Ejecutando gcc para compilación...
+[2025-05-19 23:43:36] Ejecutando gcc para compilación...
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] Ejecutando gcc para compilación...
+[2025-05-19 23:43:36] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:36] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:43:36] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:43:36] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:43:36] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:43:36] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:43:36] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:43:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:43:39] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:43:39] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Ejecutando gcc para compilación...
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Ejecutando gcc para compilación...
+[2025-05-19 23:46:07] Ejecutando gcc para compilación...
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:46:07] Ejecutando gcc para compilación...
+[2025-05-19 23:46:07] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:07] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:46:07] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:46:07] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:46:07] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:46:07] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:46:07] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:46:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:46:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:46:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:46:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:46:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:46:09] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:46:09] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Ejecutando gcc para compilación...
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Ejecutando gcc para compilación...
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] Ejecutando gcc para compilación...
+[2025-05-19 23:47:50] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:47:50] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:50] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:47:50] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:47:50] Ejecutando gcc para compilación...
+[2025-05-19 23:47:50] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:47:50] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:47:50] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:47:50] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:47:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:52] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:47:52] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:47:52] Comprobando errores...
+[2025-05-19 23:47:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:57] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:47:57] Comprobando errores...
+[2025-05-19 23:47:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:47:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:02] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:48:02] Comprobando errores...
+[2025-05-19 23:48:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:07] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:48:07] Comprobando errores...
+[2025-05-19 23:48:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:12] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:48:12] Comprobando errores...
+[2025-05-19 23:48:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:17] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:48:17] Comprobando errores...
+[2025-05-19 23:48:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:21] 🟥 Se ha recibido la señal: 1, cerrando el programa en banco.c, en función: manejoSenal
+[2025-05-19 23:48:21] 🟥 Se ha recibido la señal: 1, cerrando el programa en banco.c, en función: manejoSenal
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Ejecutando gcc para compilación...
+[2025-05-19 23:48:32] Ejecutando gcc para compilación...
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:48:32] Ejecutando gcc para compilación...
+[2025-05-19 23:48:32] Ejecutando gcc para compilación...
+[2025-05-19 23:48:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:32] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:48:32] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:48:32] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:48:32] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:48:32] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:48:32] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:48:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:34] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:34] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:48:34] Comprobando errores...
+[2025-05-19 23:48:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:48:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:48:39] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Ejecutando gcc para compilación...
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Ejecutando gcc para compilación...
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Ejecutando gcc para compilación...
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] Ejecutando gcc para compilación...
+[2025-05-19 23:49:37] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:37] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:49:37] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:49:37] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:49:37] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:49:37] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:49:37] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:49:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:40] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:40] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:49:40] Comprobando errores...
+[2025-05-19 23:49:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:42] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:43] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:49:43] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:49:44] ✅ Cuenta actualizada y añadida al buffer: 1001 | Posición: 0 | BufIn: 0
+[2025-05-19 23:49:44] ✅ banco.c Posición: 1 | BufIn: 0
+[2025-05-19 23:49:44] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:49:44] ✅ Línea actualizada en temporal[2025-05-19 23:49:44] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:49:44] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:49:44] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:45] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:49:45] Comprobando errores...
+[2025-05-19 23:49:45] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:46] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:46] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:47] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:47] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:48] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:48] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:49] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:49] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:50] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:50] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:49:50] Comprobando errores...
+[2025-05-19 23:49:50] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:51] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:51] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:52] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:52] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:53] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:53] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:54] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:54] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:49:54] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:49:54] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:55] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:55] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:49:55] Comprobando errores...
+[2025-05-19 23:49:55] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:56] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:56] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:49:57] ✅ Cuenta actualizada y añadida al buffer: 1001 | Posición: 1 | BufIn: 1
+[2025-05-19 23:49:57] ✅ banco.c Posición: 2 | BufIn: 1
+[2025-05-19 23:49:57] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:49:57] ✅ Línea actualizada en temporal[2025-05-19 23:49:57] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:49:57] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:49:57] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:49:57] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:49:58] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:49:58] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:49:59] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:49:59] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:00] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:00] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:50:00] Comprobando errores...
+[2025-05-19 23:50:00] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:01] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:01] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:02] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:02] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:50:02] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:02] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:03] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:03] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:04] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:04] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:05] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:50:05] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Ejecutando gcc para compilación...
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:50:30] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:50:30] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:50:30] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Ejecutando gcc para compilación...
+[2025-05-19 23:50:30] Ejecutando gcc para compilación...
+[2025-05-19 23:50:30] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:30] Ejecutando gcc para compilación...
+[2025-05-19 23:50:30] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:50:30] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:50:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:32] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:50:32] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:32] Se ha superado el umbral de errores, enviando alerta al banco en monitor.c, en función: leer_errores
+[2025-05-19 23:50:32] Comprobando errores...
+[2025-05-19 23:50:32] 🚨 ALERTA RECIBIDA
+[2025-05-19 23:50:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:37] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:37] Comprobando errores...
+[2025-05-19 23:50:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:42] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:42] Comprobando errores...
+[2025-05-19 23:50:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:47] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:47] Comprobando errores...
+[2025-05-19 23:50:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:52] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:52] Comprobando errores...
+[2025-05-19 23:50:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:57] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:50:57] Comprobando errores...
+[2025-05-19 23:50:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:50:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:02] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:02] Comprobando errores...
+[2025-05-19 23:51:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:07] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:07] Comprobando errores...
+[2025-05-19 23:51:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:12] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:12] Comprobando errores...
+[2025-05-19 23:51:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:17] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:17] Comprobando errores...
+[2025-05-19 23:51:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:19] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:20] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:21] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:22] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:22] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:22] Comprobando errores...
+[2025-05-19 23:51:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:23] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:24] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:25] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:26] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:27] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:27] Comprobando errores...
+[2025-05-19 23:51:27] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:28] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:29] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:30] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:31] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:32] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:32] Comprobando errores...
+[2025-05-19 23:51:32] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:33] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:34] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:35] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:36] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:37] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:37] Comprobando errores...
+[2025-05-19 23:51:37] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:38] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:39] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:40] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:41] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:42] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:42] Comprobando errores...
+[2025-05-19 23:51:42] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:43] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:47] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:47] Comprobando errores...
+[2025-05-19 23:51:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:52] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:52] Comprobando errores...
+[2025-05-19 23:51:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:54] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:55] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:56] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:57] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:51:57] Comprobando errores...
+[2025-05-19 23:51:57] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:58] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:51:59] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:00] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:01] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:02] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:52:02] Comprobando errores...
+[2025-05-19 23:52:02] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:03] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:04] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:05] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:06] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:07] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:52:07] Comprobando errores...
+[2025-05-19 23:52:07] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:08] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:09] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:10] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:52:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Ejecutando gcc para compilación...
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Ejecutando gcc para compilación...
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Ejecutando gcc para compilación...
+[2025-05-19 23:56:11] Ejecutando gcc para compilación...
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:56:11] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:11] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:56:11] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:56:11] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:56:11] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:56:11] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:56:11] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:56:11] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:12] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:13] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:14] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:14] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:56:14] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:56:14] Comprobando errores...
+[2025-05-19 23:56:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:14] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:15] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:15] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:16] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:17] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:18] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:19] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Compilación exitosa. Ejecutando banco...
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] 🟩 Memoria compartida anterior eliminada correctamente
+[2025-05-19 23:56:44] 🟥 El tamaño de la memoria compartida es menor que el tamaño del archivo de cuentas en banco.c, en función: inicializarMemSh
+[2025-05-19 23:56:44] Ejecutando gcc para compilación...
+[2025-05-19 23:56:44] 🟩 Memoria compartida anterior del buffer eliminada correctamente
+[2025-05-19 23:56:44] 🟦 Memoria compartida para buffer inicializada correctamente
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Ejecutando gcc para compilación...
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Ejecutando gcc para compilación...
+[2025-05-19 23:56:44] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:44] Ejecutando gcc para compilación...
+[2025-05-19 23:56:44] Creando el hilo para vaciar el buffer de operaciones en banco.c ...
+[2025-05-19 23:56:44] 🟦 Hilo de vaciado de buffer iniciado.
+[2025-05-19 23:56:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:44] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:45] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:46] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:46] 🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.
+[2025-05-19 23:56:46] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:56:46] Comprobando errores...
+[2025-05-19 23:56:46] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:47] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:47] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:48] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:49] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:56:49] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:56:49] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:50] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:51] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:56:51] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:56:51] Comprobando errores...
+[2025-05-19 23:56:51] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:52] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:53] ✅ banco.c Posición: 0 | BufIn: 0
+[2025-05-19 23:56:53] ✅ Cuenta actualizada y añadida al buffer: 1001 | Posición: 0 | BufIn: 0
+[2025-05-19 23:56:53] ✅ banco.c Posición: 1 | BufIn: 0
+[2025-05-19 23:56:53] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:56:53] ✅ Línea actualizada en temporal[2025-05-19 23:56:53] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:56:53] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:56:53] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:54] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:54] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:55] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:55] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:56] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:56] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:56:56] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:56:56] Comprobando errores...
+[2025-05-19 23:56:56] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:57] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:57] ✅ banco.c Posición: 1 | BufIn: 1
+[2025-05-19 23:56:58] ✅ Cuenta actualizada y añadida al buffer: 1002 | Posición: 1 | BufIn: 1
+[2025-05-19 23:56:58] ✅ banco.c Posición: 2 | BufIn: 1
+[2025-05-19 23:56:58] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:56:58] 🧐 Cuenta que estas buscando es: 1002
+[2025-05-19 23:56:58] ✅ Línea actualizada en temporal[2025-05-19 23:56:58] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:56:58] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:56:58] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:56:58] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:56:59] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:56:59] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:00] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:00] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:01] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:01] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:57:01] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:57:01] Comprobando errores...
+[2025-05-19 23:57:01] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:02] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:02] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:03] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:03] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:04] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:04] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:05] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:05] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:57:05] Se ha leído correctamente el contenido del archivo banco.config
+[2025-05-19 23:57:05] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:06] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:06] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:57:06] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:57:06] Comprobando errores...
+[2025-05-19 23:57:06] ✅ banco.c Posición: 2 | BufIn: 2
+[2025-05-19 23:57:07] ✅ Cuenta actualizada y añadida al buffer: 1001 | Posición: 2 | BufIn: 2
+[2025-05-19 23:57:07] ✅ banco.c Posición: 3 | BufIn: 2
+[2025-05-19 23:57:07] 🟦 Entrando en el bucle de vaciarBuffer...
+[2025-05-19 23:57:07] ✅ Línea actualizada en temporal[2025-05-19 23:57:07] ✅ Cuenta encontrada en cuentas.dat[2025-05-19 23:57:07] ✅ Cuenta actualizada desde buffer en disco.
+[2025-05-19 23:57:07] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:07] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:08] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:08] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:09] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:09] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:10] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:10] 🔍 Comprobamos que el id introducido por el usuario existe en la función: conseguirSaldoUsuarioEnMemoria
+[2025-05-19 23:57:10] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:11] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:11] ✅ Sesiones leídas correctamente: 1
+[2025-05-19 23:57:11] Se ha leído correctamente el contenido del archivo transacciones.log en monitor.c, en función: leer_transacciones
+[2025-05-19 23:57:11] Comprobando errores...
+[2025-05-19 23:57:11] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:12] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:12] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:13] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:13] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:14] ✅ banco.c Posición: 3 | BufIn: 3
+[2025-05-19 23:57:14] ✅ banco.c Posición: 3 | BufIn: 3

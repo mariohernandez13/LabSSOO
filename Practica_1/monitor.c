@@ -322,7 +322,7 @@ void escribir_errores(char *id, int tipoError)
 /// @brief Funcion que se encarga de revisar el archivo de sesiones.txt y contabiliza las sesiones activas.
 /// @param sesiones Array de sesiones activas
 /// @return Devuelve sesiones activas
-int leer_sesiones(char sesiones[MAX_SESIONES][4])
+int leer_sesiones(char sesiones[MAX_SESIONES][5])
 {
     escrituraLogGeneral("Dentro leer sesioens", 1);
     FILE *file;
@@ -356,8 +356,8 @@ int leer_sesiones(char sesiones[MAX_SESIONES][4])
         }
 
         // Copiar línea al array
-        strncpy(sesiones[totalSesiones], linea, 4 - 1);
-        sesiones[totalSesiones][4 - 1] = '\0'; // Asegurar fin de cadena
+        strncpy(sesiones[totalSesiones], linea, 5 - 1);
+        sesiones[totalSesiones][5 - 1] = '\0'; // Asegurar fin de cadena
         totalSesiones++;
     }
 
@@ -382,13 +382,22 @@ int leer_transacciones()
     int contadorTransaccion = 0;
     char username[MAX_LINE_LENGTH] = "";
     char buffer[100];
-    char sesiones[MAX_SESIONES][4];
+    char sesiones[MAX_SESIONES][5];
     DIR *dir;
     struct dirent *entry;
     int totalSesiones;
     escrituraLogGeneral("Antes leer sesioens", 1);
     totalSesiones = leer_sesiones(sesiones);
 
+    FILE *debug_file = fopen("/tmp/sesiones_debug.log", "w");
+    if (debug_file)
+    {
+        for (int i = 0; i < totalSesiones; i++)
+        {
+            fprintf(debug_file, "Sesión %d: %s\n", i, sesiones[i]);
+        }
+        fclose(debug_file);
+    }
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
 
     // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
@@ -408,10 +417,21 @@ int leer_transacciones()
         return 1;
     }
 
+
+
     while ((entry = readdir(dir)) != NULL)
     {
         if (entry->d_type == DT_DIR)
         {
+            FILE *debug_file2 = fopen("/tmp/debug.log", "w");
+            if (debug_file2)
+            {
+                for (int i = 0; i < totalSesiones; i++)
+                {
+                    fprintf(debug_file2, "📁 Encontrado directorio: %s\n", entry->d_name);
+                }
+                fclose(debug_file2);
+            }
             // Saltar "." y ".."
             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
                 continue;
@@ -465,7 +485,8 @@ int leer_transacciones()
                 {
                     escrituraLogGeneral("if errores", 1);
                     int tipoError = -1;
-                    if (strcmp(tipo, "Retiro") == 0){
+                    if (strcmp(tipo, "Retiro") == 0)
+                    {
                         escrituraLogGeneral("if errores", 1);
                         tipoError = 0;
                     }
