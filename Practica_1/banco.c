@@ -1005,7 +1005,7 @@ int main(int argc, char *argv[])
 
     int fd[2];
 
-    char buffer[100];
+    //char buffer[100];
     char errorMessage[] = "Ha habido un error leyendo el archivo .config";
     char validMessage[] = "Todo correcto maquina";
 
@@ -1045,5 +1045,48 @@ int main(int argc, char *argv[])
     system("pkill -f usuario"); // cuando cerramos banco matamos todos los procesos de usuarios
     system("pkill -f './monitor'");
     remove(configuracion.archivoSesiones);
+
+    // 🧹 Desvincular y eliminar memoria compartida de cuentas
+    if (shmdt(tabla) == -1)
+    {
+        escrituraLogGeneral("❌ Error al desvincular la memoria compartida de cuentas\n", 0);
+    }
+    else
+    {
+        escrituraLogGeneral("✅ Memoria compartida de cuentas desvinculada correctamente\n", 0);
+    }
+
+    key_t key_tabla = ftok(MEM_KEY, 1);
+    int shmid_tabla = shmget(key_tabla, 0, 0666);
+    if (shmid_tabla != -1 && shmctl(shmid_tabla, IPC_RMID, NULL) == 0)
+    {
+        escrituraLogGeneral("🧹 Memoria compartida de cuentas eliminada correctamente\n", 0);
+    }
+    else
+    {
+        escrituraLogGeneral("❌ Error al eliminar la memoria compartida de cuentas\n", 0);
+    }
+
+    // 🧹 Desvincular y eliminar memoria compartida del buffer
+    if (shmdt(buffer) == -1)
+    {
+        escrituraLogGeneral("❌ Error al desvincular la memoria compartida del buffer\n", 0);
+    }
+    else
+    {
+        escrituraLogGeneral("✅ Memoria compartida del buffer desvinculada correctamente\n", 0);
+    }
+
+    key_t key_buffer = ftok(MEM_KEY, 2);
+    int shmid_buffer = shmget(key_buffer, 0, 0666);
+    if (shmid_buffer != -1 && shmctl(shmid_buffer, IPC_RMID, NULL) == 0)
+    {
+        escrituraLogGeneral("🧹 Memoria compartida del buffer eliminada correctamente\n", 0);
+    }
+    else
+    {
+        escrituraLogGeneral("❌ Error al eliminar la memoria compartida del buffer\n", 0);
+    }
+
     return (0);
 }
