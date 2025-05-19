@@ -56,8 +56,11 @@ void escribirLogOperacion(int flagOperacion, int flagEstado, char *id, float can
     snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", estado, tipo, mensaje, id, cantidad);
     // ?? snprintf(log, sizeof(log), "%s,%s,%s,%s,%.2f\n", id, tipo, estado, mensaje, cantidad);
 
-    escrituraLogGeneral(log, 1);
+    //escrituraLogGeneral(log, 1);
+    semaforo_transacciones = sem_open("/semaforo_transacciones", 0666, 1);
+    sem_wait(semaforo_transacciones);
     escrituraLogTransaccion(log, id);
+    sem_post(semaforo_transacciones);
 }
 
 /// @brief Funcion que trata de conseguir el saldo del usuario en base a su ID
@@ -267,6 +270,7 @@ void *operacionDeposito(void *id)
 
     do
     {
+        escrituraLogGeneral("DOOOOOOOOOOOOOOOOOOO\n", 1);
         if (esValido == 0)
         {
             system("clear");

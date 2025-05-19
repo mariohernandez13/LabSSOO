@@ -914,3 +914,146 @@
 [2025-05-17 14:34:04] Operacion retiro realizada correctamente en usuario.c, en función: realizarOperacion
 [2025-05-17 14:34:07] ✅ Cantidad retiro introducido correctamente en usuario.c, en función: operacionRetiro
 [2025-05-17 14:34:07] OK,Retiro,✅ Retiro realizado correctamente,1001,1.00
+[2025-05-19 21:45:00] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:45:00] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 21:45:03] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-05-19 21:45:14] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:45:14] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 21:45:16] OK,Ingreso,✅ Ingreso realizado correctamente,1001,1.00
+[2025-05-19 21:46:48] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:46:48] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,10000.00
+[2025-05-19 21:46:48] Hola me llamo juan
+[2025-05-19 21:50:30] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 21:50:32] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:50:32] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 21:50:34] OK,Ingreso,✅ Ingreso realizado correctamente,1001,199.00
+[2025-05-19 21:50:42] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 21:50:44] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:50:44] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,100000.00
+[2025-05-19 21:50:44] Hola me llamo juan
+[2025-05-19 21:50:44] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 21:51:25] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 21:51:28] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:51:28] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,10000.00
+[2025-05-19 21:51:28] Hola me llamo juan
+[2025-05-19 21:51:28] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 21:51:28] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 21:51:28] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 21:58:21] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:01:06] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:01:08] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:01:08] ERROR_NOTIFICADO,Ingreso,🟥 Error en el ingreso,1001,10000.00
+[2025-05-19 22:01:08] Hola me llamo juan
+[2025-05-19 22:01:08] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:01:36] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:02:15] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:02:15] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:02:15] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:03:04] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:03:49] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:04:20] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:05:02] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:05:03] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:05:03] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:05:06] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-05-19 22:05:08] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:05:12] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:05:12] ERROR,Ingreso,🟥 Error en el ingreso,1001,100100.00
+[2025-05-19 22:05:12] Hola me llamo juan
+[2025-05-19 22:05:12] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:05:13] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:05:13] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:05:15] OK,Ingreso,✅ Ingreso realizado correctamente,1001,100.00
+[2025-05-19 22:09:18] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:09:20] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:09:20] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:09:38] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:09:39] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:09:39] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:10:11] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:10:12] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:10:12] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:15:25] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:15:26] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:15:26] Hola me llamo juan
+[2025-05-19 22:15:26] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:15:27] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:15:27] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:21:39] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:21:40] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:21:40] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:21:47] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:21:49] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:21:49] Hola me llamo juan
+[2025-05-19 22:21:49] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:22:12] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-05-19 22:24:07] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:24:08] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:24:08] Hola me llamo juan
+[2025-05-19 22:24:08] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:30:55] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-05-19 22:31:30] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:31:34] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:31:34] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:31:42] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:31:50] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:31:50] Hola me llamo juan
+[2025-05-19 22:31:50] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:32:58] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:32:59] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:32:59] Hola me llamo juan
+[2025-05-19 22:32:59] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:34:30] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:34:31] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:34:31] Hola me llamo juan
+[2025-05-19 22:34:31] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:38:18] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:38:47] Errores modificados para indicar que se ha notificado de los errores encontrados en monitor.c, en función: resetearErrores
+[2025-05-19 22:39:00] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:39:04] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:39:04] Hola me llamo juan
+[2025-05-19 22:39:04] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:43:05] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:43:07] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:43:07] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 22:43:23] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:43:25] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:43:25] Hola me llamo juan
+[2025-05-19 22:43:25] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:46:29] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:46:31] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:46:31] Hola me llamo juan
+[2025-05-19 22:46:31] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:50:25] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:50:34] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:50:34] Hola me llamo juan
+[2025-05-19 22:50:34] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:54:13] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:54:16] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:54:16] Hola me llamo juan
+[2025-05-19 22:54:16] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:57:04] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:57:05] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:57:05] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:58:22] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 22:58:24] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 22:58:24] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:00:00] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:00:01] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:00:01] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:06:52] Antes leer sesioens[2025-05-19 23:06:52] Dentro leer sesioens[2025-05-19 23:06:57] Antes leer sesioens[2025-05-19 23:06:57] Dentro leer sesioens[2025-05-19 23:07:00] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:07:02] Antes leer sesioens[2025-05-19 23:07:02] Dentro leer sesioens[2025-05-19 23:07:02] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:07:02] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:07:07] Antes leer sesioens[2025-05-19 23:07:07] Dentro leer sesioens[2025-05-19 23:07:12] Antes leer sesioens[2025-05-19 23:07:12] Dentro leer sesioens[2025-05-19 23:07:17] Antes leer sesioens[2025-05-19 23:07:17] Dentro leer sesioens[2025-05-19 23:07:22] Antes leer sesioens[2025-05-19 23:07:22] Dentro leer sesioens[2025-05-19 23:07:27] Antes leer sesioens[2025-05-19 23:07:27] Dentro leer sesioens[2025-05-19 23:07:32] Antes leer sesioens[2025-05-19 23:07:32] Dentro leer sesioens[2025-05-19 23:07:37] Antes leer sesioens[2025-05-19 23:07:37] Dentro leer sesioens[2025-05-19 23:07:42] Antes leer sesioens[2025-05-19 23:07:42] Dentro leer sesioens[2025-05-19 23:07:45] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:07:45] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 23:07:47] Antes leer sesioens[2025-05-19 23:07:47] Dentro leer sesioens[2025-05-19 23:07:52] Antes leer sesioens[2025-05-19 23:07:52] Dentro leer sesioens[2025-05-19 23:07:53] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:07:55] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:07:55] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 23:07:57] Antes leer sesioens[2025-05-19 23:07:57] Dentro leer sesioens[2025-05-19 23:07:59] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:08:01] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:08:01] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:08:02] Antes leer sesioens[2025-05-19 23:08:02] Dentro leer sesioens[2025-05-19 23:08:04] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:08:04] DOOOOOOOOOOOOOOOOOOO
+[2025-05-19 23:08:07] Antes leer sesioens[2025-05-19 23:08:07] Dentro leer sesioens[2025-05-19 23:08:07] ✅ Cantidad deposito introducido correctamente en usuario.c, en función: operacionDeposito
+[2025-05-19 23:08:07] Operacion ingreso realizada correctamente en usuario.c, en función: realizarOperacion
+[2025-05-19 23:08:12] Antes leer sesioens[2025-05-19 23:08:12] Dentro leer sesioens[2025-05-19 23:08:17] Antes leer sesioens[2025-05-19 23:08:17] Dentro leer sesioens[2025-05-19 23:08:22] Antes leer sesioens[2025-05-19 23:08:22] Dentro leer sesioens[2025-05-19 23:08:27] Antes leer sesioens[2025-05-19 23:08:27] Dentro leer sesioens

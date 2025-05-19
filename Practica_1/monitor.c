@@ -2,10 +2,10 @@
 
 CONFIG configuracion;
 
-
 /// @brief Función que se encarga de resetear el archivo de errores.dat cuando se ha detectado la necesidad de mandar una alerta al sistema
 void resetearErrores()
 {
+    escrituraLogGeneral("resetear erorrees", 1);
     FILE *archivoErrores;
     char linea[MAX_LINE_LENGTH];
     int lineas = 0;
@@ -55,13 +55,13 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
     escrituraLogGeneral("🟥 Reseteando transacciones en monitor.c, función: resetearTransaccionesLog\n", 0);
 
     FILE *archivoTransacciones;
-    char linea[MAX_LINE_LENGTH];  // Buffer para lectura de líneas
-    char nuevaLinea[1024];        // Buffer más grande para evitar truncamientos al reescribir líneas
-    char *lineasArchivo[1000];    // Array para almacenar las líneas leídas
+    char linea[MAX_LINE_LENGTH]; // Buffer para lectura de líneas
+    char nuevaLinea[1024];       // Buffer más grande para evitar truncamientos al reescribir líneas
+    char *lineasArchivo[1000];   // Array para almacenar las líneas leídas
     int lineas = 0;
 
     // Abrimos el semáforo si no está abierto
-    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
+    semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0666, 1);
     if (semaforo_transacciones == SEM_FAILED)
     {
         escrituraLogGeneral("🟥 Error al abrir el semáforo de transacciones en monitor.c, función: resetearTransaccionesLog\n", 0);
@@ -122,7 +122,7 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
         strncpy(contenidoHastaCorchete, lineasArchivo[i], len);
         contenidoHastaCorchete[len] = '\0';
 
-        contenido++;  // Avanzamos el puntero tras ']'
+        contenido++; // Avanzamos el puntero tras ']'
 
         // Copia de contenido para usar con strtok
         char contenidoCopia[MAX_LINE_LENGTH];
@@ -135,6 +135,10 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
         char *_id = strtok(NULL, ",");
         char *cantidadStr = strtok(NULL, ",");
 
+        char mensaje2[100];
+        snprintf(mensaje2, sizeof(mensaje2), "✅ Sesiones leídas correctamente: %s\n", estado);
+        escrituraLogGeneral(mensaje2, 0);
+
         // Verificamos campos válidos
         if (!estado || !tipo || !mensaje || !_id || !cantidadStr)
         {
@@ -144,7 +148,7 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
 
         if (atoi(_id) == id)
         {
-            if (strcmp(estado, " ERROR") == 0)
+            if (strcmp(estado, " ERROR") == 0 || strcmp(estado, "ERROR") == 0)
             {
                 if (snprintf(nuevaLinea, sizeof(nuevaLinea), "%s%s,%s,%s,%s,%s",
                              contenidoHastaCorchete, " ERROR_NOTIFICADO", tipo, mensaje, _id, cantidadStr) >= sizeof(nuevaLinea))
@@ -207,8 +211,6 @@ void resetearTransaccionesLog(const char *rutaArchivo, int id)
     escrituraLogGeneral("🟩 Archivo de transacciones actualizado correctamente en monitor.c, función: resetearTransaccionesLog\n", 0);
 }
 
-
-
 /// @brief Fucnión que se encarga de mandar una alerta y avisar de los reseteos pertinentes para modificar el sistema del banco.
 /// @param mensaje Mensaje que se está mandando a la tubería que comunica Monitor con Banco
 /// @param id ID de la persona que ha infrngido las normas del banco
@@ -237,14 +239,13 @@ void enviar_alerta(char *mensaje, int id)
 /// @param tipoError Tipo de error: 0=retiro, 1=ingreso, 2=transferencia
 void escribir_errores(char *id, int tipoError)
 {
+    escrituraLogGeneral("escribiur  erorrees", 1);
     FILE *archivo = fopen("data/errores.dat", "r+");
     if (!archivo)
     {
         escrituraLogGeneral("🟥 Error al abrir errores.dat para escritura en monitor.c, en función: enviar_alerta\n", 0);
         return;
     }
-
-    sem_post(semaforo_transacciones);
 
     char linea[MAX_LINE_LENGTH];
     char nuevaLinea[MAX_LINE_LENGTH];
@@ -321,38 +322,42 @@ void escribir_errores(char *id, int tipoError)
 /// @brief Funcion que se encarga de revisar el archivo de sesiones.txt y contabiliza las sesiones activas.
 /// @param sesiones Array de sesiones activas
 /// @return Devuelve sesiones activas
-int leer_sesiones(char sesiones[MAX_SESIONES][MAX_LENGTH_ID])
+int leer_sesiones(char sesiones[MAX_SESIONES][4])
 {
-    
+    escrituraLogGeneral("Dentro leer sesioens", 1);
     FILE *file;
     int totalSesiones = 0;
     char linea[MAX_LINE_LENGTH] = "";
 
     file = fopen(configuracion.archivoSesiones, "r");
 
-    if (file == NULL) {
+    if (file == NULL)
+    {
         escrituraLogGeneral("🟥 Error: no se pudo abrir el archivo de sesiones en 'leer_sesiones'.\n", 0);
         return -1;
     }
 
-    while (fgets(linea, sizeof(linea), file)) {
+    while (fgets(linea, sizeof(linea), file))
+    {
         // Elimina el salto de línea si está presente
         linea[strcspn(linea, "\n")] = '\0';
 
-        if (strlen(linea) == 0) {
+        if (strlen(linea) == 0)
+        {
             escrituraLogGeneral("⚠️ Línea vacía detectada, se ignora.\n", 0);
             continue;
         }
 
-        if (totalSesiones >= MAX_SESIONES) {
+        if (totalSesiones >= MAX_SESIONES)
+        {
             escrituraLogGeneral("🟥 Error: se excedió el número máximo de sesiones permitidas.\n", 0);
             fclose(file);
             return -1;
         }
 
         // Copiar línea al array
-        strncpy(sesiones[totalSesiones], linea, MAX_LENGTH_ID - 1);
-        sesiones[totalSesiones][MAX_LENGTH_ID - 1] = '\0';  // Asegurar fin de cadena
+        strncpy(sesiones[totalSesiones], linea, 4 - 1);
+        sesiones[totalSesiones][4 - 1] = '\0'; // Asegurar fin de cadena
         totalSesiones++;
     }
 
@@ -377,13 +382,13 @@ int leer_transacciones()
     int contadorTransaccion = 0;
     char username[MAX_LINE_LENGTH] = "";
     char buffer[100];
-    char sesiones[MAX_SESIONES][MAX_LENGTH_ID];
+    char sesiones[MAX_SESIONES][4];
     DIR *dir;
     struct dirent *entry;
     int totalSesiones;
-
+    escrituraLogGeneral("Antes leer sesioens", 1);
     totalSesiones = leer_sesiones(sesiones);
- 
+
     semaforo_transacciones = sem_open("/semaforo_transacciones", O_CREAT, 0644, 1);
 
     // Comprobamos que la apertura del semaforo de transacciones no haya sido erronea
@@ -396,22 +401,27 @@ int leer_transacciones()
     sem_wait(semaforo_transacciones);
 
     dir = opendir("transacciones");
-    if (!dir) {
+    if (!dir)
+    {
         escrituraLogGeneral("No se pudo abrir la carpeta 'transacciones'", 0);
         sem_post(semaforo_transacciones);
         return 1;
     }
 
-    while ((entry = readdir(dir)) != NULL) {
-        if (entry->d_type == DT_DIR) {
+    while ((entry = readdir(dir)) != NULL)
+    {
+        if (entry->d_type == DT_DIR)
+        {
             // Saltar "." y ".."
             if (strcmp(entry->d_name, ".") == 0 || strcmp(entry->d_name, "..") == 0)
                 continue;
 
             // Verificar si esta carpeta corresponde a una sesión activa
             int esSesionActiva = 0;
-            for (int i = 0; i < totalSesiones; i++) {
-                if (strcmp(entry->d_name, sesiones[i]) == 0) {
+            for (int i = 0; i < totalSesiones; i++)
+            {
+                if (strcmp(entry->d_name, sesiones[i]) == 0)
+                {
                     esSesionActiva = 1;
                     break;
                 }
@@ -425,13 +435,15 @@ int leer_transacciones()
             snprintf(rutaArchivo, sizeof(rutaArchivo), "transacciones/%s/transacciones.log", entry->d_name);
 
             FILE *file = fopen(rutaArchivo, "r");
-            if (!file) {
+            if (!file)
+            {
                 printf("⚠️ No se pudo abrir %s\n", rutaArchivo);
                 continue;
             }
 
             char linea[MAX_LINE_LENGTH];
-            while (fgets(linea, sizeof(linea), file)) {
+            while (fgets(linea, sizeof(linea), file))
+            {
                 linea[strcspn(linea, "\n")] = 0;
 
                 char *contenido = strchr(linea, ']');
@@ -449,10 +461,14 @@ int leer_transacciones()
                 if (!estado || !tipo || !id)
                     continue;
 
-                if (strcmp(estado, " ERROR") == 0) {
+                if (strcmp(estado, " ERROR") == 0)
+                {
+                    escrituraLogGeneral("if errores", 1);
                     int tipoError = -1;
-                    if (strcmp(tipo, "Retiro") == 0)
+                    if (strcmp(tipo, "Retiro") == 0){
+                        escrituraLogGeneral("if errores", 1);
                         tipoError = 0;
+                    }
                     else if (strcmp(tipo, "Ingreso") == 0)
                         tipoError = 1;
                     else if (strcmp(tipo, "Transferencia") == 0)
@@ -460,6 +476,7 @@ int leer_transacciones()
 
                     if (tipoError != -1)
                         escribir_errores(id, tipoError);
+
                     resetearTransaccionesLog(rutaArchivo, atoi(id));
                 }
             }
